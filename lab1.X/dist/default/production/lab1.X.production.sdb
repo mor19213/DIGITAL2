@@ -11,11 +11,11 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"49 C:\Users\danie\OneDrive\Desktop\lab1.X\lab1.c
+"48 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab1.X\lab1.c
 [v _main main `(v  1 e 1 0 ]
-"109
+"108
 [v _semaforo semaforo `(v  1 e 1 0 ]
-"127
+"124
 [v _Setup Setup `(v  1 e 1 0 ]
 "228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -93,24 +93,24 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"37 C:\Users\danie\OneDrive\Desktop\lab1.X\lab1.c
+"37 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab1.X\lab1.c
 [v _carrera carrera `uc  1 e 1 0 ]
 "38
 [v _antirebote1 antirebote1 `uc  1 e 1 0 ]
 "39
 [v _antirebote2 antirebote2 `uc  1 e 1 0 ]
-"49
+"48
 [v _main main `(v  1 e 1 0 ]
 {
-"99
+"98
 } 0
-"109
+"108
 [v _semaforo semaforo `(v  1 e 1 0 ]
 {
-"125
+"122
 } 0
-"127
+"124
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"144
+"141
 } 0

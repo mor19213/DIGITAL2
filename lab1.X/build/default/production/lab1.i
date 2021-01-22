@@ -2525,7 +2525,6 @@ unsigned char antirebote2;
 
 void Setup (void);
 void semaforo(void);
-void jugador1 (void);
 
 
 void main(void) {
@@ -2600,8 +2599,6 @@ void semaforo(void){
             PORTEbits.RE1 = 0;
             PORTEbits.RE2 = 1;
             carrera = 1;
-    }else{
-        PORTBbits.RB5 = 1;
     }
 
 }
