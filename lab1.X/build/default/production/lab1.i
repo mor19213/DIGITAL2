@@ -2532,23 +2532,23 @@ void main(void) {
 
     while(1){
         if(PORTBbits.RB0 == 1) {
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
-            PORTD = 0;
-            PORTC = 0;
+
             semaforo();
         }
         if(carrera == 1){
+
             if (PORTBbits.RB1 == 1){
                 antirebote1 = 1;
             }
             if (PORTBbits.RB2 == 1){
                 antirebote2 = 1;
             }
+
             if (antirebote1 == 1){
                 if (PORTBbits.RB1 == 0){
                     antirebote1 = 0;
                     if (PORTCbits.RC7 ==0){
+
                     PORTC = PORTC * 2;
                     if (PORTC == 0){
                         PORTC = PORTC + 1;
@@ -2560,10 +2560,13 @@ void main(void) {
                     }
                 }
             }
+
+
             if (antirebote2 == 1){
                 if (PORTBbits.RB2 == 0){
                     antirebote2 = 0;
                     if (PORTDbits.RD7 == 0){
+
                     PORTD = PORTD * 2;
                     if (PORTD == 0){
                         PORTD = PORTD + 1;
@@ -2583,13 +2586,16 @@ void main(void) {
 
 
 
-void jugador1 (void){
-
-}
-
 void semaforo(void){
     if (carrera == 0){
 
+
+            PORTBbits.RB6 = 0;
+            PORTBbits.RB7 = 0;
+            antirebote1 = 0;
+            antirebote2 = 0;
+            PORTD = 0;
+            PORTC = 0;
             PORTE = 0;
             PORTEbits.RE0 =1;
             _delay((unsigned long)((50)*(8000000/4000.0)));
@@ -2619,5 +2625,6 @@ void Setup(void){
     PORTD = 0;
     carrera = 0;
     antirebote1 = 0;
+    antirebote2 = 0;
 
 }

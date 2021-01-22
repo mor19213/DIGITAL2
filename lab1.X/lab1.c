@@ -50,46 +50,49 @@ void main(void) {
     //LOOP PRINCIPAL
     while(1){
         if(PORTBbits.RB0 == 1) {
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 0;
-            PORTD = 0;
-            PORTC = 0;
+            // rutina semaforo si se presiona el boton de inicio
             semaforo();
         }
         if(carrera == 1){
+            // al presionar antirebote = 1 
             if (PORTBbits.RB1 == 1){
                 antirebote1 = 1;
             }
             if (PORTBbits.RB2 == 1){
                 antirebote2 = 1;
             }
+            // se incrementa hasta que antirebote = 1 y boton = 0
             if (antirebote1 == 1){
-                if (PORTBbits.RB1 == 0){
+                if (PORTBbits.RB1 == 0){ // volver a poner antirebote en 0
                     antirebote1 = 0;
                     if (PORTCbits.RC7 ==0){
+                    // para incrementar decadas multiplicar por 2
                     PORTC = PORTC * 2;
-                    if (PORTC == 0){
+                    if (PORTC == 0){    // si el puerto esta en 0, sumarle 1
                         PORTC = PORTC + 1;
                     }
-                    } else {
+                    } else {    // si el pin 7 ya estaba prendido, hacer overflow
                         PORTC = 0;
                         PORTBbits.RB6 = 1;
-                        carrera = 0;
+                        carrera = 0;    //terminar carrera
                     }
                 }
             }
+            
+            // se incrementa hasta que antirebote = 1 y boton = 0
             if (antirebote2 == 1){
-                if (PORTBbits.RB2 == 0){
+                if (PORTBbits.RB2 == 0){ // volver a poner antirebote en 0
                     antirebote2 = 0;
                     if (PORTDbits.RD7 == 0){
+                    // para incrementar decadas multiplicar por 2
                     PORTD = PORTD * 2;
-                    if (PORTD == 0){
+                    if (PORTD == 0){    // si el puerto esta en 0, sumarle 1
                         PORTD = PORTD + 1;
                     }
-                    }else{
+                    }else{    // si el pin 7 ya estaba prendido, hacer overflow
                         PORTD = 0;
                         PORTBbits.RB7 = 1;
-                        carrera = 0;
+                        carrera = 0;    //terminar carrera
                     }
                 }
             }
@@ -101,13 +104,16 @@ void main(void) {
 //******************************************************************************
 //  SUBRUTINAS
 
-void jugador1 (void){
-    
-}
-
 void semaforo(void){
     if (carrera == 0){
-    
+            // Si la carrera no ha iniciado prender el semaforo
+            // reiniciar las variables y puertos usados a 0 
+            PORTBbits.RB6 = 0;
+            PORTBbits.RB7 = 0;
+            antirebote1 = 0;
+            antirebote2 = 0;
+            PORTD = 0;
+            PORTC = 0;
             PORTE = 0; 
             ledR =1;
             __delay_ms(50);
@@ -126,16 +132,17 @@ void Setup(void){
     ANSEL = 0;
     ANSELH = 0;
     TRISB = 0;
-    TRISBbits.TRISB0 = 1;
-    TRISBbits.TRISB1 = 1;
-    TRISBbits.TRISB2 = 1;
-    TRISE = 0;
+    TRISBbits.TRISB0 = 1;   // Boton semaforo
+    TRISBbits.TRISB1 = 1;   // jugador 1
+    TRISBbits.TRISB2 = 1;   // jugador 2
+    TRISE = 0;              // luces semaforo
     PORTE = 0;
-    TRISC = 0;
-    TRISD = 0;
+    TRISC = 0;              // jugador 1
+    TRISD = 0;              // jugador 2
     PORTC = 0;
     PORTD = 0;
     carrera = 0;
     antirebote1 = 0;
+    antirebote2 = 0;
     
 }
