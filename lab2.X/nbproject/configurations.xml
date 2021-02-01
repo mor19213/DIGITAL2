@@ -15,6 +15,8 @@
       <itemPath>lab2.c</itemPath>
       <itemPath>oscilador.c</itemPath>
       <itemPath>oscilador.h</itemPath>
+      <itemPath>displays.h</itemPath>
+      <itemPath>DISPLAYS.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

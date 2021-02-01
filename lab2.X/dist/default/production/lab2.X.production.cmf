@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\danie\AppData\Local\Temp\sfj8.o
+$C:\Users\danie\AppData\Local\Temp\sdms.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -71,14 +71,14 @@ STRING FB-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\lab2.X.production.o
-F cinit CODE >619:C:\Users\danie\AppData\Local\Temp\sfj8.s
-F cinit CODE >622:C:\Users\danie\AppData\Local\Temp\sfj8.s
-F cinit CODE >639:C:\Users\danie\AppData\Local\Temp\sfj8.s
-10 cinit CODE >640:C:\Users\danie\AppData\Local\Temp\sfj8.s
-11 cinit CODE >641:C:\Users\danie\AppData\Local\Temp\sfj8.s
-12 cinit CODE >647:C:\Users\danie\AppData\Local\Temp\sfj8.s
-12 cinit CODE >649:C:\Users\danie\AppData\Local\Temp\sfj8.s
-13 cinit CODE >650:C:\Users\danie\AppData\Local\Temp\sfj8.s
+F cinit CODE >777:C:\Users\danie\AppData\Local\Temp\sdms.s
+F cinit CODE >780:C:\Users\danie\AppData\Local\Temp\sdms.s
+F cinit CODE >797:C:\Users\danie\AppData\Local\Temp\sdms.s
+10 cinit CODE >798:C:\Users\danie\AppData\Local\Temp\sdms.s
+11 cinit CODE >799:C:\Users\danie\AppData\Local\Temp\sdms.s
+12 cinit CODE >805:C:\Users\danie\AppData\Local\Temp\sdms.s
+12 cinit CODE >807:C:\Users\danie\AppData\Local\Temp\sdms.s
+13 cinit CODE >808:C:\Users\danie\AppData\Local\Temp\sdms.s
 4 intentry CODE >49:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 72 text3 CODE >49:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 72 text3 CODE >50:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
@@ -186,20 +186,20 @@ __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _ADIF 66 0 ABS 0 - dist/default/production\lab2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sfj8.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sdms.o
 _main 1CE 0 CODE 0 maintext dist/default/production\lab2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\lab2.X.production.o
-start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\sfj8.o
+start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\sdms.o
 __size_of_main 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\lab2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfj8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfj8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfj8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfj8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfj8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfj8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sdms.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sdms.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sdms.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sdms.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sdms.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sdms.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\lab2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\lab2.X.production.o
@@ -210,14 +210,14 @@ _ANSELH 189 0 ABS 0 - dist/default/production\lab2.X.production.o
 __size_of_initOsc 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _valorADC 76 0 COMMON 1 bssCOMMON dist/default/production\lab2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sfj8.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sfj8.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sdms.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sdms.o
 __size_of_Setup 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\lab2.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\lab2.X.production.o
 __end_of_initOsc E4 0 CODE 0 text2 dist/default/production\lab2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sfj8.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sdms.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -261,7 +261,7 @@ _isr E4 0 CODE 0 text3 dist/default/production\lab2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\lab2.X.production.o
 __end_of_isr 180 0 CODE 0 text3 dist/default/production\lab2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\sfj8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\sdms.o
 initOsc@IRCF 75 0 COMMON 1 cstackCOMMON dist/default/production\lab2.X.production.o
 __pmaintext 1CE 0 CODE 0 maintext dist/default/production\lab2.X.production.o
 __Lcommon 0 0 ABS 0 common -
@@ -297,6 +297,7 @@ __end_of_Setup 1CE 0 CODE 0 text1 dist/default/production\lab2.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\lab2.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\lab2.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\lab2.X.production.o
+_PORTD 8 0 ABS 0 - dist/default/production\lab2.X.production.o
 _Setup 180 0 CODE 0 text1 dist/default/production\lab2.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TRISC 87 0 ABS 0 - dist/default/production\lab2.X.production.o
