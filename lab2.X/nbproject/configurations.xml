@@ -17,6 +17,8 @@
       <itemPath>oscilador.h</itemPath>
       <itemPath>displays.h</itemPath>
       <itemPath>DISPLAYS.c</itemPath>
+      <itemPath>adc.h</itemPath>
+      <itemPath>ADC.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -147,6 +149,10 @@
         <property key="program-the-device-with-default-config-words" value="true"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <Simulator>
+        <property key="W0206_ADC_SAMP_TIME_TOO_SHORT" value="report"/>
+        <property key="W0209_ADC_ANALOG_CHANNEL_DIGITAL" value="report"/>
+      </Simulator>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
       </XC8-CO>

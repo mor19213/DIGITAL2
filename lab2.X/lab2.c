@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include "oscilador.h"
 #include "displays.h"
+#include "adc.h"
 
 //******************************************************************************
 //  PALABRA DE CONFIGURACION
@@ -119,7 +120,7 @@ void main(void) {
     //__delay_ms(1000);
     //display1 = 2;
     //display2 = 13;
-        if(valorADC < PORTC){   // COMPARAR VALOR ADC Y DEL PORTC 
+        if(valorADC > PORTC){   // COMPARAR VALOR ADC Y DEL PORTC 
             ALARMA = 1;         // PRENDER ALARMA SI PORTC ES MAYOR
         }
         else{                   // APAGAR ALARMA SI ADC ES MAYOR
@@ -170,11 +171,7 @@ void Setup(void){
 
 //******************************************************************************
 //CONFIGURACION ADC
-    TRISAbits.TRISA0 = 1;           // entrada analogica
-    ADCON1 = 0;
-    ADCON0 = 0b10000011;
-    PIE1bits.ADIE = 1;
-    ANSELbits.ANS0 = 1;
+    initADC(0);
     
     
 //******************************************************************************

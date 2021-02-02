@@ -3,6 +3,8 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
+"4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+[v _initADC initADC `(v  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
@@ -15,11 +17,11 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
 [v _initDisplays initDisplays `(v  1 e 1 0 ]
-"56 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+"57 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 [v _isr isr `II(v  1 e 1 0 ]
-"114
+"115
 [v _main main `(v  1 e 1 0 ]
-"135
+"136
 [v _Setup Setup `(v  1 e 1 0 ]
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -97,7 +99,7 @@
 ]
 [u S102 . 1 `S82 1 . 1 0 `S87 1 . 1 0 `S96 1 . 1 0 `S99 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES102  1 e 1 @31 ]
-[s S269 . 1 `uc 1 PS 1 0 :3:0 
+[s S211 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -105,13 +107,13 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S276 . 1 `uc 1 PS0 1 0 :1:0 
+[s S218 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S280 . 1 `S269 1 . 1 0 `S276 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES280  1 e 1 @129 ]
-[s S206 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S222 . 1 `S211 1 . 1 0 `S218 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES222  1 e 1 @129 ]
+[s S368 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -121,8 +123,8 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S215 . 1 `S206 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES215  1 e 1 @133 ]
+[u S377 . 1 `S368 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES377  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 [s S159 . 1 `uc 1 TRISB0 1 0 :1:0 
@@ -143,7 +145,15 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S229 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S410 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 TRISE3 1 0 :1:3 
+]
+"1677
+[u S415 . 1 `S410 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES415  1 e 1 @137 ]
+[s S349 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -152,22 +162,22 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S237 . 1 `S229 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES237  1 e 1 @140 ]
-[s S388 . 1 `uc 1 SCS 1 0 :1:0 
+[u S357 . 1 `S349 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES357  1 e 1 @140 ]
+[s S307 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S394 . 1 `uc 1 . 1 0 :4:0 
+[s S313 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S399 . 1 `S388 1 . 1 0 `S394 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES399  1 e 1 @143 ]
+[u S318 . 1 `S307 1 . 1 0 `S313 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES318  1 e 1 @143 ]
 [s S180 . 1 `uc 1 IOCB 1 0 :8:0 
 ]
 "2436
@@ -186,7 +196,7 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
-[s S248 . 1 `uc 1 ANS0 1 0 :1:0 
+[s S389 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -196,37 +206,37 @@
 `uc 1 ANS7 1 0 :1:7 
 ]
 "3404
-[u S257 . 1 `S248 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES257  1 e 1 @392 ]
+[u S398 . 1 `S389 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES398  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
 "3587
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
-"37 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+"38 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 [v _antirebote1 antirebote1 `uc  1 e 1 0 ]
-"38
-[v _antirebote2 antirebote2 `uc  1 e 1 0 ]
 "39
-[v _valorADC valorADC `uc  1 e 1 0 ]
+[v _antirebote2 antirebote2 `uc  1 e 1 0 ]
 "40
-[v _bandera bandera `uc  1 e 1 0 ]
+[v _valorADC valorADC `uc  1 e 1 0 ]
 "41
-[v _bandera1 bandera1 `uc  1 e 1 0 ]
+[v _bandera bandera `uc  1 e 1 0 ]
 "42
-[v _display1 display1 `uc  1 e 1 0 ]
+[v _bandera1 bandera1 `uc  1 e 1 0 ]
 "43
-[v _display2 display2 `uc  1 e 1 0 ]
+[v _display1 display1 `uc  1 e 1 0 ]
 "44
+[v _display2 display2 `uc  1 e 1 0 ]
+"45
 [v _var var `uc  1 e 1 0 ]
-"114
+"115
 [v _main main `(v  1 e 1 0 ]
 {
-"129
+"130
 } 0
-"135
+"136
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"194
+"191
 } 0
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -236,10 +246,19 @@
 [v initOsc@IRCF IRCF `uc  1 a 1 8 ]
 "38
 } 0
-"56 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+"4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+[v _initADC initADC `(v  1 e 1 0 ]
+{
+[v initADC@IRCF IRCF `uc  1 a 1 wreg ]
+[v initADC@IRCF IRCF `uc  1 a 1 wreg ]
+"6
+[v initADC@IRCF IRCF `uc  1 a 1 8 ]
+"47
+} 0
+"57 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"111
+"112
 } 0
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
 [v _initDisplays initDisplays `(v  1 e 1 0 ]

@@ -1,4 +1,4 @@
-# 1 "lab2.c"
+# 1 "ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "lab2.c" 2
+# 1 "ADC.c" 2
 
-
-
-
-
-
-
-
+# 1 "./adc.h" 1
+# 13 "./adc.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2495,7 +2490,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 9 "lab2.c" 2
+# 13 "./adc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2630,203 +2625,54 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 10 "lab2.c" 2
-
-# 1 "./oscilador.h" 1
-# 14 "./oscilador.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 14 "./oscilador.h" 2
-
-
-void initOsc(uint8_t IRCF);
-# 11 "lab2.c" 2
-
-# 1 "./displays.h" 1
-# 14 "./displays.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 14 "./displays.h" 2
-
-
-void initDisplays(uint8_t IRCF);
-# 12 "lab2.c" 2
-
-# 1 "./adc.h" 1
-# 14 "./adc.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 14 "./adc.h" 2
 
 
 void initADC(uint8_t IRCF);
-# 13 "lab2.c" 2
+# 2 "ADC.c" 2
 
 
+void initADC(uint8_t IRCF) {
 
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
-uint8_t antirebote1;
-uint8_t antirebote2;
-uint8_t valorADC;
-uint8_t bandera;
-uint8_t bandera1;
-uint8_t display1;
-uint8_t display2;
-uint8_t var;
-# 54 "lab2.c"
-void Setup (void);
-
-
-void __attribute__((picinterrupt(("")))) isr(void){
-
-    if (INTCONbits.T0IF){
-        if (PORTBbits.RB7 == 0){
-            PORTBbits.RB6 = 0;
-            PORTBbits.RB7 = 1;
-            initDisplays(display1);
-        } else{
-            PORTBbits.RB6 = 1;
-            PORTBbits.RB7 = 0;
-            bandera1 = 1;
-            initDisplays(display2);
-        }
-        INTCONbits.T0IF = 0;
+    ADCON0 = 0b10000011;
+    ADCON1 = 0;
+    PIE1bits.ADIE = 1;
+    switch(IRCF){
+        case 0:
+            TRISAbits.TRISA0 = 1;
+            ANSELbits.ANS0 = 1;
+            break;
+        case 1:
+            TRISAbits.TRISA1 = 1;
+            ANSELbits.ANS1 = 1;
+            break;
+        case 2:
+            TRISAbits.TRISA2 = 1;
+            ANSELbits.ANS2 = 1;
+            break;
+        case 3:
+            TRISAbits.TRISA3 = 1;
+            ANSELbits.ANS3 = 1;
+            break;
+        case 4:
+            TRISAbits.TRISA5 = 1;
+            ANSELbits.ANS4 = 1;
+            break;
+        case 5:
+            TRISEbits.TRISE0 = 1;
+            ANSELbits.ANS5 = 1;
+            break;
+        case 6:
+            TRISEbits.TRISE1 = 1;
+            ANSELbits.ANS6 = 1;
+            break;
+        case 7:
+            TRISEbits.TRISE2 = 1;
+            ANSELbits.ANS7 = 1;
+            break;
+        default:
+            TRISAbits.TRISA0 = 1;
+            ANSELbits.ANS0 = 1;
+            break;
     }
-
-    if(ADIF == 1){
-        valorADC = ADRESH;
-        if (bandera == 1){
-            bandera = 0;
-            display1 = valorADC * 16;
-            display1 = display1 / 16;
-            PORTBbits.RB3 = 1;
-        }
-        else{
-            bandera = 1;
-            display2 = valorADC / 16;
-            PORTBbits.RB3 = 0;
-        }
-        ADIF = 0;
-        ADCON0bits.GO = 1;
-    }
-
-    if(INTCONbits.RBIF == 1){
-        if (PORTBbits.RB1 == 1){
-        antirebote1 = 1;
-        }
-        if (antirebote1 == 1){
-            if (PORTBbits.RB1 == 0){
-                PORTC = PORTC - 1;
-                antirebote1 = 0;
-            }
-        }
-        if (PORTBbits.RB2 == 1){
-            antirebote2 = 1;
-        }
-        if (antirebote2 == 1){
-            if (PORTBbits.RB2 == 0){
-                PORTC = PORTC + 1;
-                antirebote2 = 0;
-            }
-        }
-
-        INTCONbits.RBIF = 0;
-    }
-}
-
-
-void main(void) {
-    Setup();
-
-    while(1){
-
-
-
-
-        if(valorADC > PORTC){
-            PORTEbits.RE0 = 1;
-        }
-        else{
-            PORTEbits.RE0 = 0;
-        }
-    }
-}
-
-
-
-
-
-void Setup(void){
-    initOsc(7);
-    PORTB = 0;
-    TRISE = 0;
-    TRISB = 0;
-    TRISD = 0;
-    PORTE = 0;
-    TRISC = 0;
-    PORTC = 0;
-    ANSEL = 0;
-    ANSELH = 0;
-    TRISB = 0;
-
-    antirebote1 = 0;
-    antirebote2 = 0;
-    display1 = 0;
-    display2 = 0;
-    bandera = 0;
-    bandera1 = 0;
-    var = 0;
-
-
-
-    TRISBbits.TRISB1 = 1;
-    TRISBbits.TRISB2 = 1;
-
-
-    IOCBbits.IOCB1 = 1;
-    IOCBbits.IOCB2 = 1;
-    INTCONbits.RBIE = 1;
-    INTCONbits.RBIF = 0;
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-
-
-
-
-
-    initADC(0);
-
-
-
-
-
-    OPTION_REGbits.T0CS = 0;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS = 111;
-    TMR0 = 0;
-    INTCONbits.T0IF = 0;
-
-
-    INTCONbits.GIE = 1;
-    INTCONbits.T0IE = 1;
-    INTCONbits.T0IF = 0;
-
 }
