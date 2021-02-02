@@ -13,7 +13,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.
 #include <stdint.h>
 
-void initOsc(uint8_t IRCF);
+void initDisplays(uint8_t IRCF);
 
 #endif	/* DISPLAYS_H */
 

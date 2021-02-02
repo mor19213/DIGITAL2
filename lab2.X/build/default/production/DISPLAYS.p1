@@ -237,17 +237,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "4 DISPLAYS.c
-[; ;DISPLAYS.c: 4: void initDisplays(uint8_t VALOR) {
+[; ;DISPLAYS.c: 4: void initDisplays(uint8_t IRCF) {
 [v _initDisplays `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _initDisplays ]
-[v _VALOR `uc ~T0 @X0 1 r1 ]
+[v _IRCF `uc ~T0 @X0 1 r1 ]
 [f ]
-"5
-[; ;DISPLAYS.c: 5:     VALOR = VALOR / 16;
-[e = _VALOR -> / -> _VALOR `i -> 16 `i `uc ]
 "6
-[; ;DISPLAYS.c: 6:     switch(VALOR){
+[; ;DISPLAYS.c: 6:     switch(IRCF){
 [e $U 140  ]
 {
 "7
@@ -263,8 +260,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;DISPLAYS.c: 10:         case 1:
 [e :U 142 ]
 "11
-[; ;DISPLAYS.c: 11:             PORTD = 0b11000000;
-[e = _PORTD -> -> 192 `i `uc ]
+[; ;DISPLAYS.c: 11:             PORTD = 0b01100000;
+[e = _PORTD -> -> 96 `i `uc ]
 "12
 [; ;DISPLAYS.c: 12:             break;
 [e $U 139  ]
@@ -272,8 +269,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;DISPLAYS.c: 13:         case 2:
 [e :U 143 ]
 "14
-[; ;DISPLAYS.c: 14:             PORTD = 0b11011000;
-[e = _PORTD -> -> 216 `i `uc ]
+[; ;DISPLAYS.c: 14:             PORTD = 0b11011010;
+[e = _PORTD -> -> 218 `i `uc ]
 "15
 [; ;DISPLAYS.c: 15:             break;
 [e $U 139  ]
@@ -392,20 +389,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;DISPLAYS.c: 53:             PORTD = 0b10001110;
 [e = _PORTD -> -> 142 `i `uc ]
 "54
-[; ;DISPLAYS.c: 54:         default:
-[e :U 157 ]
-"55
-[; ;DISPLAYS.c: 55:             PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"56
-[; ;DISPLAYS.c: 56:             break;
+[; ;DISPLAYS.c: 54:             break;
 [e $U 139  ]
+"55
+[; ;DISPLAYS.c: 55:         default:
+[e :U 157 ]
+"56
+[; ;DISPLAYS.c: 56:             PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "57
-[; ;DISPLAYS.c: 57:     }
+[; ;DISPLAYS.c: 57:             break;
+[e $U 139  ]
+"58
+[; ;DISPLAYS.c: 58:     }
 }
 [e $U 139  ]
 [e :U 140 ]
-[e [\ -> _VALOR `i , $ -> 0 `i 141
+[e [\ -> _IRCF `i , $ -> 0 `i 141
  , $ -> 1 `i 142
  , $ -> 2 `i 143
  , $ -> 3 `i 144
@@ -423,7 +423,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 15 `i 156
  157 ]
 [e :U 139 ]
-"58
-[; ;DISPLAYS.c: 58: }
+"59
+[; ;DISPLAYS.c: 59: }
 [e :UE 138 ]
 }

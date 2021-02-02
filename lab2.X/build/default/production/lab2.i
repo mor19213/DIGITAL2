@@ -2647,7 +2647,7 @@ void initOsc(uint8_t IRCF);
 # 14 "./displays.h" 2
 
 
-void initOsc(uint8_t IRCF);
+void initDisplays(uint8_t IRCF);
 # 12 "lab2.c" 2
 
 
@@ -2677,33 +2677,46 @@ void initOsc(uint8_t IRCF);
 uint8_t antirebote1;
 uint8_t antirebote2;
 uint8_t valorADC;
-
-
-
-
-
-
-
+uint8_t bandera;
+uint8_t bandera1;
+uint8_t display1;
+uint8_t display2;
+uint8_t var;
+# 53 "lab2.c"
 void Setup (void);
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if (INTCONbits.T0IF){
-        if (PORTEbits.RE1 == 1){
-            PORTEbits.RE1 = 0;
-            PORTEbits.RE2 = 1;
-
+        if (PORTBbits.RB7 == 0){
+            PORTBbits.RB6 = 0;
+            PORTBbits.RB7 = 1;
+            initDisplays(display1);
         } else{
-            PORTEbits.RE1 = 1;
-            PORTEbits.RE2 = 0;
+            PORTBbits.RB6 = 1;
+            PORTBbits.RB7 = 0;
+            bandera1 = 1;
+            initDisplays(display2);
         }
         INTCONbits.T0IF = 0;
     }
 
     if(ADIF == 1){
         valorADC = ADRESH;
+        if (bandera == 1){
+            bandera = 0;
+            display1 = valorADC * 16;
+            display1 = display1 / 16;
+            PORTBbits.RB3 = 1;
+        }
+        else{
+            bandera = 1;
+            display2 = valorADC / 16;
+            PORTBbits.RB3 = 0;
+        }
         ADIF = 0;
+        ADCON0bits.GO = 1;
     }
 
     if(INTCONbits.RBIF == 1){
@@ -2735,6 +2748,10 @@ void main(void) {
     Setup();
 
     while(1){
+
+
+
+
         if(valorADC < PORTC){
             PORTEbits.RE0 = 1;
         }
@@ -2751,18 +2768,23 @@ void main(void) {
 void Setup(void){
     initOsc(7);
     PORTB = 0;
-    PORTBbits.RB6 = 1;
-    PORTBbits.RB7 = 1;
     TRISE = 0;
+    TRISB = 0;
+    TRISD = 0;
     PORTE = 0;
     TRISC = 0;
     PORTC = 0;
     ANSEL = 0;
     ANSELH = 0;
     TRISB = 0;
-    (INTCONbits.GIE = 1);
+
     antirebote1 = 0;
     antirebote2 = 0;
+    display1 = 0;
+    display2 = 0;
+    bandera = 0;
+    bandera1 = 0;
+    var = 0;
 
 
 
@@ -2782,18 +2804,24 @@ void Setup(void){
 
 
     TRISAbits.TRISA0 = 1;
+    ADCON1 = 0;
+    ADCON0 = 0b10000111;
+    PIE1bits.ADIE = 1;
+    ANSELbits.ANS0 = 1;
 
 
 
 
-    OPTION_REG = 0b11010111;
-    OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS = 000;
+
     OPTION_REGbits.T0CS = 0;
-    INTCONbits.T0IE = 1;
-    INTCONbits.TMR0IE = 1;
-    INTCONbits.PEIE = 1;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS = 111;
+    TMR0 = 0;
     INTCONbits.T0IF = 0;
+
+
     INTCONbits.GIE = 1;
+    INTCONbits.T0IE = 1;
+    INTCONbits.T0IF = 0;
 
 }

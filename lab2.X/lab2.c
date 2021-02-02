@@ -37,6 +37,12 @@
 uint8_t antirebote1;
 uint8_t antirebote2;
 uint8_t valorADC;
+uint8_t bandera;
+uint8_t bandera1;
+uint8_t display1;
+uint8_t display2;
+uint8_t var;
+#define _XTAL_FREQ 4000000
 #define ALARMA PORTEbits.RE0
 #define b1 PORTBbits.RB1
 #define b2 PORTBbits.RB2
@@ -50,20 +56,34 @@ void Setup (void);
 void __interrupt() isr(void){
     
     if (INTCONbits.T0IF){           // INTERRUPCION TMR0
-        if (PORTEbits.RE1 == 1){    // MULTIPLEXACION
-            PORTEbits.RE1 = 0;      // SI RE1 ESTA EN 1, INVERTIR
-            PORTEbits.RE2 = 1;
-            //displays(ADRESH);    
-        }   else{    // SI RE0 ESTA EN 1, INVERTIR
-            PORTEbits.RE1 = 1;
-            PORTEbits.RE2 = 0;
+        if (PORTBbits.RB7 == 0){    // MULTIPLEXACION
+            PORTBbits.RB6 = 0;      // SI RB6 ESTA EN 1, INVERTIR
+            PORTBbits.RB7 = 1;
+            initDisplays(display1);
+        }   else{                   // SI RB7 ESTA EN 1, INVERTIR
+            PORTBbits.RB6 = 1;
+            PORTBbits.RB7 = 0;
+            bandera1 = 1;
+            initDisplays(display2);
         }
         INTCONbits.T0IF = 0;        // TERMINAR INTERRUPCION DE TMR0
     }
     
     if(ADIF == 1){                  // INTERRUPCION ADC
         valorADC = ADRESH;
+        if (bandera == 1){
+            bandera = 0;
+            display1 = valorADC * 16;
+            display1 = display1 / 16;
+            PORTBbits.RB3 = 1;
+        }
+        else{
+            bandera = 1;
+            display2 = valorADC / 16;
+            PORTBbits.RB3 = 0;
+        }
         ADIF = 0;
+        ADCON0bits.GO = 1;
     }
     
     if(INTCONbits.RBIF == 1){       // INTERRUPCION CAMBIO EN PORTB
@@ -95,6 +115,10 @@ void main(void) {
     Setup();
     //LOOP PRINCIPAL
     while(1){
+    //var = var + 1;
+    //__delay_ms(1000);
+    //display1 = 2;
+    //display2 = 13;
         if(valorADC < PORTC){   // COMPARAR VALOR ADC Y DEL PORTC 
             ALARMA = 1;         // PRENDER ALARMA SI PORTC ES MAYOR
         }
@@ -111,22 +135,27 @@ void main(void) {
 void Setup(void){
     initOsc(7);             // CONFIGURAR OSCILADOR
     PORTB = 0;              // PORTB EN 0
-    PORTBbits.RB6 = 1;      // 2 BOTONES: INCREMENTAR Y DECREMENTAR
-    PORTBbits.RB7 = 1;
     TRISE = 0;
+    TRISB = 0;
+    TRISD = 0;
     PORTE = 0;
     TRISC = 0;              // PORTC OUTPUT
     PORTC = 0;
     ANSEL = 0;              // APAGAR ANSEL Y ANSELH
     ANSELH = 0;
     TRISB = 0;              // PORTB OUTPUT
-    ei();                 // enable interrupt
+    //ei();                 // enable interrupt
     antirebote1 = 0;        // INICIAR VARIABLES EN 0
     antirebote2 = 0;
+    display1 = 0;
+    display2 = 0;
+    bandera = 0;
+    bandera1 = 0;
+    var = 0;
     
 //******************************************************************************    
 //  CONFIGURACION BOTONES
-    TRISBbits.TRISB1 = 1;       //boton1
+    TRISBbits.TRISB1 = 1;           //boton1
     TRISBbits.TRISB2 = 1;           //boton2
     //WPUBbits.WPUB0 = 1;           // pull up por software en rb0
     //OPTION_REGbits.nRBPU = 0;     // habilitar pull-ups globales 
@@ -142,18 +171,24 @@ void Setup(void){
 //******************************************************************************
 //CONFIGURACION ADC
     TRISAbits.TRISA0 = 1;           // entrada analogica
+    ADCON1 = 0;
+    ADCON0 = 0b10000111;
+    PIE1bits.ADIE = 1;
+    ANSELbits.ANS0 = 1;
     
     
 //******************************************************************************
 // CONFIGURACION TIMER0
-    OPTION_REG = 0b11010111;
-    OPTION_REGbits.PSA = 0;         // prescaler para tmr0
-    OPTION_REGbits.PS = 000;
-    OPTION_REGbits.T0CS = 0;
-    INTCONbits.T0IE = 1;
-    INTCONbits.TMR0IE = 1;
-    INTCONbits.PEIE = 1;
+    //asm{CLRWDT};
+    OPTION_REGbits.T0CS = 0;        // TMR0 Clock source
+    OPTION_REGbits.PSA = 0;         // Prescaler a tmr0
+    OPTION_REGbits.PS = 111;        // prescaler 1:256
+    TMR0 = 0;
     INTCONbits.T0IF = 0;
-    INTCONbits.GIE = 1;
+    
+    // interrupcion tmr0
+    INTCONbits.GIE = 1;             // Global interrupt enable    
+    INTCONbits.T0IE = 1;            // tmr0 interrupt enable
+    INTCONbits.T0IF = 0;            // bandera tmr0 
     
 }

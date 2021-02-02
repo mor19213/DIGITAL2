@@ -2628,21 +2628,21 @@ typedef uint16_t uintptr_t;
 # 14 "./DISPLAYS.h" 2
 
 
-void initOsc(uint8_t IRCF);
+void initDisplays(uint8_t IRCF);
 # 2 "DISPLAYS.c" 2
 
 
-void initDisplays(uint8_t VALOR) {
-    VALOR = VALOR / 16;
-    switch(VALOR){
+void initDisplays(uint8_t IRCF) {
+
+    switch(IRCF){
         case 0:
             PORTD = 0b01111110;
             break;
         case 1:
-            PORTD = 0b11000000;
+            PORTD = 0b01100000;
             break;
         case 2:
-            PORTD = 0b11011000;
+            PORTD = 0b11011010;
             break;
         case 3:
             PORTD = 0b11110010;
@@ -2682,6 +2682,7 @@ void initDisplays(uint8_t VALOR) {
             break;
         case 15:
             PORTD = 0b10001110;
+            break;
         default:
             PORTD = 0;
             break;
