@@ -786,8 +786,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lab2.c: 174:     ADCON1 = 0;
 [e = _ADCON1 -> -> 0 `i `uc ]
 "175
-[; ;lab2.c: 175:     ADCON0 = 0b10000111;
-[e = _ADCON0 -> -> 135 `i `uc ]
+[; ;lab2.c: 175:     ADCON0 = 0b10000011;
+[e = _ADCON0 -> -> 131 `i `uc ]
 "176
 [; ;lab2.c: 176:     PIE1bits.ADIE = 1;
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]

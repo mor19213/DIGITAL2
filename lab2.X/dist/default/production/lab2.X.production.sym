@@ -171,7 +171,7 @@ cstackCOMMON 70 7D COMMON 70 1
 cstackBANK0 20 2B BANK0 20 1
 %locals
 dist/default/production\lab2.X.production.o
-C:\Users\danie\AppData\Local\Temp\sfq0.s
+C:\Users\danie\AppData\Local\Temp\s930.s
 802 13 0 CODE 0
 805 13 0 CODE 0
 840 13 0 CODE 0

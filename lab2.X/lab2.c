@@ -172,7 +172,7 @@ void Setup(void){
 //CONFIGURACION ADC
     TRISAbits.TRISA0 = 1;           // entrada analogica
     ADCON1 = 0;
-    ADCON0 = 0b10000111;
+    ADCON0 = 0b10000011;
     PIE1bits.ADIE = 1;
     ANSELbits.ANS0 = 1;
     

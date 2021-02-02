@@ -2805,7 +2805,7 @@ void Setup(void){
 
     TRISAbits.TRISA0 = 1;
     ADCON1 = 0;
-    ADCON0 = 0b10000111;
+    ADCON0 = 0b10000011;
     PIE1bits.ADIE = 1;
     ANSELbits.ANS0 = 1;
 
