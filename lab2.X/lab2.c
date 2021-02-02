@@ -15,7 +15,7 @@
 //******************************************************************************
 //  PALABRA DE CONFIGURACION
 // CONFIG1
-#pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
+#pragma config FOSC = INTRC_NOCLKOUT    // Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
 
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
@@ -31,10 +31,10 @@
 #pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
-
 //******************************************************************************
 //  VARIABLES
 //******************************************************************************
+
 uint8_t antirebote1;
 uint8_t antirebote2;
 uint8_t valorADC;
@@ -52,7 +52,6 @@ uint8_t var;
 //  PROTOTIPO DE FUNCIONES
 //******************************************************************************
 void Setup (void);
-
 
 void __interrupt() isr(void){
     
@@ -72,16 +71,14 @@ void __interrupt() isr(void){
     
     if(ADIF == 1){                  // INTERRUPCION ADC
         valorADC = ADRESH;
-        if (bandera == 1){
-            bandera = 0;
-            display1 = valorADC * 16;
-            display1 = display1 / 16;
-            PORTBbits.RB3 = 1;
+        if (bandera == 1){          // BANDERA PARA INTERCALAR RUTINAS DE 
+            bandera = 0;            // VALORES DE DISPLAY
+            display1 = valorADC * 16;   // MOVER 4 POSICIONES A LA IZQUIERDA
+            display1 = display1 / 16;   // MOVER 4 POSICIONES A LA DERECHA 
         }
         else{
             bandera = 1;
-            display2 = valorADC / 16;
-            PORTBbits.RB3 = 0;
+            display2 = valorADC / 16;   // MOVER 4 POSICIONES A LA DERECHA
         }
         ADIF = 0;
         ADCON0bits.GO = 1;
@@ -116,10 +113,6 @@ void main(void) {
     Setup();
     //LOOP PRINCIPAL
     while(1){
-    //var = var + 1;
-    //__delay_ms(1000);
-    //display1 = 2;
-    //display2 = 13;
         if(valorADC > PORTC){   // COMPARAR VALOR ADC Y DEL PORTC 
             ALARMA = 1;         // PRENDER ALARMA SI PORTC ES MAYOR
         }
@@ -145,7 +138,6 @@ void Setup(void){
     ANSEL = 0;              // APAGAR ANSEL Y ANSELH
     ANSELH = 0;
     TRISB = 0;              // PORTB OUTPUT
-    //ei();                 // enable interrupt
     antirebote1 = 0;        // INICIAR VARIABLES EN 0
     antirebote2 = 0;
     display1 = 0;
@@ -172,11 +164,9 @@ void Setup(void){
 //******************************************************************************
 //CONFIGURACION ADC
     initADC(0);
-    
-    
+ 
 //******************************************************************************
 // CONFIGURACION TIMER0
-    //asm{CLRWDT};
     OPTION_REGbits.T0CS = 0;        // TMR0 Clock source
     OPTION_REGbits.PSA = 0;         // Prescaler a tmr0
     OPTION_REGbits.PS = 111;        // prescaler 1:256

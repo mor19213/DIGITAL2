@@ -11,19 +11,19 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\danie\AppData\Local\Temp\sfio.o
+$C:\Users\danie\AppData\Local\Temp\s190.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 10 10 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\lab2.X.production.o
 cinit CODE 0 13 13 E 2
-text1 CODE 0 285 285 45 2
-text2 CODE 0 227 227 5E 2
-text3 CODE 0 152 152 6E 2
-text4 CODE 0 21 21 A0 2
-text5 CODE 0 C1 C1 91 2
-text6 CODE 0 1C0 1C0 67 2
-maintext CODE 0 2CA 2CA 14 2
+text1 CODE 0 283 283 45 2
+text2 CODE 0 225 225 5E 2
+text3 CODE 0 150 150 6E 2
+text4 CODE 0 21 21 9E 2
+text5 CODE 0 BF BF 91 2
+text6 CODE 0 1BE 1BE 67 2
+maintext CODE 0 2C8 2C8 14 2
 cstackCOMMON COMMON 1 70 70 9 1
 cstackBANK0 BANK0 1 20 20 9 1
 intentry CODE 0 4 4 C 2
@@ -45,22 +45,22 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 2DE-1FFF 2
+CONST 2DC-1FFF 2
 ENTRY 3-3 2
-ENTRY 2DE-1FFF 2
+ENTRY 2DC-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 2DE-1FFF 2
+CODE 2DC-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 2DE-1FFF 2
+STRCODE 2DC-1FFF 2
 STRING 3-3 2
-STRING 2DE-1FFF 2
+STRING 2DC-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -75,239 +75,237 @@ STRING 2DE-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\lab2.X.production.o
-13 cinit CODE >961:C:\Users\danie\AppData\Local\Temp\sfio.s
-13 cinit CODE >964:C:\Users\danie\AppData\Local\Temp\sfio.s
-13 cinit CODE >999:C:\Users\danie\AppData\Local\Temp\sfio.s
-14 cinit CODE >1000:C:\Users\danie\AppData\Local\Temp\sfio.s
-15 cinit CODE >1001:C:\Users\danie\AppData\Local\Temp\sfio.s
-16 cinit CODE >1002:C:\Users\danie\AppData\Local\Temp\sfio.s
-17 cinit CODE >1003:C:\Users\danie\AppData\Local\Temp\sfio.s
-18 cinit CODE >1006:C:\Users\danie\AppData\Local\Temp\sfio.s
-19 cinit CODE >1007:C:\Users\danie\AppData\Local\Temp\sfio.s
-1A cinit CODE >1008:C:\Users\danie\AppData\Local\Temp\sfio.s
-1B cinit CODE >1009:C:\Users\danie\AppData\Local\Temp\sfio.s
-1C cinit CODE >1010:C:\Users\danie\AppData\Local\Temp\sfio.s
-1D cinit CODE >1016:C:\Users\danie\AppData\Local\Temp\sfio.s
-1D cinit CODE >1018:C:\Users\danie\AppData\Local\Temp\sfio.s
-1E cinit CODE >1019:C:\Users\danie\AppData\Local\Temp\sfio.s
-4 intentry CODE >57:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-1C0 text6 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1C0 text6 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1C1 text6 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1C5 text6 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1CA text6 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1CC text6 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1D0 text6 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1D5 text6 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1D9 text6 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1DB text6 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1E1 text6 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1E3 text6 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1E4 text6 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1EB text6 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1EF text6 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1F3 text6 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-1FA text6 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-204 text6 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-20A text6 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-20B text6 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-212 text6 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-218 text6 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-21D text6 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-222 text6 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-226 text6 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-C1 text5 CODE >4:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-C2 text5 CODE >6:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-C3 text5 CODE >8:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-C7 text5 CODE >9:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-C8 text5 CODE >11:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-CC text5 CODE >12:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-CD text5 CODE >14:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-D1 text5 CODE >15:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-D2 text5 CODE >17:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-D6 text5 CODE >18:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-D7 text5 CODE >20:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-DB text5 CODE >21:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-DC text5 CODE >23:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-E0 text5 CODE >24:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-E1 text5 CODE >26:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-E5 text5 CODE >27:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-E6 text5 CODE >29:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-EA text5 CODE >30:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-EB text5 CODE >32:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-EF text5 CODE >33:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-F0 text5 CODE >35:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-F4 text5 CODE >36:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-F5 text5 CODE >38:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-F9 text5 CODE >39:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-FA text5 CODE >41:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-FE text5 CODE >42:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-FF text5 CODE >44:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-103 text5 CODE >45:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-104 text5 CODE >47:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-108 text5 CODE >48:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-109 text5 CODE >50:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-10D text5 CODE >51:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-10E text5 CODE >53:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-112 text5 CODE >54:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-113 text5 CODE >56:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-116 text5 CODE >57:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-117 text5 CODE >58:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-151 text5 CODE >59:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
-21 text4 CODE >57:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-21 text4 CODE >59:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-25 text4 CODE >60:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-29 text4 CODE >61:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A text4 CODE >62:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B text4 CODE >63:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-31 text4 CODE >64:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-32 text4 CODE >65:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-33 text4 CODE >66:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-34 text4 CODE >67:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-36 text4 CODE >68:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-3C text4 CODE >70:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-3D text4 CODE >73:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-43 text4 CODE >74:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-47 text4 CODE >75:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-4C text4 CODE >76:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-4D text4 CODE >77:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-5A text4 CODE >78:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-70 text4 CODE >79:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+13 cinit CODE >961:C:\Users\danie\AppData\Local\Temp\s190.s
+13 cinit CODE >964:C:\Users\danie\AppData\Local\Temp\s190.s
+13 cinit CODE >999:C:\Users\danie\AppData\Local\Temp\s190.s
+14 cinit CODE >1000:C:\Users\danie\AppData\Local\Temp\s190.s
+15 cinit CODE >1001:C:\Users\danie\AppData\Local\Temp\s190.s
+16 cinit CODE >1002:C:\Users\danie\AppData\Local\Temp\s190.s
+17 cinit CODE >1003:C:\Users\danie\AppData\Local\Temp\s190.s
+18 cinit CODE >1006:C:\Users\danie\AppData\Local\Temp\s190.s
+19 cinit CODE >1007:C:\Users\danie\AppData\Local\Temp\s190.s
+1A cinit CODE >1008:C:\Users\danie\AppData\Local\Temp\s190.s
+1B cinit CODE >1009:C:\Users\danie\AppData\Local\Temp\s190.s
+1C cinit CODE >1010:C:\Users\danie\AppData\Local\Temp\s190.s
+1D cinit CODE >1016:C:\Users\danie\AppData\Local\Temp\s190.s
+1D cinit CODE >1018:C:\Users\danie\AppData\Local\Temp\s190.s
+1E cinit CODE >1019:C:\Users\danie\AppData\Local\Temp\s190.s
+4 intentry CODE >56:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+1BE text6 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1BE text6 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1BF text6 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1C3 text6 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1C8 text6 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1CA text6 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1CE text6 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1D3 text6 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1D7 text6 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1D9 text6 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1DF text6 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1E1 text6 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1E2 text6 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1E9 text6 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1ED text6 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1F1 text6 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1F8 text6 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+202 text6 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+208 text6 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+209 text6 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+210 text6 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+216 text6 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+21B text6 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+220 text6 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+224 text6 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+BF text5 CODE >4:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+C0 text5 CODE >6:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+C1 text5 CODE >8:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+C5 text5 CODE >9:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+C6 text5 CODE >11:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+CA text5 CODE >12:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+CB text5 CODE >14:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+CF text5 CODE >15:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+D0 text5 CODE >17:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+D4 text5 CODE >18:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+D5 text5 CODE >20:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+D9 text5 CODE >21:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+DA text5 CODE >23:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+DE text5 CODE >24:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+DF text5 CODE >26:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+E3 text5 CODE >27:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+E4 text5 CODE >29:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+E8 text5 CODE >30:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+E9 text5 CODE >32:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+ED text5 CODE >33:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+EE text5 CODE >35:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+F2 text5 CODE >36:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+F3 text5 CODE >38:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+F7 text5 CODE >39:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+F8 text5 CODE >41:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+FC text5 CODE >42:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+FD text5 CODE >44:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+101 text5 CODE >45:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+102 text5 CODE >47:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+106 text5 CODE >48:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+107 text5 CODE >50:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+10B text5 CODE >51:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+10C text5 CODE >53:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+110 text5 CODE >54:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+111 text5 CODE >56:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+114 text5 CODE >57:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+115 text5 CODE >58:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+14F text5 CODE >59:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
+21 text4 CODE >56:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+21 text4 CODE >58:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+25 text4 CODE >59:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+29 text4 CODE >60:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A text4 CODE >61:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2B text4 CODE >62:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+31 text4 CODE >63:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+32 text4 CODE >64:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+33 text4 CODE >65:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+34 text4 CODE >66:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+36 text4 CODE >67:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+3C text4 CODE >69:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+3D text4 CODE >72:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+43 text4 CODE >73:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+47 text4 CODE >74:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+4C text4 CODE >75:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+4D text4 CODE >76:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+5A text4 CODE >77:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+70 text4 CODE >78:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+71 text4 CODE >79:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 71 text4 CODE >80:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-72 text4 CODE >81:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-72 text4 CODE >82:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-74 text4 CODE >83:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+73 text4 CODE >81:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+89 text4 CODE >83:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 8A text4 CODE >84:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-8B text4 CODE >86:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-8C text4 CODE >87:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-8D text4 CODE >90:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-91 text4 CODE >91:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-95 text4 CODE >92:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-97 text4 CODE >94:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-9C text4 CODE >95:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-A0 text4 CODE >96:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-A3 text4 CODE >97:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-A4 text4 CODE >100:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-A8 text4 CODE >101:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-AA text4 CODE >103:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-AF text4 CODE >104:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-B3 text4 CODE >105:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-B6 text4 CODE >106:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-B7 text4 CODE >110:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-B8 text4 CODE >112:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-152 text3 CODE >4:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-155 text3 CODE >6:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-157 text3 CODE >7:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-15A text3 CODE >8:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-15B text3 CODE >9:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-15C text3 CODE >10:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-15C text3 CODE >11:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-15F text3 CODE >12:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-162 text3 CODE >13:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-163 text3 CODE >14:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-163 text3 CODE >15:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-166 text3 CODE >16:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-169 text3 CODE >17:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-16A text3 CODE >18:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-16A text3 CODE >19:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-16D text3 CODE >20:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-170 text3 CODE >21:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-171 text3 CODE >22:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-171 text3 CODE >23:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-174 text3 CODE >24:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-177 text3 CODE >25:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-178 text3 CODE >26:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-178 text3 CODE >27:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-17B text3 CODE >28:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-17E text3 CODE >29:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-17F text3 CODE >30:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-17F text3 CODE >31:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-182 text3 CODE >32:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-185 text3 CODE >33:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-186 text3 CODE >34:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-186 text3 CODE >35:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-189 text3 CODE >36:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-18C text3 CODE >37:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-18D text3 CODE >38:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-18D text3 CODE >39:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-190 text3 CODE >40:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-193 text3 CODE >41:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-194 text3 CODE >42:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-194 text3 CODE >43:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-197 text3 CODE >44:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-19A text3 CODE >45:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-19B text3 CODE >46:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-1BF text3 CODE >47:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
-227 text2 CODE >4:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-22A text2 CODE >5:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-22B text2 CODE >8:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-22F text2 CODE >9:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-230 text2 CODE >10:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-230 text2 CODE >11:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-233 text2 CODE >12:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-234 text2 CODE >13:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-235 text2 CODE >14:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-236 text2 CODE >16:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-23A text2 CODE >17:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-23B text2 CODE >19:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-241 text2 CODE >20:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-242 text2 CODE >22:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-248 text2 CODE >23:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-249 text2 CODE >25:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-24F text2 CODE >26:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-250 text2 CODE >28:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-256 text2 CODE >29:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-257 text2 CODE >31:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-25B text2 CODE >32:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-25C text2 CODE >34:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-260 text2 CODE >35:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-261 text2 CODE >36:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-283 text2 CODE >37:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-284 text2 CODE >38:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
-285 text1 CODE >136:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-285 text1 CODE >137:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-28B text1 CODE >138:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-28E text1 CODE >139:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-291 text1 CODE >140:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-292 text1 CODE >141:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-293 text1 CODE >142:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-296 text1 CODE >143:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-299 text1 CODE >144:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-29C text1 CODE >145:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-29F text1 CODE >146:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A0 text1 CODE >147:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A3 text1 CODE >149:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A4 text1 CODE >150:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A5 text1 CODE >151:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A6 text1 CODE >152:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2A9 text1 CODE >153:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2AA text1 CODE >154:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2AB text1 CODE >155:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2AC text1 CODE >159:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2AF text1 CODE >160:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B0 text1 CODE >163:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B1 text1 CODE >164:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B2 text1 CODE >165:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B3 text1 CODE >166:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B4 text1 CODE >167:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B5 text1 CODE >168:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2B6 text1 CODE >174:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2BC text1 CODE >180:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2BF text1 CODE >181:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C0 text1 CODE >182:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C2 text1 CODE >183:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C5 text1 CODE >184:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C6 text1 CODE >187:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C7 text1 CODE >188:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C8 text1 CODE >189:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2C9 text1 CODE >191:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2CA maintext CODE >115:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2CA maintext CODE >116:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2CF maintext CODE >123:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2D7 maintext CODE >124:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2D8 maintext CODE >125:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2D9 maintext CODE >126:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
-2D9 maintext CODE >127:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+8B text4 CODE >87:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+8F text4 CODE >88:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+93 text4 CODE >89:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+95 text4 CODE >91:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+9A text4 CODE >92:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+9E text4 CODE >93:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+A1 text4 CODE >94:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+A2 text4 CODE >97:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+A6 text4 CODE >98:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+A8 text4 CODE >100:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+AD text4 CODE >101:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+B1 text4 CODE >102:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+B4 text4 CODE >103:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+B5 text4 CODE >107:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+B6 text4 CODE >109:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+150 text3 CODE >4:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+153 text3 CODE >6:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+155 text3 CODE >7:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+158 text3 CODE >8:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+159 text3 CODE >9:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+15A text3 CODE >10:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+15A text3 CODE >11:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+15D text3 CODE >12:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+160 text3 CODE >13:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+161 text3 CODE >14:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+161 text3 CODE >15:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+164 text3 CODE >16:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+167 text3 CODE >17:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+168 text3 CODE >18:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+168 text3 CODE >19:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+16B text3 CODE >20:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+16E text3 CODE >21:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+16F text3 CODE >22:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+16F text3 CODE >23:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+172 text3 CODE >24:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+175 text3 CODE >25:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+176 text3 CODE >26:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+176 text3 CODE >27:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+179 text3 CODE >28:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+17C text3 CODE >29:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+17D text3 CODE >30:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+17D text3 CODE >31:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+180 text3 CODE >32:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+183 text3 CODE >33:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+184 text3 CODE >34:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+184 text3 CODE >35:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+187 text3 CODE >36:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+18A text3 CODE >37:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+18B text3 CODE >38:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+18B text3 CODE >39:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+18E text3 CODE >40:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+191 text3 CODE >41:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+192 text3 CODE >42:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+192 text3 CODE >43:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+195 text3 CODE >44:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+198 text3 CODE >45:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+199 text3 CODE >46:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+1BD text3 CODE >47:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\ADC.c
+225 text2 CODE >4:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+228 text2 CODE >5:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+229 text2 CODE >8:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+22D text2 CODE >9:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+22E text2 CODE >10:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+22E text2 CODE >11:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+231 text2 CODE >12:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+232 text2 CODE >13:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+233 text2 CODE >14:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+234 text2 CODE >16:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+238 text2 CODE >17:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+239 text2 CODE >19:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+23F text2 CODE >20:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+240 text2 CODE >22:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+246 text2 CODE >23:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+247 text2 CODE >25:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+24D text2 CODE >26:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+24E text2 CODE >28:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+254 text2 CODE >29:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+255 text2 CODE >31:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+259 text2 CODE >32:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+25A text2 CODE >34:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+25E text2 CODE >35:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+25F text2 CODE >36:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+281 text2 CODE >37:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+282 text2 CODE >38:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
+283 text1 CODE >129:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+283 text1 CODE >130:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+289 text1 CODE >131:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+28C text1 CODE >132:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+28F text1 CODE >133:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+290 text1 CODE >134:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+291 text1 CODE >135:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+294 text1 CODE >136:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+297 text1 CODE >137:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+29A text1 CODE >138:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+29D text1 CODE >139:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+29E text1 CODE >140:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A1 text1 CODE >141:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A2 text1 CODE >142:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A3 text1 CODE >143:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A4 text1 CODE >144:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A7 text1 CODE >145:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A8 text1 CODE >146:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2A9 text1 CODE >147:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2AA text1 CODE >151:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2AD text1 CODE >152:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2AE text1 CODE >155:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2AF text1 CODE >156:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2B0 text1 CODE >157:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2B1 text1 CODE >158:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2B2 text1 CODE >159:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2B3 text1 CODE >160:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2B4 text1 CODE >166:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2BA text1 CODE >170:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2BD text1 CODE >171:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2BE text1 CODE >172:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C0 text1 CODE >173:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C3 text1 CODE >174:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C4 text1 CODE >177:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C5 text1 CODE >178:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C6 text1 CODE >179:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C7 text1 CODE >181:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C8 maintext CODE >112:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2C8 maintext CODE >113:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2CD maintext CODE >116:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2D5 maintext CODE >117:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2D6 maintext CODE >118:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2D7 maintext CODE >119:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+2D7 maintext CODE >120:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -322,7 +320,7 @@ B8 text4 CODE >112:C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\lab2.X.production.o
 ___awdiv@counter 75 0 COMMON 1 cstackCOMMON dist/default/production\lab2.X.production.o
-__Hspace_0 2DE 0 ABS 0 - -
+__Hspace_0 2DC 0 ABS 0 - -
 __Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
@@ -331,24 +329,24 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _ADIF 66 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\lab2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sfio.o
-_main 594 0 CODE 0 maintext dist/default/production\lab2.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s190.o
+_main 590 0 CODE 0 maintext dist/default/production\lab2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\lab2.X.production.o
-start 20 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\sfio.o
+start 20 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\s190.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\lab2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-_initDisplays 182 0 CODE 0 text5 dist/default/production\lab2.X.production.o
+_initDisplays 17E 0 CODE 0 text5 dist/default/production\lab2.X.production.o
 _display1 79 0 COMMON 1 bssCOMMON dist/default/production\lab2.X.production.o
 _display2 2A 0 BANK0 1 bssBANK0 dist/default/production\lab2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfio.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfio.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfio.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfio.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfio.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sfio.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s190.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s190.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s190.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s190.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s190.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s190.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\lab2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\lab2.X.production.o
@@ -366,20 +364,20 @@ __size_of_initOsc 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 initADC@IRCF 28 0 BANK0 1 cstackBANK0 dist/default/production\lab2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\lab2.X.production.o
-__end_of___awdiv 44E 0 CODE 0 text6 dist/default/production\lab2.X.production.o
+__end_of___awdiv 44A 0 CODE 0 text6 dist/default/production\lab2.X.production.o
 _valorADC 7B 0 COMMON 1 bssCOMMON dist/default/production\lab2.X.production.o
-__end_of_initDisplays 2A4 0 CODE 0 text5 dist/default/production\lab2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sfio.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sfio.o
+__end_of_initDisplays 2A0 0 CODE 0 text5 dist/default/production\lab2.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s190.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s190.o
 __size_of_Setup 0 0 ABS 0 - dist/default/production\lab2.X.production.o
 start_initialization 26 0 CODE 0 cinit dist/default/production\lab2.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TRISEbits 89 0 ABS 0 - dist/default/production\lab2.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\lab2.X.production.o
-__end_of_initADC 380 0 CODE 0 text3 dist/default/production\lab2.X.production.o
-__end_of_initOsc 50A 0 CODE 0 text2 dist/default/production\lab2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sfio.o
+__end_of_initADC 37C 0 CODE 0 text3 dist/default/production\lab2.X.production.o
+__end_of_initOsc 506 0 CODE 0 text2 dist/default/production\lab2.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s190.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -416,7 +414,7 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 2DE 0 ABS 0 - -
+__S0 2DC 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
@@ -424,14 +422,14 @@ _isr 42 0 CODE 0 text4 dist/default/production\lab2.X.production.o
 _var 29 0 BANK0 1 bssBANK0 dist/default/production\lab2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\lab2.X.production.o
 _bandera 7A 0 COMMON 1 bssCOMMON dist/default/production\lab2.X.production.o
-__end_of_isr 182 0 CODE 0 text4 dist/default/production\lab2.X.production.o
+__end_of_isr 17E 0 CODE 0 text4 dist/default/production\lab2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\sfio.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\s190.o
 initOsc@IRCF 28 0 BANK0 1 cstackBANK0 dist/default/production\lab2.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _PIE1bits 8C 0 ABS 0 - dist/default/production\lab2.X.production.o
-___awdiv 380 0 CODE 0 text6 dist/default/production\lab2.X.production.o
-__pmaintext 594 0 CODE 0 maintext dist/default/production\lab2.X.production.o
+___awdiv 37C 0 CODE 0 text6 dist/default/production\lab2.X.production.o
+__pmaintext 590 0 CODE 0 maintext dist/default/production\lab2.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\lab2.X.production.o
@@ -454,14 +452,14 @@ ___awdiv@quotient 77 0 COMMON 1 cstackCOMMON dist/default/production\lab2.X.prod
 ?___awdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\lab2.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-_initADC 2A4 0 CODE 0 text3 dist/default/production\lab2.X.production.o
-_initOsc 44E 0 CODE 0 text2 dist/default/production\lab2.X.production.o
-__ptext1 50A 0 CODE 0 text1 dist/default/production\lab2.X.production.o
-__ptext2 44E 0 CODE 0 text2 dist/default/production\lab2.X.production.o
-__ptext3 2A4 0 CODE 0 text3 dist/default/production\lab2.X.production.o
+_initADC 2A0 0 CODE 0 text3 dist/default/production\lab2.X.production.o
+_initOsc 44A 0 CODE 0 text2 dist/default/production\lab2.X.production.o
+__ptext1 506 0 CODE 0 text1 dist/default/production\lab2.X.production.o
+__ptext2 44A 0 CODE 0 text2 dist/default/production\lab2.X.production.o
+__ptext3 2A0 0 CODE 0 text3 dist/default/production\lab2.X.production.o
 __ptext4 42 0 CODE 0 text4 dist/default/production\lab2.X.production.o
-__ptext5 182 0 CODE 0 text5 dist/default/production\lab2.X.production.o
-__ptext6 380 0 CODE 0 text6 dist/default/production\lab2.X.production.o
+__ptext5 17E 0 CODE 0 text5 dist/default/production\lab2.X.production.o
+__ptext6 37C 0 CODE 0 text6 dist/default/production\lab2.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _bandera1 2B 0 BANK0 1 bssBANK0 dist/default/production\lab2.X.production.o
@@ -472,14 +470,14 @@ __Lclrtext 0 0 ABS 0 clrtext -
 _ANSELbits 188 0 ABS 0 - dist/default/production\lab2.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\lab2.X.production.o
 __Hend_init 26 0 CODE 0 end_init -
-__end_of_main 5BC 0 CODE 0 maintext dist/default/production\lab2.X.production.o
-__end_of_Setup 594 0 CODE 0 text1 dist/default/production\lab2.X.production.o
+__end_of_main 5B8 0 CODE 0 maintext dist/default/production\lab2.X.production.o
+__end_of_Setup 590 0 CODE 0 text1 dist/default/production\lab2.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\lab2.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\lab2.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\lab2.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\lab2.X.production.o
 _PORTE 9 0 ABS 0 - dist/default/production\lab2.X.production.o
-_Setup 50A 0 CODE 0 text1 dist/default/production\lab2.X.production.o
+_Setup 506 0 CODE 0 text1 dist/default/production\lab2.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TRISC 87 0 ABS 0 - dist/default/production\lab2.X.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\lab2.X.production.o
@@ -519,7 +517,7 @@ __pbssBANK0 29 0 BANK0 1 bssBANK0 dist/default/production\lab2.X.production.o
 %SEGMENTS
 cstackCOMMON 1 70 70 E 1
 cstackBANK0 1 20 20 C 1
-intentry 0 4 8 2DA 2
+intentry 0 4 8 2D8 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

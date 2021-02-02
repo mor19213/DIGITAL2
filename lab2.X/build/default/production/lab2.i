@@ -2694,7 +2694,6 @@ uint8_t var;
 # 54 "lab2.c"
 void Setup (void);
 
-
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if (INTCONbits.T0IF){
@@ -2717,12 +2716,10 @@ void __attribute__((picinterrupt(("")))) isr(void){
             bandera = 0;
             display1 = valorADC * 16;
             display1 = display1 / 16;
-            PORTBbits.RB3 = 1;
         }
         else{
             bandera = 1;
             display2 = valorADC / 16;
-            PORTBbits.RB3 = 0;
         }
         ADIF = 0;
         ADCON0bits.GO = 1;
@@ -2757,10 +2754,6 @@ void main(void) {
     Setup();
 
     while(1){
-
-
-
-
         if(valorADC > PORTC){
             PORTEbits.RE0 = 1;
         }
@@ -2786,7 +2779,6 @@ void Setup(void){
     ANSEL = 0;
     ANSELH = 0;
     TRISB = 0;
-
     antirebote1 = 0;
     antirebote2 = 0;
     display1 = 0;
@@ -2813,8 +2805,6 @@ void Setup(void){
 
 
     initADC(0);
-
-
 
 
 

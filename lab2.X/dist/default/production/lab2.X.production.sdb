@@ -17,11 +17,11 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
 [v _initDisplays initDisplays `(v  1 e 1 0 ]
-"57 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+"56 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 [v _isr isr `II(v  1 e 1 0 ]
-"115
+"112
 [v _main main `(v  1 e 1 0 ]
-"136
+"129
 [v _Setup Setup `(v  1 e 1 0 ]
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -228,15 +228,15 @@
 [v _display2 display2 `uc  1 e 1 0 ]
 "45
 [v _var var `uc  1 e 1 0 ]
-"115
+"112
 [v _main main `(v  1 e 1 0 ]
 {
-"130
+"123
 } 0
-"136
+"129
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"191
+"181
 } 0
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -255,10 +255,10 @@
 [v initADC@IRCF IRCF `uc  1 a 1 8 ]
 "47
 } 0
-"57 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
+"56 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\lab2.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"112
+"109
 } 0
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab2.X\DISPLAYS.c
 [v _initDisplays initDisplays `(v  1 e 1 0 ]
