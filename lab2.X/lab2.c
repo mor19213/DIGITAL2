@@ -9,6 +9,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include "oscilador.h"
+#include "displays.h"
 
 //******************************************************************************
 //  PALABRA DE CONFIGURACION
@@ -47,16 +48,13 @@ void Setup (void);
 
 
 void __interrupt() isr(void){
+    
     if (INTCONbits.T0IF){           // INTERRUPCION TMR0
         if (PORTEbits.RE1 == 1){    // MULTIPLEXACION
             PORTEbits.RE1 = 0;      // SI RE1 ESTA EN 1, INVERTIR
             PORTEbits.RE2 = 1;
-            //displays(ADRESH);
-            
-            
-        }
-
-        if (PORTEbits.RE0 == 1){    // SI RE0 ESTA EN 1, INVERTIR
+            //displays(ADRESH);    
+        }   else{    // SI RE0 ESTA EN 1, INVERTIR
             PORTEbits.RE1 = 1;
             PORTEbits.RE2 = 0;
         }
@@ -75,6 +73,7 @@ void __interrupt() isr(void){
         if (antirebote1 == 1){      // si antirebote1 = 1 y el boton se suelta
             if (b1 == 0){           // decrementar el valor de portc
                 PORTC = PORTC - 1;
+                antirebote1 = 0;
             }
         }
         if (b2 == 1){               // INICIAR ANTIREBOTE AL PRECIONAR BOTON2
@@ -83,6 +82,7 @@ void __interrupt() isr(void){
         if (antirebote2 == 1){      // SI ANTIREBOTE2 = 1 Y SE SUELTA EL BOTON
             if (b2 == 0){           // INCREMENTAR EL VALOR DE PORTC
                 PORTC = PORTC + 1;
+                antirebote2 = 0;
             }
         }
         
@@ -94,7 +94,7 @@ void __interrupt() isr(void){
 void main(void) {
     Setup();
     //LOOP PRINCIPAL
-    while(1){                   
+    while(1){
         if(valorADC < PORTC){   // COMPARAR VALOR ADC Y DEL PORTC 
             ALARMA = 1;         // PRENDER ALARMA SI PORTC ES MAYOR
         }
@@ -113,12 +113,14 @@ void Setup(void){
     PORTB = 0;              // PORTB EN 0
     PORTBbits.RB6 = 1;      // 2 BOTONES: INCREMENTAR Y DECREMENTAR
     PORTBbits.RB7 = 1;
+    TRISE = 0;
+    PORTE = 0;
     TRISC = 0;              // PORTC OUTPUT
     PORTC = 0;
     ANSEL = 0;              // APAGAR ANSEL Y ANSELH
     ANSELH = 0;
     TRISB = 0;              // PORTB OUTPUT
-    //ei();                 // enable interrupt
+    ei();                 // enable interrupt
     antirebote1 = 0;        // INICIAR VARIABLES EN 0
     antirebote2 = 0;
     
@@ -133,14 +135,25 @@ void Setup(void){
     INTCONbits.RBIE = 1;            // habilitar isr del portb
     INTCONbits.RBIF = 0;            // limpiar la bandera isr 
     INTCONbits.GIE = 1;             // habilitar isr 
+    INTCONbits.PEIE = 1;
+
+    
 
 //******************************************************************************
 //CONFIGURACION ADC
     TRISAbits.TRISA0 = 1;           // entrada analogica
     
+    
 //******************************************************************************
 // CONFIGURACION TIMER0
+    OPTION_REG = 0b11010111;
     OPTION_REGbits.PSA = 0;         // prescaler para tmr0
     OPTION_REGbits.PS = 000;
+    OPTION_REGbits.T0CS = 0;
     INTCONbits.T0IE = 1;
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.T0IF = 0;
+    INTCONbits.GIE = 1;
+    
 }

@@ -2641,6 +2641,15 @@ typedef uint16_t uintptr_t;
 void initOsc(uint8_t IRCF);
 # 11 "lab2.c" 2
 
+# 1 "./displays.h" 1
+# 14 "./displays.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 14 "./displays.h" 2
+
+
+void initOsc(uint8_t IRCF);
+# 12 "lab2.c" 2
+
 
 
 
@@ -2679,16 +2688,13 @@ void Setup (void);
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
+
     if (INTCONbits.T0IF){
         if (PORTEbits.RE1 == 1){
             PORTEbits.RE1 = 0;
             PORTEbits.RE2 = 1;
 
-
-
-        }
-
-        if (PORTEbits.RE0 == 1){
+        } else{
             PORTEbits.RE1 = 1;
             PORTEbits.RE2 = 0;
         }
@@ -2707,6 +2713,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
         if (antirebote1 == 1){
             if (PORTBbits.RB1 == 0){
                 PORTC = PORTC - 1;
+                antirebote1 = 0;
             }
         }
         if (PORTBbits.RB2 == 1){
@@ -2715,6 +2722,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
         if (antirebote2 == 1){
             if (PORTBbits.RB2 == 0){
                 PORTC = PORTC + 1;
+                antirebote2 = 0;
             }
         }
 
@@ -2745,12 +2753,14 @@ void Setup(void){
     PORTB = 0;
     PORTBbits.RB6 = 1;
     PORTBbits.RB7 = 1;
+    TRISE = 0;
+    PORTE = 0;
     TRISC = 0;
     PORTC = 0;
     ANSEL = 0;
     ANSELH = 0;
     TRISB = 0;
-
+    (INTCONbits.GIE = 1);
     antirebote1 = 0;
     antirebote2 = 0;
 
@@ -2765,6 +2775,9 @@ void Setup(void){
     INTCONbits.RBIE = 1;
     INTCONbits.RBIF = 0;
     INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+
+
 
 
 
@@ -2772,7 +2785,15 @@ void Setup(void){
 
 
 
+
+    OPTION_REG = 0b11010111;
     OPTION_REGbits.PSA = 0;
     OPTION_REGbits.PS = 000;
+    OPTION_REGbits.T0CS = 0;
     INTCONbits.T0IE = 1;
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.T0IF = 0;
+    INTCONbits.GIE = 1;
+
 }
