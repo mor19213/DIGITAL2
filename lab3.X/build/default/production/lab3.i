@@ -2695,10 +2695,35 @@ void initOsc(uint8_t IRCF);
 
 
  unsigned int a;
+  uint8_t ADC1;
+  uint8_t ADC2;
+  uint8_t bandera;
+
 
 
 
 void Setup (void);
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+    if(ADIF == 1){
+        if (bandera == 1){
+            bandera = 0;
+            ADC1 = ADRESH;
+            ADCON0bits.CHS0 = 1;
+            RA4 = 1;
+            RA3 = 0;
+        } else{
+            bandera = 1;
+            ADC2 = ADRESH;
+            ADCON0bits.CHS0 = 0;
+            RA4 = 0;
+            RA3 = 1;
+        }
+        ADIF = 0;
+        ADCON0bits.GO = 1;
+    }
+}
 
 void main(void) {
     Setup();
@@ -2741,9 +2766,16 @@ void main(void) {
 }
 
 void Setup(void){
-
-
-  TRISD = 0x00;
-  TRISE = 0;
-  Lcd_Init();
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    ADCON0 = 0b10000011;
+    ADCON1 = 0;
+    TRISA = 0;
+    PORTA = 0;
+    PIE1bits.ADIE = 1;
+    initADC(0);
+    initADC(1);
+    TRISD = 0x00;
+    TRISE = 0;
+    Lcd_Init();
 }
