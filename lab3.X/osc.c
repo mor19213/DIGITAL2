@@ -1,7 +1,7 @@
 
-#include "Oscilador.h"
+#include "osc.h"
 
-void initOscc(uint8_t IRCF) {
+void initOsc(uint8_t IRCF) {
     switch(IRCF){
         
         case 0:

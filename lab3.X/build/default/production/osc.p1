@@ -248,106 +248,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"4 ../lab2.X/oscilador.c
-[; ;../lab2.X/oscilador.c: 4: void initOsc(uint8_t IRCF) {
+"4 osc.c
+[; ;osc.c: 4: void initOsc(uint8_t IRCF) {
 [v _initOsc `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _initOsc ]
 [v _IRCF `uc ~T0 @X0 1 r1 ]
 [f ]
 "5
-[; ;../lab2.X/oscilador.c: 5:     switch(IRCF){
+[; ;osc.c: 5:     switch(IRCF){
 [e $U 140  ]
 {
 "7
-[; ;../lab2.X/oscilador.c: 7:         case 0:
+[; ;osc.c: 7:         case 0:
 [e :U 141 ]
 "8
-[; ;../lab2.X/oscilador.c: 8:             OSCCONbits.IRCF = 000;
+[; ;osc.c: 8:             OSCCONbits.IRCF = 000;
 [e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
 "9
-[; ;../lab2.X/oscilador.c: 9:             break;
+[; ;osc.c: 9:             break;
 [e $U 139  ]
 "10
-[; ;../lab2.X/oscilador.c: 10:         case 1:
+[; ;osc.c: 10:         case 1:
 [e :U 142 ]
 "11
-[; ;../lab2.X/oscilador.c: 11:             OSCCONbits.IRCF2 = 0;
+[; ;osc.c: 11:             OSCCONbits.IRCF2 = 0;
 [e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
 "12
-[; ;../lab2.X/oscilador.c: 12:             OSCCONbits.IRCF1 = 0;
+[; ;osc.c: 12:             OSCCONbits.IRCF1 = 0;
 [e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
 "13
-[; ;../lab2.X/oscilador.c: 13:             OSCCONbits.IRCF0 = 1;
+[; ;osc.c: 13:             OSCCONbits.IRCF0 = 1;
 [e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
 "14
-[; ;../lab2.X/oscilador.c: 14:             break;
+[; ;osc.c: 14:             break;
 [e $U 139  ]
 "15
-[; ;../lab2.X/oscilador.c: 15:         case 2:
+[; ;osc.c: 15:         case 2:
 [e :U 143 ]
 "16
-[; ;../lab2.X/oscilador.c: 16:             OSCCONbits.IRCF = 010;
+[; ;osc.c: 16:             OSCCONbits.IRCF = 010;
 [e = . . _OSCCONbits 0 4 -> -> 8 `i `uc ]
 "17
-[; ;../lab2.X/oscilador.c: 17:             break;
+[; ;osc.c: 17:             break;
 [e $U 139  ]
 "18
-[; ;../lab2.X/oscilador.c: 18:         case 3:
+[; ;osc.c: 18:         case 3:
 [e :U 144 ]
 "19
-[; ;../lab2.X/oscilador.c: 19:             OSCCONbits.IRCF = 011;
+[; ;osc.c: 19:             OSCCONbits.IRCF = 011;
 [e = . . _OSCCONbits 0 4 -> -> 9 `i `uc ]
 "20
-[; ;../lab2.X/oscilador.c: 20:             break;
+[; ;osc.c: 20:             break;
 [e $U 139  ]
 "21
-[; ;../lab2.X/oscilador.c: 21:         case 4:
+[; ;osc.c: 21:         case 4:
 [e :U 145 ]
 "22
-[; ;../lab2.X/oscilador.c: 22:             OSCCONbits.IRCF = 100;
+[; ;osc.c: 22:             OSCCONbits.IRCF = 100;
 [e = . . _OSCCONbits 0 4 -> -> 100 `i `uc ]
 "23
-[; ;../lab2.X/oscilador.c: 23:             break;
+[; ;osc.c: 23:             break;
 [e $U 139  ]
 "24
-[; ;../lab2.X/oscilador.c: 24:         case 5:
+[; ;osc.c: 24:         case 5:
 [e :U 146 ]
 "25
-[; ;../lab2.X/oscilador.c: 25:             OSCCONbits.IRCF = 101;
+[; ;osc.c: 25:             OSCCONbits.IRCF = 101;
 [e = . . _OSCCONbits 0 4 -> -> 101 `i `uc ]
 "26
-[; ;../lab2.X/oscilador.c: 26:             break;
+[; ;osc.c: 26:             break;
 [e $U 139  ]
 "27
-[; ;../lab2.X/oscilador.c: 27:         case 6:
+[; ;osc.c: 27:         case 6:
 [e :U 147 ]
 "28
-[; ;../lab2.X/oscilador.c: 28:             OSCCONbits.IRCF = 110;
+[; ;osc.c: 28:             OSCCONbits.IRCF = 110;
 [e = . . _OSCCONbits 0 4 -> -> 110 `i `uc ]
 "29
-[; ;../lab2.X/oscilador.c: 29:             break;
+[; ;osc.c: 29:             break;
 [e $U 139  ]
 "30
-[; ;../lab2.X/oscilador.c: 30:         case 7:
+[; ;osc.c: 30:         case 7:
 [e :U 148 ]
 "31
-[; ;../lab2.X/oscilador.c: 31:             OSCCONbits.IRCF = 111;
+[; ;osc.c: 31:             OSCCONbits.IRCF = 111;
 [e = . . _OSCCONbits 0 4 -> -> 111 `i `uc ]
 "32
-[; ;../lab2.X/oscilador.c: 32:             break;
+[; ;osc.c: 32:             break;
 [e $U 139  ]
 "33
-[; ;../lab2.X/oscilador.c: 33:         default:
+[; ;osc.c: 33:         default:
 [e :U 149 ]
 "34
-[; ;../lab2.X/oscilador.c: 34:             OSCCONbits.IRCF = 111;
+[; ;osc.c: 34:             OSCCONbits.IRCF = 111;
 [e = . . _OSCCONbits 0 4 -> -> 111 `i `uc ]
 "35
-[; ;../lab2.X/oscilador.c: 35:             break;
+[; ;osc.c: 35:             break;
 [e $U 139  ]
 "36
-[; ;../lab2.X/oscilador.c: 36:     }
+[; ;osc.c: 36:     }
 }
 [e $U 139  ]
 [e :U 140 ]
@@ -362,9 +362,9 @@ Version 4.0 HI-TECH Software Intermediate Code
  149 ]
 [e :U 139 ]
 "37
-[; ;../lab2.X/oscilador.c: 37:     OSCCONbits.SCS = 1;
+[; ;osc.c: 37:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
 "38
-[; ;../lab2.X/oscilador.c: 38: }
+[; ;osc.c: 38: }
 [e :UE 138 ]
 }

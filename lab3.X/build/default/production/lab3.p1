@@ -1,5 +1,39 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+"43 lab3.c
+[; ;lab3.c: 43:     Lcd_Write_Char('e');
+[v _Setup `(v ~T0 @X0 0 ef ]
+"23 ./lcd.h
+[; ;./lcd.h: 23: void Lcd_Clear(void);
+[v _Lcd_Clear `(v ~T0 @X0 0 ef ]
+"24
+[; ;./lcd.h: 24: void Lcd_Set_Cursor(char a, char b);
+[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"27
+[; ;./lcd.h: 27: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"29 ./lcd.h
+[; ;./lcd.h: 29: void Lcd_Shift_Left(void);
+[v _Lcd_Shift_Left `(v ~T0 @X0 0 ef ]
+"28
+[; ;./lcd.h: 28: void Lcd_Shift_Right(void);
+[v _Lcd_Shift_Right `(v ~T0 @X0 0 ef ]
+"26
+[; ;./lcd.h: 26: void Lcd_Write_Char(char a);
+[v _Lcd_Write_Char `(v ~T0 @X0 0 ef1`uc ]
+"1602 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"1664
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
+[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"25 ./lcd.h
+[; ;./lcd.h: 25: void Lcd_Init(void);
+[v _Lcd_Init `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -234,17 +268,168 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"20 lab3.c
+[; ;lab3.c: 20:     Lcd_Set_Cursor(1,1);
+[p x FOSC  =  INTRC_NOCLKOUT     ]
+"22
+[; ;lab3.c: 22:     Lcd_Set_Cursor(2,1);
+[p x WDTE  =  OFF        ]
+"23
+[; ;lab3.c: 23:     Lcd_Write_String("electroSome");
+[p x PWRTE  =  OFF       ]
+"24
+[; ;lab3.c: 24:     _delay((unsigned long)((2000)*(8000000/4000.0)));
+[p x MCLRE  =  OFF       ]
+"25
+[; ;lab3.c: 25:     Lcd_Clear();
+[p x CP  =  OFF          ]
+"26
+[; ;lab3.c: 26:     Lcd_Set_Cursor(1,1);
+[p x CPD  =  OFF         ]
+"27
+[; ;lab3.c: 27:     Lcd_Write_String("www.electroSome.com");
+[p x BOREN  =  OFF       ]
+"28
+[; ;lab3.c: 28: 
+[p x IESO  =  OFF        ]
+"29
+[; ;lab3.c: 29:     for(a=0;a<15;a++)
+[p x FCMEN  =  OFF       ]
+"30
+[; ;lab3.c: 30:     {
+[p x LVP  =  OFF         ]
+"33
+[; ;lab3.c: 33:     }
+[p x BOR4V  =  BOR40V    ]
+"34
+[; ;lab3.c: 34: 
+[p x WRT  =  OFF         ]
+"39
+[; ;lab3.c: 39:     }
+[v _a `ui ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"14 lab3.c
-[; ;lab3.c: 14: void main(void) {
+"45
+[; ;lab3.c: 45:     _delay((unsigned long)((2000)*(8000000/4000.0)));
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"15
-[; ;lab3.c: 15:     return;
-[e $UE 138  ]
-"16
-[; ;lab3.c: 16: }
+"46
+[; ;lab3.c: 46:   }
+[e ( _Setup ..  ]
+"47
+[; ;lab3.c: 47: }
+[e :U 140 ]
+"48
+[; ;lab3.c: 48: 
+{
+"49
+[; ;lab3.c: 49: void Setup(void){
+[e ( _Lcd_Clear ..  ]
+"50
+[; ;lab3.c: 50: 
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"51
+[; ;lab3.c: 51: 
+[e ( _Lcd_Write_String (1 :s 1C ]
+"52
+[; ;lab3.c: 52:   TRISD = 0x00;
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"53
+[; ;lab3.c: 53:   TRISE = 0;
+[e ( _Lcd_Write_String (1 :s 2C ]
+"54
+[; ;lab3.c: 54:   Lcd_Init();
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"55
+[; ;lab3.c: 55: }
+[e ( _Lcd_Clear ..  ]
+"56
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"57
+[e ( _Lcd_Write_String (1 :s 3C ]
+"58
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"59
+[e ( _Lcd_Write_String (1 :s 4C ]
+"60
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"61
+[e ( _Lcd_Clear ..  ]
+"62
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"63
+[e ( _Lcd_Write_String (1 :s 5C ]
+"65
+{
+[e = _a -> -> 0 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 142  ]
+[e $U 143  ]
+[e :U 142 ]
+"66
+{
+"67
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"68
+[e ( _Lcd_Shift_Left ..  ]
+"69
+}
+[e ++ _a -> -> 1 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 142  ]
+[e :U 143 ]
+}
+"71
+{
+[e = _a -> -> 0 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 145  ]
+[e $U 146  ]
+[e :U 145 ]
+"72
+{
+"73
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"74
+[e ( _Lcd_Shift_Right ..  ]
+"75
+}
+[e ++ _a -> -> 1 `i `ui ]
+[e $ < _a -> -> 15 `i `ui 145  ]
+[e :U 146 ]
+}
+"77
+[e ( _Lcd_Clear ..  ]
+"78
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"79
+[e ( _Lcd_Write_Char (1 -> -> 101 `ui `uc ]
+"80
+[e ( _Lcd_Write_Char (1 -> -> 83 `ui `uc ]
+"81
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"82
+}
+[e :U 139 ]
+[e $U 140  ]
+[e :U 141 ]
+"83
 [e :UE 138 ]
 }
+"85
+[v _Setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _Setup ]
+[f ]
+"88
+[e = _TRISD -> -> 0 `i `uc ]
+"89
+[e = _TRISE -> -> 0 `i `uc ]
+"90
+[e ( _Lcd_Init ..  ]
+"91
+[e :UE 148 ]
+}
+[a 3C 68 101 118 101 108 111 112 101 100 32 66 121 0 ]
+[a 1C 76 67 68 32 76 105 98 114 97 114 121 32 102 111 114 0 ]
+[a 5C 119 119 119 46 101 108 101 99 116 114 111 83 111 109 101 46 99 111 109 0 ]
+[a 4C 101 108 101 99 116 114 111 83 111 109 101 0 ]
+[a 2C 77 80 76 65 66 32 88 67 56 0 ]

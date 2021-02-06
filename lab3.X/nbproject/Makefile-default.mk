@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lab3.c lcd.c ADC.c USART.c ../lab2.X/oscilador.c
+SOURCEFILES_QUOTED_IF_SPACED=lab3.c lcd.c ADC.c USART.c osc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lab3.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/USART.p1 ${OBJECTDIR}/_ext/1026130914/oscilador.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/lab3.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/USART.p1.d ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lab3.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/USART.p1 ${OBJECTDIR}/osc.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/lab3.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/USART.p1.d ${OBJECTDIR}/osc.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lab3.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/USART.p1 ${OBJECTDIR}/_ext/1026130914/oscilador.p1
+OBJECTFILES=${OBJECTDIR}/lab3.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/USART.p1 ${OBJECTDIR}/osc.p1
 
 # Source Files
-SOURCEFILES=lab3.c lcd.c ADC.c USART.c ../lab2.X/oscilador.c
+SOURCEFILES=lab3.c lcd.c ADC.c USART.c osc.c
 
 
 
@@ -126,13 +126,13 @@ ${OBJECTDIR}/USART.p1: USART.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/USART.d ${OBJECTDIR}/USART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/USART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1026130914/oscilador.p1: ../lab2.X/oscilador.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/1026130914" 
-	@${RM} ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1026130914/oscilador.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1026130914/oscilador.p1 ../lab2.X/oscilador.c 
-	@-${MV} ${OBJECTDIR}/_ext/1026130914/oscilador.d ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/osc.p1: osc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/osc.p1.d 
+	@${RM} ${OBJECTDIR}/osc.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/osc.p1 osc.c 
+	@-${MV} ${OBJECTDIR}/osc.d ${OBJECTDIR}/osc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/osc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/lab3.p1: lab3.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -167,13 +167,13 @@ ${OBJECTDIR}/USART.p1: USART.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/USART.d ${OBJECTDIR}/USART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/USART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1026130914/oscilador.p1: ../lab2.X/oscilador.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/1026130914" 
-	@${RM} ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1026130914/oscilador.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1026130914/oscilador.p1 ../lab2.X/oscilador.c 
-	@-${MV} ${OBJECTDIR}/_ext/1026130914/oscilador.d ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1026130914/oscilador.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/osc.p1: osc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/osc.p1.d 
+	@${RM} ${OBJECTDIR}/osc.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/osc.p1 osc.c 
+	@-${MV} ${OBJECTDIR}/osc.d ${OBJECTDIR}/osc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/osc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

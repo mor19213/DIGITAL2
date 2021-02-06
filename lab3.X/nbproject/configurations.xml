@@ -7,8 +7,7 @@
       <itemPath>lcd.h</itemPath>
       <itemPath>adc.h</itemPath>
       <itemPath>USART.h</itemPath>
-      <itemPath>../lab2.X/oscilador.c</itemPath>
-      <itemPath>../lab2.X/oscilador.h</itemPath>
+      <itemPath>osc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +20,7 @@
       <itemPath>lcd.c</itemPath>
       <itemPath>ADC.c</itemPath>
       <itemPath>USART.c</itemPath>
+      <itemPath>osc.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -39,7 +39,7 @@
         <targetDevice>PIC16F887</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.31</languageToolchainVersion>
         <platform>3</platform>

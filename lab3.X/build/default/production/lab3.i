@@ -2512,7 +2512,238 @@ void Lcd_Shift_Right(void);
 void Lcd_Shift_Left(void);
 # 12 "lab3.c" 2
 
+# 1 "./adc.h" 1
+# 14 "./adc.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 14 "./adc.h" 2
+
+
+void initADC(uint8_t IRCF);
+# 13 "lab3.c" 2
+
+# 1 "./USART.h" 1
+# 14 "./USART.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 14 "./USART.h" 2
+
+
+void initADC(uint8_t IRCF);
+# 14 "lab3.c" 2
+
+# 1 "./osc.h" 1
+# 14 "./osc.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 14 "./osc.h" 2
+
+
+void initOsc(uint8_t IRCF);
+# 15 "lab3.c" 2
+
+
+
+
+
+#pragma config FOSC = INTRC_NOCLKOUT
+
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
+
+
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
+
+
+
+
+ unsigned int a;
+
+
+
+void Setup (void);
 
 void main(void) {
-    return;
+    Setup();
+  while(1)
+  {
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("LCD Library for");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("MPLAB XC8");
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("Developed By");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("electroSome");
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
+    Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("www.electroSome.com");
+
+    for(a=0;a<15;a++)
+    {
+        _delay((unsigned long)((300)*(8000000/4000.0)));
+        Lcd_Shift_Left();
+    }
+
+    for(a=0;a<15;a++)
+    {
+        _delay((unsigned long)((300)*(8000000/4000.0)));
+        Lcd_Shift_Right();
+    }
+
+    Lcd_Clear();
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_Char('e');
+    Lcd_Write_Char('S');
+    _delay((unsigned long)((2000)*(8000000/4000.0)));
+  }
+}
+
+void Setup(void){
+
+
+  TRISD = 0x00;
+  TRISE = 0;
+  Lcd_Init();
 }

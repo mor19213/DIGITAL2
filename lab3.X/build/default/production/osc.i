@@ -1,4 +1,4 @@
-# 1 "../lab2.X/oscilador.c"
+# 1 "osc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../lab2.X/oscilador.c" 2
+# 1 "osc.c" 2
 
-# 1 "../lab2.X/Oscilador.h" 1
-# 13 "../lab2.X/Oscilador.h"
+# 1 "./osc.h" 1
+# 13 "./osc.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2490,7 +2490,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 13 "../lab2.X/Oscilador.h" 2
+# 13 "./osc.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2625,11 +2625,11 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 14 "../lab2.X/Oscilador.h" 2
+# 14 "./osc.h" 2
 
 
 void initOsc(uint8_t IRCF);
-# 2 "../lab2.X/oscilador.c" 2
+# 2 "osc.c" 2
 
 
 void initOsc(uint8_t IRCF) {

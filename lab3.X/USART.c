@@ -9,7 +9,7 @@ void initUSART(uint8_t IRCF) {
     TXSTAbits.BRGH = 1;
     TXSTAbits.TX9 = 0;
     
-    // velocidad
+// velocidad
     BAUDCTLbits.BRG16 = 0;
     SPBRG = 25;
     SPBRGH = 0;
