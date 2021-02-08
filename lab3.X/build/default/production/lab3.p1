@@ -755,273 +755,306 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lab3.c: 142: 
 [e = _TXIE -> -> 0 `i `b ]
 "143
-[; ;lab3.c: 143:     Lcd_Set_Cursor(2,1);
+[; ;lab3.c: 143:     if (C11 > 5){
 }
 [e :U 151 ]
 "144
-[; ;lab3.c: 144:     Lcd_Write_Char(C11 +48);
+[; ;lab3.c: 144:         C11 = 5;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "145
-[; ;lab3.c: 145:     Lcd_Set_Cursor(2,3);
+[; ;lab3.c: 145:     }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "147
-[; ;lab3.c: 147:     Lcd_Set_Cursor(2,4);
+[; ;lab3.c: 147:         C11 = 5;
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
 "148
-[; ;lab3.c: 148:     Lcd_Write_Char(C13 + 48);
+[; ;lab3.c: 148:     }
 [e ( _Setup ..  ]
 "149
-[; ;lab3.c: 149: 
+[; ;lab3.c: 149:     if (C31 > 5){
 [e :U 169 ]
 {
 "150
-[; ;lab3.c: 150:     Lcd_Set_Cursor(2,7);
+[; ;lab3.c: 150:         C11 = 5;
 [e $ ! > -> _CONTX `i -> 15 `i 171  ]
 {
 "151
-[; ;lab3.c: 151:     Lcd_Write_Char(C21 +48);
+[; ;lab3.c: 151:     }
 [e = _CONTX -> -> 0 `i `uc ]
 "152
-[; ;lab3.c: 152:     Lcd_Set_Cursor(2,9);
+[; ;lab3.c: 152: 
 [e = _TXIE -> -> 1 `i `b ]
 "153
-[; ;lab3.c: 153:     Lcd_Write_Char(C22 + 48);
+[; ;lab3.c: 153:     Lcd_Set_Cursor(2,1);
 }
 [e :U 171 ]
 "156
-[; ;lab3.c: 156: 
+[; ;lab3.c: 156:     Lcd_Write_Char(C12 + 48);
 [e = _C11 -> / -> _ADC1 `i -> 51 `i `uc ]
 "157
-[; ;lab3.c: 157:     Lcd_Set_Cursor(2,13);
+[; ;lab3.c: 157:     Lcd_Set_Cursor(2,4);
 [e = _C12 -> / - / * -> _ADC1 `i -> 100 `i -> 51 `i * -> _C11 `i -> 100 `i -> 10 `i `uc ]
 "158
-[; ;lab3.c: 158:     Lcd_Write_Char(C31 +48);
+[; ;lab3.c: 158:     Lcd_Write_Char(C13 + 48);
 [e = _C13 -> - - / * -> _ADC1 `i -> 100 `i -> 51 `i * -> _C11 `i -> 100 `i * -> _C12 `i -> 10 `i `uc ]
 "160
-[; ;lab3.c: 160:     Lcd_Write_Char(C32 + 48);
+[; ;lab3.c: 160:     Lcd_Set_Cursor(2,7);
 [e = _C21 -> / -> _ADC2 `i -> 51 `i `uc ]
 "161
-[; ;lab3.c: 161:     Lcd_Set_Cursor(2,16);
+[; ;lab3.c: 161:     Lcd_Write_Char(C21 +48);
 [e = _C22 -> / - / * -> _ADC2 `i -> 100 `i -> 51 `i * -> _C21 `i -> 100 `i -> 10 `i `uc ]
 "162
-[; ;lab3.c: 162:     Lcd_Write_Char(C33 + 48);
+[; ;lab3.c: 162:     Lcd_Set_Cursor(2,9);
 [e = _C23 -> - - / * -> _ADC2 `i -> 100 `i -> 51 `i * -> _C21 `i -> 100 `i * -> _C22 `i -> 10 `i `uc ]
 "164
-[; ;lab3.c: 164:   }
+[; ;lab3.c: 164:     Lcd_Set_Cursor(2,10);
 [e = _C31 -> / _contador -> -> 51 `i `ui `uc ]
 "165
-[; ;lab3.c: 165: }
+[; ;lab3.c: 165:     Lcd_Write_Char(C23 + 48);
 [e = _C32 -> / - / * _contador -> -> 100 `i `ui -> -> 51 `i `ui -> * -> _C31 `i -> 100 `i `ui -> -> 10 `i `ui `uc ]
 "166
 [; ;lab3.c: 166: 
 [e = _C33 -> - - / * _contador -> -> 100 `i `ui -> -> 51 `i `ui -> * -> _C31 `i -> 100 `i `ui -> * -> _C32 `i -> 10 `i `ui `uc ]
 "168
-[; ;lab3.c: 168: 
+[; ;lab3.c: 168:     Lcd_Write_Char(C31 +48);
 [e $ ! > -> _C12 `i -> 9 `i 172  ]
 {
 "169
-[; ;lab3.c: 169:     TRISA = 0;
+[; ;lab3.c: 169:     Lcd_Set_Cursor(2,15);
 [e = _C12 -> -> 9 `i `uc ]
 "170
-[; ;lab3.c: 170:     TRISD = 0;
+[; ;lab3.c: 170:     Lcd_Write_Char(C32 + 48);
 }
 [e :U 172 ]
 "171
-[; ;lab3.c: 171:     PORTD = 0;
+[; ;lab3.c: 171:     Lcd_Set_Cursor(2,16);
 [e $ ! > -> _C13 `i -> 9 `i 173  ]
 {
 "172
-[; ;lab3.c: 172:     TRISE = 0;
+[; ;lab3.c: 172:     Lcd_Write_Char(C33 + 48);
 [e = _C13 -> -> 9 `i `uc ]
 "173
-[; ;lab3.c: 173:     TRISB = 0;
+[; ;lab3.c: 173: 
 }
 [e :U 173 ]
 "174
-[; ;lab3.c: 174: 
+[; ;lab3.c: 174:   }
 [e $ ! > -> _C22 `i -> 9 `i 174  ]
 {
 "175
-[; ;lab3.c: 175:     ADCON0 = 0b10000011;
+[; ;lab3.c: 175: }
 [e = _C22 -> -> 9 `i `uc ]
 "176
-[; ;lab3.c: 176:     ADCON1 = 0;
+[; ;lab3.c: 176: 
 }
 [e :U 174 ]
 "177
-[; ;lab3.c: 177:     PORTA = 0;
+[; ;lab3.c: 177: void Setup(void){
 [e $ ! > -> _C23 `i -> 9 `i 175  ]
 {
 "178
-[; ;lab3.c: 178:     ADCON0 = 0b10000011;
+[; ;lab3.c: 178: 
 [e = _C23 -> -> 9 `i `uc ]
 "179
-[; ;lab3.c: 179:     ADCON1 = 0;
+[; ;lab3.c: 179:     TRISA = 0;
 }
 [e :U 175 ]
 "181
-[; ;lab3.c: 181:     PORTB = 0;
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;lab3.c: 181:     PORTD = 0;
+[e $ ! > -> _C11 `i -> 5 `i 176  ]
+{
 "182
-[; ;lab3.c: 182:     ANSEL = 0;
-[e ( _Lcd_Write_Char (1 -> + -> _C11 `i -> 48 `i `uc ]
+[; ;lab3.c: 182:     TRISE = 0;
+[e = _C11 -> -> 5 `i `uc ]
 "183
-[; ;lab3.c: 183:     Lcd_Init();
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+[; ;lab3.c: 183:     TRISB = 0;
+}
+[e :U 176 ]
 "184
-[; ;lab3.c: 184:     var_contador = 0;
-[e ( _Lcd_Write_Char (1 -> + -> _C12 `i -> 48 `i `uc ]
+[; ;lab3.c: 184: 
+[e $ ! > -> _C21 `i -> 5 `i 177  ]
+{
 "185
-[; ;lab3.c: 185:     PIE1bits.ADIE = 1;
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
+[; ;lab3.c: 185:     ADCON0 = 0b10000011;
+[e = _C11 -> -> 5 `i `uc ]
 "186
-[; ;lab3.c: 186:     initADC(0);
-[e ( _Lcd_Write_Char (1 -> + -> _C13 `i -> 48 `i `uc ]
+[; ;lab3.c: 186:     ADCON1 = 0;
+}
+[e :U 177 ]
+"187
+[; ;lab3.c: 187:     PORTA = 0;
+[e $ ! > -> _C31 `i -> 5 `i 178  ]
+{
 "188
-[; ;lab3.c: 188: 
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+[; ;lab3.c: 188:     ADCON0 = 0b10000011;
+[e = _C11 -> -> 5 `i `uc ]
 "189
-[; ;lab3.c: 189: 
-[e ( _Lcd_Write_Char (1 -> + -> _C21 `i -> 48 `i `uc ]
-"190
-[; ;lab3.c: 190: 
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
+[; ;lab3.c: 189:     ADCON1 = 0;
+}
+[e :U 178 ]
 "191
-[; ;lab3.c: 191:     OPTION_REGbits.T0CS = 0;
-[e ( _Lcd_Write_Char (1 -> + -> _C22 `i -> 48 `i `uc ]
+[; ;lab3.c: 191:     PORTB = 0;
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "192
-[; ;lab3.c: 192:     OPTION_REGbits.PSA = 0;
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+[; ;lab3.c: 192:     ANSEL = 0;
+[e ( _Lcd_Write_Char (1 -> + -> _C11 `i -> 48 `i `uc ]
 "193
-[; ;lab3.c: 193:     OPTION_REGbits.PS = 111;
-[e ( _Lcd_Write_Char (1 -> + -> _C23 `i -> 48 `i `uc ]
+[; ;lab3.c: 193:     Lcd_Init();
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"194
+[; ;lab3.c: 194:     var_contador = 0;
+[e ( _Lcd_Write_Char (1 -> + -> _C12 `i -> 48 `i `uc ]
 "195
-[; ;lab3.c: 195: 
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+[; ;lab3.c: 195:     PIE1bits.ADIE = 1;
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
 "196
-[; ;lab3.c: 196: 
-[e ( _Lcd_Write_Char (1 -> + -> _C31 `i -> 48 `i `uc ]
-"197
-[; ;lab3.c: 197:     INTCONbits.GIE = 1;
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 15 `i `uc ]
+[; ;lab3.c: 196:     initADC(0);
+[e ( _Lcd_Write_Char (1 -> + -> _C13 `i -> 48 `i `uc ]
 "198
-[; ;lab3.c: 198:     INTCONbits.T0IE = 1;
-[e ( _Lcd_Write_Char (1 -> + -> _C32 `i -> 48 `i `uc ]
+[; ;lab3.c: 198: 
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
 "199
-[; ;lab3.c: 199:     INTCONbits.T0IF = 0;
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 16 `i `uc ]
+[; ;lab3.c: 199: 
+[e ( _Lcd_Write_Char (1 -> + -> _C21 `i -> 48 `i `uc ]
 "200
 [; ;lab3.c: 200: 
-[e ( _Lcd_Write_Char (1 -> + -> _C33 `i -> 48 `i `uc ]
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
+"201
+[; ;lab3.c: 201:     OPTION_REGbits.T0CS = 0;
+[e ( _Lcd_Write_Char (1 -> + -> _C22 `i -> 48 `i `uc ]
 "202
-[; ;lab3.c: 202: 
+[; ;lab3.c: 202:     OPTION_REGbits.PSA = 0;
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"203
+[; ;lab3.c: 203:     OPTION_REGbits.PS = 111;
+[e ( _Lcd_Write_Char (1 -> + -> _C23 `i -> 48 `i `uc ]
+"205
+[; ;lab3.c: 205: 
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+"206
+[; ;lab3.c: 206: 
+[e ( _Lcd_Write_Char (1 -> + -> _C31 `i -> 48 `i `uc ]
+"207
+[; ;lab3.c: 207:     INTCONbits.GIE = 1;
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 15 `i `uc ]
+"208
+[; ;lab3.c: 208:     INTCONbits.T0IE = 1;
+[e ( _Lcd_Write_Char (1 -> + -> _C32 `i -> 48 `i `uc ]
+"209
+[; ;lab3.c: 209:     INTCONbits.T0IF = 0;
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 16 `i `uc ]
+"210
+[; ;lab3.c: 210: 
+[e ( _Lcd_Write_Char (1 -> + -> _C33 `i -> 48 `i `uc ]
+"212
+[; ;lab3.c: 212: 
 }
 [e :U 168 ]
 [e $U 169  ]
 [e :U 170 ]
-"203
-[; ;lab3.c: 203: 
+"213
+[; ;lab3.c: 213: 
 [e :UE 167 ]
 }
-"205
-[; ;lab3.c: 205:     Lcd_Write_String("S1");
+"215
+[; ;lab3.c: 215:     Lcd_Write_String("S1");
 [v _Setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _Setup ]
 [f ]
-"207
-[; ;lab3.c: 207:     Lcd_Write_String("0.00");
-[e = _TRISA -> -> 0 `i `uc ]
-"208
-[; ;lab3.c: 208:     Lcd_Set_Cursor(1,8);
-[e = _TRISD -> -> 0 `i `uc ]
-"209
-[; ;lab3.c: 209:     Lcd_Write_String("S2");
-[e = _PORTD -> -> 0 `i `uc ]
-"210
-[; ;lab3.c: 210:     Lcd_Set_Cursor(2,7);
-[e = _TRISE -> -> 0 `i `uc ]
-"211
-[; ;lab3.c: 211:     Lcd_Write_String("0.00");
-[e = _TRISB -> -> 0 `i `uc ]
-"213
-[; ;lab3.c: 213:     Lcd_Write_String("S3");
-[e = _ADCON0 -> -> 131 `i `uc ]
-"214
-[; ;lab3.c: 214:     Lcd_Set_Cursor(2,13);
-[e = _ADCON1 -> -> 0 `i `uc ]
-"215
-[; ;lab3.c: 215:     Lcd_Write_String("0.00");
-[e = _PORTA -> -> 0 `i `uc ]
-"216
-[; ;lab3.c: 216: 
-[e = _ADCON0 -> -> 131 `i `uc ]
 "217
-[; ;lab3.c: 217: }
-[e = _ADCON1 -> -> 0 `i `uc ]
+[; ;lab3.c: 217:     Lcd_Write_String("0.00");
+[e = _TRISA -> -> 0 `i `uc ]
 "218
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;lab3.c: 218:     Lcd_Set_Cursor(1,8);
+[e = _TRISD -> -> 0 `i `uc ]
 "219
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;lab3.c: 219:     Lcd_Write_String("S2");
+[e = _PORTD -> -> 0 `i `uc ]
 "220
-[e = _ANSEL -> -> 0 `i `uc ]
+[; ;lab3.c: 220:     Lcd_Set_Cursor(2,7);
+[e = _TRISE -> -> 0 `i `uc ]
 "221
-[e ( _Lcd_Init ..  ]
-"222
-[e = _var_contador -> -> 0 `i `uc ]
+[; ;lab3.c: 221:     Lcd_Write_String("0.00");
+[e = _TRISB -> -> 0 `i `uc ]
 "223
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;lab3.c: 223:     Lcd_Write_String("S3");
+[e = _ADCON0 -> -> 131 `i `uc ]
 "224
-[e ( _initADC (1 -> -> 0 `i `uc ]
+[; ;lab3.c: 224:     Lcd_Set_Cursor(2,13);
+[e = _ADCON1 -> -> 0 `i `uc ]
 "225
-[e ( _initADC (1 -> -> 1 `i `uc ]
+[; ;lab3.c: 225:     Lcd_Write_String("0.00");
+[e = _PORTA -> -> 0 `i `uc ]
+"226
+[; ;lab3.c: 226: 
+[e = _ADCON0 -> -> 131 `i `uc ]
+"227
+[; ;lab3.c: 227: }
+[e = _ADCON1 -> -> 0 `i `uc ]
+"228
+[e = _PORTA -> -> 0 `i `uc ]
 "229
-[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
+[e = _PORTB -> -> 0 `i `uc ]
 "230
-[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
+[e = _ANSEL -> -> 0 `i `uc ]
 "231
-[e = . . _OPTION_REGbits 0 0 -> -> 111 `i `uc ]
+[e ( _Lcd_Init ..  ]
 "232
-[e = _TMR0 -> -> 10 `i `uc ]
+[e = _var_contador -> -> 0 `i `uc ]
+"233
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"234
+[e ( _initADC (1 -> -> 0 `i `uc ]
 "235
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"236
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"237
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[e ( _initADC (1 -> -> 1 `i `uc ]
 "239
-[e ( _initUSART ..  ]
+[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
+"240
+[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
+"241
+[e = . . _OPTION_REGbits 0 0 -> -> 111 `i `uc ]
 "242
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
-"243
-[e ( _Lcd_Write_String (1 :s 1C ]
-"244
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[e = _TMR0 -> -> 10 `i `uc ]
 "245
-[e ( _Lcd_Write_String (1 :s 2C ]
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "246
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "247
-[e ( _Lcd_Write_String (1 :s 3C ]
-"248
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "249
-[e ( _Lcd_Write_String (1 :s 4C ]
-"250
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 14 `i `uc ]
-"251
-[e ( _Lcd_Write_String (1 :s 5C ]
+[e ( _initUSART ..  ]
 "252
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
 "253
-[e ( _Lcd_Write_String (1 :s 6C ]
+[e ( _Lcd_Write_String (1 :s 1C ]
+"254
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "255
-[e :UE 176 ]
+[e ( _Lcd_Write_String (1 :s 2C ]
+"256
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
+"257
+[e ( _Lcd_Write_String (1 :s 3C ]
+"258
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+"259
+[e ( _Lcd_Write_String (1 :s 4C ]
+"260
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 14 `i `uc ]
+"261
+[e ( _Lcd_Write_String (1 :s 5C ]
+"262
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+"263
+[e ( _Lcd_Write_String (1 :s 6C ]
+"265
+[e :UE 179 ]
 }
 [a 5C 83 51 0 ]
 [a 3C 83 50 0 ]

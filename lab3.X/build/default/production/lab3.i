@@ -2838,6 +2838,16 @@ void main(void) {
         C23 = 9;
     }
 
+    if (C11 > 5){
+        C11 = 5;
+    }
+    if (C21 > 5){
+        C11 = 5;
+    }
+    if (C31 > 5){
+        C11 = 5;
+    }
+
     Lcd_Set_Cursor(2,1);
     Lcd_Write_Char(C11 +48);
     Lcd_Set_Cursor(2,3);

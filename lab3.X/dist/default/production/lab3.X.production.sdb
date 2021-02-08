@@ -25,7 +25,7 @@
 [v _isr isr `II(v  1 e 1 0 ]
 "147
 [v _main main `(v  1 e 1 0 ]
-"205
+"215
 [v _Setup Setup `(v  1 e 1 0 ]
 "12 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lcd.c
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
@@ -295,7 +295,7 @@
 "147
 [v _main main `(v  1 e 1 0 ]
 {
-"203
+"213
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -345,10 +345,10 @@
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 "41
 } 0
-"205 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
+"215 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"255
+"265
 } 0
 "3 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
