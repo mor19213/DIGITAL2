@@ -2498,22 +2498,6 @@ extern __bank0 __bit __timeout;
 # 9 "lab3.c" 2
 
 
-
-# 1 "./lcd.h" 1
-# 21 "./lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void Lcd_Init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
-# 12 "lab3.c" 2
-
-# 1 "./adc.h" 1
-# 14 "./adc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -2647,11 +2631,9 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 14 "./adc.h" 2
+# 11 "lab3.c" 2
 
 
-void initADC(uint8_t IRCF);
-# 13 "lab3.c" 2
 
 # 1 "./USART.h" 1
 # 14 "./USART.h"
@@ -2659,8 +2641,30 @@ void initADC(uint8_t IRCF);
 # 14 "./USART.h" 2
 
 
-void initADC(uint8_t IRCF);
+void initUSART(void);
 # 14 "lab3.c" 2
+
+# 1 "./adc.h" 1
+# 14 "./adc.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 14 "./adc.h" 2
+
+
+void initADC(uint8_t IRCF);
+# 15 "lab3.c" 2
+
+# 1 "./lcd.h" 1
+# 22 "./lcd.h"
+void Lcd_Port(char a);
+void Lcd_Cmd(char a);
+
+void Lcd_Set_Cursor(char a, char b);
+void Lcd_Init(void);
+void Lcd_Write_Char(char a);
+void Lcd_Write_String(char *a);
+void Lcd_Shift_Right(void);
+void Lcd_Shift_Left(void);
+# 16 "lab3.c" 2
 
 # 1 "./osc.h" 1
 # 14 "./osc.h"
@@ -2669,7 +2673,7 @@ void initADC(uint8_t IRCF);
 
 
 void initOsc(uint8_t IRCF);
-# 15 "lab3.c" 2
+# 17 "lab3.c" 2
 
 
 
@@ -2698,6 +2702,25 @@ void initOsc(uint8_t IRCF);
   uint8_t ADC1;
   uint8_t ADC2;
   uint8_t bandera;
+  uint8_t RC_temp;
+  uint8_t var_contador;
+  uint16_t contador;
+  uint8_t cont1;
+  uint8_t cont2;
+  uint8_t ughh;
+  uint8_t CONTX;
+  uint8_t banderaTX;
+  uint8_t C11;
+  uint8_t C12;
+  uint8_t C13;
+  uint8_t C21;
+  uint8_t C22;
+  uint8_t C23;
+  uint8_t C31;
+  uint8_t C32;
+  uint8_t C33;
+  uint8_t bandera1;
+
 
 
 
@@ -2706,76 +2729,187 @@ void Setup (void);
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
+    (INTCONbits.GIE = 0);
+    if (INTCONbits.T0IF){
+        CONTX++;
+        INTCONbits.T0IF = 0;
+    }
+
     if(ADIF == 1){
         if (bandera == 1){
-            bandera = 0;
             ADC1 = ADRESH;
             ADCON0bits.CHS0 = 1;
-            RA4 = 1;
-            RA3 = 0;
+            bandera = 0;
         } else{
-            bandera = 1;
             ADC2 = ADRESH;
             ADCON0bits.CHS0 = 0;
-            RA4 = 0;
-            RA3 = 1;
+            bandera = 1;
         }
         ADIF = 0;
         ADCON0bits.GO = 1;
     }
+    if(PIR1bits.RCIF == 1){
+
+        RA7 = 1;
+        if (RCREG == 0x0D){
+        RA7 = 0;
+            if (RC_temp == 0x2B){
+                contador++;
+                if (contador > 255){
+                    contador = 0;
+                }
+            } else if (RC_temp == 0x2D){
+                contador--;
+
+                if (contador > 255){
+                    contador = 255;
+                }
+
+            }
+        } else {
+        RC_temp = RCREG;
+        }
+    }
+
+    if (TXIF == 1){
+        if (bandera1 == 0){
+            TXREG = C11 + 48;
+            bandera1 = 1;
+        } else if (bandera1 == 1){
+            TXREG = C12 + 48;
+            bandera1 = 2;
+        } else if (bandera1 == 2){
+            TXREG = C13 + 48;
+            bandera1 = 3;
+        } else if (bandera1 == 3){
+            TXREG = 0x2D;
+            bandera1 = 4;
+        }
+        else if (bandera1 == 4){
+            TXREG = C21 + 48;
+            bandera1 = 5;
+        } else if (bandera1 == 5){
+            TXREG = C22 + 48;
+            bandera1 = 6;
+        } else if (bandera1 == 6){
+            TXREG = C23 + 48;
+            bandera1 = 7;
+        } else if (bandera1 == 7){
+            TXREG = 0x0D;
+            bandera1 = 0;
+        }
+
+    TXIE = 0;
+    }
+    (INTCONbits.GIE = 1);
 }
 
 void main(void) {
     Setup();
-  while(1)
-  {
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("LCD Library for");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("MPLAB XC8");
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Developed By");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("electroSome");
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("www.electroSome.com");
+    while(1){
+        if(CONTX > 15){
+            CONTX = 0;
+            TXIE = 1;
+            }
 
-    for(a=0;a<15;a++)
-    {
-        _delay((unsigned long)((300)*(8000000/4000.0)));
-        Lcd_Shift_Left();
+
+    C11 = ADC1 / 51;
+    C12 = ((ADC1 * 100 / 51) - (C11*100))/10;
+    C13 = ((ADC1 * 100 / 51) - (C11*100) - (C12*10));
+
+    C21 = ADC2 / 51;
+    C22 = (((ADC2 * 100) / 51) - (C21*100))/10;
+    C23 = (((ADC2 * 100) / 51) - (C21*100) - (C22*10));
+
+    C31 = contador / 51;
+    C32 = ((contador * 100 / 51) - (C31*100))/10;
+    C33 = ((contador * 100 / 51) - (C31*100) - (C32*10));
+
+    if (C12 > 9){
+        C12 = 9;
+    }
+    if (C13 > 9){
+        C13 = 9;
+    }
+    if (C22 > 9){
+        C22 = 9;
+    }
+    if (C23 > 9){
+        C23 = 9;
     }
 
-    for(a=0;a<15;a++)
-    {
-        _delay((unsigned long)((300)*(8000000/4000.0)));
-        Lcd_Shift_Right();
-    }
-
-    Lcd_Clear();
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_Char('e');
-    Lcd_Write_Char('S');
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
+    Lcd_Write_Char(C11 +48);
+    Lcd_Set_Cursor(2,3);
+    Lcd_Write_Char(C12 + 48);
+    Lcd_Set_Cursor(2,4);
+    Lcd_Write_Char(C13 + 48);
+
+    Lcd_Set_Cursor(2,7);
+    Lcd_Write_Char(C21 +48);
+    Lcd_Set_Cursor(2,9);
+    Lcd_Write_Char(C22 + 48);
+    Lcd_Set_Cursor(2,10);
+    Lcd_Write_Char(C23 + 48);
+
+    Lcd_Set_Cursor(2,13);
+    Lcd_Write_Char(C31 +48);
+    Lcd_Set_Cursor(2,15);
+    Lcd_Write_Char(C32 + 48);
+    Lcd_Set_Cursor(2,16);
+    Lcd_Write_Char(C33 + 48);
+
   }
 }
 
 void Setup(void){
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
+
+    TRISA = 0;
+    TRISD = 0;
+    PORTD = 0;
+    TRISE = 0;
+    TRISB = 0;
+
     ADCON0 = 0b10000011;
     ADCON1 = 0;
-    TRISA = 0;
     PORTA = 0;
+    ADCON0 = 0b10000011;
+    ADCON1 = 0;
+    PORTA = 0;
+    PORTB = 0;
+    ANSEL = 0;
+    Lcd_Init();
+    var_contador = 0;
     PIE1bits.ADIE = 1;
     initADC(0);
     initADC(1);
-    TRISD = 0x00;
-    TRISE = 0;
-    Lcd_Init();
+
+
+
+    OPTION_REGbits.T0CS = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS = 111;
+    TMR0 = 10;
+
+
+    INTCONbits.GIE = 1;
+    INTCONbits.T0IE = 1;
+    INTCONbits.T0IF = 0;
+
+    initUSART();
+
+
+    Lcd_Set_Cursor(1,3);
+    Lcd_Write_String("S1");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("0.00");
+    Lcd_Set_Cursor(1,8);
+    Lcd_Write_String("S2");
+    Lcd_Set_Cursor(2,7);
+    Lcd_Write_String("0.00");
+    Lcd_Set_Cursor(1,14);
+    Lcd_Write_String("S3");
+    Lcd_Set_Cursor(2,13);
+    Lcd_Write_String("0.00");
+
 }

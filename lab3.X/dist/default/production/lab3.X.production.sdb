@@ -5,43 +5,51 @@
 [d frameptr 0 ]
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\ADC.c
 [v _initADC initADC `(v  1 e 1 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"50 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
+"71 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
 [v _isr isr `II(v  1 e 1 0 ]
-"70
+"147
 [v _main main `(v  1 e 1 0 ]
-"110
+"205
 [v _Setup Setup `(v  1 e 1 0 ]
 "12 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lcd.c
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 "16
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
-"25
-[v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
-"31
+"30
 [v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
-"46
+"45
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
 "63
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
-"79
+"72
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
-"86
-[v _Lcd_Shift_Right Lcd_Shift_Right `(v  1 e 1 0 ]
-"92
-[v _Lcd_Shift_Left Lcd_Shift_Left `(v  1 e 1 0 ]
-"166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"3 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\USART.c
+[v _initUSART initUSART `(v  1 e 1 0 ]
+"59 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"166
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S110 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S293 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -51,14 +59,25 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S119 . 1 `uc 1 . 1 0 :2:0 
+[s S302 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S124 . 1 `S110 1 . 1 0 `S119 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES124  1 e 1 @11 ]
-[s S397 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S307 . 1 `S293 1 . 1 0 `S302 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES307  1 e 1 @11 ]
+[s S432 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S440 . 1 `S432 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES440  1 e 1 @12 ]
+[s S238 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -68,29 +87,33 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S406 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S247 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S410 . 1 `uc 1 . 1 0 :6:0 
+[s S251 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S413 . 1 `uc 1 . 1 0 :6:0 
+[s S254 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S416 . 1 `S397 1 . 1 0 `S406 1 . 1 0 `S410 1 . 1 0 `S413 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES416  1 e 1 @24 ]
+[u S257 . 1 `S238 1 . 1 0 `S247 1 . 1 0 `S251 1 . 1 0 `S254 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES257  1 e 1 @24 ]
+"1133
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1140
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 "1245
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-[s S24 . 1 `uc 1 ADON 1 0 :1:0 
+[s S386 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1276
-[s S29 . 1 `uc 1 . 1 0 :1:0 
+[s S391 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -99,17 +122,31 @@
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S38 . 1 `uc 1 . 1 0 :1:0 
+[s S400 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S41 . 1 `uc 1 . 1 0 :1:0 
+[s S403 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S44 . 1 `S24 1 . 1 0 `S29 1 . 1 0 `S38 1 . 1 0 `S41 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES44  1 e 1 @31 ]
+[u S406 . 1 `S386 1 . 1 0 `S391 1 . 1 0 `S400 1 . 1 0 `S403 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES406  1 e 1 @31 ]
+[s S485 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"1366
+[s S492 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+]
+[u S496 . 1 `S485 1 . 1 0 `S492 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES496  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
-[s S260 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S43 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -119,21 +156,35 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S269 . 1 `S260 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES269  1 e 1 @133 ]
+[u S52 . 1 `S43 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES52  1 e 1 @133 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S157 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1557
+[u S166 . 1 `S157 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES166  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S302 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S85 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
 ]
 "1677
-[u S307 . 1 `S302 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES307  1 e 1 @137 ]
-[s S146 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S90 . 1 `S85 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES90  1 e 1 @137 ]
+[s S24 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -142,23 +193,9 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S154 . 1 `S146 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES154  1 e 1 @140 ]
-[s S467 . 1 `uc 1 SCS 1 0 :1:0 
-`uc 1 LTS 1 0 :1:1 
-`uc 1 HTS 1 0 :1:2 
-`uc 1 OSTS 1 0 :1:3 
-`uc 1 IRCF 1 0 :3:4 
-]
-"1882
-[s S473 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 IRCF0 1 0 :1:4 
-`uc 1 IRCF1 1 0 :1:5 
-`uc 1 IRCF2 1 0 :1:6 
-]
-[u S478 . 1 `S467 1 . 1 0 `S473 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES478  1 e 1 @143 ]
-[s S337 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S32 . 1 `S24 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES32  1 e 1 @140 ]
+[s S179 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -168,22 +205,22 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S346 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S188 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S350 . 1 `uc 1 . 1 0 :6:0 
+[s S192 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S353 . 1 `S337 1 . 1 0 `S346 1 . 1 0 `S350 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES353  1 e 1 @152 ]
+[u S195 . 1 `S179 1 . 1 0 `S188 1 . 1 0 `S192 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES195  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2704
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
 "2977
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
-[s S374 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S216 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -193,9 +230,11 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "3352
-[u S383 . 1 `S374 1 . 1 0 ]
-[v _BAUDCTLbits BAUDCTLbits `VES383  1 e 1 @391 ]
-[s S281 . 1 `uc 1 ANS0 1 0 :1:0 
+[u S225 . 1 `S216 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES225  1 e 1 @391 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+[s S64 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -205,35 +244,116 @@
 `uc 1 ANS7 1 0 :1:7 
 ]
 "3404
-[u S290 . 1 `S281 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES290  1 e 1 @392 ]
+[u S73 . 1 `S64 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES73  1 e 1 @392 ]
 "3587
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
-"4088
-[v _RA3 RA3 `VEb  1 e 0 @43 ]
-"4091
-[v _RA4 RA4 `VEb  1 e 0 @44 ]
+"4100
+[v _RA7 RA7 `VEb  1 e 0 @47 ]
 "4205
 [v _RE0 RE0 `VEb  1 e 0 @72 ]
 "4208
 [v _RE1 RE1 `VEb  1 e 0 @73 ]
-"39 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
-[v _a a `ui  1 e 2 0 ]
-"40
+"4541
+[v _TXIE TXIE `VEb  1 e 0 @1124 ]
+"4544
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"42 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
 [v _ADC1 ADC1 `uc  1 e 1 0 ]
-"41
+"43
 [v _ADC2 ADC2 `uc  1 e 1 0 ]
-"42
+"44
 [v _bandera bandera `uc  1 e 1 0 ]
-"70
+"45
+[v _RC_temp RC_temp `uc  1 e 1 0 ]
+"46
+[v _var_contador var_contador `uc  1 e 1 0 ]
+"47
+[v _contador contador `ui  1 e 2 0 ]
+"51
+[v _CONTX CONTX `uc  1 e 1 0 ]
+"53
+[v _C11 C11 `uc  1 e 1 0 ]
+"54
+[v _C12 C12 `uc  1 e 1 0 ]
+"55
+[v _C13 C13 `uc  1 e 1 0 ]
+"56
+[v _C21 C21 `uc  1 e 1 0 ]
+"57
+[v _C22 C22 `uc  1 e 1 0 ]
+"58
+[v _C23 C23 `uc  1 e 1 0 ]
+"59
+[v _C31 C31 `uc  1 e 1 0 ]
+"60
+[v _C32 C32 `uc  1 e 1 0 ]
+"61
+[v _C33 C33 `uc  1 e 1 0 ]
+"62
+[v _bandera1 bandera1 `uc  1 e 1 0 ]
+"147
 [v _main main `(v  1 e 1 0 ]
 {
-"108
+"203
 } 0
-"110
+"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 0 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 3 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 5 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 6 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 8 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 4 ]
+"30
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 5 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 3 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 6 ]
+"51
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 8 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 7 ]
+[v ___awdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+[v ___awdiv@dividend dividend `i  1 p 2 4 ]
+"41
+} 0
+"205 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"123
+"255
+} 0
+"3 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\USART.c
+[v _initUSART initUSART `(v  1 e 1 0 ]
+{
+"29
 } 0
 "4 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\ADC.c
 [v _initADC initADC `(v  1 e 1 0 ]
@@ -244,63 +364,44 @@
 [v initADC@IRCF IRCF `uc  1 a 1 5 ]
 "47
 } 0
-"46 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lcd.c
-[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
-{
-"61
-} 0
-"79
+"72 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lcd.c
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 {
 [v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
-"81
+"74
 [v Lcd_Write_String@i i `i  1 a 2 0 ]
-"79
+"72
 [v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
-"82
+"75
 [v Lcd_Write_String@a a `*.24uc  1 a 1 2 ]
-"84
+"77
 } 0
 "63
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 {
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-"65
-[v Lcd_Write_Char@y y `uc  1 a 1 6 ]
-[v Lcd_Write_Char@temp temp `uc  1 a 1 5 ]
-"63
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-"66
-[v Lcd_Write_Char@a a `uc  1 a 1 7 ]
-"77
+"65
+[v Lcd_Write_Char@a a `uc  1 a 1 5 ]
+"70
 } 0
-"86
-[v _Lcd_Shift_Right Lcd_Shift_Right `(v  1 e 1 0 ]
-{
-"90
-} 0
-"92
-[v _Lcd_Shift_Left Lcd_Shift_Left `(v  1 e 1 0 ]
-{
-"96
-} 0
-"31
+"30
 [v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
 {
 [v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
-"33
+"32
 [v Lcd_Set_Cursor@temp temp `uc  1 a 1 2 ]
-"31
+"30
 [v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
 [v Lcd_Set_Cursor@b b `uc  1 p 1 7 ]
-"34
+"33
 [v Lcd_Set_Cursor@a a `uc  1 a 1 1 ]
-"44
+"43
 } 0
-"25
-[v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
+"45
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
 {
-"29
+"61
 } 0
 "16
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
@@ -320,8 +421,8 @@
 [v Lcd_Port@a a `uc  1 a 1 3 ]
 "15
 } 0
-"50 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
+"71 C:\Users\danie\OneDrive - Universidad del Valle de Guatemala\5 semestre\Digital2\DIGITAL2\lab3.X\lab3.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"68
+"145
 } 0

@@ -2498,10 +2498,10 @@ extern __bank0 __bit __timeout;
 # 9 "lcd.c" 2
 
 # 1 "./lcd.h" 1
-# 21 "./lcd.h"
+# 22 "./lcd.h"
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
-void Lcd_Clear(void);
+
 void Lcd_Set_Cursor(char a, char b);
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
@@ -2520,15 +2520,14 @@ void Lcd_Cmd(char a)
  RE0 = 0;
  Lcd_Port(a);
  RE1 = 1;
-        _delay((unsigned long)((4)*(8000000/4000.0)));
+        _delay((unsigned long)((10)*(4000000/4000.0)));
         RE1 = 0;
 }
 
-void Lcd_Clear()
-{
- Lcd_Cmd(0);
- Lcd_Cmd(1);
-}
+
+
+
+
 
 void Lcd_Set_Cursor(char a, char b)
 {
@@ -2545,36 +2544,30 @@ void Lcd_Set_Cursor(char a, char b)
  }
 }
 
-void Lcd_Init()
-{
+void Lcd_Init(){
+   _delay((unsigned long)((15)*(4000000/4000.0)));
   Lcd_Port(0x00);
-   _delay((unsigned long)((20)*(8000000/4000.0)));
+   _delay((unsigned long)((20)*(4000000/4000.0)));
   Lcd_Cmd(0x030);
- _delay((unsigned long)((5)*(8000000/4000.0)));
+ _delay((unsigned long)((5)*(4000000/4000.0)));
   Lcd_Cmd(0x030);
- _delay((unsigned long)((11)*(8000000/4000.0)));
+ _delay((unsigned long)((160)*(4000000/4000000.0)));
   Lcd_Cmd(0x030);
-
 
   Lcd_Cmd(0x038);
-  Lcd_Cmd(0x008);
+  Lcd_Cmd(0x010);
   Lcd_Cmd(0x001);
   Lcd_Cmd(0x006);
+
+  Lcd_Cmd(0x0C);
 }
 
 void Lcd_Write_Char(char a)
 {
-   char temp,y;
-   temp = a&0x0F;
-   y = a&0xF0;
-            RE0 = 1;
-   Lcd_Port(y>>4);
+    RE0 = 1;
+   Lcd_Port(a);
    RE1 = 1;
-   _delay((unsigned long)((40)*(8000000/4000000.0)));
-   RE1 = 0;
-   Lcd_Port(temp);
-   RE1 = 1;
-   _delay((unsigned long)((40)*(8000000/4000000.0)));
+   _delay((unsigned long)((40)*(4000000/4000000.0)));
    RE1 = 0;
 }
 
@@ -2587,12 +2580,10 @@ void Lcd_Write_String(char *a)
 
 void Lcd_Shift_Right()
 {
- Lcd_Cmd(0x01);
- Lcd_Cmd(0x0C);
+ Lcd_Cmd(0x1C);
 }
 
 void Lcd_Shift_Left()
 {
- Lcd_Cmd(0x01);
- Lcd_Cmd(0x08);
+ Lcd_Cmd(0x18);
 }

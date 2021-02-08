@@ -18,15 +18,14 @@ void Lcd_Cmd(char a)
 	RS = 0;             // => RS = 0
 	Lcd_Port(a);
 	EN  = 1;             // => E = 1
-        __delay_ms(4);
+        __delay_ms(10);
         EN  = 0;             // => E = 0
 }
 
-void Lcd_Clear()
-{
-	Lcd_Cmd(0);
-	Lcd_Cmd(1);
-}
+//void Lcd_Clear()
+//{
+//	Lcd_Cmd(0x01);
+//}
 
 void Lcd_Set_Cursor(char a, char b)
 {
@@ -43,34 +42,28 @@ void Lcd_Set_Cursor(char a, char b)
 	}
 }
 
-void Lcd_Init()
-{
+void Lcd_Init(){
+   __delay_ms(15);
   Lcd_Port(0x00);
    __delay_ms(20);
   Lcd_Cmd(0x030);
 	__delay_ms(5);
   Lcd_Cmd(0x030);
-	__delay_ms(11);
+	__delay_us(160);
   Lcd_Cmd(0x030);
-  /////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
   Lcd_Cmd(0x038);
-  Lcd_Cmd(0x008);
+  Lcd_Cmd(0x010);
   Lcd_Cmd(0x001);
   Lcd_Cmd(0x006);
+  
+  Lcd_Cmd(0x0C);
 }
 
 void Lcd_Write_Char(char a)
 {
-   char temp,y;
-   temp = a&0x0F;
-   y = a&0xF0;
-            RS = 1;             // => RS = 1
-   Lcd_Port(y>>4);              //Data transfer
-   EN = 1;
-   __delay_us(40);
-   EN = 0;
-   Lcd_Port(temp);
+    RS = 1;             // => RS = 1
+   Lcd_Port(a);              //Data transfer
    EN = 1;
    __delay_us(40);
    EN = 0;
@@ -85,13 +78,10 @@ void Lcd_Write_String(char *a)
 
 void Lcd_Shift_Right()
 {
-	Lcd_Cmd(0x01);
-	Lcd_Cmd(0x0C);
+	Lcd_Cmd(0x1C);
 }
 
 void Lcd_Shift_Left()
 {
-	Lcd_Cmd(0x01);
-	Lcd_Cmd(0x08);
+	Lcd_Cmd(0x18);
 }
-

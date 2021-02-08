@@ -25,7 +25,9 @@ void initOsc(uint8_t IRCF) {
             OSCCONbits.IRCF = 101;
             break;
         case 6:
-            OSCCONbits.IRCF = 110;
+            OSCCONbits.IRCF2 = 0;
+            OSCCONbits.IRCF1 = 0;
+            OSCCONbits.IRCF0 = 1;
             break;
         case 7:
             OSCCONbits.IRCF = 111;

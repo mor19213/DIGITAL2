@@ -7,12 +7,13 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef USART_H
-#define USART_H
+#ifndef OSCILADOR_H
+#define OSCILADOR_H
 
 #include <xc.h> // include processor files - each processor file is guarded.
 #include <stdint.h>
 
-void initUSART(void);
+void initOsc(uint8_t IRCF);
 
-#endif	/* USART_H */
+#endif	/* OSCILADOR_H */
+
