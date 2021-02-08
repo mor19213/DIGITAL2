@@ -69,7 +69,7 @@ void Setup (void);
 
 
 void __interrupt() isr(void){
-    di();
+    //di();
     if (INTCONbits.T0IF){           // INTERRUPCION TMR0
         CONTX++;
         INTCONbits.T0IF = 0;        // TERMINAR INTERRUPCION DE TMR0
@@ -116,32 +116,38 @@ void __interrupt() isr(void){
             TXREG = C11 + 48;
             bandera1 = 1;
         } else if (bandera1 == 1){
-            TXREG = C12 + 48;
+            TXREG = 0x2E;
             bandera1 = 2;
         } else if (bandera1 == 2){
-            TXREG = C13 + 48;
+            TXREG = C12 + 48;
             bandera1 = 3;
         } else if (bandera1 == 3){
-            TXREG = 0x2D;
+            TXREG = C13 + 48;
             bandera1 = 4;
-        }
-        else if (bandera1 == 4){
-            TXREG = C21 + 48;
+        } else if (bandera1 == 4){
+            TXREG = 0x2D;
             bandera1 = 5;
-        } else if (bandera1 == 5){
-            TXREG = C22 + 48;
+        }
+        else if (bandera1 == 5){
+            TXREG = C21 + 48;
             bandera1 = 6;
         } else if (bandera1 == 6){
-            TXREG = C23 + 48;
+            TXREG = 0x2E;
             bandera1 = 7;
         } else if (bandera1 == 7){
+            TXREG = C22 + 48;
+            bandera1 = 8;
+        } else if (bandera1 == 8){
+            TXREG = C23 + 48;
+            bandera1 = 9;
+        } else if (bandera1 == 9){
             TXREG = 0x0D;
             bandera1 = 0;
         }
         
     TXIE = 0; 
     }   
-    ei();
+    //ei();
 }
 
 void main(void) {
