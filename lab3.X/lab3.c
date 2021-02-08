@@ -76,6 +76,8 @@ void __interrupt() isr(void){
     }
     
     if(ADIF == 1){
+        // bandera para cambiar de canal
+        // hacer 1 canal por interrupcion
         if (bandera == 1){
             ADC1 = ADRESH;
             ADCON0bits.CHS0 = 1;
@@ -113,6 +115,7 @@ void __interrupt() isr(void){
     
     if (TXIF == 1){
         if (bandera1 == 0){
+            // enviar chars de los 2 adc, usar banderas para enviar 1 por 1
             TXREG = C11 + 48;
             bandera1 = 1;
         } else if (bandera1 == 1){
@@ -158,7 +161,7 @@ void main(void) {
             TXIE = 1;
             }
         
-  
+  //conversiones valores adc y sensor 3 a 0.00 a 5.00V
     C11 = ADC1 / 51;
     C12 = ((ADC1 * 100 / 51) - (C11*100))/10;
     C13 = ((ADC1 * 100 / 51) - (C11*100) - (C12*10));  
@@ -171,6 +174,7 @@ void main(void) {
     C32 = ((contador * 100 / 51) - (C31*100))/10;
     C33 = ((contador * 100 / 51) - (C31*100) - (C32*10));
     
+    //limites de los chars
     if (C12 > 9){
         C12 = 9;
     }
@@ -194,6 +198,8 @@ void main(void) {
         C11 = 5;
     }
     
+    // colocar chars en posicion en la lcd
+    // sensor 1
     Lcd_Set_Cursor(2,1);
     Lcd_Write_Char(C11 +48);
     Lcd_Set_Cursor(2,3);
@@ -201,13 +207,15 @@ void main(void) {
     Lcd_Set_Cursor(2,4);
     Lcd_Write_Char(C13 + 48);
     
+    //sensor 2
     Lcd_Set_Cursor(2,7);
     Lcd_Write_Char(C21 +48);
     Lcd_Set_Cursor(2,9);
     Lcd_Write_Char(C22 + 48);
     Lcd_Set_Cursor(2,10);
     Lcd_Write_Char(C23 + 48);
-       
+     
+    //sensor 3
     Lcd_Set_Cursor(2,13);
     Lcd_Write_Char(C31 +48);
     Lcd_Set_Cursor(2,15);
@@ -234,6 +242,7 @@ void Setup(void){
     PORTA = 0;
     PORTB = 0;
     ANSEL = 0;
+    // iniciar lcd
     Lcd_Init();
     var_contador = 0;
     PIE1bits.ADIE = 1;
@@ -252,9 +261,10 @@ void Setup(void){
     INTCONbits.T0IE = 1;            // tmr0 interrupt enable
     INTCONbits.T0IF = 0;            // bandera tmr0 
     
+    // iniciar usart
     initUSART();
     
-    
+    // formato lcd
     Lcd_Set_Cursor(1,3);
     Lcd_Write_String("S1");
     Lcd_Set_Cursor(2,1);
