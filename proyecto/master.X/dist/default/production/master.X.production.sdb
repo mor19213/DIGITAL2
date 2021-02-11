@@ -1,0 +1,155 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 0 ]
+"88 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[e E1292 . `uc
+SPI_MASTER_OSC_4 32
+SPI_MASTER_OSC_16 33
+SPI_MASTER_OSC_64 34
+SPI_MASTER_TMR2 36
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1304 . `uc
+MIDDLE 0
+END 128
+]
+[e E1300 . `uc
+SPI_IDLE_2_HIGH 48
+SPI_CLOCK_IDLE_LOW 32
+]
+[e E1308 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
+"13 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
+[e E1264 . `uc
+SPI_MASTER_OSC_4 32
+SPI_MASTER_OSC_16 33
+SPI_MASTER_OSC_64 34
+SPI_MASTER_TMR2 36
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1276 . `uc
+MIDDLE 0
+END 128
+]
+[e E1272 . `uc
+SPI_IDLE_2_HIGH 48
+SPI_CLOCK_IDLE_LOW 32
+]
+[e E1280 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
+"48 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[v _main main `(v  1 e 1 0 ]
+"81
+[v _Setup Setup `(v  1 e 1 0 ]
+"13 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
+[v _initSPI initSPI `(v  1 e 1 0 ]
+"27
+[v _spiReceive spiReceive `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+[s S26 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"307 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[u S35 . 1 `S26 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES35  1 e 1 @7 ]
+"843
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"850
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1540
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"2177
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S114 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S123 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S128 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S134 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S139 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S144 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S149 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S154 . 1 `S114 1 . 1 0 `S123 1 . 1 0 `S128 1 . 1 0 `S134 1 . 1 0 `S139 1 . 1 0 `S144 1 . 1 0 `S149 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES154  1 e 1 @148 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"4457
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"4463
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
+"48 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[v _main main `(v  1 e 1 0 ]
+{
+"79
+} 0
+"81
+[v _Setup Setup `(v  1 e 1 0 ]
+{
+"89
+} 0
+"13 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
+[v _initSPI initSPI `(v  1 e 1 0 ]
+{
+[v initSPI@Type Type `E1264  1 a 1 wreg ]
+[v initSPI@Type Type `E1264  1 a 1 wreg ]
+[v initSPI@Data_sample Data_sample `E1276  1 p 1 0 ]
+[v initSPI@clock_idle clock_idle `E1272  1 p 1 1 ]
+[v initSPI@edge edge `E1280  1 p 1 2 ]
+[v initSPI@Type Type `E1264  1 a 1 3 ]
+"25
+} 0
