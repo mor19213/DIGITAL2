@@ -1,5 +1,5 @@
 
-#include "adc.h"
+#include "ADC.h"
 
 void initADC(uint8_t IRCF) {
     

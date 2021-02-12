@@ -2668,6 +2668,15 @@ void spiWrite(char);
 char spiRead();
 # 12 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
 
+# 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.h" 1
+# 14 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 14 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.h" 2
+
+
+void initADC(uint8_t IRCF);
+# 13 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
+
 
 
 
@@ -2737,6 +2746,7 @@ void Setup(void){
     TRISAbits.TRISA5 = 1;
 
 
+    initADC(0);
     initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
 }

@@ -10,6 +10,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include "SPI.h"
+#include "ADC.h"
 
 //******************************************************************************
 //  PALABRA DE CONFIGURACION
@@ -79,6 +80,7 @@ void Setup(void){
     TRISAbits.TRISA5 = 1;   // recibir ss
     
     
+    initADC(0);             // configuracion ADC canal RA0
     initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     
 }
