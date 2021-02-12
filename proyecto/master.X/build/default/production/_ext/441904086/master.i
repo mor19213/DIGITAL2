@@ -2714,6 +2714,14 @@ void Lcd_Shift_Left(void);
 uint8_t ADC;
 uint8_t contador;
 uint8_t temperatura;
+uint8_t s11;
+uint8_t s12;
+uint8_t s13;
+uint8_t s21;
+uint8_t s22;
+uint8_t s23;
+uint8_t s31;
+uint8_t s32;
 
 
 
@@ -2732,8 +2740,22 @@ void main(void) {
        spiWrite(0);
        ADC = spiRead();
 
+
        _delay((unsigned long)((1)*(8000000/4000.0)));
        PORTCbits.RC2 = 1;
+
+
+       s11 = (ADC/100) + 48;
+       s12 = (ADC/10) - ((s11 - 48) * 10) + 48;
+       s13 = (ADC) - ((s11 - 48) * 100) - ((s12 - 48) * 10) + 48;
+
+        Lcd_Set_Cursor(2,1);
+        Lcd_Write_Char(s11);
+        Lcd_Set_Cursor(2,2);
+        Lcd_Write_Char(s12);
+        Lcd_Set_Cursor(2,3);
+        Lcd_Write_Char(s13);
+
 
 
        PORTCbits.RC1 = 0;
@@ -2742,8 +2764,20 @@ void main(void) {
        spiWrite(0);
        contador = spiRead();
 
+
        _delay((unsigned long)((1)*(8000000/4000.0)));
        PORTCbits.RC1 = 1;
+
+       s21 = (contador/100) + 48;
+       s22 = (contador/10) - ((s21 - 48) * 10) + 48;
+       s23 = (contador) - ((s21 - 48) * 100) - ((s22 - 48) * 10) + 48;
+
+        Lcd_Set_Cursor(2,7);
+        Lcd_Write_Char(s21);
+        Lcd_Set_Cursor(2,8);
+        Lcd_Write_Char(s22);
+        Lcd_Set_Cursor(2,9);
+        Lcd_Write_Char(s23);
 
 
        PORTCbits.RC0 = 0;
@@ -2751,9 +2785,19 @@ void main(void) {
 
        spiWrite(0);
        temperatura = spiRead();
+       temperatura = 98;
 
        _delay((unsigned long)((1)*(8000000/4000.0)));
        PORTCbits.RC0 = 1;
+
+
+       s31 = (temperatura/10) + 48;
+       s32 = (temperatura) - ((s31 - 48) * 10) + 48;
+
+        Lcd_Set_Cursor(2,13);
+        Lcd_Write_Char(s31);
+        Lcd_Set_Cursor(2,14);
+        Lcd_Write_Char(s32);
 
 
     }
@@ -2765,6 +2809,9 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
+
+    TRISA = 0;
+    PORTA = 0;
 
 
     TRISC2 = 0;
@@ -2797,14 +2844,14 @@ void setup(void){
     Lcd_Set_Cursor(1,3);
     Lcd_Write_String("S1");
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("0.00");
+    Lcd_Write_String("000");
     Lcd_Set_Cursor(1,8);
     Lcd_Write_String("S2");
     Lcd_Set_Cursor(2,7);
-    Lcd_Write_String("0.00");
+    Lcd_Write_String("000");
     Lcd_Set_Cursor(1,14);
     Lcd_Write_String("S3");
     Lcd_Set_Cursor(2,13);
-    Lcd_Write_String("0.00");
+    Lcd_Write_String("00");
 
 }
