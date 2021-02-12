@@ -2719,19 +2719,19 @@ void __attribute__((picinterrupt(("")))) isr(void){
 void main(void) {
     Setup();
     while(1){
-       if (RB1 == 1){
+       if (RB0 == 1){
            antirebote1 = 1;
        }
-       if (RB1 == 0){
+       if (RB0 == 0){
            if (antirebote1 == 1){
                antirebote1 = 0;
                PORTD++;
            }
        }
-       if (RB2 == 1){
+       if (RB1 == 1){
            antirebote2 = 1;
        }
-       if (RB2 == 0){
+       if (RB1 == 0){
            if (antirebote2 == 1){
                antirebote2 = 0;
                PORTD--;
@@ -2748,6 +2748,7 @@ void Setup(void){
     TRISC = 0;
     TRISD = 0;
     PORTD = 0;
+    PORTB = 0;
 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;

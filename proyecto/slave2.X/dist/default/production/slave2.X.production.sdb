@@ -24,7 +24,7 @@ SPI_CLOCK_IDLE_LOW 32
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"101 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c
+"102 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c
 [e E1292 . `uc
 SPI_MASTER_OSC_4 32
 SPI_MASTER_OSC_16 33
@@ -65,9 +65,11 @@ SPI_ACTIVE_2_IDLE 64
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S164 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S165 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -77,14 +79,14 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S173 . 1 `uc 1 . 1 0 :2:0 
+[s S174 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S178 . 1 `S164 1 . 1 0 `S173 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES178  1 e 1 @11 ]
-[s S196 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S179 . 1 `S165 1 . 1 0 `S174 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES179  1 e 1 @11 ]
+[s S197 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -93,13 +95,13 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S204 . 1 `S196 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES204  1 e 1 @12 ]
+[u S205 . 1 `S197 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES205  1 e 1 @12 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S234 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S235 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -109,15 +111,15 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S243 . 1 `S234 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES243  1 e 1 @133 ]
+[u S244 . 1 `S235 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES244  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S215 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S216 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -126,8 +128,8 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S223 . 1 `S215 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES223  1 e 1 @140 ]
+[u S224 . 1 `S216 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES224  1 e 1 @140 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
 [s S42 . 1 `uc 1 BF 1 0 :1:0 
@@ -177,10 +179,10 @@ SPI_ACTIVE_2_IDLE 64
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"4103
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
 "4106
 [v _RB1 RB1 `VEb  1 e 0 @49 ]
-"4109
-[v _RB2 RB2 `VEb  1 e 0 @50 ]
 "4277
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
 "4457
@@ -199,7 +201,7 @@ SPI_ACTIVE_2_IDLE 64
 "86
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"103
+"104
 } 0
 "13 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
 [v _initSPI initSPI `(v  1 e 1 0 ]

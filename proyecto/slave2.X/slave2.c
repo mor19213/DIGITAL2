@@ -61,19 +61,19 @@ void __interrupt() isr(void){
 void main(void) {
     Setup();
     while(1){
-       if (RB1 == 1){
+       if (RB0 == 1){
            antirebote1 = 1;
        }     
-       if (RB1 == 0){
+       if (RB0 == 0){
            if (antirebote1 == 1){
                antirebote1 = 0;
                PORTD++;
            }
        }
-       if (RB2 == 1){
+       if (RB1 == 1){
            antirebote2 = 1;
        }     
-       if (RB2 == 0){
+       if (RB1 == 0){
            if (antirebote2 == 1){
                antirebote2 = 0;
                PORTD--;
@@ -90,6 +90,7 @@ void Setup(void){
     TRISC = 0;      // COMUNICACION SERIAL
     TRISD = 0;      // OUTPUT CONTADOR
     PORTD = 0;      // CONTADOR 8 BITS
+    PORTB = 0;
     
     INTCONbits.GIE = 1;     // habilitar interrupciones globales
     INTCONbits.PEIE = 1;    // interrupciones perifericas
