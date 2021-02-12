@@ -4,10 +4,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4277 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4277: extern volatile __bit SSPIF __attribute__((address(0x63)));
 [v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"53 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 53: char spiRead();
-[v _spiRead `(uc ~T0 @X0 0 e? ]
-"51
+"51 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 51: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
 "352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
@@ -44,7 +41,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
 [p mainexit ]
 "46 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 46:             RD0 = 1;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 46:             PORTD = 0;
 [v _Setup `(v ~T0 @X0 0 ef ]
 "228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
@@ -124,7 +121,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.h
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.h: 16: void initADC(uint8_t IRCF);
 [v _initADC `(v ~T0 @X0 0 ef1`uc ]
-"108 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
+"109 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
 [c E1292 32 33 34 35 36 37 .. ]
 [n E1292 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1304 0 128 .. ]
@@ -374,7 +371,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 18: void __attribute__((picinterrupt(("")))) isr(void){
 [p x FOSC  =  INTRC_NOCLKOUT     ]
 "20
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 20:         TEMP = spiRead();
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 20: 
 [p x WDTE  =  OFF        ]
 "21
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 21:         spiWrite(PORTD);
@@ -410,11 +407,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 39: 
 [v _ADC `uc ~T0 @X0 1 e ]
 "40
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 40:         if (ADC > 18){
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 40: 
 [v _TEMP `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
 "52
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 52: 
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 52:         }
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
@@ -423,131 +420,131 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 53: 
 [e $ ! == -> _SSPIF `i -> 1 `i 139  ]
 {
-"54
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 54:     }
-[e = _TEMP -> ( _spiRead ..  `uc ]
 "55
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55: }
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55:     }
 [e ( _spiWrite (1 -> _PORTD `uc ]
 "56
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 56: 
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 56: }
 [e = _SSPIF -> -> 0 `i `b ]
 "57
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 57: void Setup(void){
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 57: 
 }
 [e :U 139 ]
 "59
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 59:     ANSELH = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 59:     ANSEL = 0;
 [e $ ! == -> _ADIF `i -> 1 `i 140  ]
 {
 "60
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 60:     TRISB = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 60:     ANSELH = 0;
 [e = _ADC _ADRESH ]
 "61
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 61:     TRISC = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 61:     TRISB = 0;
 [e = _ADIF -> -> 0 `i `b ]
 "62
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 62:     TRISD = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 62:     TRISC = 0;
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
 "63
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 63:     ADC = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 63:     TRISD = 0;
 }
 [e :U 140 ]
 "64
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 64:     TEMP = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 64:     ADC = 0;
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "67
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 67:     INTCONbits.PEIE = 1;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 67:     INTCONbits.GIE = 1;
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
 "68
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 68:     PIR1bits.SSPIF = 0;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 68:     INTCONbits.PEIE = 1;
 [e ( _Setup ..  ]
 "69
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 69:     PIE1bits.SSPIE = 1;
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 69:     PIR1bits.SSPIF = 0;
 [e :U 143 ]
 {
 "70
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 70:     TRISAbits.TRISA5 = 1;
-[e = _PORTB _ADC ]
-"74
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 74:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[e $ ! > -> _ADC `i -> 18 `i 145  ]
-{
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 70:     PIE1bits.SSPIE = 1;
+[e = _TEMP -> * -> _ADC `i -> 10 `i `uc ]
+"71
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 71:     TRISAbits.TRISA5 = 1;
+[e = _PORTB -> / * -> _ADC `i -> 100 `i -> 51 `i `uc ]
 "75
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 75: 
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 75:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[e $ ! > -> _TEMP `i -> 184 `i 145  ]
+{
 "76
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 76: }
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 76: 
+[e = _PORTD -> -> 0 `i `uc ]
+"77
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 77: }
 [e = _RD2 -> -> 1 `i `b ]
-"78
+"79
 }
 [e $U 146  ]
 [e :U 145 ]
-[e $ ! < -> _ADC `i -> 15 `i 147  ]
+[e $ ! < -> _TEMP `i -> 128 `i 147  ]
 {
-"79
-[e = _PORTD -> -> 0 `i `uc ]
 "80
+[e = _PORTD -> -> 0 `i `uc ]
+"81
 [e = _RD0 -> -> 1 `i `b ]
-"82
+"83
 }
 [e $U 148  ]
 [e :U 147 ]
 {
-"83
-[e = _PORTD -> -> 0 `i `uc ]
 "84
-[e = _RD1 -> -> 1 `i `b ]
+[e = _PORTD -> -> 0 `i `uc ]
 "85
+[e = _RD1 -> -> 1 `i `b ]
+"86
 }
 [e :U 148 ]
 [e :U 146 ]
-"88
+"89
 }
 [e :U 142 ]
 [e $U 143  ]
 [e :U 144 ]
-"89
+"90
 [e :UE 141 ]
 }
-"91
+"92
 [v _Setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _Setup ]
 [f ]
-"92
-[e = _ANSEL -> -> 0 `i `uc ]
 "93
-[e = _ANSELH -> -> 0 `i `uc ]
+[e = _ANSEL -> -> 0 `i `uc ]
 "94
-[e = _TRISB -> -> 0 `i `uc ]
+[e = _ANSELH -> -> 0 `i `uc ]
 "95
-[e = _TRISC -> -> 0 `i `uc ]
+[e = _TRISB -> -> 0 `i `uc ]
 "96
-[e = _TRISD -> -> 0 `i `uc ]
+[e = _TRISC -> -> 0 `i `uc ]
 "97
-[e = _ADC -> -> 0 `i `uc ]
+[e = _TRISD -> -> 0 `i `uc ]
 "98
+[e = _ADC -> -> 0 `i `uc ]
+"99
 [e = _TEMP -> -> 0 `i `uc ]
-"100
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "101
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "102
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "103
-[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "104
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+"105
 [e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
-"107
-[e ( _initADC (1 -> -> 0 `i `uc ]
 "108
+[e ( _initADC (1 -> -> 0 `i `uc ]
+"109
 [e ( _spiInit (4 , , , . `E1292 4 . `E1304 0 . `E1300 1 . `E1308 0 ]
-"110
+"111
 [e :UE 149 ]
 }

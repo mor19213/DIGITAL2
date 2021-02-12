@@ -21,7 +21,7 @@ text5 CODE 0 751 751 16 2
 maintext CODE 0 785 785 77 2
 cstackCOMMON COMMON 1 70 70 6 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\danie\AppData\Local\Temp\sc30.o
+$C:\Users\danie\AppData\Local\Temp\s6ic.o
 end_init CODE 0 0 0 3 2
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
@@ -70,11 +70,11 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\master.X.production.o
-7FC cinit CODE >620:C:\Users\danie\AppData\Local\Temp\sc30.s
-7FC cinit CODE >623:C:\Users\danie\AppData\Local\Temp\sc30.s
-7FC cinit CODE >629:C:\Users\danie\AppData\Local\Temp\sc30.s
-7FC cinit CODE >631:C:\Users\danie\AppData\Local\Temp\sc30.s
-7FD cinit CODE >632:C:\Users\danie\AppData\Local\Temp\sc30.s
+7FC cinit CODE >620:C:\Users\danie\AppData\Local\Temp\s6ic.s
+7FC cinit CODE >623:C:\Users\danie\AppData\Local\Temp\s6ic.s
+7FC cinit CODE >629:C:\Users\danie\AppData\Local\Temp\s6ic.s
+7FC cinit CODE >631:C:\Users\danie\AppData\Local\Temp\s6ic.s
+7FD cinit CODE >632:C:\Users\danie\AppData\Local\Temp\s6ic.s
 751 text5 CODE >10:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
 752 text5 CODE >12:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
 755 text5 CODE >14:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
@@ -154,18 +154,18 @@ __Hspace_4 4010 0 ABS 0 - -
 spiInit@sTransmitEdge 72 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sc30.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s6ic.o
 _main F0A 0 CODE 0 maintext dist/default/production\master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\master.X.production.o
-start 0 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\sc30.o
+start 0 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\s6ic.o
 __size_of_main 0 0 ABS 0 - dist/default/production\master.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sc30.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sc30.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sc30.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sc30.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sc30.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sc30.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s6ic.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s6ic.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s6ic.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s6ic.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s6ic.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s6ic.o
 wtemp0 7E 0 ABS 0 - dist/default/production\master.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
@@ -173,8 +173,8 @@ _ANSELH 189 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of_spiInit 0 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of_spiRead 0 0 ABS 0 - dist/default/production\master.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sc30.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sc30.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s6ic.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s6ic.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\master.X.production.o
 spiInit@sDataSample 70 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\master.X.production.o
@@ -185,7 +185,7 @@ _TRISC1 439 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC2 43A 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sc30.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s6ic.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -227,7 +227,7 @@ __S1 76 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\sc30.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\s6ic.o
 spiWrite@variable 70 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 __pmaintext F0A 0 CODE 0 maintext dist/default/production\master.X.production.o
 __Lcommon 0 0 ABS 0 common -

@@ -2715,7 +2715,7 @@ void Setup (void);
 
 void __attribute__((picinterrupt(("")))) isr(void){
     if(SSPIF == 1){
-        TEMP = spiRead();
+
         spiWrite(PORTD);
         SSPIF = 0;
     }
@@ -2731,15 +2731,16 @@ void __attribute__((picinterrupt(("")))) isr(void){
 void main(void) {
     Setup();
     while(1){
-        PORTB = ADC;
+        TEMP = ADC * 10;
+        PORTB = (ADC * 100) / 51;
 
 
 
-        if (ADC > 18){
+        if (TEMP > 184){
             PORTD = 0;
             RD2 = 1;
 
-        } else if (ADC < 15){
+        } else if (TEMP < 128){
             PORTD = 0;
             RD0 = 1;
 

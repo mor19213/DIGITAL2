@@ -51,7 +51,7 @@ void Setup (void);
 //******************************************************************************
 void __interrupt() isr(void){
     if(SSPIF == 1){
-        TEMP = spiRead();
+        //TEMP = spiRead();
         spiWrite(PORTD);
         SSPIF = 0;              // Apagar bandera interrupcion
     }
@@ -67,15 +67,16 @@ void __interrupt() isr(void){
 void main(void) {
     Setup();
     while(1){
-        PORTB = ADC;
+        TEMP = ADC * 10;
+        PORTB = (ADC * 100) / 51;
         // conversion temperatura
         
         // RANGO SEMAFORO
-        if (ADC > 18){
+        if (TEMP > 184){
             PORTD = 0;
             RD2 = 1;        // ROJO
             
-        } else if (ADC < 15){
+        } else if (TEMP < 128){
             PORTD = 0;
             RD0 = 1;        // VERDE
             
