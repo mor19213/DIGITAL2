@@ -67,7 +67,22 @@ void __interrupt() isr(void){
 void main(void) {
     Setup();
     while(1){
+        PORTB = ADC;
         // conversion temperatura
+        
+        // RANGO SEMAFORO
+        if (ADC > 18){
+            PORTD = 0;
+            RD2 = 1;        // ROJO
+            
+        } else if (ADC < 15){
+            PORTD = 0;
+            RD0 = 1;        // VERDE
+            
+        } else {
+            PORTD = 0;
+            RD1 = 1;        // AMARILLO
+        }  
             
         
     }
@@ -76,10 +91,9 @@ void main(void) {
 void Setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISA = 0;
-    TRISB = 0;
-    TRISC = 0;
-    TRISD = 0;
+    TRISB = 0;              // VALOR ADC (PRUEBA)
+    TRISC = 0;              // COMUNICACION SERIAL
+    TRISD = 0;              // SEMAFORO
     ADC = 0; 
     TEMP = 0;
     

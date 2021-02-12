@@ -2733,7 +2733,22 @@ void __attribute__((picinterrupt(("")))) isr(void){
 void main(void) {
     Setup();
     while(1){
+        PORTB = ADC;
 
+
+
+        if (ADC > 18){
+            PORTD = 0;
+            RD2 = 1;
+
+        } else if (ADC < 15){
+            PORTD = 0;
+            RD0 = 1;
+
+        } else {
+            PORTD = 0;
+            RD1 = 1;
+        }
 
 
     }
@@ -2742,7 +2757,6 @@ void main(void) {
 void Setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISA = 0;
     TRISB = 0;
     TRISC = 0;
     TRISD = 0;

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\slave3.X.production.sym \
   --cmf=dist/default/production\slave3.X.production.cmf -z -Q16F887 \
-  -oC:\Users\danie\AppData\Local\Temp\sf60.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\danie\AppData\Local\Temp\s8tc.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/slave3.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\danie\AppData\Local\Temp\sf60.o \
+  -pfunctab=ENTRY -k C:\Users\danie\AppData\Local\Temp\s8tc.o \
   dist/default/production\slave3.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\danie\AppData\Local\Temp\sf60.o
+C:\Users\danie\AppData\Local\Temp\s8tc.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -36,14 +36,14 @@ dist/default/production\slave3.X.production.o
                 cinit                                 F        F        6        8       0
                 intentry                              4        4        8        8       0
                 config                             2007     2007        2        0       4
-                text7                                EC       EC        7        8       0
-                text6                                E3       E3        9        8       0
-                text5                                F3       F3        6        8       0
-                text4                                99       99       28        8       0
+                text7                               103      103        7        8       0
+                text6                                FA       FA        9        8       0
+                text5                               10A      10A        6        8       0
+                text4                                98       98       28        8       0
                 text3                                15       15       5A        8       0
-                text2                                C1       C1       19        8       0
-                text1                                6F       6F       2A        8       0
-                maintext                             DA       DA        9        8       0
+                text2                                E1       E1       19        8       0
+                text1                                6F       6F       29        8       0
+                maintext                             C0       C0       21        8       0
                 cstackBANK0                          20       20        1       20       1
                 cstackCOMMON                         70       70        8       70       1
                 bssCOMMON                            78       78        2       70       1
@@ -56,14 +56,14 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                 F        F        6         0
                 intentry                              4        4        8         0
                 reset_vec                             0        0        3         0
-                text7                                EC       EC        7         0
-                text6                                E3       E3        9         0
-                text5                                F3       F3        6         0
-                text4                                99       99       28         0
+                text7                               103      103        7         0
+                text6                                FA       FA        9         0
+                text5                               10A      10A        6         0
+                text4                                98       98       28         0
                 text3                                15       15       5A         0
-                text2                                C1       C1       19         0
-                text1                                6F       6F       2A         0
-                maintext                             DA       DA        9         0
+                text2                                E1       E1       19         0
+                text1                                6F       6F       29         0
+                maintext                             C0       C0       21         0
 
         CLASS   STRCODE        
 
@@ -111,7 +111,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0000F5  0000F9         8       0  CODE        2
+                intentry                       000004  00010C  000110         8       0  CODE        2
                 cstackBANK0                    000020  000001  000021        20       1  BANK0       1
                 cstackCOMMON                   000070  00000A  00007A        70       1  COMMON      1
 
@@ -124,13 +124,13 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         00F9-1FFF            800
+                         0110-1FFF            800
         COMMON           007A-007D              4           1
         CONST            0003-0003              1           2
-                         00F9-1FFF            100
+                         0110-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         00F9-1FFF            100
+                         0110-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0021-006F             4F           1
                          00A0-00EF             50
@@ -142,9 +142,9 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         00F9-1FFF           1F07
+                         0110-1FFF           1EF0
         STRING           0003-0003              1           2
-                         00F9-1FFF            100
+                         0110-1FFF            100
 
                                   Symbol Table
 
@@ -160,7 +160,11 @@ _ANSELbits               (abs)        0188
 _INTCONbits              (abs)        000B
 _PIE1bits                (abs)        008C
 _PIR1bits                (abs)        000C
+_PORTB                   (abs)        0006
 _PORTD                   (abs)        0008
+_RD0                     (abs)        0040
+_RD1                     (abs)        0041
+_RD2                     (abs)        0042
 _SSPBUF                  (abs)        0013
 _SSPCON                  (abs)        0014
 _SSPIF                   (abs)        0063
@@ -168,7 +172,6 @@ _SSPSTAT                 (abs)        0094
 _SSPSTATbits             (abs)        0094
 _Setup                   text1        006F
 _TEMP                    bssCOMMON    0078
-_TRISA                   (abs)        0085
 _TRISAbits               (abs)        0085
 _TRISB                   (abs)        0086
 _TRISC                   (abs)        0087
@@ -202,7 +205,7 @@ __Hsfr0                  sfr0         0000
 __Hsfr1                  sfr1         0000
 __Hsfr2                  sfr2         0000
 __Hsfr3                  sfr3         0000
-__Hspace_0               (abs)        00F9
+__Hspace_0               (abs)        0110
 __Hspace_1               (abs)        007A
 __Hspace_2               (abs)        0000
 __Hspace_3               (abs)        0000
@@ -244,7 +247,7 @@ __Lspace_4               (abs)        0000
 __Lstack                 stack        0000
 __Lstrings               strings      0000
 __Ltext                  text         0000
-__S0                     (abs)        00F9
+__S0                     (abs)        0110
 __S1                     (abs)        007A
 __S2                     (abs)        0000
 __S3                     (abs)        0000
@@ -253,28 +256,28 @@ ___latbits               (abs)        0002
 ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-__end_of_Setup           text1        0099
+__end_of_Setup           text1        0098
 __end_of__initialization cinit        0011
 __end_of_initADC         text3        006F
-__end_of_initSPI         text2        00DA
-__end_of_isr             text4        00C1
-__end_of_main            maintext     00E3
-__end_of_spiRead         text6        00EC
-__end_of_spiReceive      text7        00F3
-__end_of_spiWrite        text5        00F9
+__end_of_initSPI         text2        00FA
+__end_of_isr             text4        00C0
+__end_of_main            maintext     00E1
+__end_of_spiRead         text6        0103
+__end_of_spiReceive      text7        010A
+__end_of_spiWrite        text5        0110
 __initialization         cinit        000F
 __pbssCOMMON             bssCOMMON    0078
 __pcstackBANK0           cstackBANK0  0020
 __pcstackCOMMON          cstackCOMMON 0070
 __pintentry              intentry     0004
-__pmaintext              maintext     00DA
+__pmaintext              maintext     00C0
 __ptext1                 text1        006F
-__ptext2                 text2        00C1
+__ptext2                 text2        00E1
 __ptext3                 text3        0015
-__ptext4                 text4        0099
-__ptext5                 text5        00F3
-__ptext6                 text6        00E3
-__ptext7                 text7        00EC
+__ptext4                 text4        0098
+__ptext5                 text5        010A
+__ptext6                 text6        00FA
+__ptext7                 text7        0103
 __size_of_Setup          (abs)        0000
 __size_of_initADC        (abs)        0000
 __size_of_initSPI        (abs)        0000
@@ -284,12 +287,12 @@ __size_of_spiRead        (abs)        0000
 __size_of_spiReceive     (abs)        0000
 __size_of_spiWrite       (abs)        0000
 _initADC                 text3        0015
-_initSPI                 text2        00C1
-_isr                     text4        0099
-_main                    maintext     00DA
-_spiRead                 text6        00E3
-_spiReceive              text7        00EC
-_spiWrite                text5        00F3
+_initSPI                 text2        00E1
+_isr                     text4        0098
+_main                    maintext     00C0
+_spiRead                 text6        00FA
+_spiReceive              text7        0103
+_spiWrite                text5        010A
 btemp                    (abs)        007E
 end_of_initialization    cinit        0011
 initADC@IRCF             cstackCOMMON 0076
@@ -345,7 +348,7 @@ Total ram usage:        0 bytes
 
  *************** function _Setup *****************
  Defined at:
-		line 76 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
+		line 91 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -571,17 +574,17 @@ shared
 shared estimated size: 2
 
 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c
-		_initSPI       		CODE           	00C1	0000	25
-		_spiReceive    		CODE           	00EC	0000	7
-		_spiWrite      		CODE           	00F3	0000	6
-		_spiRead       		CODE           	00E3	0000	9
+		_initSPI       		CODE           	00E1	0000	25
+		_spiReceive    		CODE           	0103	0000	7
+		_spiWrite      		CODE           	010A	0000	6
+		_spiRead       		CODE           	00FA	0000	9
 
 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c estimated size: 47
 
 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
-		_main          		CODE           	00DA	0000	9
-		_Setup         		CODE           	006F	0000	42
-		_isr           		CODE           	0099	0000	40
+		_main          		CODE           	00C0	0000	33
+		_Setup         		CODE           	006F	0000	41
+		_isr           		CODE           	0098	0000	40
 
-C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c estimated size: 91
+C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c estimated size: 114
 

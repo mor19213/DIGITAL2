@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Feb 11 18:41:07 2021
+                                                                                               Thu Feb 11 18:57:26 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -379,949 +379,994 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    365  018D                     	;# 
    366  000C                     _PIR1bits	set	12
    367  000B                     _INTCONbits	set	11
-   368  001F                     _ADCON0bits	set	31
-   369  001E                     _ADRESH	set	30
-   370  0008                     _PORTD	set	8
-   371  0013                     _SSPBUF	set	19
-   372  0014                     _SSPCON	set	20
-   373  001F                     _ADCON0	set	31
-   374  0066                     _ADIF	set	102
-   375  0063                     _SSPIF	set	99
-   376  0088                     _TRISD	set	136
-   377  0087                     _TRISC	set	135
-   378  0086                     _TRISB	set	134
-   379  0085                     _TRISA	set	133
-   380  0094                     _SSPSTATbits	set	148
-   381  0094                     _SSPSTAT	set	148
-   382  0089                     _TRISEbits	set	137
-   383  0085                     _TRISAbits	set	133
-   384  008C                     _PIE1bits	set	140
-   385  009F                     _ADCON1	set	159
-   386  043B                     _TRISC3	set	1083
-   387  043D                     _TRISC5	set	1085
-   388  0189                     _ANSELH	set	393
-   389  0188                     _ANSEL	set	392
-   390  0188                     _ANSELbits	set	392
-   391                           
-   392                           	psect	cinit
-   393  000F                     start_initialization:	
-   394                           ; #config settings
-   395                           
-   396  000F                     __initialization:
-   397                           
-   398                           ; Clear objects allocated to COMMON
-   399  000F  01F8               	clrf	__pbssCOMMON& (0+127)
-   400  0010  01F9               	clrf	(__pbssCOMMON+1)& (0+127)
-   401  0011                     end_of_initialization:	
-   402                           ;End of C runtime variable initialization code
-   403                           
-   404  0011                     __end_of__initialization:
-   405  0011  0183               	clrf	3
-   406  0012  120A  118A  28DA   	ljmp	_main	;jump to C main() function
-   407                           
-   408                           	psect	bssCOMMON
-   409  0078                     __pbssCOMMON:
-   410  0078                     _TEMP:
-   411  0078                     	ds	1
-   412  0079                     _ADC:
-   413  0079                     	ds	1
-   414                           
-   415                           	psect	cstackCOMMON
-   416  0070                     __pcstackCOMMON:
-   417  0070                     ?_Setup:
-   418  0070                     ?_initADC:	
-   419                           ; 1 bytes @ 0x0
-   420                           
-   421  0070                     ?_spiReceive:	
+   368  0006                     _PORTB	set	6
+   369  001F                     _ADCON0bits	set	31
+   370  001E                     _ADRESH	set	30
+   371  0008                     _PORTD	set	8
+   372  0013                     _SSPBUF	set	19
+   373  0014                     _SSPCON	set	20
+   374  001F                     _ADCON0	set	31
+   375  0041                     _RD1	set	65
+   376  0040                     _RD0	set	64
+   377  0042                     _RD2	set	66
+   378  0066                     _ADIF	set	102
+   379  0063                     _SSPIF	set	99
+   380  0088                     _TRISD	set	136
+   381  0087                     _TRISC	set	135
+   382  0086                     _TRISB	set	134
+   383  0094                     _SSPSTATbits	set	148
+   384  0094                     _SSPSTAT	set	148
+   385  0089                     _TRISEbits	set	137
+   386  0085                     _TRISAbits	set	133
+   387  008C                     _PIE1bits	set	140
+   388  009F                     _ADCON1	set	159
+   389  043B                     _TRISC3	set	1083
+   390  043D                     _TRISC5	set	1085
+   391  0189                     _ANSELH	set	393
+   392  0188                     _ANSEL	set	392
+   393  0188                     _ANSELbits	set	392
+   394                           
+   395                           	psect	cinit
+   396  000F                     start_initialization:	
+   397                           ; #config settings
+   398                           
+   399  000F                     __initialization:
+   400                           
+   401                           ; Clear objects allocated to COMMON
+   402  000F  01F8               	clrf	__pbssCOMMON& (0+127)
+   403  0010  01F9               	clrf	(__pbssCOMMON+1)& (0+127)
+   404  0011                     end_of_initialization:	
+   405                           ;End of C runtime variable initialization code
+   406                           
+   407  0011                     __end_of__initialization:
+   408  0011  0183               	clrf	3
+   409  0012  120A  118A  28C0   	ljmp	_main	;jump to C main() function
+   410                           
+   411                           	psect	bssCOMMON
+   412  0078                     __pbssCOMMON:
+   413  0078                     _TEMP:
+   414  0078                     	ds	1
+   415  0079                     _ADC:
+   416  0079                     	ds	1
+   417                           
+   418                           	psect	cstackCOMMON
+   419  0070                     __pcstackCOMMON:
+   420  0070                     ?_Setup:
+   421  0070                     ?_initADC:	
    422                           ; 1 bytes @ 0x0
    423                           
-   424  0070                     ??_spiReceive:	
+   424  0070                     ?_spiReceive:	
    425                           ; 1 bytes @ 0x0
    426                           
-   427  0070                     ?_spiWrite:	
+   427  0070                     ??_spiReceive:	
    428                           ; 1 bytes @ 0x0
    429                           
-   430  0070                     ??_spiWrite:	
+   430  0070                     ?_spiWrite:	
    431                           ; 1 bytes @ 0x0
    432                           
-   433  0070                     ?_spiRead:	
+   433  0070                     ??_spiWrite:	
    434                           ; 1 bytes @ 0x0
    435                           
-   436  0070                     ??_spiRead:	
+   436  0070                     ?_spiRead:	
    437                           ; 1 bytes @ 0x0
    438                           
-   439  0070                     ?_isr:	
+   439  0070                     ??_spiRead:	
    440                           ; 1 bytes @ 0x0
    441                           
-   442  0070                     ?_main:	
+   442  0070                     ?_isr:	
    443                           ; 1 bytes @ 0x0
    444                           
-   445  0070                     spiWrite@variable:	
+   445  0070                     ?_main:	
    446                           ; 1 bytes @ 0x0
    447                           
-   448                           
+   448  0070                     spiWrite@variable:	
    449                           ; 1 bytes @ 0x0
-   450  0070                     	ds	1
-   451  0071                     ??_isr:
-   452                           
-   453                           ; 1 bytes @ 0x1
-   454  0071                     	ds	3
-   455  0074                     ??_initADC:
-   456  0074                     ?_initSPI:	
-   457                           ; 1 bytes @ 0x4
-   458                           
-   459  0074                     initSPI@Data_sample:	
+   450                           
+   451                           
+   452                           ; 1 bytes @ 0x0
+   453  0070                     	ds	1
+   454  0071                     ??_isr:
+   455                           
+   456                           ; 1 bytes @ 0x1
+   457  0071                     	ds	3
+   458  0074                     ??_initADC:
+   459  0074                     ?_initSPI:	
    460                           ; 1 bytes @ 0x4
    461                           
-   462                           
+   462  0074                     initSPI@Data_sample:	
    463                           ; 1 bytes @ 0x4
-   464  0074                     	ds	1
-   465  0075                     initSPI@clock_idle:
-   466                           
-   467                           ; 1 bytes @ 0x5
-   468  0075                     	ds	1
-   469  0076                     initADC@IRCF:
-   470  0076                     initSPI@edge:	
-   471                           ; 1 bytes @ 0x6
-   472                           
-   473                           
+   464                           
+   465                           
+   466                           ; 1 bytes @ 0x4
+   467  0074                     	ds	1
+   468  0075                     initSPI@clock_idle:
+   469                           
+   470                           ; 1 bytes @ 0x5
+   471  0075                     	ds	1
+   472  0076                     initADC@IRCF:
+   473  0076                     initSPI@edge:	
    474                           ; 1 bytes @ 0x6
-   475  0076                     	ds	1
-   476  0077                     ??_initSPI:
-   477  0077                     initSPI@Type:	
-   478                           ; 1 bytes @ 0x7
-   479                           
-   480                           
+   475                           
+   476                           
+   477                           ; 1 bytes @ 0x6
+   478  0076                     	ds	1
+   479  0077                     ??_initSPI:
+   480  0077                     initSPI@Type:	
    481                           ; 1 bytes @ 0x7
-   482  0077                     	ds	1
-   483  0078                     ??_main:
-   484                           
-   485                           	psect	cstackBANK0
-   486  0020                     __pcstackBANK0:	
-   487                           ; 1 bytes @ 0x8
-   488                           
-   489  0020                     ??_Setup:
-   490                           
-   491                           ; 1 bytes @ 0x0
-   492  0020                     	ds	1
+   482                           
+   483                           
+   484                           ; 1 bytes @ 0x7
+   485  0077                     	ds	1
+   486  0078                     ??_main:
+   487                           
+   488                           	psect	cstackBANK0
+   489  0020                     __pcstackBANK0:	
+   490                           ; 1 bytes @ 0x8
+   491                           
+   492  0020                     ??_Setup:
    493                           
-   494                           	psect	maintext
-   495  00DA                     __pmaintext:	
-   496 ;;
-   497 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   498 ;;
-   499 ;; *************** function _main *****************
-   500 ;; Defined at:
-   501 ;;		line 67 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
-   502 ;; Parameters:    Size  Location     Type
-   503 ;;		None
-   504 ;; Auto vars:     Size  Location     Type
-   505 ;;		None
-   506 ;; Return value:  Size  Location     Type
-   507 ;;                  1    wreg      void 
-   508 ;; Registers used:
-   509 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   510 ;; Tracked objects:
-   511 ;;		On entry : B00/0
-   512 ;;		On exit  : 0/0
-   513 ;;		Unchanged: 0/0
-   514 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   515 ;;      Params:         0       0       0       0       0
-   516 ;;      Locals:         0       0       0       0       0
-   517 ;;      Temps:          0       0       0       0       0
-   518 ;;      Totals:         0       0       0       0       0
-   519 ;;Total ram usage:        0 bytes
-   520 ;; Hardware stack levels required when called:    5
-   521 ;; This function calls:
-   522 ;;		_Setup
-   523 ;; This function is called by:
-   524 ;;		Startup code after reset
-   525 ;; This function uses a non-reentrant model
-   526 ;;
-   527                           
-   528                           
-   529                           ;psect for function _main
-   530  00DA                     _main:
-   531  00DA                     l863:	
-   532                           ;incstack = 0
-   533                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   534                           
-   535  00DA  120A  118A  206F  120A  118A  	fcall	_Setup
-   536  00DF                     l111:
-   537  00DF                     l112:
-   538  00DF  28DF               	goto	l111
-   539  00E0  120A  118A  280C   	ljmp	start
-   540  00E3                     __end_of_main:
-   541                           
-   542                           	psect	text1
-   543  006F                     __ptext1:	
-   544 ;; *************** function _Setup *****************
-   545 ;; Defined at:
-   546 ;;		line 76 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
-   547 ;; Parameters:    Size  Location     Type
-   548 ;;		None
-   549 ;; Auto vars:     Size  Location     Type
-   550 ;;		None
-   551 ;; Return value:  Size  Location     Type
-   552 ;;                  1    wreg      void 
-   553 ;; Registers used:
-   554 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   555 ;; Tracked objects:
-   556 ;;		On entry : 0/0
-   557 ;;		On exit  : 0/0
-   558 ;;		Unchanged: 0/0
-   559 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   560 ;;      Params:         0       0       0       0       0
-   561 ;;      Locals:         0       0       0       0       0
-   562 ;;      Temps:          0       1       0       0       0
-   563 ;;      Totals:         0       1       0       0       0
-   564 ;;Total ram usage:        1 bytes
-   565 ;; Hardware stack levels used:    1
-   566 ;; Hardware stack levels required when called:    4
-   567 ;; This function calls:
-   568 ;;		_initADC
-   569 ;;		_initSPI
-   570 ;; This function is called by:
-   571 ;;		_main
-   572 ;; This function uses a non-reentrant model
-   573 ;;
-   574                           
-   575                           
-   576                           ;psect for function _Setup
-   577  006F                     _Setup:
-   578  006F                     l847:	
-   579                           ;incstack = 0
-   580                           ; Regs used in _Setup: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   581                           
-   582  006F  1683               	bsf	3,5	;RP0=1, select bank3
-   583  0070  1703               	bsf	3,6	;RP1=1, select bank3
-   584  0071  0188               	clrf	8	;volatile
-   585  0072  0189               	clrf	9	;volatile
-   586  0073  1683               	bsf	3,5	;RP0=1, select bank1
-   587  0074  1303               	bcf	3,6	;RP1=0, select bank1
-   588  0075  0185               	clrf	5	;volatile
-   589  0076  0186               	clrf	6	;volatile
-   590  0077  0187               	clrf	7	;volatile
-   591  0078  0188               	clrf	8	;volatile
-   592  0079  01F9               	clrf	_ADC
-   593  007A  01F8               	clrf	_TEMP
-   594  007B                     l849:
-   595  007B  178B               	bsf	11,7	;volatile
-   596  007C                     l851:
-   597  007C  170B               	bsf	11,6	;volatile
-   598  007D                     l853:
-   599  007D  1283               	bcf	3,5	;RP0=0, select bank0
-   600  007E  1303               	bcf	3,6	;RP1=0, select bank0
-   601  007F  118C               	bcf	12,3	;volatile
-   602  0080                     l855:
-   603  0080  1683               	bsf	3,5	;RP0=1, select bank1
-   604  0081  1303               	bcf	3,6	;RP1=0, select bank1
-   605  0082  158C               	bsf	12,3	;volatile
-   606  0083                     l857:
-   607  0083  1685               	bsf	5,5	;volatile
-   608  0084                     l859:
-   609  0084  3000               	movlw	0
-   610  0085  120A  118A  2015  120A  118A  	fcall	_initADC
-   611  008A                     l861:
-   612  008A  01F4               	clrf	initSPI@Data_sample
-   613  008B  3020               	movlw	32
-   614  008C  1283               	bcf	3,5	;RP0=0, select bank0
-   615  008D  1303               	bcf	3,6	;RP1=0, select bank0
-   616  008E  00A0               	movwf	??_Setup
-   617  008F  0820               	movf	??_Setup,w
-   618  0090  00F5               	movwf	initSPI@clock_idle
-   619  0091  01F6               	clrf	initSPI@edge
-   620  0092  3024               	movlw	36
-   621  0093  120A  118A  20C1  120A  118A  	fcall	_initSPI
-   622  0098                     l117:
-   623  0098  0008               	return
-   624  0099                     __end_of_Setup:
-   625                           
-   626                           	psect	text2
-   627  00C1                     __ptext2:	
-   628 ;; *************** function _initSPI *****************
-   629 ;; Defined at:
-   630 ;;		line 13 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
-   631 ;; Parameters:    Size  Location     Type
-   632 ;;  Type            1    wreg     enum E1264
-   633 ;;  Data_sample     1    4[COMMON] enum E1276
-   634 ;;  clock_idle      1    5[COMMON] enum E1272
-   635 ;;  edge            1    6[COMMON] enum E1280
-   636 ;; Auto vars:     Size  Location     Type
-   637 ;;  Type            1    7[COMMON] enum E1264
-   638 ;; Return value:  Size  Location     Type
-   639 ;;                  1    wreg      void 
-   640 ;; Registers used:
-   641 ;;		wreg, status,2, status,0
-   642 ;; Tracked objects:
-   643 ;;		On entry : 0/0
-   644 ;;		On exit  : 0/0
-   645 ;;		Unchanged: 0/0
-   646 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   647 ;;      Params:         3       0       0       0       0
-   648 ;;      Locals:         1       0       0       0       0
-   649 ;;      Temps:          0       0       0       0       0
-   650 ;;      Totals:         4       0       0       0       0
-   651 ;;Total ram usage:        4 bytes
-   652 ;; Hardware stack levels used:    1
-   653 ;; Hardware stack levels required when called:    3
-   654 ;; This function calls:
-   655 ;;		Nothing
-   656 ;; This function is called by:
-   657 ;;		_Setup
-   658 ;; This function uses a non-reentrant model
-   659 ;;
-   660                           
-   661                           
-   662                           ;psect for function _initSPI
-   663  00C1                     _initSPI:
-   664                           
-   665                           ;incstack = 0
-   666                           ; Regs used in _initSPI: [wreg+status,2+status,0]
-   667                           ;initSPI@Type stored from wreg
-   668  00C1  00F7               	movwf	initSPI@Type
-   669  00C2                     l797:
-   670                           
-   671                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 14:     TRISC5 = 0;
-   672  00C2  1683               	bsf	3,5	;RP0=1, select bank1
-   673  00C3  1303               	bcf	3,6	;RP1=0, select bank1
-   674  00C4  1287               	bcf	7,5	;volatile
-   675  00C5                     l799:
-   676                           
-   677                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 16:     SSPCON = Type
-      +                           | clock_idle;
-   678  00C5  0877               	movf	initSPI@Type,w
-   679  00C6  0475               	iorwf	initSPI@clock_idle,w
-   680  00C7  1283               	bcf	3,5	;RP0=0, select bank0
-   681  00C8  1303               	bcf	3,6	;RP1=0, select bank0
-   682  00C9  0094               	movwf	20	;volatile
-   683  00CA                     l801:
-   684                           
-   685                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 18:     if(Type & 0b0
-      +                          0000100){
-   686  00CA  1D77               	btfss	initSPI@Type,2
-   687  00CB  28CD               	goto	u51
-   688  00CC  28CE               	goto	u50
-   689  00CD                     u51:
-   690  00CD  28D3               	goto	l805
-   691  00CE                     u50:
-   692  00CE                     l803:
-   693                           
-   694                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 19:         SSPSTAT =
-      +                           edge;
-   695  00CE  0876               	movf	initSPI@edge,w
-   696  00CF  1683               	bsf	3,5	;RP0=1, select bank1
-   697  00D0  1303               	bcf	3,6	;RP1=0, select bank1
-   698  00D1  0094               	movwf	20	;volatile
-   699                           
-   700                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 21:     } else{
-   701  00D2  28D8               	goto	l807
-   702  00D3                     l805:
-   703                           
-   704                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 22:         SSPSTAT =
-      +                           Data_sample | edge;
-   705  00D3  0874               	movf	initSPI@Data_sample,w
-   706  00D4  0476               	iorwf	initSPI@edge,w
-   707  00D5  1683               	bsf	3,5	;RP0=1, select bank1
-   708  00D6  1303               	bcf	3,6	;RP1=0, select bank1
-   709  00D7  0094               	movwf	20	;volatile
-   710  00D8                     l807:
-   711                           
-   712                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 24:     TRISC3 = 1;
-   713  00D8  1587               	bsf	7,3	;volatile
-   714  00D9                     l43:
-   715  00D9  0008               	return
-   716  00DA                     __end_of_initSPI:
-   717                           
-   718                           	psect	text3
-   719  0015                     __ptext3:	
-   720 ;; *************** function _initADC *****************
-   721 ;; Defined at:
-   722 ;;		line 4 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c"
-   723 ;; Parameters:    Size  Location     Type
-   724 ;;  IRCF            1    wreg     unsigned char 
-   725 ;; Auto vars:     Size  Location     Type
-   726 ;;  IRCF            1    6[COMMON] unsigned char 
-   727 ;; Return value:  Size  Location     Type
-   728 ;;                  1    wreg      void 
-   729 ;; Registers used:
-   730 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-   731 ;; Tracked objects:
-   732 ;;		On entry : 0/0
-   733 ;;		On exit  : 0/0
-   734 ;;		Unchanged: 0/0
-   735 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   736 ;;      Params:         0       0       0       0       0
-   737 ;;      Locals:         1       0       0       0       0
-   738 ;;      Temps:          2       0       0       0       0
-   739 ;;      Totals:         3       0       0       0       0
-   740 ;;Total ram usage:        3 bytes
-   741 ;; Hardware stack levels used:    1
-   742 ;; Hardware stack levels required when called:    3
-   743 ;; This function calls:
-   744 ;;		Nothing
-   745 ;; This function is called by:
-   746 ;;		_Setup
-   747 ;; This function uses a non-reentrant model
-   748 ;;
-   749                           
-   750                           
-   751                           ;psect for function _initADC
-   752  0015                     _initADC:
-   753                           
-   754                           ;incstack = 0
-   755                           ; Regs used in _initADC: [wreg-fsr0h+status,2+status,0]
-   756                           ;initADC@IRCF stored from wreg
-   757  0015  00F6               	movwf	initADC@IRCF
-   758  0016                     l709:
-   759                           
-   760                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 6:     ADCON0 = 0b100
-      +                          00011;
-   761  0016  3083               	movlw	131
-   762  0017  1283               	bcf	3,5	;RP0=0, select bank0
-   763  0018  1303               	bcf	3,6	;RP1=0, select bank0
-   764  0019  009F               	movwf	31	;volatile
-   765  001A                     l711:
-   766                           
-   767                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 7:     ADCON1 = 0;
-   768  001A  1683               	bsf	3,5	;RP0=1, select bank1
-   769  001B  1303               	bcf	3,6	;RP1=0, select bank1
-   770  001C  019F               	clrf	31	;volatile
-   771  001D                     l713:
-   772                           
-   773                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 8:     PIE1bits.ADIE 
-      +                          = 1;
-   774  001D  170C               	bsf	12,6	;volatile
-   775                           
-   776                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 9:     switch(IRCF){
-   777  001E  284C               	goto	l717
-   778  001F                     l16:	
-   779                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 10:         case 0:
-   780                           
-   781                           
-   782                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 11:             TRISA
-      +                          bits.TRISA0 = 1;
-   783  001F  1405               	bsf	5,0	;volatile
-   784                           
-   785                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 12:             ANSEL
-      +                          bits.ANS0 = 1;
-   786  0020  1683               	bsf	3,5	;RP0=1, select bank3
-   787  0021  1703               	bsf	3,6	;RP1=1, select bank3
-   788  0022  1408               	bsf	8,0	;volatile
-   789                           
-   790                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 13:             break
-      +                          ;
-   791  0023  286E               	goto	l26
-   792  0024                     l18:	
-   793                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 14:         case 1:
-   794                           
-   795                           
-   796                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 15:             TRISA
-      +                          bits.TRISA1 = 1;
-   797  0024  1485               	bsf	5,1	;volatile
-   798                           
-   799                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 16:             ANSEL
-      +                          bits.ANS1 = 1;
-   800  0025  1683               	bsf	3,5	;RP0=1, select bank3
-   801  0026  1703               	bsf	3,6	;RP1=1, select bank3
-   802  0027  1488               	bsf	8,1	;volatile
-   803                           
-   804                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 17:             break
-      +                          ;
-   805  0028  286E               	goto	l26
-   806  0029                     l19:	
-   807                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 18:         case 2:
-   808                           
-   809                           
-   810                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 19:             TRISA
-      +                          bits.TRISA2 = 1;
-   811  0029  1505               	bsf	5,2	;volatile
-   812                           
-   813                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 20:             ANSEL
-      +                          bits.ANS2 = 1;
-   814  002A  1683               	bsf	3,5	;RP0=1, select bank3
-   815  002B  1703               	bsf	3,6	;RP1=1, select bank3
-   816  002C  1508               	bsf	8,2	;volatile
-   817                           
-   818                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 21:             break
-      +                          ;
-   819  002D  286E               	goto	l26
-   820  002E                     l20:	
-   821                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 22:         case 3:
-   822                           
-   823                           
-   824                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 23:             TRISA
-      +                          bits.TRISA3 = 1;
-   825  002E  1585               	bsf	5,3	;volatile
-   826                           
-   827                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 24:             ANSEL
-      +                          bits.ANS3 = 1;
-   828  002F  1683               	bsf	3,5	;RP0=1, select bank3
-   829  0030  1703               	bsf	3,6	;RP1=1, select bank3
-   830  0031  1588               	bsf	8,3	;volatile
-   831                           
-   832                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 25:             break
-      +                          ;
-   833  0032  286E               	goto	l26
-   834  0033                     l21:	
-   835                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 26:         case 4:
-   836                           
-   837                           
-   838                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 27:             TRISA
-      +                          bits.TRISA5 = 1;
-   839  0033  1685               	bsf	5,5	;volatile
-   840                           
-   841                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 28:             ANSEL
-      +                          bits.ANS4 = 1;
-   842  0034  1683               	bsf	3,5	;RP0=1, select bank3
-   843  0035  1703               	bsf	3,6	;RP1=1, select bank3
-   844  0036  1608               	bsf	8,4	;volatile
-   845                           
-   846                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 29:             break
-      +                          ;
-   847  0037  286E               	goto	l26
-   848  0038                     l22:	
-   849                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 30:         case 5:
-   850                           
-   851                           
-   852                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 31:             TRISE
-      +                          bits.TRISE0 = 1;
-   853  0038  1409               	bsf	9,0	;volatile
-   854                           
-   855                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 32:             ANSEL
-      +                          bits.ANS5 = 1;
-   856  0039  1683               	bsf	3,5	;RP0=1, select bank3
-   857  003A  1703               	bsf	3,6	;RP1=1, select bank3
-   858  003B  1688               	bsf	8,5	;volatile
-   859                           
-   860                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 33:             break
-      +                          ;
-   861  003C  286E               	goto	l26
-   862  003D                     l23:	
-   863                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 34:         case 6:
-   864                           
-   865                           
-   866                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 35:             TRISE
-      +                          bits.TRISE1 = 1;
-   867  003D  1489               	bsf	9,1	;volatile
-   868                           
-   869                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 36:             ANSEL
-      +                          bits.ANS6 = 1;
-   870  003E  1683               	bsf	3,5	;RP0=1, select bank3
-   871  003F  1703               	bsf	3,6	;RP1=1, select bank3
-   872  0040  1708               	bsf	8,6	;volatile
-   873                           
-   874                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 37:             break
-      +                          ;
-   875  0041  286E               	goto	l26
-   876  0042                     l24:	
-   877                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 38:         case 7:
-   878                           
-   879                           
-   880                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 39:             TRISE
-      +                          bits.TRISE2 = 1;
-   881  0042  1509               	bsf	9,2	;volatile
-   882                           
-   883                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 40:             ANSEL
-      +                          bits.ANS7 = 1;
-   884  0043  1683               	bsf	3,5	;RP0=1, select bank3
-   885  0044  1703               	bsf	3,6	;RP1=1, select bank3
-   886  0045  1788               	bsf	8,7	;volatile
-   887                           
-   888                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 41:             break
-      +                          ;
-   889  0046  286E               	goto	l26
-   890  0047                     l25:	
-   891                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 42:         default:
-   892                           
-   893                           
-   894                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 43:             TRISA
-      +                          bits.TRISA0 = 1;
-   895  0047  1405               	bsf	5,0	;volatile
-   896                           
-   897                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 44:             ANSEL
-      +                          bits.ANS0 = 1;
-   898  0048  1683               	bsf	3,5	;RP0=1, select bank3
-   899  0049  1703               	bsf	3,6	;RP1=1, select bank3
-   900  004A  1408               	bsf	8,0	;volatile
-   901                           
-   902                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 45:             break
-      +                          ;
-   903  004B  286E               	goto	l26
-   904  004C                     l717:
-   905  004C  0876               	movf	initADC@IRCF,w
-   906  004D  00F4               	movwf	??_initADC
-   907  004E  01F5               	clrf	??_initADC+1
-   908                           
-   909                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
-      +                          itches
-   910                           ; Switch size 1, requested type "simple"
-   911                           ; Number of cases is 1, Range of values is 0 to 0
-   912                           ; switch strategies available:
-   913                           ; Name         Instructions Cycles
-   914                           ; simple_byte            4     3 (average)
-   915                           ; direct_byte           11     8 (fixed)
-   916                           ; jumptable            260     6 (fixed)
-   917                           ;	Chosen strategy is simple_byte
-   918  004F  0875               	movf	??_initADC+1,w
-   919  0050  3A00               	xorlw	0	; case 0
-   920  0051  1903               	skipnz
-   921  0052  2854               	goto	l885
-   922  0053  2847               	goto	l25
-   923  0054                     l885:
-   924                           
-   925                           ; Switch size 1, requested type "simple"
-   926                           ; Number of cases is 8, Range of values is 0 to 7
-   927                           ; switch strategies available:
-   928                           ; Name         Instructions Cycles
-   929                           ; simple_byte           25    13 (average)
-   930                           ; direct_byte           32     8 (fixed)
-   931                           ; jumptable            260     6 (fixed)
-   932                           ;	Chosen strategy is simple_byte
-   933  0054  0874               	movf	??_initADC,w
-   934  0055  3A00               	xorlw	0	; case 0
-   935  0056  1903               	skipnz
-   936  0057  281F               	goto	l16
-   937  0058  3A01               	xorlw	1	; case 1
-   938  0059  1903               	skipnz
-   939  005A  2824               	goto	l18
-   940  005B  3A03               	xorlw	3	; case 2
-   941  005C  1903               	skipnz
-   942  005D  2829               	goto	l19
-   943  005E  3A01               	xorlw	1	; case 3
-   944  005F  1903               	skipnz
-   945  0060  282E               	goto	l20
-   946  0061  3A07               	xorlw	7	; case 4
-   947  0062  1903               	skipnz
-   948  0063  2833               	goto	l21
-   949  0064  3A01               	xorlw	1	; case 5
-   950  0065  1903               	skipnz
-   951  0066  2838               	goto	l22
-   952  0067  3A03               	xorlw	3	; case 6
-   953  0068  1903               	skipnz
-   954  0069  283D               	goto	l23
-   955  006A  3A01               	xorlw	1	; case 7
-   956  006B  1903               	skipnz
-   957  006C  2842               	goto	l24
-   958  006D  2847               	goto	l25
-   959  006E                     l26:
-   960  006E  0008               	return
-   961  006F                     __end_of_initADC:
-   962                           
-   963                           	psect	text4
-   964  0099                     __ptext4:	
-   965 ;; *************** function _isr *****************
-   966 ;; Defined at:
-   967 ;;		line 52 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
-   968 ;; Parameters:    Size  Location     Type
-   969 ;;		None
-   970 ;; Auto vars:     Size  Location     Type
-   971 ;;		None
-   972 ;; Return value:  Size  Location     Type
-   973 ;;                  1    wreg      void 
-   974 ;; Registers used:
-   975 ;;		wreg, status,2, status,0, pclath, cstack
-   976 ;; Tracked objects:
-   977 ;;		On entry : 0/0
-   978 ;;		On exit  : 0/0
-   979 ;;		Unchanged: 0/0
-   980 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   981 ;;      Params:         0       0       0       0       0
-   982 ;;      Locals:         0       0       0       0       0
-   983 ;;      Temps:          3       0       0       0       0
-   984 ;;      Totals:         3       0       0       0       0
-   985 ;;Total ram usage:        3 bytes
-   986 ;; Hardware stack levels used:    1
-   987 ;; Hardware stack levels required when called:    2
-   988 ;; This function calls:
-   989 ;;		_spiRead
-   990 ;;		_spiWrite
-   991 ;; This function is called by:
-   992 ;;		Interrupt level 1
-   993 ;; This function uses a non-reentrant model
-   994 ;;
-   995                           
-   996                           
-   997                           ;psect for function _isr
-   998  0099                     _isr:
-   999  0099                     i1l761:
-  1000                           
-  1001                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 53:     INTCONbits
-      +                          .PEIE = 1;
-  1002  0099  1283               	bcf	3,5	;RP0=0, select bank0
-  1003  009A  1303               	bcf	3,6	;RP1=0, select bank0
-  1004  009B  1D8C               	btfss	12,3	;volatile
-  1005  009C  289E               	goto	u3_21
-  1006  009D  289F               	goto	u3_20
-  1007  009E                     u3_21:
-  1008  009E  28B0               	goto	i1l767
-  1009  009F                     u3_20:
-  1010  009F                     i1l763:
-  1011                           
-  1012                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 54:     PIR1bits.S
+   494                           ; 1 bytes @ 0x0
+   495  0020                     	ds	1
+   496                           
+   497                           	psect	maintext
+   498  00C0                     __pmaintext:	
+   499 ;;
+   500 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   501 ;;
+   502 ;; *************** function _main *****************
+   503 ;; Defined at:
+   504 ;;		line 67 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
+   505 ;; Parameters:    Size  Location     Type
+   506 ;;		None
+   507 ;; Auto vars:     Size  Location     Type
+   508 ;;		None
+   509 ;; Return value:  Size  Location     Type
+   510 ;;                  1    wreg      void 
+   511 ;; Registers used:
+   512 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   513 ;; Tracked objects:
+   514 ;;		On entry : B00/0
+   515 ;;		On exit  : 0/0
+   516 ;;		Unchanged: 0/0
+   517 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   518 ;;      Params:         0       0       0       0       0
+   519 ;;      Locals:         0       0       0       0       0
+   520 ;;      Temps:          0       0       0       0       0
+   521 ;;      Totals:         0       0       0       0       0
+   522 ;;Total ram usage:        0 bytes
+   523 ;; Hardware stack levels required when called:    5
+   524 ;; This function calls:
+   525 ;;		_Setup
+   526 ;; This function is called by:
+   527 ;;		Startup code after reset
+   528 ;; This function uses a non-reentrant model
+   529 ;;
+   530                           
+   531                           
+   532                           ;psect for function _main
+   533  00C0                     _main:
+   534  00C0                     l909:	
+   535                           ;incstack = 0
+   536                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   537                           
+   538                           
+   539                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 68:     PIR1bits.S
       +                          SPIF = 0;
-  1013  009F  120A  118A  20E3  120A  118A  	fcall	_spiRead
-  1014  00A4  1283               	bcf	3,5	;RP0=0, select bank0
-  1015  00A5  1303               	bcf	3,6	;RP1=0, select bank0
-  1016  00A6  0088               	movwf	8	;volatile
-  1017                           
-  1018                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55:     PIE1bits.S
-      +                          SPIE = 1;
-  1019  00A7  0878               	movf	_TEMP,w
-  1020  00A8  120A  118A  20F3  120A  118A  	fcall	_spiWrite
-  1021  00AD                     i1l765:
-  1022                           
-  1023                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 56:     TRISAbits.
+   540  00C0  120A  118A  206F  120A  118A  	fcall	_Setup
+   541  00C5                     l911:
+   542                           
+   543                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 70:     TRISAbits.
       +                          TRISA5 = 1;
-  1024  00AD  1283               	bcf	3,5	;RP0=0, select bank0
-  1025  00AE  1303               	bcf	3,6	;RP1=0, select bank0
-  1026  00AF  118C               	bcf	12,3	;volatile
-  1027  00B0                     i1l767:
-  1028                           
-  1029                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 59:     initADC(0)
-      +                          ;
-  1030  00B0  1F0C               	btfss	12,6	;volatile
-  1031  00B1  28B3               	goto	u4_21
-  1032  00B2  28B4               	goto	u4_20
-  1033  00B3                     u4_21:
-  1034  00B3  28BA               	goto	i1l106
-  1035  00B4                     u4_20:
-  1036  00B4                     i1l769:
-  1037                           
-  1038                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 60:     initSPI(SP
+   544  00C5  0879               	movf	_ADC,w
+   545  00C6  1283               	bcf	3,5	;RP0=0, select bank0
+   546  00C7  1303               	bcf	3,6	;RP1=0, select bank0
+   547  00C8  0086               	movwf	6	;volatile
+   548  00C9                     l913:
+   549                           
+   550                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 74:     initSPI(SP
       +                          I_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-  1039  00B4  081E               	movf	30,w	;volatile
-  1040  00B5  00F1               	movwf	??_isr
-  1041  00B6  0871               	movf	??_isr,w
-  1042  00B7  00F9               	movwf	_ADC
-  1043  00B8                     i1l771:
-  1044                           
-  1045                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 61: 
-  1046  00B8  130C               	bcf	12,6	;volatile
-  1047  00B9                     i1l773:
-  1048                           
-  1049                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 62: }
-  1050  00B9  149F               	bsf	31,1	;volatile
-  1051  00BA                     i1l106:
-  1052  00BA  0873               	movf	??_isr+2,w
-  1053  00BB  008A               	movwf	10
-  1054  00BC  0E72               	swapf	??_isr+1,w
-  1055  00BD  0083               	movwf	3
-  1056  00BE  0EFE               	swapf	btemp,f
-  1057  00BF  0E7E               	swapf	btemp,w
-  1058  00C0  0009               	retfie
-  1059  00C1                     __end_of_isr:
-  1060                           
-  1061                           	psect	intentry
-  1062  0004                     __pintentry:	
-  1063                           ;incstack = 0
-  1064                           ; Regs used in _isr: [wreg+status,2+status,0+pclath+cstack]
-  1065                           
-  1066  0004                     interrupt_function:
-  1067  007E                     saved_w	set	btemp
-  1068  0004  00FE               	movwf	btemp
-  1069  0005  0E03               	swapf	3,w
-  1070  0006  00F2               	movwf	??_isr+1
-  1071  0007  080A               	movf	10,w
-  1072  0008  00F3               	movwf	??_isr+2
-  1073  0009  120A  118A  2899   	ljmp	_isr
-  1074                           
-  1075                           	psect	text5
-  1076  00F3                     __ptext5:	
-  1077 ;; *************** function _spiWrite *****************
-  1078 ;; Defined at:
-  1079 ;;		line 31 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
-  1080 ;; Parameters:    Size  Location     Type
-  1081 ;;  variable        1    wreg     unsigned char 
-  1082 ;; Auto vars:     Size  Location     Type
-  1083 ;;  variable        1    0[COMMON] unsigned char 
-  1084 ;; Return value:  Size  Location     Type
-  1085 ;;                  1    wreg      void 
-  1086 ;; Registers used:
-  1087 ;;		wreg
-  1088 ;; Tracked objects:
-  1089 ;;		On entry : 0/0
-  1090 ;;		On exit  : 0/0
-  1091 ;;		Unchanged: 0/0
-  1092 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1093 ;;      Params:         0       0       0       0       0
-  1094 ;;      Locals:         1       0       0       0       0
-  1095 ;;      Temps:          0       0       0       0       0
-  1096 ;;      Totals:         1       0       0       0       0
-  1097 ;;Total ram usage:        1 bytes
-  1098 ;; Hardware stack levels used:    1
-  1099 ;; This function calls:
-  1100 ;;		Nothing
-  1101 ;; This function is called by:
-  1102 ;;		_isr
-  1103 ;; This function uses a non-reentrant model
-  1104 ;;
-  1105                           
-  1106                           
-  1107                           ;psect for function _spiWrite
-  1108  00F3                     _spiWrite:
-  1109                           
+   551  00C9  3013               	movlw	19
+   552  00CA  0279               	subwf	_ADC,w
+   553  00CB  1C03               	skipc
+   554  00CC  28CE               	goto	u101
+   555  00CD  28CF               	goto	u100
+   556  00CE                     u101:
+   557  00CE  28D2               	goto	l919
+   558  00CF                     u100:
+   559  00CF                     l915:
+   560                           
+   561                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 75: 
+   562  00CF  0188               	clrf	8	;volatile
+   563  00D0                     l917:
+   564                           
+   565                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 76: }
+   566  00D0  1508               	bsf	8,2	;volatile
+   567  00D1  28C5               	goto	l911
+   568  00D2                     l919:
+   569  00D2  300F               	movlw	15
+   570  00D3  0279               	subwf	_ADC,w
+   571  00D4  1803               	skipnc
+   572  00D5  28D7               	goto	u111
+   573  00D6  28D8               	goto	u110
+   574  00D7                     u111:
+   575  00D7  28DB               	goto	l925
+   576  00D8                     u110:
+   577  00D8                     l921:
+   578  00D8  0188               	clrf	8	;volatile
+   579  00D9                     l923:
+   580  00D9  1408               	bsf	8,0	;volatile
+   581  00DA  28C5               	goto	l911
+   582  00DB                     l925:
+   583  00DB  0188               	clrf	8	;volatile
+   584  00DC                     l927:
+   585  00DC  1488               	bsf	8,1	;volatile
+   586  00DD  28C5               	goto	l911
+   587  00DE  120A  118A  280C   	ljmp	start
+   588  00E1                     __end_of_main:
+   589                           
+   590                           	psect	text1
+   591  006F                     __ptext1:	
+   592 ;; *************** function _Setup *****************
+   593 ;; Defined at:
+   594 ;;		line 91 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
+   595 ;; Parameters:    Size  Location     Type
+   596 ;;		None
+   597 ;; Auto vars:     Size  Location     Type
+   598 ;;		None
+   599 ;; Return value:  Size  Location     Type
+   600 ;;                  1    wreg      void 
+   601 ;; Registers used:
+   602 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   603 ;; Tracked objects:
+   604 ;;		On entry : 0/0
+   605 ;;		On exit  : 0/0
+   606 ;;		Unchanged: 0/0
+   607 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   608 ;;      Params:         0       0       0       0       0
+   609 ;;      Locals:         0       0       0       0       0
+   610 ;;      Temps:          0       1       0       0       0
+   611 ;;      Totals:         0       1       0       0       0
+   612 ;;Total ram usage:        1 bytes
+   613 ;; Hardware stack levels used:    1
+   614 ;; Hardware stack levels required when called:    4
+   615 ;; This function calls:
+   616 ;;		_initADC
+   617 ;;		_initSPI
+   618 ;; This function is called by:
+   619 ;;		_main
+   620 ;; This function uses a non-reentrant model
+   621 ;;
+   622                           
+   623                           
+   624                           ;psect for function _Setup
+   625  006F                     _Setup:
+   626  006F                     l893:	
+   627                           ;incstack = 0
+   628                           ; Regs used in _Setup: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   629                           
+   630  006F  1683               	bsf	3,5	;RP0=1, select bank3
+   631  0070  1703               	bsf	3,6	;RP1=1, select bank3
+   632  0071  0188               	clrf	8	;volatile
+   633  0072  0189               	clrf	9	;volatile
+   634  0073  1683               	bsf	3,5	;RP0=1, select bank1
+   635  0074  1303               	bcf	3,6	;RP1=0, select bank1
+   636  0075  0186               	clrf	6	;volatile
+   637  0076  0187               	clrf	7	;volatile
+   638  0077  0188               	clrf	8	;volatile
+   639  0078  01F9               	clrf	_ADC
+   640  0079  01F8               	clrf	_TEMP
+   641  007A                     l895:
+   642  007A  178B               	bsf	11,7	;volatile
+   643  007B                     l897:
+   644  007B  170B               	bsf	11,6	;volatile
+   645  007C                     l899:
+   646  007C  1283               	bcf	3,5	;RP0=0, select bank0
+   647  007D  1303               	bcf	3,6	;RP1=0, select bank0
+   648  007E  118C               	bcf	12,3	;volatile
+   649  007F                     l901:
+   650  007F  1683               	bsf	3,5	;RP0=1, select bank1
+   651  0080  1303               	bcf	3,6	;RP1=0, select bank1
+   652  0081  158C               	bsf	12,3	;volatile
+   653  0082                     l903:
+   654  0082  1685               	bsf	5,5	;volatile
+   655  0083                     l905:
+   656  0083  3000               	movlw	0
+   657  0084  120A  118A  2015  120A  118A  	fcall	_initADC
+   658  0089                     l907:
+   659  0089  01F4               	clrf	initSPI@Data_sample
+   660  008A  3020               	movlw	32
+   661  008B  1283               	bcf	3,5	;RP0=0, select bank0
+   662  008C  1303               	bcf	3,6	;RP1=0, select bank0
+   663  008D  00A0               	movwf	??_Setup
+   664  008E  0820               	movf	??_Setup,w
+   665  008F  00F5               	movwf	initSPI@clock_idle
+   666  0090  01F6               	clrf	initSPI@edge
+   667  0091  3024               	movlw	36
+   668  0092  120A  118A  20E1  120A  118A  	fcall	_initSPI
+   669  0097                     l127:
+   670  0097  0008               	return
+   671  0098                     __end_of_Setup:
+   672                           
+   673                           	psect	text2
+   674  00E1                     __ptext2:	
+   675 ;; *************** function _initSPI *****************
+   676 ;; Defined at:
+   677 ;;		line 13 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
+   678 ;; Parameters:    Size  Location     Type
+   679 ;;  Type            1    wreg     enum E1264
+   680 ;;  Data_sample     1    4[COMMON] enum E1276
+   681 ;;  clock_idle      1    5[COMMON] enum E1272
+   682 ;;  edge            1    6[COMMON] enum E1280
+   683 ;; Auto vars:     Size  Location     Type
+   684 ;;  Type            1    7[COMMON] enum E1264
+   685 ;; Return value:  Size  Location     Type
+   686 ;;                  1    wreg      void 
+   687 ;; Registers used:
+   688 ;;		wreg, status,2, status,0
+   689 ;; Tracked objects:
+   690 ;;		On entry : 0/0
+   691 ;;		On exit  : 0/0
+   692 ;;		Unchanged: 0/0
+   693 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   694 ;;      Params:         3       0       0       0       0
+   695 ;;      Locals:         1       0       0       0       0
+   696 ;;      Temps:          0       0       0       0       0
+   697 ;;      Totals:         4       0       0       0       0
+   698 ;;Total ram usage:        4 bytes
+   699 ;; Hardware stack levels used:    1
+   700 ;; Hardware stack levels required when called:    3
+   701 ;; This function calls:
+   702 ;;		Nothing
+   703 ;; This function is called by:
+   704 ;;		_Setup
+   705 ;; This function uses a non-reentrant model
+   706 ;;
+   707                           
+   708                           
+   709                           ;psect for function _initSPI
+   710  00E1                     _initSPI:
+   711                           
+   712                           ;incstack = 0
+   713                           ; Regs used in _initSPI: [wreg+status,2+status,0]
+   714                           ;initSPI@Type stored from wreg
+   715  00E1  00F7               	movwf	initSPI@Type
+   716  00E2                     l825:
+   717                           
+   718                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 14:     TRISC5 = 0;
+   719  00E2  1683               	bsf	3,5	;RP0=1, select bank1
+   720  00E3  1303               	bcf	3,6	;RP1=0, select bank1
+   721  00E4  1287               	bcf	7,5	;volatile
+   722  00E5                     l827:
+   723                           
+   724                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 16:     SSPCON = Type
+      +                           | clock_idle;
+   725  00E5  0877               	movf	initSPI@Type,w
+   726  00E6  0475               	iorwf	initSPI@clock_idle,w
+   727  00E7  1283               	bcf	3,5	;RP0=0, select bank0
+   728  00E8  1303               	bcf	3,6	;RP1=0, select bank0
+   729  00E9  0094               	movwf	20	;volatile
+   730  00EA                     l829:
+   731                           
+   732                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 18:     if(Type & 0b0
+      +                          0000100){
+   733  00EA  1D77               	btfss	initSPI@Type,2
+   734  00EB  28ED               	goto	u71
+   735  00EC  28EE               	goto	u70
+   736  00ED                     u71:
+   737  00ED  28F3               	goto	l833
+   738  00EE                     u70:
+   739  00EE                     l831:
+   740                           
+   741                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 19:         SSPSTAT =
+      +                           edge;
+   742  00EE  0876               	movf	initSPI@edge,w
+   743  00EF  1683               	bsf	3,5	;RP0=1, select bank1
+   744  00F0  1303               	bcf	3,6	;RP1=0, select bank1
+   745  00F1  0094               	movwf	20	;volatile
+   746                           
+   747                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 21:     } else{
+   748  00F2  28F8               	goto	l835
+   749  00F3                     l833:
+   750                           
+   751                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 22:         SSPSTAT =
+      +                           Data_sample | edge;
+   752  00F3  0874               	movf	initSPI@Data_sample,w
+   753  00F4  0476               	iorwf	initSPI@edge,w
+   754  00F5  1683               	bsf	3,5	;RP0=1, select bank1
+   755  00F6  1303               	bcf	3,6	;RP1=0, select bank1
+   756  00F7  0094               	movwf	20	;volatile
+   757  00F8                     l835:
+   758                           
+   759                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 24:     TRISC3 = 1;
+   760  00F8  1587               	bsf	7,3	;volatile
+   761  00F9                     l43:
+   762  00F9  0008               	return
+   763  00FA                     __end_of_initSPI:
+   764                           
+   765                           	psect	text3
+   766  0015                     __ptext3:	
+   767 ;; *************** function _initADC *****************
+   768 ;; Defined at:
+   769 ;;		line 4 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c"
+   770 ;; Parameters:    Size  Location     Type
+   771 ;;  IRCF            1    wreg     unsigned char 
+   772 ;; Auto vars:     Size  Location     Type
+   773 ;;  IRCF            1    6[COMMON] unsigned char 
+   774 ;; Return value:  Size  Location     Type
+   775 ;;                  1    wreg      void 
+   776 ;; Registers used:
+   777 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   778 ;; Tracked objects:
+   779 ;;		On entry : 0/0
+   780 ;;		On exit  : 0/0
+   781 ;;		Unchanged: 0/0
+   782 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   783 ;;      Params:         0       0       0       0       0
+   784 ;;      Locals:         1       0       0       0       0
+   785 ;;      Temps:          2       0       0       0       0
+   786 ;;      Totals:         3       0       0       0       0
+   787 ;;Total ram usage:        3 bytes
+   788 ;; Hardware stack levels used:    1
+   789 ;; Hardware stack levels required when called:    3
+   790 ;; This function calls:
+   791 ;;		Nothing
+   792 ;; This function is called by:
+   793 ;;		_Setup
+   794 ;; This function uses a non-reentrant model
+   795 ;;
+   796                           
+   797                           
+   798                           ;psect for function _initADC
+   799  0015                     _initADC:
+   800                           
+   801                           ;incstack = 0
+   802                           ; Regs used in _initADC: [wreg-fsr0h+status,2+status,0]
+   803                           ;initADC@IRCF stored from wreg
+   804  0015  00F6               	movwf	initADC@IRCF
+   805  0016                     l719:
+   806                           
+   807                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 6:     ADCON0 = 0b100
+      +                          00011;
+   808  0016  3083               	movlw	131
+   809  0017  1283               	bcf	3,5	;RP0=0, select bank0
+   810  0018  1303               	bcf	3,6	;RP1=0, select bank0
+   811  0019  009F               	movwf	31	;volatile
+   812  001A                     l721:
+   813                           
+   814                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 7:     ADCON1 = 0;
+   815  001A  1683               	bsf	3,5	;RP0=1, select bank1
+   816  001B  1303               	bcf	3,6	;RP1=0, select bank1
+   817  001C  019F               	clrf	31	;volatile
+   818  001D                     l723:
+   819                           
+   820                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 8:     PIE1bits.ADIE 
+      +                          = 1;
+   821  001D  170C               	bsf	12,6	;volatile
+   822                           
+   823                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 9:     switch(IRCF){
+   824  001E  284C               	goto	l727
+   825  001F                     l16:	
+   826                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 10:         case 0:
+   827                           
+   828                           
+   829                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 11:             TRISA
+      +                          bits.TRISA0 = 1;
+   830  001F  1405               	bsf	5,0	;volatile
+   831                           
+   832                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 12:             ANSEL
+      +                          bits.ANS0 = 1;
+   833  0020  1683               	bsf	3,5	;RP0=1, select bank3
+   834  0021  1703               	bsf	3,6	;RP1=1, select bank3
+   835  0022  1408               	bsf	8,0	;volatile
+   836                           
+   837                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 13:             break
+      +                          ;
+   838  0023  286E               	goto	l26
+   839  0024                     l18:	
+   840                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 14:         case 1:
+   841                           
+   842                           
+   843                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 15:             TRISA
+      +                          bits.TRISA1 = 1;
+   844  0024  1485               	bsf	5,1	;volatile
+   845                           
+   846                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 16:             ANSEL
+      +                          bits.ANS1 = 1;
+   847  0025  1683               	bsf	3,5	;RP0=1, select bank3
+   848  0026  1703               	bsf	3,6	;RP1=1, select bank3
+   849  0027  1488               	bsf	8,1	;volatile
+   850                           
+   851                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 17:             break
+      +                          ;
+   852  0028  286E               	goto	l26
+   853  0029                     l19:	
+   854                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 18:         case 2:
+   855                           
+   856                           
+   857                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 19:             TRISA
+      +                          bits.TRISA2 = 1;
+   858  0029  1505               	bsf	5,2	;volatile
+   859                           
+   860                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 20:             ANSEL
+      +                          bits.ANS2 = 1;
+   861  002A  1683               	bsf	3,5	;RP0=1, select bank3
+   862  002B  1703               	bsf	3,6	;RP1=1, select bank3
+   863  002C  1508               	bsf	8,2	;volatile
+   864                           
+   865                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 21:             break
+      +                          ;
+   866  002D  286E               	goto	l26
+   867  002E                     l20:	
+   868                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 22:         case 3:
+   869                           
+   870                           
+   871                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 23:             TRISA
+      +                          bits.TRISA3 = 1;
+   872  002E  1585               	bsf	5,3	;volatile
+   873                           
+   874                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 24:             ANSEL
+      +                          bits.ANS3 = 1;
+   875  002F  1683               	bsf	3,5	;RP0=1, select bank3
+   876  0030  1703               	bsf	3,6	;RP1=1, select bank3
+   877  0031  1588               	bsf	8,3	;volatile
+   878                           
+   879                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 25:             break
+      +                          ;
+   880  0032  286E               	goto	l26
+   881  0033                     l21:	
+   882                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 26:         case 4:
+   883                           
+   884                           
+   885                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 27:             TRISA
+      +                          bits.TRISA5 = 1;
+   886  0033  1685               	bsf	5,5	;volatile
+   887                           
+   888                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 28:             ANSEL
+      +                          bits.ANS4 = 1;
+   889  0034  1683               	bsf	3,5	;RP0=1, select bank3
+   890  0035  1703               	bsf	3,6	;RP1=1, select bank3
+   891  0036  1608               	bsf	8,4	;volatile
+   892                           
+   893                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 29:             break
+      +                          ;
+   894  0037  286E               	goto	l26
+   895  0038                     l22:	
+   896                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 30:         case 5:
+   897                           
+   898                           
+   899                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 31:             TRISE
+      +                          bits.TRISE0 = 1;
+   900  0038  1409               	bsf	9,0	;volatile
+   901                           
+   902                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 32:             ANSEL
+      +                          bits.ANS5 = 1;
+   903  0039  1683               	bsf	3,5	;RP0=1, select bank3
+   904  003A  1703               	bsf	3,6	;RP1=1, select bank3
+   905  003B  1688               	bsf	8,5	;volatile
+   906                           
+   907                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 33:             break
+      +                          ;
+   908  003C  286E               	goto	l26
+   909  003D                     l23:	
+   910                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 34:         case 6:
+   911                           
+   912                           
+   913                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 35:             TRISE
+      +                          bits.TRISE1 = 1;
+   914  003D  1489               	bsf	9,1	;volatile
+   915                           
+   916                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 36:             ANSEL
+      +                          bits.ANS6 = 1;
+   917  003E  1683               	bsf	3,5	;RP0=1, select bank3
+   918  003F  1703               	bsf	3,6	;RP1=1, select bank3
+   919  0040  1708               	bsf	8,6	;volatile
+   920                           
+   921                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 37:             break
+      +                          ;
+   922  0041  286E               	goto	l26
+   923  0042                     l24:	
+   924                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 38:         case 7:
+   925                           
+   926                           
+   927                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 39:             TRISE
+      +                          bits.TRISE2 = 1;
+   928  0042  1509               	bsf	9,2	;volatile
+   929                           
+   930                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 40:             ANSEL
+      +                          bits.ANS7 = 1;
+   931  0043  1683               	bsf	3,5	;RP0=1, select bank3
+   932  0044  1703               	bsf	3,6	;RP1=1, select bank3
+   933  0045  1788               	bsf	8,7	;volatile
+   934                           
+   935                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 41:             break
+      +                          ;
+   936  0046  286E               	goto	l26
+   937  0047                     l25:	
+   938                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 42:         default:
+   939                           
+   940                           
+   941                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 43:             TRISA
+      +                          bits.TRISA0 = 1;
+   942  0047  1405               	bsf	5,0	;volatile
+   943                           
+   944                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 44:             ANSEL
+      +                          bits.ANS0 = 1;
+   945  0048  1683               	bsf	3,5	;RP0=1, select bank3
+   946  0049  1703               	bsf	3,6	;RP1=1, select bank3
+   947  004A  1408               	bsf	8,0	;volatile
+   948                           
+   949                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c: 45:             break
+      +                          ;
+   950  004B  286E               	goto	l26
+   951  004C                     l727:
+   952  004C  0876               	movf	initADC@IRCF,w
+   953  004D  00F4               	movwf	??_initADC
+   954  004E  01F5               	clrf	??_initADC+1
+   955                           
+   956                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   957                           ; Switch size 1, requested type "simple"
+   958                           ; Number of cases is 1, Range of values is 0 to 0
+   959                           ; switch strategies available:
+   960                           ; Name         Instructions Cycles
+   961                           ; simple_byte            4     3 (average)
+   962                           ; direct_byte           11     8 (fixed)
+   963                           ; jumptable            260     6 (fixed)
+   964                           ;	Chosen strategy is simple_byte
+   965  004F  0875               	movf	??_initADC+1,w
+   966  0050  3A00               	xorlw	0	; case 0
+   967  0051  1903               	skipnz
+   968  0052  2854               	goto	l949
+   969  0053  2847               	goto	l25
+   970  0054                     l949:
+   971                           
+   972                           ; Switch size 1, requested type "simple"
+   973                           ; Number of cases is 8, Range of values is 0 to 7
+   974                           ; switch strategies available:
+   975                           ; Name         Instructions Cycles
+   976                           ; simple_byte           25    13 (average)
+   977                           ; direct_byte           32     8 (fixed)
+   978                           ; jumptable            260     6 (fixed)
+   979                           ;	Chosen strategy is simple_byte
+   980  0054  0874               	movf	??_initADC,w
+   981  0055  3A00               	xorlw	0	; case 0
+   982  0056  1903               	skipnz
+   983  0057  281F               	goto	l16
+   984  0058  3A01               	xorlw	1	; case 1
+   985  0059  1903               	skipnz
+   986  005A  2824               	goto	l18
+   987  005B  3A03               	xorlw	3	; case 2
+   988  005C  1903               	skipnz
+   989  005D  2829               	goto	l19
+   990  005E  3A01               	xorlw	1	; case 3
+   991  005F  1903               	skipnz
+   992  0060  282E               	goto	l20
+   993  0061  3A07               	xorlw	7	; case 4
+   994  0062  1903               	skipnz
+   995  0063  2833               	goto	l21
+   996  0064  3A01               	xorlw	1	; case 5
+   997  0065  1903               	skipnz
+   998  0066  2838               	goto	l22
+   999  0067  3A03               	xorlw	3	; case 6
+  1000  0068  1903               	skipnz
+  1001  0069  283D               	goto	l23
+  1002  006A  3A01               	xorlw	1	; case 7
+  1003  006B  1903               	skipnz
+  1004  006C  2842               	goto	l24
+  1005  006D  2847               	goto	l25
+  1006  006E                     l26:
+  1007  006E  0008               	return
+  1008  006F                     __end_of_initADC:
+  1009                           
+  1010                           	psect	text4
+  1011  0098                     __ptext4:	
+  1012 ;; *************** function _isr *****************
+  1013 ;; Defined at:
+  1014 ;;		line 52 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c"
+  1015 ;; Parameters:    Size  Location     Type
+  1016 ;;		None
+  1017 ;; Auto vars:     Size  Location     Type
+  1018 ;;		None
+  1019 ;; Return value:  Size  Location     Type
+  1020 ;;                  1    wreg      void 
+  1021 ;; Registers used:
+  1022 ;;		wreg, status,2, status,0, pclath, cstack
+  1023 ;; Tracked objects:
+  1024 ;;		On entry : 0/0
+  1025 ;;		On exit  : 0/0
+  1026 ;;		Unchanged: 0/0
+  1027 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1028 ;;      Params:         0       0       0       0       0
+  1029 ;;      Locals:         0       0       0       0       0
+  1030 ;;      Temps:          3       0       0       0       0
+  1031 ;;      Totals:         3       0       0       0       0
+  1032 ;;Total ram usage:        3 bytes
+  1033 ;; Hardware stack levels used:    1
+  1034 ;; Hardware stack levels required when called:    2
+  1035 ;; This function calls:
+  1036 ;;		_spiRead
+  1037 ;;		_spiWrite
+  1038 ;; This function is called by:
+  1039 ;;		Interrupt level 1
+  1040 ;; This function uses a non-reentrant model
+  1041 ;;
+  1042                           
+  1043                           
+  1044                           ;psect for function _isr
+  1045  0098                     _isr:
+  1046  0098                     i1l771:
+  1047                           
+  1048                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 53: 
+  1049  0098  1283               	bcf	3,5	;RP0=0, select bank0
+  1050  0099  1303               	bcf	3,6	;RP1=0, select bank0
+  1051  009A  1D8C               	btfss	12,3	;volatile
+  1052  009B  289D               	goto	u3_21
+  1053  009C  289E               	goto	u3_20
+  1054  009D                     u3_21:
+  1055  009D  28AF               	goto	i1l777
+  1056  009E                     u3_20:
+  1057  009E                     i1l773:
+  1058                           
+  1059                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 54:     }
+  1060  009E  120A  118A  20FA  120A  118A  	fcall	_spiRead
+  1061  00A3  1283               	bcf	3,5	;RP0=0, select bank0
+  1062  00A4  1303               	bcf	3,6	;RP1=0, select bank0
+  1063  00A5  0088               	movwf	8	;volatile
+  1064                           
+  1065                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55: }
+  1066  00A6  0878               	movf	_TEMP,w
+  1067  00A7  120A  118A  210A  120A  118A  	fcall	_spiWrite
+  1068  00AC                     i1l775:
+  1069                           
+  1070                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 56: 
+  1071  00AC  1283               	bcf	3,5	;RP0=0, select bank0
+  1072  00AD  1303               	bcf	3,6	;RP1=0, select bank0
+  1073  00AE  118C               	bcf	12,3	;volatile
+  1074  00AF                     i1l777:
+  1075                           
+  1076                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 59:     ANSELH = 0
+      +                          ;
+  1077  00AF  1F0C               	btfss	12,6	;volatile
+  1078  00B0  28B2               	goto	u4_21
+  1079  00B1  28B3               	goto	u4_20
+  1080  00B2                     u4_21:
+  1081  00B2  28B9               	goto	i1l112
+  1082  00B3                     u4_20:
+  1083  00B3                     i1l779:
+  1084                           
+  1085                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 60:     TRISB = 0;
+  1086  00B3  081E               	movf	30,w	;volatile
+  1087  00B4  00F1               	movwf	??_isr
+  1088  00B5  0871               	movf	??_isr,w
+  1089  00B6  00F9               	movwf	_ADC
+  1090  00B7                     i1l781:
+  1091                           
+  1092                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 61:     TRISC = 0;
+  1093  00B7  130C               	bcf	12,6	;volatile
+  1094  00B8                     i1l783:
+  1095                           
+  1096                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 62:     TRISD = 0;
+  1097  00B8  149F               	bsf	31,1	;volatile
+  1098  00B9                     i1l112:
+  1099  00B9  0873               	movf	??_isr+2,w
+  1100  00BA  008A               	movwf	10
+  1101  00BB  0E72               	swapf	??_isr+1,w
+  1102  00BC  0083               	movwf	3
+  1103  00BD  0EFE               	swapf	btemp,f
+  1104  00BE  0E7E               	swapf	btemp,w
+  1105  00BF  0009               	retfie
+  1106  00C0                     __end_of_isr:
+  1107                           
+  1108                           	psect	intentry
+  1109  0004                     __pintentry:	
   1110                           ;incstack = 0
-  1111                           ; Regs used in _spiWrite: [wreg]
-  1112                           ;spiWrite@variable stored from wreg
-  1113  00F3  00F0               	movwf	spiWrite@variable
-  1114  00F4                     i1l737:
-  1115                           
-  1116                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 32:     SSPBUF = vari
-      +                          able;
-  1117  00F4  0870               	movf	spiWrite@variable,w
-  1118  00F5  1283               	bcf	3,5	;RP0=0, select bank0
-  1119  00F6  1303               	bcf	3,6	;RP1=0, select bank0
-  1120  00F7  0093               	movwf	19	;volatile
-  1121  00F8                     i1l52:
-  1122  00F8  0008               	return
-  1123  00F9                     __end_of_spiWrite:
-  1124                           
-  1125                           	psect	text6
-  1126  00E3                     __ptext6:	
-  1127 ;; *************** function _spiRead *****************
-  1128 ;; Defined at:
-  1129 ;;		line 35 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
-  1130 ;; Parameters:    Size  Location     Type
-  1131 ;;		None
-  1132 ;; Auto vars:     Size  Location     Type
-  1133 ;;		None
-  1134 ;; Return value:  Size  Location     Type
-  1135 ;;                  1    wreg      unsigned char 
-  1136 ;; Registers used:
-  1137 ;;		wreg, status,2, status,0, pclath, cstack
-  1138 ;; Tracked objects:
-  1139 ;;		On entry : 0/0
-  1140 ;;		On exit  : 0/0
-  1141 ;;		Unchanged: 0/0
-  1142 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1143 ;;      Params:         0       0       0       0       0
-  1144 ;;      Locals:         0       0       0       0       0
-  1145 ;;      Temps:          0       0       0       0       0
-  1146 ;;      Totals:         0       0       0       0       0
-  1147 ;;Total ram usage:        0 bytes
-  1148 ;; Hardware stack levels used:    1
-  1149 ;; Hardware stack levels required when called:    1
-  1150 ;; This function calls:
-  1151 ;;		_spiReceive
-  1152 ;; This function is called by:
-  1153 ;;		_isr
-  1154 ;; This function uses a non-reentrant model
-  1155 ;;
+  1111                           ; Regs used in _isr: [wreg+status,2+status,0+pclath+cstack]
+  1112                           
+  1113  0004                     interrupt_function:
+  1114  007E                     saved_w	set	btemp
+  1115  0004  00FE               	movwf	btemp
+  1116  0005  0E03               	swapf	3,w
+  1117  0006  00F2               	movwf	??_isr+1
+  1118  0007  080A               	movf	10,w
+  1119  0008  00F3               	movwf	??_isr+2
+  1120  0009  120A  118A  2898   	ljmp	_isr
+  1121                           
+  1122                           	psect	text5
+  1123  010A                     __ptext5:	
+  1124 ;; *************** function _spiWrite *****************
+  1125 ;; Defined at:
+  1126 ;;		line 31 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
+  1127 ;; Parameters:    Size  Location     Type
+  1128 ;;  variable        1    wreg     unsigned char 
+  1129 ;; Auto vars:     Size  Location     Type
+  1130 ;;  variable        1    0[COMMON] unsigned char 
+  1131 ;; Return value:  Size  Location     Type
+  1132 ;;                  1    wreg      void 
+  1133 ;; Registers used:
+  1134 ;;		wreg
+  1135 ;; Tracked objects:
+  1136 ;;		On entry : 0/0
+  1137 ;;		On exit  : 0/0
+  1138 ;;		Unchanged: 0/0
+  1139 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1140 ;;      Params:         0       0       0       0       0
+  1141 ;;      Locals:         1       0       0       0       0
+  1142 ;;      Temps:          0       0       0       0       0
+  1143 ;;      Totals:         1       0       0       0       0
+  1144 ;;Total ram usage:        1 bytes
+  1145 ;; Hardware stack levels used:    1
+  1146 ;; This function calls:
+  1147 ;;		Nothing
+  1148 ;; This function is called by:
+  1149 ;;		_isr
+  1150 ;; This function uses a non-reentrant model
+  1151 ;;
+  1152                           
+  1153                           
+  1154                           ;psect for function _spiWrite
+  1155  010A                     _spiWrite:
   1156                           
-  1157                           
-  1158                           ;psect for function _spiRead
-  1159  00E3                     _spiRead:
-  1160  00E3                     i1l739:	
-  1161                           ;incstack = 0
-  1162                           ; Regs used in _spiRead: [wreg+status,2+status,0+pclath+cstack]
-  1163                           
-  1164                           
-  1165                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 36:     spiReceive();
-  1166  00E3  120A  118A  20EC  120A  118A  	fcall	_spiReceive
-  1167  00E8                     i1l741:
-  1168                           
-  1169                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 37:     return(SSPBUF
+  1157                           ;incstack = 0
+  1158                           ; Regs used in _spiWrite: [wreg]
+  1159                           ;spiWrite@variable stored from wreg
+  1160  010A  00F0               	movwf	spiWrite@variable
+  1161  010B                     i1l747:
+  1162                           
+  1163                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 32:     SSPBUF = vari
+      +                          able;
+  1164  010B  0870               	movf	spiWrite@variable,w
+  1165  010C  1283               	bcf	3,5	;RP0=0, select bank0
+  1166  010D  1303               	bcf	3,6	;RP1=0, select bank0
+  1167  010E  0093               	movwf	19	;volatile
+  1168  010F                     i1l52:
+  1169  010F  0008               	return
+  1170  0110                     __end_of_spiWrite:
+  1171                           
+  1172                           	psect	text6
+  1173  00FA                     __ptext6:	
+  1174 ;; *************** function _spiRead *****************
+  1175 ;; Defined at:
+  1176 ;;		line 35 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
+  1177 ;; Parameters:    Size  Location     Type
+  1178 ;;		None
+  1179 ;; Auto vars:     Size  Location     Type
+  1180 ;;		None
+  1181 ;; Return value:  Size  Location     Type
+  1182 ;;                  1    wreg      unsigned char 
+  1183 ;; Registers used:
+  1184 ;;		wreg, status,2, status,0, pclath, cstack
+  1185 ;; Tracked objects:
+  1186 ;;		On entry : 0/0
+  1187 ;;		On exit  : 0/0
+  1188 ;;		Unchanged: 0/0
+  1189 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1190 ;;      Params:         0       0       0       0       0
+  1191 ;;      Locals:         0       0       0       0       0
+  1192 ;;      Temps:          0       0       0       0       0
+  1193 ;;      Totals:         0       0       0       0       0
+  1194 ;;Total ram usage:        0 bytes
+  1195 ;; Hardware stack levels used:    1
+  1196 ;; Hardware stack levels required when called:    1
+  1197 ;; This function calls:
+  1198 ;;		_spiReceive
+  1199 ;; This function is called by:
+  1200 ;;		_isr
+  1201 ;; This function uses a non-reentrant model
+  1202 ;;
+  1203                           
+  1204                           
+  1205                           ;psect for function _spiRead
+  1206  00FA                     _spiRead:
+  1207  00FA                     i1l749:	
+  1208                           ;incstack = 0
+  1209                           ; Regs used in _spiRead: [wreg+status,2+status,0+pclath+cstack]
+  1210                           
+  1211                           
+  1212                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 36:     spiReceive();
+  1213  00FA  120A  118A  2103  120A  118A  	fcall	_spiReceive
+  1214  00FF                     i1l751:
+  1215                           
+  1216                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 37:     return(SSPBUF
       +                          );
-  1170  00E8  1283               	bcf	3,5	;RP0=0, select bank0
-  1171  00E9  1303               	bcf	3,6	;RP1=0, select bank0
-  1172  00EA  0813               	movf	19,w	;volatile
-  1173  00EB                     i1l55:
-  1174  00EB  0008               	return
-  1175  00EC                     __end_of_spiRead:
-  1176                           
-  1177                           	psect	text7
-  1178  00EC                     __ptext7:	
-  1179 ;; *************** function _spiReceive *****************
-  1180 ;; Defined at:
-  1181 ;;		line 27 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
-  1182 ;; Parameters:    Size  Location     Type
-  1183 ;;		None
-  1184 ;; Auto vars:     Size  Location     Type
-  1185 ;;		None
-  1186 ;; Return value:  Size  Location     Type
-  1187 ;;                  1    wreg      void 
-  1188 ;; Registers used:
-  1189 ;;		None
-  1190 ;; Tracked objects:
-  1191 ;;		On entry : 0/0
-  1192 ;;		On exit  : 0/0
-  1193 ;;		Unchanged: 0/0
-  1194 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1195 ;;      Params:         0       0       0       0       0
-  1196 ;;      Locals:         0       0       0       0       0
-  1197 ;;      Temps:          0       0       0       0       0
-  1198 ;;      Totals:         0       0       0       0       0
-  1199 ;;Total ram usage:        0 bytes
-  1200 ;; Hardware stack levels used:    1
-  1201 ;; This function calls:
-  1202 ;;		Nothing
-  1203 ;; This function is called by:
-  1204 ;;		_spiRead
-  1205 ;; This function uses a non-reentrant model
-  1206 ;;
-  1207                           
-  1208                           
-  1209                           ;psect for function _spiReceive
-  1210  00EC                     _spiReceive:
-  1211  00EC                     i1l735:	
-  1212                           ;incstack = 0
-  1213                           ; Regs used in _spiReceive: []
-  1214                           
-  1215  00EC                     i1l46:	
-  1216                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 28:     while (!SSPST
+  1217  00FF  1283               	bcf	3,5	;RP0=0, select bank0
+  1218  0100  1303               	bcf	3,6	;RP1=0, select bank0
+  1219  0101  0813               	movf	19,w	;volatile
+  1220  0102                     i1l55:
+  1221  0102  0008               	return
+  1222  0103                     __end_of_spiRead:
+  1223                           
+  1224                           	psect	text7
+  1225  0103                     __ptext7:	
+  1226 ;; *************** function _spiReceive *****************
+  1227 ;; Defined at:
+  1228 ;;		line 27 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c"
+  1229 ;; Parameters:    Size  Location     Type
+  1230 ;;		None
+  1231 ;; Auto vars:     Size  Location     Type
+  1232 ;;		None
+  1233 ;; Return value:  Size  Location     Type
+  1234 ;;                  1    wreg      void 
+  1235 ;; Registers used:
+  1236 ;;		None
+  1237 ;; Tracked objects:
+  1238 ;;		On entry : 0/0
+  1239 ;;		On exit  : 0/0
+  1240 ;;		Unchanged: 0/0
+  1241 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1242 ;;      Params:         0       0       0       0       0
+  1243 ;;      Locals:         0       0       0       0       0
+  1244 ;;      Temps:          0       0       0       0       0
+  1245 ;;      Totals:         0       0       0       0       0
+  1246 ;;Total ram usage:        0 bytes
+  1247 ;; Hardware stack levels used:    1
+  1248 ;; This function calls:
+  1249 ;;		Nothing
+  1250 ;; This function is called by:
+  1251 ;;		_spiRead
+  1252 ;; This function uses a non-reentrant model
+  1253 ;;
+  1254                           
+  1255                           
+  1256                           ;psect for function _spiReceive
+  1257  0103                     _spiReceive:
+  1258  0103                     i1l745:	
+  1259                           ;incstack = 0
+  1260                           ; Regs used in _spiReceive: []
+  1261                           
+  1262  0103                     i1l46:	
+  1263                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c: 28:     while (!SSPST
       +                          ATbits.BF);
-  1217                           
-  1218  00EC  1683               	bsf	3,5	;RP0=1, select bank1
-  1219  00ED  1303               	bcf	3,6	;RP1=0, select bank1
-  1220  00EE  1C14               	btfss	20,0	;volatile
-  1221  00EF  28F1               	goto	u2_21
-  1222  00F0  28F2               	goto	u2_20
-  1223  00F1                     u2_21:
-  1224  00F1  28EC               	goto	i1l46
-  1225  00F2                     u2_20:
-  1226  00F2                     i1l49:
-  1227  00F2  0008               	return
-  1228  00F3                     __end_of_spiReceive:
-  1229  007E                     btemp	set	126	;btemp
-  1230  007E                     wtemp0	set	126
-  1231                           
-  1232                           	psect	config
-  1233                           
-  1234                           ;Config register CONFIG1 @ 0x2007
-  1235                           ;	Oscillator Selection bits
-  1236                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
+  1264                           
+  1265  0103  1683               	bsf	3,5	;RP0=1, select bank1
+  1266  0104  1303               	bcf	3,6	;RP1=0, select bank1
+  1267  0105  1C14               	btfss	20,0	;volatile
+  1268  0106  2908               	goto	u2_21
+  1269  0107  2909               	goto	u2_20
+  1270  0108                     u2_21:
+  1271  0108  2903               	goto	i1l46
+  1272  0109                     u2_20:
+  1273  0109                     i1l49:
+  1274  0109  0008               	return
+  1275  010A                     __end_of_spiReceive:
+  1276  007E                     btemp	set	126	;btemp
+  1277  007E                     wtemp0	set	126
+  1278                           
+  1279                           	psect	config
+  1280                           
+  1281                           ;Config register CONFIG1 @ 0x2007
+  1282                           ;	Oscillator Selection bits
+  1283                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
       +                          unction on RA7/OSC1/CLKIN
-  1237                           ;	Watchdog Timer Enable bit
-  1238                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-  1239                           ;	Power-up Timer Enable bit
-  1240                           ;	PWRTE = OFF, PWRT disabled
-  1241                           ;	RE3/MCLR pin function select bit
-  1242                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
-  1243                           ;	Code Protection bit
-  1244                           ;	CP = OFF, Program memory code protection is disabled
-  1245                           ;	Data Code Protection bit
-  1246                           ;	CPD = OFF, Data memory code protection is disabled
-  1247                           ;	Brown Out Reset Selection bits
-  1248                           ;	BOREN = OFF, BOR disabled
-  1249                           ;	Internal External Switchover bit
-  1250                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-  1251                           ;	Fail-Safe Clock Monitor Enabled bit
-  1252                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-  1253                           ;	Low Voltage Programming Enable bit
-  1254                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-  1255                           ;	In-Circuit Debugger Mode bit
-  1256                           ;	DEBUG = 0x1, unprogrammed default
-  1257  2007                     	org	8199
-  1258  2007  20D4               	dw	8404
-  1259                           
-  1260                           ;Config register CONFIG2 @ 0x2008
-  1261                           ;	Brown-out Reset Selection bit
-  1262                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
-  1263                           ;	Flash Program Memory Self Write Enable bits
-  1264                           ;	WRT = OFF, Write protection off
-  1265  2008                     	org	8200
-  1266  2008  3FFF               	dw	16383
+  1284                           ;	Watchdog Timer Enable bit
+  1285                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  1286                           ;	Power-up Timer Enable bit
+  1287                           ;	PWRTE = OFF, PWRT disabled
+  1288                           ;	RE3/MCLR pin function select bit
+  1289                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
+  1290                           ;	Code Protection bit
+  1291                           ;	CP = OFF, Program memory code protection is disabled
+  1292                           ;	Data Code Protection bit
+  1293                           ;	CPD = OFF, Data memory code protection is disabled
+  1294                           ;	Brown Out Reset Selection bits
+  1295                           ;	BOREN = OFF, BOR disabled
+  1296                           ;	Internal External Switchover bit
+  1297                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  1298                           ;	Fail-Safe Clock Monitor Enabled bit
+  1299                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1300                           ;	Low Voltage Programming Enable bit
+  1301                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+  1302                           ;	In-Circuit Debugger Mode bit
+  1303                           ;	DEBUG = 0x1, unprogrammed default
+  1304  2007                     	org	8199
+  1305  2007  20D4               	dw	8404
+  1306                           
+  1307                           ;Config register CONFIG2 @ 0x2008
+  1308                           ;	Brown-out Reset Selection bit
+  1309                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+  1310                           ;	Flash Program Memory Self Write Enable bits
+  1311                           ;	WRT = OFF, Write protection off
+  1312  2008                     	org	8200
+  1313  2008  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
@@ -1463,57 +1508,62 @@ DATA                 0      0       B      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Feb 11 18:41:07 2021
+Symbol Table                                                                                   Thu Feb 11 18:57:26 2021
 
             _SSPSTATbits 0094                       l20 002E                       l21 0033  
                      l22 0038                       l23 003D                       l24 0042  
                      l16 001F                       l25 0047                       l18 0024  
-                     l26 006E                       l19 0029                       l43 00D9  
-                     u50 00CE                       u51 00CD                      l111 00DF  
-                    l112 00DF                      l117 0098                      _ADC 0079  
-                    l711 001A                      l713 001D                      l801 00CA  
-                    l803 00CE                      l717 004C                      l709 0016  
-                    l805 00D3                      l807 00D8                      l851 007C  
-                    l861 008A                      l853 007D                      l855 0080  
-                    l847 006F                      l863 00DA                      l857 0083  
-                    l849 007B                      l859 0084                      l885 0054  
-                    l797 00C2                      l799 00C5                      _isr 0099  
-                   _ADIF 0066                     ?_isr 0070                     i1l52 00F8  
-                   i1l46 00EC                     i1l55 00EB                     i1l49 00F2  
-                   _TEMP 0078                     u2_20 00F2                     u2_21 00F1  
-                   u3_20 009F                     u3_21 009E                     u4_20 00B4  
-                   u4_21 00B3                     _main 00DA                     btemp 007E  
-                   start 000C                    ??_isr 0071              initADC@IRCF 0076  
-                  ?_main 0070                    _ANSEL 0188                    i1l106 00BA  
-                  i1l741 00E8                    i1l735 00EC                    i1l737 00F4  
-                  i1l761 0099                    i1l739 00E3                    i1l771 00B8  
-                  i1l763 009F                    i1l773 00B9                    i1l765 00AD  
-                  i1l767 00B0                    i1l769 00B4                    _PORTD 0008  
-                  _TRISA 0085                    _TRISB 0086                    _TRISC 0087  
-                  _TRISD 0088                    _SSPIF 0063                    _Setup 006F  
-        __end_of_initADC 006F          __end_of_initSPI 00DA                    pclath 000A  
-        __end_of_spiRead 00EC                    status 0003                    wtemp0 007E  
-        __initialization 000F             __end_of_main 00E3              initSPI@Type 0077  
-            initSPI@edge 0076                   ??_main 0078                   ?_Setup 0070  
-                 _ADCON0 001F                   _ADCON1 009F                   _ADRESH 001E  
-                 _ANSELH 0189                   _TRISC3 043B                   _TRISC5 043D  
-                 _SSPCON 0014                   _SSPBUF 0013                ??_initADC 0074  
-              ??_initSPI 0077                   saved_w 007E         __end_of_spiWrite 00F9  
-              ??_spiRead 0070       initSPI@Data_sample 0074  __end_of__initialization 0011  
-         __pcstackCOMMON 0070            __end_of_Setup 0099                  ??_Setup 0020  
-       spiWrite@variable 0070               __pmaintext 00DA               __pintentry 0004  
-                _SSPSTAT 0094                ?_spiWrite 0070                _ANSELbits 0188  
-                __ptext1 006F                  __ptext2 00C1                  __ptext3 0015  
-                __ptext4 0099                  __ptext5 00F3                  __ptext6 00E3  
-                __ptext7 00EC                  _initADC 0015                  _initSPI 00C1  
-           __size_of_isr 0028                  _spiRead 00E3     end_of_initialization 0011  
-             ??_spiWrite 0070               _spiReceive 00EC                _TRISAbits 0085  
-              _TRISEbits 0089      start_initialization 000F              __end_of_isr 00C1  
-            ?_spiReceive 0070              __pbssCOMMON 0078                ___latbits 0002  
-          __pcstackBANK0 0020        __size_of_spiWrite 0006                 ?_initADC 0070  
-               ?_initSPI 0074                 ?_spiRead 0070           __size_of_Setup 002A  
-    __size_of_spiReceive 0007        interrupt_function 0004                 _PIE1bits 008C  
-               _PIR1bits 000C               _ADCON0bits 001F         __size_of_initADC 005A  
-       __size_of_initSPI 0019         __size_of_spiRead 0009            __size_of_main 0009  
-           ??_spiReceive 0070                 _spiWrite 00F3               _INTCONbits 000B  
-               intlevel1 0000       __end_of_spiReceive 00F3        initSPI@clock_idle 0075  
+                     l26 006E                       l19 0029                       l43 00F9  
+                     u70 00EE                       u71 00ED                      l127 0097  
+                    _ADC 0079                      l721 001A                      l723 001D  
+                    l901 007F                      l727 004C                      l719 0016  
+                    l831 00EE                      l903 0082                      l911 00C5  
+                    l833 00F3                      l825 00E2                      l905 0083  
+                    l921 00D8                      l913 00C9                      l835 00F8  
+                    l827 00E5                      l907 0089                      l923 00D9  
+                    l915 00CF                      l829 00EA                      l925 00DB  
+                    l917 00D0                      l909 00C0                      l927 00DC  
+                    l919 00D2                      l949 0054                      l893 006F  
+                    l895 007A                      l897 007B                      l899 007C  
+                    _RD0 0040                      _RD1 0041                      _RD2 0042  
+                    u100 00CF                      u101 00CE                      u110 00D8  
+                    u111 00D7                      _isr 0098                     _ADIF 0066  
+                   ?_isr 0070                     i1l52 010F                     i1l46 0103  
+                   i1l55 0102                     i1l49 0109                     _TEMP 0078  
+                   u2_20 0109                     u2_21 0108                     u3_20 009E  
+                   u3_21 009D                     u4_20 00B3                     u4_21 00B2  
+                   _main 00C0                     btemp 007E                     start 000C  
+                  ??_isr 0071              initADC@IRCF 0076                    ?_main 0070  
+                  _ANSEL 0188                    i1l112 00B9                    i1l751 00FF  
+                  i1l745 0103                    i1l747 010B                    i1l771 0098  
+                  i1l749 00FA                    i1l781 00B7                    i1l773 009E  
+                  i1l783 00B8                    i1l775 00AC                    i1l777 00AF  
+                  i1l779 00B3                    _PORTB 0006                    _PORTD 0008  
+                  _TRISB 0086                    _TRISC 0087                    _TRISD 0088  
+                  _SSPIF 0063                    _Setup 006F          __end_of_initADC 006F  
+        __end_of_initSPI 00FA                    pclath 000A          __end_of_spiRead 0103  
+                  status 0003                    wtemp0 007E          __initialization 000F  
+           __end_of_main 00E1              initSPI@Type 0077              initSPI@edge 0076  
+                 ??_main 0078                   ?_Setup 0070                   _ADCON0 001F  
+                 _ADCON1 009F                   _ADRESH 001E                   _ANSELH 0189  
+                 _TRISC3 043B                   _TRISC5 043D                   _SSPCON 0014  
+                 _SSPBUF 0013                ??_initADC 0074                ??_initSPI 0077  
+                 saved_w 007E         __end_of_spiWrite 0110                ??_spiRead 0070  
+     initSPI@Data_sample 0074  __end_of__initialization 0011           __pcstackCOMMON 0070  
+          __end_of_Setup 0098                  ??_Setup 0020         spiWrite@variable 0070  
+             __pmaintext 00C0               __pintentry 0004                  _SSPSTAT 0094  
+              ?_spiWrite 0070                _ANSELbits 0188                  __ptext1 006F  
+                __ptext2 00E1                  __ptext3 0015                  __ptext4 0098  
+                __ptext5 010A                  __ptext6 00FA                  __ptext7 0103  
+                _initADC 0015                  _initSPI 00E1             __size_of_isr 0028  
+                _spiRead 00FA     end_of_initialization 0011               ??_spiWrite 0070  
+             _spiReceive 0103                _TRISAbits 0085                _TRISEbits 0089  
+    start_initialization 000F              __end_of_isr 00C0              ?_spiReceive 0070  
+            __pbssCOMMON 0078                ___latbits 0002            __pcstackBANK0 0020  
+      __size_of_spiWrite 0006                 ?_initADC 0070                 ?_initSPI 0074  
+               ?_spiRead 0070           __size_of_Setup 0029      __size_of_spiReceive 0007  
+      interrupt_function 0004                 _PIE1bits 008C                 _PIR1bits 000C  
+             _ADCON0bits 001F         __size_of_initADC 005A         __size_of_initSPI 0019  
+       __size_of_spiRead 0009            __size_of_main 0021             ??_spiReceive 0070  
+               _spiWrite 010A               _INTCONbits 000B                 intlevel1 0000  
+     __end_of_spiReceive 010A        initSPI@clock_idle 0075  
