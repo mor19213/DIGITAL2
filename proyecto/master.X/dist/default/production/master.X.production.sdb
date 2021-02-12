@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"106 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+"111 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 [e E1292 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -45,9 +45,21 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"44 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+"12 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+"16
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"30
+[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
+"45
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+"63
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+"72
+[v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
+"49 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 [v _main main `(v  1 e 1 0 ]
-"84
+"89
 [v _setup setup `(v  1 e 1 0 ]
 "10 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
@@ -57,6 +69,8 @@ SPI_ACTIVE_2_IDLE 64
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
 "44
 [v _spiRead spiRead `(uc  1 e 1 0 ]
+"3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/USART.c
+[v _initUSART initUSART `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
@@ -83,19 +97,81 @@ SPI_ACTIVE_2_IDLE 64
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
+[s S411 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482
+[s S420 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S425 . 1 `S411 1 . 1 0 `S420 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES425  1 e 1 @11 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+[s S348 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S357 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S361 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S364 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S367 . 1 `S348 1 . 1 0 `S357 1 . 1 0 `S361 1 . 1 0 `S364 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES367  1 e 1 @24 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S267 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1557
+[u S276 . 1 `S267 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES276  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+[s S392 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S400 . 1 `S392 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES400  1 e 1 @140 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S131 . 1 `uc 1 BF 1 0 :1:0 
+[s S159 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -105,43 +181,82 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 SMP 1 0 :1:7 
 ]
 "2231
-[s S140 . 1 `uc 1 . 1 0 :2:0 
+[s S168 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S145 . 1 `uc 1 . 1 0 :2:0 
+[s S173 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S151 . 1 `uc 1 . 1 0 :2:0 
+[s S179 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S156 . 1 `uc 1 . 1 0 :2:0 
+[s S184 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S161 . 1 `uc 1 . 1 0 :2:0 
+[s S189 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S166 . 1 `uc 1 . 1 0 :2:0 
+[s S194 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S171 . 1 `S131 1 . 1 0 `S140 1 . 1 0 `S145 1 . 1 0 `S151 1 . 1 0 `S156 1 . 1 0 `S161 1 . 1 0 `S166 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES171  1 e 1 @148 ]
+[u S199 . 1 `S159 1 . 1 0 `S168 1 . 1 0 `S173 1 . 1 0 `S179 1 . 1 0 `S184 1 . 1 0 `S189 1 . 1 0 `S194 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES199  1 e 1 @148 ]
+[s S289 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S298 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S302 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S305 . 1 `S289 1 . 1 0 `S298 1 . 1 0 `S302 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES305  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2704
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
+[s S326 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3352
+[u S335 . 1 `S326 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES335  1 e 1 @391 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"4205
+[v _RE0 RE0 `VEb  1 e 0 @72 ]
+"4208
+[v _RE1 RE1 `VEb  1 e 0 @73 ]
 "4448
 [v _TRISC0 TRISC0 `VEb  1 e 0 @1080 ]
 "4451
@@ -152,10 +267,16 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
-"44 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+"38 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[v _ADC ADC `uc  1 e 1 0 ]
+"39
+[v _contador contador `uc  1 e 1 0 ]
+"40
+[v _temperatura temperatura `uc  1 e 1 0 ]
+"49
 [v _main main `(v  1 e 1 0 ]
 {
-"80
+"85
 } 0
 "32 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
@@ -175,10 +296,10 @@ SPI_ACTIVE_2_IDLE 64
 {
 "30
 } 0
-"84 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+"89 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"108
+"134
 } 0
 "10 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
@@ -191,4 +312,66 @@ SPI_ACTIVE_2_IDLE 64
 "12
 [v spiInit@sType sType `E1264  1 a 1 3 ]
 "26
+} 0
+"3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/USART.c
+[v _initUSART initUSART `(v  1 e 1 0 ]
+{
+"29
+} 0
+"72 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c
+[v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
+{
+[v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
+"74
+[v Lcd_Write_String@i i `i  1 a 2 3 ]
+"72
+[v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
+"75
+[v Lcd_Write_String@a a `*.24uc  1 a 1 5 ]
+"77
+} 0
+"63
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+{
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+"65
+[v Lcd_Write_Char@a a `uc  1 a 1 2 ]
+"70
+} 0
+"30
+[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
+{
+[v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
+"32
+[v Lcd_Set_Cursor@temp temp `uc  1 a 1 7 ]
+"30
+[v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
+[v Lcd_Set_Cursor@b b `uc  1 p 1 4 ]
+"33
+[v Lcd_Set_Cursor@a a `uc  1 a 1 6 ]
+"43
+} 0
+"45
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+{
+"61
+} 0
+"16
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+{
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+"18
+[v Lcd_Cmd@a a `uc  1 a 1 3 ]
+"23
+} 0
+"12
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+{
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+"14
+[v Lcd_Port@a a `uc  1 a 1 0 ]
+"15
 } 0

@@ -29,10 +29,15 @@
 #include <xc.h>
 #include <stdint.h>
 #include "SPI.h"
+#include "USART.h"
+#include "lcd.h"
 //*****************************************************************************
 // VARIABLES
 //*****************************************************************************
 #define _XTAL_FREQ 8000000
+uint8_t ADC;
+uint8_t contador;
+uint8_t temperatura;
 //*****************************************************************************
 // PROTOTIPO DE FUNCIOENS
 //*****************************************************************************
@@ -45,31 +50,31 @@ void main(void) {
     setup();
     while(1){
 //*****************************************************************************
-       PORTCbits.RC2 = 0;       //Slave 1 Select
+       PORTCbits.RC2 = 0;       //Slave 1 Select adc
        __delay_ms(1);
        
        spiWrite(0);
-       PORTD = spiRead();
+       ADC = spiRead();
        
        __delay_ms(1);
        PORTCbits.RC2 = 1;       //Slave 1 Deselect 
        
 //*****************************************************************************
-       PORTCbits.RC1 = 0;       //Slave 2 Select
+       PORTCbits.RC1 = 0;       //Slave 2 Select contador
        __delay_ms(1);
        
        spiWrite(0);
-       PORTB = spiRead();
+       contador = spiRead();
        
        __delay_ms(1);
        PORTCbits.RC1 = 1;       //Slave 2 Deselect 
        
 //*****************************************************************************
-       PORTCbits.RC0 = 0;       //Slave 3 Select
+       PORTCbits.RC0 = 0;       //Slave 3 Select temperatura
        __delay_ms(1);
        
        spiWrite(0);
-       PORTE = spiRead();
+       temperatura = spiRead();
        
        __delay_ms(1);
        PORTCbits.RC0 = 1;       //Slave 3 Deselect 
@@ -104,5 +109,26 @@ void setup(void){
     
     // CONFIGURACION SPI
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    
+        
+    // iniciar usart
+    initUSART();
+    
+    // iniciar lcd
+    Lcd_Init();
+    
+    // formato lcd
+    Lcd_Set_Cursor(1,3);
+    Lcd_Write_String("S1");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("0.00");
+    Lcd_Set_Cursor(1,8);
+    Lcd_Write_String("S2");
+    Lcd_Set_Cursor(2,7);
+    Lcd_Write_String("0.00");
+    Lcd_Set_Cursor(1,14);
+    Lcd_Write_String("S3");
+    Lcd_Set_Cursor(2,13);
+    Lcd_Write_String("0.00");
 
 }

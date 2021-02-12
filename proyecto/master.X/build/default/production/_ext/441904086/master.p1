@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"39 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 39: void setup(void);
+"44 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 44: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
 "296 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 296:     struct {
@@ -21,19 +21,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.h
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.h: 51: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"53 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.h
+"53
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.h: 53: char spiRead();
 [v _spiRead `(uc ~T0 @X0 0 e? ]
-"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"414
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
-[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
-"3387
+"3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -57,8 +48,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1664
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
 [v _TRISE `Vuc ~T0 @X0 0 e@137 ]
-"106 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 106:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"414
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
+[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
+"111 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 111:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1292 32 33 34 35 36 37 .. ]
 [n E1292 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1304 0 128 .. ]
@@ -70,6 +70,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.h
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.h: 50: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 [v _spiInit `(v ~T0 @X0 0 ef4`E1292`E1304`E1300`E1308 ]
+"16 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/USART.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/USART.h: 16: void initUSART(void);
+[v _initUSART `(v ~T0 @X0 0 ef ]
+"26 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.h: 26: void Lcd_Init(void);
+[v _Lcd_Init `(v ~T0 @X0 0 ef ]
+"25
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.h: 25: void Lcd_Set_Cursor(char a, char b);
+[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"28
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.h: 28: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
 "11 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 [p x FOSC  =  EXTRC_NOCLKOUT ]
 "12
@@ -328,139 +340,196 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"38 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 38: uint8_t ADC;
+[v _ADC `uc ~T0 @X0 1 e ]
+"39
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 39: uint8_t contador;
+[v _contador `uc ~T0 @X0 1 e ]
+"40
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 40: uint8_t temperatura;
+[v _temperatura `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"44 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 44: void main(void) {
+"49
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 49: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"45
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 45:     setup();
+"50
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 50:     setup();
 [e ( _setup ..  ]
-"46
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 46:     while(1){
+"51
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 51:     while(1){
 [e :U 140 ]
 {
-"48
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 48:        PORTCbits.RC2 = 0;
+"53
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 53:        PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"49
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 49:        _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"51
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 51:        spiWrite(0);
-[e ( _spiWrite (1 -> -> 0 `i `uc ]
-"52
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 52:        PORTD = spiRead();
-[e = _PORTD -> ( _spiRead ..  `uc ]
 "54
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 54:        _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"55
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 55:        PORTCbits.RC2 = 1;
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"58
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 58:        PORTCbits.RC1 = 0;
-[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+"56
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 56:        spiWrite(0);
+[e ( _spiWrite (1 -> -> 0 `i `uc ]
+"57
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 57:        ADC = spiRead();
+[e = _ADC -> ( _spiRead ..  `uc ]
 "59
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 59:        _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"61
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 61:        spiWrite(0);
-[e ( _spiWrite (1 -> -> 0 `i `uc ]
-"62
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 62:        PORTB = spiRead();
-[e = _PORTB -> ( _spiRead ..  `uc ]
+"60
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 60:        PORTCbits.RC2 = 1;
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+"63
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 63:        PORTCbits.RC1 = 0;
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
 "64
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 64:        _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"65
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 65:        PORTCbits.RC1 = 1;
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"68
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 68:        PORTCbits.RC0 = 0;
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+"66
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 66:        spiWrite(0);
+[e ( _spiWrite (1 -> -> 0 `i `uc ]
+"67
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 67:        contador = spiRead();
+[e = _contador -> ( _spiRead ..  `uc ]
 "69
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 69:        _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"71
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 71:        spiWrite(0);
-[e ( _spiWrite (1 -> -> 0 `i `uc ]
-"72
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 72:        PORTE = spiRead();
-[e = _PORTE -> ( _spiRead ..  `uc ]
+"70
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 70:        PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+"73
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 73:        PORTCbits.RC0 = 0;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
 "74
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 74:        _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"75
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 75:        PORTCbits.RC0 = 1;
+"76
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 76:        spiWrite(0);
+[e ( _spiWrite (1 -> -> 0 `i `uc ]
+"77
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 77:        temperatura = spiRead();
+[e = _temperatura -> ( _spiRead ..  `uc ]
+"79
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 79:        _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"80
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 80:        PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"78
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 78:     }
+"83
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 83:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"79
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 79:     return;
+"84
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 84:     return;
 [e $UE 138  ]
-"80
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 80: }
+"85
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 85: }
 [e :UE 138 ]
 }
-"84
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 84: void setup(void){
+"89
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 89: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"85
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 85:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"86
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 86:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
-"89
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 89:     TRISC2 = 0;
-[e = _TRISC2 -> -> 0 `i `b ]
 "90
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 90:     TRISC1 = 0;
-[e = _TRISC1 -> -> 0 `i `b ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 90:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "91
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 91:     TRISC0 = 0;
-[e = _TRISC0 -> -> 0 `i `b ]
-"93
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 93:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 91:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "94
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 94:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 94:     TRISC2 = 0;
+[e = _TRISC2 -> -> 0 `i `b ]
 "95
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 95:     TRISE = 0;
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 95:     TRISC1 = 0;
+[e = _TRISC1 -> -> 0 `i `b ]
 "96
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 96:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"97
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 97:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 96:     TRISC0 = 0;
+[e = _TRISC0 -> -> 0 `i `b ]
 "98
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 98:     PORTE = 0;
-[e = _PORTE -> -> 0 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 98:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
+"99
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 99:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"100
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 100:     TRISE = 0;
+[e = _TRISE -> -> 0 `i `uc ]
 "101
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 101:     PORTCbits.RC2 = 1;
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 101:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "102
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 102:     PORTCbits.RC1 = 1;
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 102:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "103
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 103:     PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 103:     PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
 "106
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 106:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[e ( _spiInit (4 , , , . `E1292 0 . `E1304 0 . `E1300 1 . `E1308 0 ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 106:     PORTCbits.RC2 = 1;
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+"107
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 107:     PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 "108
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 108: }
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 108:     PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+"111
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 111:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[e ( _spiInit (4 , , , . `E1292 0 . `E1304 0 . `E1300 1 . `E1308 0 ]
+"115
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 115:     initUSART();
+[e ( _initUSART ..  ]
+"118
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 118:     Lcd_Init();
+[e ( _Lcd_Init ..  ]
+"121
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 121:     Lcd_Set_Cursor(1,3);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"122
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 122:     Lcd_Write_String("S1");
+[e ( _Lcd_Write_String (1 :s 1C ]
+"123
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 123:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"124
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 124:     Lcd_Write_String("0.00");
+[e ( _Lcd_Write_String (1 :s 2C ]
+"125
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 125:     Lcd_Set_Cursor(1,8);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
+"126
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 126:     Lcd_Write_String("S2");
+[e ( _Lcd_Write_String (1 :s 3C ]
+"127
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 127:     Lcd_Set_Cursor(2,7);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+"128
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 128:     Lcd_Write_String("0.00");
+[e ( _Lcd_Write_String (1 :s 4C ]
+"129
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 129:     Lcd_Set_Cursor(1,14);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 14 `i `uc ]
+"130
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 130:     Lcd_Write_String("S3");
+[e ( _Lcd_Write_String (1 :s 5C ]
+"131
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 131:     Lcd_Set_Cursor(2,13);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+"132
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 132:     Lcd_Write_String("0.00");
+[e ( _Lcd_Write_String (1 :s 6C ]
+"134
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 134: }
 [e :UE 142 ]
 }
+[a 5C 83 51 0 ]
+[a 3C 83 50 0 ]
+[a 1C 83 49 0 ]
+[a 2C 48 46 48 48 0 ]
+[a 4C 48 46 48 48 0 ]
+[a 6C 48 46 48 48 0 ]
