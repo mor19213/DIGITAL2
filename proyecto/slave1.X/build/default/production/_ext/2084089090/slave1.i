@@ -2720,12 +2720,19 @@ void __attribute__((picinterrupt(("")))) isr(void){
         spiWrite(ADC);
         SSPIF = 0;
     }
+
+    if(ADIF == 1){
+    ADC = ADRESH;
+    ADIF = 0;
+    ADCON0bits.GO = 1;
+    }
 }
 
 
 void main(void) {
     Setup();
     while(1){
+
 
     }
 }

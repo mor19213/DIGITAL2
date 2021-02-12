@@ -54,12 +54,19 @@ void __interrupt() isr(void){
         spiWrite(ADC);
         SSPIF = 0;              // Apagar bandera interrupcion
     }
+    
+    if(ADIF == 1){
+    ADC = ADRESH;
+    ADIF = 0;
+    ADCON0bits.GO = 1; 
+    }
 }
 
 //******************************************************************************
 void main(void) {
     Setup();
     while(1){
+            
         
     }
 }
