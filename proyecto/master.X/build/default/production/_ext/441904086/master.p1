@@ -498,9 +498,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "111
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 111:        temperatura = spiRead();
 [e = _temperatura -> ( _spiRead ..  `uc ]
-"112
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 112:        temperatura = 98;
-[e = _temperatura -> -> 98 `i `uc ]
 "114
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c: 114:        _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]

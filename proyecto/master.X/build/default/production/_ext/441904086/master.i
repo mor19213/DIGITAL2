@@ -2785,7 +2785,7 @@ void main(void) {
 
        spiWrite(0);
        temperatura = spiRead();
-       temperatura = 98;
+
 
        _delay((unsigned long)((1)*(8000000/4000.0)));
        PORTCbits.RC0 = 1;

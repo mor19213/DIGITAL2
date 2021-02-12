@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Fri Feb 12 11:24:09 2021
+                                                                                               Fri Feb 12 12:56:53 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -380,10 +380,10 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    366  018D                     	;# 
    367  000C                     _PIR1bits	set	12
    368  000B                     _INTCONbits	set	11
-   369  0006                     _PORTB	set	6
+   369  0008                     _PORTD	set	8
    370  001F                     _ADCON0bits	set	31
    371  001E                     _ADRESH	set	30
-   372  0008                     _PORTD	set	8
+   372  0006                     _PORTB	set	6
    373  0013                     _SSPBUF	set	19
    374  0014                     _SSPCON	set	20
    375  001F                     _ADCON0	set	31
@@ -1561,7 +1561,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1502  017E                     i1l841:
   1503                           
   1504                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55:     }
-  1505  017E  0808               	movf	8,w	;volatile
+  1505  017E  0806               	movf	6,w	;volatile
   1506  017F  120A  118A  21C3  120A  118A  	fcall	_spiWrite
   1507  0184                     i1l843:
   1508                           
@@ -1862,7 +1862,7 @@ DATA                 0      0      17      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Fri Feb 12 11:24:09 2021
+Symbol Table                                                                                   Fri Feb 12 12:56:53 2021
 
          ___bmul@product 0076              _SSPSTATbits 0094                       l20 0097  
                      l21 009C                       l22 00A1                       l23 00A6  

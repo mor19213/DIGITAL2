@@ -7,9 +7,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 51: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
-"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "3587
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3587: extern volatile __bit ADIF __attribute__((address(0x66)));
 [v _ADIF `Vb ~T0 @X0 0 e@102 ]
@@ -43,9 +43,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 46:             PORTD = 0;
 [v _Setup `(v ~T0 @X0 0 ef ]
-"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "4187
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4187: extern volatile __bit RD2 __attribute__((address(0x42)));
 [v _RD2 `Vb ~T0 @X0 0 e@66 ]
@@ -374,7 +374,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 20: 
 [p x WDTE  =  OFF        ]
 "21
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 21:         spiWrite(PORTD);
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 21:         spiWrite(PORTB);
 [p x PWRTE  =  OFF       ]
 "22
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 22:         SSPIF = 0;
@@ -422,7 +422,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "55
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55:     }
-[e ( _spiWrite (1 -> _PORTD `uc ]
+[e ( _spiWrite (1 -> _PORTB `uc ]
 "56
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 56: }
 [e = _SSPIF -> -> 0 `i `b ]

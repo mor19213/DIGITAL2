@@ -2716,7 +2716,7 @@ void Setup (void);
 void __attribute__((picinterrupt(("")))) isr(void){
     if(SSPIF == 1){
 
-        spiWrite(PORTD);
+        spiWrite(PORTB);
         SSPIF = 0;
     }
 

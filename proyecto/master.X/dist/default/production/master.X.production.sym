@@ -245,7 +245,7 @@ text1 7A4 7AF CODE 7A4 0
 text12 798 7A3 CODE 798 0
 %locals
 dist/default/production\master.X.production.o
-C:\Users\danie\AppData\Local\Temp\scj0.s
+C:\Users\danie\AppData\Local\Temp\s114.s
 1027 7EF 0 CODE 0
 1030 7EF 0 CODE 0
 1074 7EF 0 CODE 0
@@ -301,11 +301,10 @@ C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 108 776 0 CODE 0
 110 780 0 CODE 0
 111 786 0 CODE 0
-112 790 0 CODE 0
-114 794 0 CODE 0
-115 79E 0 CODE 0
-118 7A1 0 CODE 0
-119 7B5 0 CODE 0
+114 790 0 CODE 0
+115 79A 0 CODE 0
+118 79D 0 CODE 0
+119 7B4 0 CODE 0
 121 7C5 0 CODE 0
 122 7CF 0 CODE 0
 123 7D7 0 CODE 0

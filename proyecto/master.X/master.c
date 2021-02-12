@@ -109,7 +109,7 @@ void main(void) {
        
        spiWrite(0);
        temperatura = spiRead();
-       temperatura = 98;
+       //temperatura = 98;
        
        __delay_ms(1);
        PORTCbits.RC0 = 1;       //Slave 3 Deselect 

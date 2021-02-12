@@ -52,7 +52,7 @@ void Setup (void);
 void __interrupt() isr(void){
     if(SSPIF == 1){
         //TEMP = spiRead();
-        spiWrite(PORTD);
+        spiWrite(PORTB);
         SSPIF = 0;              // Apagar bandera interrupcion
     }
     

@@ -34,7 +34,7 @@ bssBANK0 BANK0 1 20 20 6 1
 strings STRING 0 3 3 13 2
 bssCOMMON COMMON 1 79 79 5 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\danie\AppData\Local\Temp\scj0.o
+$C:\Users\danie\AppData\Local\Temp\s114.o
 end_init CODE 0 0 0 3 2
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
@@ -82,24 +82,24 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\master.X.production.o
-7EF cinit CODE >1027:C:\Users\danie\AppData\Local\Temp\scj0.s
-7EF cinit CODE >1030:C:\Users\danie\AppData\Local\Temp\scj0.s
-7EF cinit CODE >1074:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F0 cinit CODE >1075:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F1 cinit CODE >1076:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F2 cinit CODE >1077:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F3 cinit CODE >1078:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F4 cinit CODE >1081:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F5 cinit CODE >1082:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F6 cinit CODE >1083:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F7 cinit CODE >1084:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F8 cinit CODE >1085:C:\Users\danie\AppData\Local\Temp\scj0.s
-7F9 cinit CODE >1086:C:\Users\danie\AppData\Local\Temp\scj0.s
-7FA cinit CODE >1087:C:\Users\danie\AppData\Local\Temp\scj0.s
-7FB cinit CODE >1088:C:\Users\danie\AppData\Local\Temp\scj0.s
-7FC cinit CODE >1094:C:\Users\danie\AppData\Local\Temp\scj0.s
-7FC cinit CODE >1096:C:\Users\danie\AppData\Local\Temp\scj0.s
-7FD cinit CODE >1097:C:\Users\danie\AppData\Local\Temp\scj0.s
+7EF cinit CODE >1027:C:\Users\danie\AppData\Local\Temp\s114.s
+7EF cinit CODE >1030:C:\Users\danie\AppData\Local\Temp\s114.s
+7EF cinit CODE >1074:C:\Users\danie\AppData\Local\Temp\s114.s
+7F0 cinit CODE >1075:C:\Users\danie\AppData\Local\Temp\s114.s
+7F1 cinit CODE >1076:C:\Users\danie\AppData\Local\Temp\s114.s
+7F2 cinit CODE >1077:C:\Users\danie\AppData\Local\Temp\s114.s
+7F3 cinit CODE >1078:C:\Users\danie\AppData\Local\Temp\s114.s
+7F4 cinit CODE >1081:C:\Users\danie\AppData\Local\Temp\s114.s
+7F5 cinit CODE >1082:C:\Users\danie\AppData\Local\Temp\s114.s
+7F6 cinit CODE >1083:C:\Users\danie\AppData\Local\Temp\s114.s
+7F7 cinit CODE >1084:C:\Users\danie\AppData\Local\Temp\s114.s
+7F8 cinit CODE >1085:C:\Users\danie\AppData\Local\Temp\s114.s
+7F9 cinit CODE >1086:C:\Users\danie\AppData\Local\Temp\s114.s
+7FA cinit CODE >1087:C:\Users\danie\AppData\Local\Temp\s114.s
+7FB cinit CODE >1088:C:\Users\danie\AppData\Local\Temp\s114.s
+7FC cinit CODE >1094:C:\Users\danie\AppData\Local\Temp\s114.s
+7FC cinit CODE >1096:C:\Users\danie\AppData\Local\Temp\s114.s
+7FD cinit CODE >1097:C:\Users\danie\AppData\Local\Temp\s114.s
 4FF text14 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 4FF text14 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 500 text14 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
@@ -286,11 +286,10 @@ $dist/default/production\master.X.production.o
 776 maintext CODE >108:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 780 maintext CODE >110:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 786 maintext CODE >111:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-790 maintext CODE >112:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-794 maintext CODE >114:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-79E maintext CODE >115:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-7A1 maintext CODE >118:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-7B5 maintext CODE >119:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+790 maintext CODE >114:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+79A maintext CODE >115:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+79D maintext CODE >118:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+7B4 maintext CODE >119:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 7C5 maintext CODE >121:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 7CF maintext CODE >122:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
 7D7 maintext CODE >123:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
@@ -321,22 +320,22 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __end_of_Lcd_Init 9FE 0 CODE 0 text10 dist/default/production\master.X.production.o
 __end_of_Lcd_Port 7A4 0 CODE 0 text12 dist/default/production\master.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\scj0.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s114.o
 _main BE4 0 CODE 0 maintext dist/default/production\master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\master.X.production.o
 _Lcd_Write_Char 7FA 0 CODE 0 text8 dist/default/production\master.X.production.o
-start 0 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\scj0.o
+start 0 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\s114.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\master.X.production.o
 Lcd_Port@a 70 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scj0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scj0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scj0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scj0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scj0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scj0.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s114.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s114.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s114.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s114.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s114.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s114.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 ___bmul@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\master.X.production.o
@@ -354,8 +353,8 @@ __Lmaintext 0 0 ABS 0 maintext -
 ___bmul@multiplier 73 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 ___awdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 __end_of___awdiv ACC 0 CODE 0 text14 dist/default/production\master.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\scj0.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\scj0.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s114.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s114.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\master.X.production.o
 Lcd_Set_Cursor@temp 77 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
@@ -373,7 +372,7 @@ _TRISC2 43A 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of_Lcd_Cmd 0 0 ABS 0 - dist/default/production\master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\scj0.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s114.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -435,7 +434,7 @@ __size_of_Lcd_Write_String 0 0 ABS 0 - dist/default/production\master.X.producti
 __stringtab 6 0 STRING 0 strings dist/default/production\master.X.production.o
 Lcd_Write_String@a 75 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 Lcd_Write_String@i 73 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\scj0.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\s114.o
 __end_of_Lcd_Cmd 886 0 CODE 0 text11 dist/default/production\master.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\master.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
