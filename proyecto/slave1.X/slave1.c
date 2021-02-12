@@ -1,22 +1,13 @@
 /*
- * File:   master.c
- * Author: danie
+ * File:   slave.c
+ * Author: daniela
  *
  * Created on 11 de febrero de 2021, 10:10 AM
  */
 
 
-
-#include <xc.h>
-#include <stdint.h>
-#include "SPI.h"
-#include "ADC.h"
-
-//******************************************************************************
-//  PALABRA DE CONFIGURACION
 // CONFIG1
-#pragma config FOSC = INTRC_NOCLKOUT    // Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
-
+#pragma config FOSC = EXTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
 #pragma config MCLRE = OFF      // RE3/MCLR pin function select bit (RE3/MCLR pin function is digital input, MCLR internally tied to VDD)
@@ -31,63 +22,79 @@
 #pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
-//******************************************************************************
-//  VARIABLES
-//******************************************************************************
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
 
+//*****************************************************************************
+// Definición e importación de librerías
+//*****************************************************************************
+#include <xc.h>
+#include <stdint.h>
+#include "SPI.h"
+#include "ADC.h"
+//*****************************************************************************
+// Definición de variables
+//*****************************************************************************
 #define _XTAL_FREQ 4000000
 uint8_t ADC;
-
-
-//******************************************************************************
-//  PROTOTIPO DE FUNCIONES
-//******************************************************************************
-void Setup (void);
-
-
-//******************************************************************************
-//  INTERRUPCION
-//******************************************************************************
+//*****************************************************************************
+// Definición de funciones para que se puedan colocar después del main de lo 
+// contrario hay que colocarlos todas las funciones antes del main
+//*****************************************************************************
+void setup(void);
+//*****************************************************************************
+// Código de Interrupción 
+//*****************************************************************************
 void __interrupt() isr(void){
-    if(SSPIF == 1){
-        PORTD = spiRead();
+   if(SSPIF == 1){
+        //PORTD = spiRead();
         spiWrite(ADC);
-        SSPIF = 0;              // Apagar bandera interrupcion
+        SSPIF = 0;
     }
-    
-    if(ADIF == 1){
-    ADC = ADRESH;
-    ADIF = 0;
-    ADCON0bits.GO = 1; 
-    }
+   
+   if(ADIF == 1){
+       ADC = ADRESH;
+       ADIF = 0;
+       ADCON0bits.GO = 1;
+   }
 }
-
-//******************************************************************************
+//*****************************************************************************
+// Código Principal
+//*****************************************************************************
 void main(void) {
-    Setup();
+    setup();
+    //*************************************************************************
+    // Loop infinito
+    //*************************************************************************
     while(1){
-            
-        
+       PORTB = ADC;
+       __delay_ms(250);
     }
+    return;
 }
-
-void Setup(void){
+//*****************************************************************************
+// Función de Inicialización
+//*****************************************************************************
+void setup(void){
     ANSEL = 0;
     ANSELH = 0;
+    
     TRISA = 0;
+    PORTA = 0; 
+    ADC = 0;
+    initADC(0);
     TRISB = 0;
-    TRISC = 0;
     TRISD = 0;
-    ADC = 0; 
     
-    INTCONbits.GIE = 1;     // habilitar interrupciones globales
-    INTCONbits.PEIE = 1;    // interrupciones perifericas
-    PIR1bits.SSPIF = 0;     // bandera int. (se ha recibido/enviado datos)
-    PIE1bits.SSPIE = 1;     // interrupcion mssp habilitada
-    TRISAbits.TRISA5 = 1;   // recibir ss
+    PORTB = 0;
+    PORTD = 0;
     
-    
-    initADC(0);             // configuracion ADC canal RA0
-    initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-    
+    INTCONbits.GIE = 1;         // Habilitar interrupciones globales
+    INTCONbits.PEIE = 1;        // Habilitar interrupt perifericas
+    PIR1bits.SSPIF = 0;         // bandera 
+    PIE1bits.SSPIE = 1;         // Habilitar interrupt MSSP
+    TRISAbits.TRISA5 = 1;       // Slave Select
+   
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+
 }

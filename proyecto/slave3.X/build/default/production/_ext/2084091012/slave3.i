@@ -2626,45 +2626,43 @@ typedef uint16_t uintptr_t;
 # 11 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c" 2
 
 # 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h" 1
-# 18 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h"
+# 17 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h"
 typedef enum
 {
-            SPI_MASTER_OSC_4 = 0b00100000,
-            SPI_MASTER_OSC_16 = 0b00100001,
-            SPI_MASTER_OSC_64 = 0b00100010,
-            SPI_MASTER_TMR2 = 0b00100100,
-            SPI_SLAVE_SS_EN = 0b00100100,
-            SPI_SLAVE_SS_DIS = 0b00100101
-}SPI_type;
-
-typedef enum
-{
-    SPI_IDLE_2_HIGH = 0b00110000,
-    SPI_CLOCK_IDLE_LOW = 0b00100000
-}clock_IDLE;
-
-
-
+    SPI_MASTER_OSC_DIV4 = 0b00100000,
+    SPI_MASTER_OSC_DIV16 = 0b00100001,
+    SPI_MASTER_OSC_DIV64 = 0b00100010,
+    SPI_MASTER_TMR2 = 0b00100011,
+    SPI_SLAVE_SS_EN = 0b00100100,
+    SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
 
 typedef enum
 {
-    MIDDLE = 0b00000000,
-    END = 0b10000000
-}SPI_data;
+    SPI_CLOCK_IDLE_HIGH = 0b00010000,
+    SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
 
 
+
+
+
+typedef enum
+{
+    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+    SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
 
 typedef enum
 {
     SPI_IDLE_2_ACTIVE = 0b00000000,
     SPI_ACTIVE_2_IDLE = 0b01000000
-}transmit_edge;
+}Spi_Transmit_Edge;
 
 
-
-void initSPI(SPI_type, SPI_data, clock_IDLE, transmit_edge);
-void spiReceive(void);
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
+
 char spiRead();
 # 12 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c" 2
 
@@ -2717,8 +2715,8 @@ void Setup (void);
 
 void __attribute__((picinterrupt(("")))) isr(void){
     if(SSPIF == 1){
-        PORTD = spiRead();
-        spiWrite(TEMP);
+        TEMP = spiRead();
+        spiWrite(PORTD);
         SSPIF = 0;
     }
 
@@ -2771,6 +2769,6 @@ void Setup(void){
 
 
     initADC(0);
-    initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
 }

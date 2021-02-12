@@ -8,6 +8,28 @@
 # 2 "<built-in>" 2
 # 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
 # 10 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c"
+#pragma config FOSC = EXTRC_NOCLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
+
+
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,7 +2510,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 10 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
+# 31 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2623,50 +2645,48 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 11 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
+# 32 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
 
 # 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h" 1
-# 18 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h"
+# 17 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h"
 typedef enum
 {
-            SPI_MASTER_OSC_4 = 0b00100000,
-            SPI_MASTER_OSC_16 = 0b00100001,
-            SPI_MASTER_OSC_64 = 0b00100010,
-            SPI_MASTER_TMR2 = 0b00100100,
-            SPI_SLAVE_SS_EN = 0b00100100,
-            SPI_SLAVE_SS_DIS = 0b00100101
-}SPI_type;
-
-typedef enum
-{
-    SPI_IDLE_2_HIGH = 0b00110000,
-    SPI_CLOCK_IDLE_LOW = 0b00100000
-}clock_IDLE;
-
-
-
+    SPI_MASTER_OSC_DIV4 = 0b00100000,
+    SPI_MASTER_OSC_DIV16 = 0b00100001,
+    SPI_MASTER_OSC_DIV64 = 0b00100010,
+    SPI_MASTER_TMR2 = 0b00100011,
+    SPI_SLAVE_SS_EN = 0b00100100,
+    SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
 
 typedef enum
 {
-    MIDDLE = 0b00000000,
-    END = 0b10000000
-}SPI_data;
+    SPI_CLOCK_IDLE_HIGH = 0b00010000,
+    SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
 
 
+
+
+
+typedef enum
+{
+    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+    SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
 
 typedef enum
 {
     SPI_IDLE_2_ACTIVE = 0b00000000,
     SPI_ACTIVE_2_IDLE = 0b01000000
-}transmit_edge;
+}Spi_Transmit_Edge;
 
 
-
-void initSPI(SPI_type, SPI_data, clock_IDLE, transmit_edge);
-void spiReceive(void);
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
+
 char spiRead();
-# 12 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
+# 33 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
 
 # 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.h" 1
 # 14 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.h"
@@ -2675,28 +2695,7 @@ char spiRead();
 
 
 void initADC(uint8_t IRCF);
-# 13 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
-
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
+# 34 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c" 2
 
 
 
@@ -2707,44 +2706,53 @@ uint8_t ADC;
 
 
 
-
-void Setup (void);
-
-
+void setup(void);
 
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
-    if(SSPIF == 1){
-        PORTD = spiRead();
+   if(SSPIF == 1){
+
         spiWrite(ADC);
         SSPIF = 0;
     }
 
-    if(ADIF == 1){
-    ADC = ADRESH;
-    ADIF = 0;
-    ADCON0bits.GO = 1;
-    }
+   if(ADIF == 1){
+       ADC = ADRESH;
+       ADIF = 0;
+       ADCON0bits.GO = 1;
+   }
 }
+
 
 
 void main(void) {
-    Setup();
+    setup();
+
+
+
     while(1){
-
-
+       PORTB = ADC;
+       _delay((unsigned long)((250)*(4000000/4000.0)));
     }
+    return;
 }
 
-void Setup(void){
+
+
+void setup(void){
     ANSEL = 0;
     ANSELH = 0;
+
     TRISA = 0;
-    TRISB = 0;
-    TRISC = 0;
-    TRISD = 0;
+    PORTA = 0;
     ADC = 0;
+    initADC(0);
+    TRISB = 0;
+    TRISD = 0;
+
+    PORTB = 0;
+    PORTD = 0;
 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
@@ -2752,8 +2760,6 @@ void Setup(void){
     PIE1bits.SSPIE = 1;
     TRISAbits.TRISA5 = 1;
 
-
-    initADC(0);
-    initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
 }

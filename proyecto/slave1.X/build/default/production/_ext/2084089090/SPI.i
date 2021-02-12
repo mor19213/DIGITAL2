@@ -14,7 +14,8 @@
 
 
 
-
+# 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h" 1
+# 11 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2495,76 +2496,78 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 9 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c" 2
+# 12 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h" 2
 
-# 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h" 1
-# 18 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.h"
-typedef enum
-{
-            SPI_MASTER_OSC_4 = 0b00100000,
-            SPI_MASTER_OSC_16 = 0b00100001,
-            SPI_MASTER_OSC_64 = 0b00100010,
-            SPI_MASTER_TMR2 = 0b00100100,
-            SPI_SLAVE_SS_EN = 0b00100100,
-            SPI_SLAVE_SS_DIS = 0b00100101
-}SPI_type;
-
-typedef enum
-{
-    SPI_IDLE_2_HIGH = 0b00110000,
-    SPI_CLOCK_IDLE_LOW = 0b00100000
-}clock_IDLE;
 
 
 
 
 typedef enum
 {
-    MIDDLE = 0b00000000,
-    END = 0b10000000
-}SPI_data;
+    SPI_MASTER_OSC_DIV4 = 0b00100000,
+    SPI_MASTER_OSC_DIV16 = 0b00100001,
+    SPI_MASTER_OSC_DIV64 = 0b00100010,
+    SPI_MASTER_TMR2 = 0b00100011,
+    SPI_SLAVE_SS_EN = 0b00100100,
+    SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
+
+typedef enum
+{
+    SPI_CLOCK_IDLE_HIGH = 0b00010000,
+    SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
 
 
+
+
+
+typedef enum
+{
+    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+    SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
 
 typedef enum
 {
     SPI_IDLE_2_ACTIVE = 0b00000000,
     SPI_ACTIVE_2_IDLE = 0b01000000
-}transmit_edge;
+}Spi_Transmit_Edge;
 
 
-
-void initSPI(SPI_type, SPI_data, clock_IDLE, transmit_edge);
-void spiReceive(void);
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
+
 char spiRead();
-# 10 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c" 2
+# 9 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c" 2
 
-
-
-void initSPI(SPI_type Type, SPI_data Data_sample, clock_IDLE clock_idle, transmit_edge edge){
+void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+{
     TRISC5 = 0;
 
-    SSPCON = Type | clock_idle;
-
-    if(Type & 0b00000100){
-        SSPSTAT = edge;
-
-    } else{
-        SSPSTAT = Data_sample | edge;
+    if(sType & 0b00000100)
+    {
+        SSPSTAT = sTransmitEdge;
+        TRISC3 = 1;
     }
-    TRISC3 = 1;
+    else
+    {
+        SSPSTAT = sDataSample | sTransmitEdge;
+        TRISC3 = 0;
+    }
+
+    SSPCON = sType | sClockIdle;
 }
 
-void spiReceive(void){
-    while (!SSPSTATbits.BF);
-};
+static void spiReceiveWait(){
+    while ( !SSPSTATbits.BF );
+}
 
-void spiWrite(char variable){
+void spiWrite(char variable) {
     SSPBUF = variable;
 }
-
-char spiRead(void){
-    spiReceive();
+# 44 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c"
+char spiRead(){
+    spiReceiveWait();
     return(SSPBUF);
 }

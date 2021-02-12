@@ -1,26 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 13: void initSPI(SPI_type Type, SPI_data Data_sample, clock_IDLE clock_idle, transmit_edge edge){
-[c E1264 32 33 34 36 36 37 .. ]
-[n E1264 . SPI_MASTER_OSC_4 SPI_MASTER_OSC_16 SPI_MASTER_OSC_64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
+"10 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 10: void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+[c E1264 32 33 34 35 36 37 .. ]
+[n E1264 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1276 0 128 .. ]
-[n E1276 . MIDDLE END  ]
-[c E1272 48 32 .. ]
-[n E1272 . SPI_IDLE_2_HIGH SPI_CLOCK_IDLE_LOW  ]
+[n E1276 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
+[c E1272 16 0 .. ]
+[n E1272 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
 [c E1280 0 64 .. ]
 [n E1280 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
 "4463 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4463: extern volatile __bit TRISC5 __attribute__((address(0x43D)));
 [v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
-"850
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 850: extern volatile unsigned char SSPCON __attribute__((address(0x014)));
-[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
 "2177
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2177: extern volatile unsigned char SSPSTAT __attribute__((address(0x094)));
 [v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
 "4457
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4457: extern volatile __bit TRISC3 __attribute__((address(0x43B)));
 [v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
+"850
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 850: extern volatile unsigned char SSPCON __attribute__((address(0x014)));
+[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
 "2183
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2183:     struct {
 [s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -293,94 +293,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"13 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 13: void initSPI(SPI_type Type, SPI_data Data_sample, clock_IDLE clock_idle, transmit_edge edge){
-[v _initSPI `(v ~T0 @X0 1 ef4`E1264`E1276`E1272`E1280 ]
+"10 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 10: void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+[v _spiInit `(v ~T0 @X0 1 ef4`E1264`E1276`E1272`E1280 ]
+"11
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 11: {
 {
-[e :U _initSPI ]
-[v _Type `E1264 ~T0 @X0 1 r1 ]
-[v _Data_sample `E1276 ~T0 @X0 1 r2 ]
-[v _clock_idle `E1272 ~T0 @X0 1 r3 ]
-[v _edge `E1280 ~T0 @X0 1 r4 ]
+[e :U _spiInit ]
+"10
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 10: void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+[v _sType `E1264 ~T0 @X0 1 r1 ]
+[v _sDataSample `E1276 ~T0 @X0 1 r2 ]
+[v _sClockIdle `E1272 ~T0 @X0 1 r3 ]
+[v _sTransmitEdge `E1280 ~T0 @X0 1 r4 ]
+"11
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 11: {
 [f ]
-"14
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 14:     TRISC5 = 0;
+"12
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 12:     TRISC5 = 0;
 [e = _TRISC5 -> -> 0 `i `b ]
-"16
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 16:     SSPCON = Type | clock_idle;
-[e = _SSPCON -> | -> _Type `ui -> _clock_idle `ui `uc ]
-"18
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 18:     if(Type & 0b00000100){
-[e $ ! != & -> _Type `ui -> -> 4 `i `ui -> -> 0 `i `ui 139  ]
+"14
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 14:     if(sType & 0b00000100)
+[e $ ! != & -> _sType `ui -> -> 4 `i `ui -> -> 0 `i `ui 139  ]
+"15
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 15:     {
 {
-"19
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 19:         SSPSTAT = edge;
-[e = _SSPSTAT -> _edge `uc ]
-"21
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 21:     } else{
+"16
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 16:         SSPSTAT = sTransmitEdge;
+[e = _SSPSTAT -> _sTransmitEdge `uc ]
+"17
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 17:         TRISC3 = 1;
+[e = _TRISC3 -> -> 1 `i `b ]
+"18
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 18:     }
 }
 [e $U 140  ]
+"19
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 19:     else
 [e :U 139 ]
+"20
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 20:     {
 {
+"21
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 21:         SSPSTAT = sDataSample | sTransmitEdge;
+[e = _SSPSTAT -> | -> _sDataSample `ui -> _sTransmitEdge `ui `uc ]
 "22
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 22:         SSPSTAT = Data_sample | edge;
-[e = _SSPSTAT -> | -> _Data_sample `ui -> _edge `ui `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 22:         TRISC3 = 0;
+[e = _TRISC3 -> -> 0 `i `b ]
 "23
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 23:     }
 }
 [e :U 140 ]
-"24
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 24:     TRISC3 = 1;
-[e = _TRISC3 -> -> 1 `i `b ]
 "25
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 25: }
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 25:     SSPCON = sType | sClockIdle;
+[e = _SSPCON -> | -> _sType `ui -> _sClockIdle `ui `uc ]
+"26
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 26: }
 [e :UE 138 ]
 }
-"27
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 27: void spiReceive(void){
-[v _spiReceive `(v ~T0 @X0 1 ef ]
-{
-[e :U _spiReceive ]
-[f ]
 "28
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 28:     while (!SSPSTATbits.BF);
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 28: static void spiReceiveWait(){
+[v _spiReceiveWait `(v ~T0 @X0 1 sf ]
+{
+[e :U _spiReceiveWait ]
+[f ]
+"29
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 29:     while ( !SSPSTATbits.BF );
 [e $U 142  ]
 [e :U 143 ]
 [e :U 142 ]
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 143  ]
 [e :U 144 ]
-"29
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 29: };
+"30
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 30: }
 [e :UE 141 ]
 }
-"31
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 31: void spiWrite(char variable){
+"32
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 32: void spiWrite(char variable) {
 [v _spiWrite `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _spiWrite ]
 [v _variable `uc ~T0 @X0 1 r1 ]
 [f ]
-"32
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 32:     SSPBUF = variable;
-[e = _SSPBUF -> _variable `uc ]
 "33
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 33: }
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 33:     SSPBUF = variable;
+[e = _SSPBUF -> _variable `uc ]
+"34
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 34: }
 [e :UE 145 ]
 }
-"35
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 35: char spiRead(void){
+"44
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 44: char spiRead(){
 [v _spiRead `(uc ~T0 @X0 1 ef ]
 {
 [e :U _spiRead ]
 [f ]
-"36
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 36:     spiReceive();
-[e ( _spiReceive ..  ]
-"37
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 37:     return(SSPBUF);
+"45
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 45:     spiReceiveWait();
+[e ( _spiReceiveWait ..  ]
+"46
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 46:     return(SSPBUF);
 [e ) -> _SSPBUF `uc ]
 [e $UE 146  ]
-"38
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 38: }
+"47
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c: 47: }
 [e :UE 146 ]
 }

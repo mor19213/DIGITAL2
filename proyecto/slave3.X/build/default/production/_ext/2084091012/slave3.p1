@@ -4,16 +4,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4277 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4277: extern volatile __bit SSPIF __attribute__((address(0x63)));
 [v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"352
+"53 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 53: char spiRead();
+[v _spiRead `(uc ~T0 @X0 0 e? ]
+"51
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 51: void spiWrite(char);
+[v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
+"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"56 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 56: char spiRead();
-[v _spiRead `(uc ~T0 @X0 0 e? ]
-"55
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 55: void spiWrite(char);
-[v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
-"3587 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"3587
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3587: extern volatile __bit ADIF __attribute__((address(0x66)));
 [v _ADIF `Vb ~T0 @X0 0 e@102 ]
 "1238
@@ -125,17 +125,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.h: 16: void initADC(uint8_t IRCF);
 [v _initADC `(v ~T0 @X0 0 ef1`uc ]
 "108 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
-[c E1292 32 33 34 36 36 37 .. ]
-[n E1292 . SPI_MASTER_OSC_4 SPI_MASTER_OSC_16 SPI_MASTER_OSC_64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
+[c E1292 32 33 34 35 36 37 .. ]
+[n E1292 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1304 0 128 .. ]
-[n E1304 . MIDDLE END  ]
-[c E1300 48 32 .. ]
-[n E1300 . SPI_IDLE_2_HIGH SPI_CLOCK_IDLE_LOW  ]
+[n E1304 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
+[c E1300 16 0 .. ]
+[n E1300 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
 [c E1308 0 64 .. ]
 [n E1308 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
-"53 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 53: void initSPI(SPI_type, SPI_data, clock_IDLE, transmit_edge);
-[v _initSPI `(v ~T0 @X0 0 ef4`E1292`E1304`E1300`E1308 ]
+"50 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.h: 50: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+[v _spiInit `(v ~T0 @X0 0 ef4`E1292`E1304`E1300`E1308 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -374,10 +374,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 18: void __attribute__((picinterrupt(("")))) isr(void){
 [p x FOSC  =  INTRC_NOCLKOUT     ]
 "20
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 20:         PORTD = spiRead();
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 20:         TEMP = spiRead();
 [p x WDTE  =  OFF        ]
 "21
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 21:         spiWrite(TEMP);
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 21:         spiWrite(PORTD);
 [p x PWRTE  =  OFF       ]
 "22
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 22:         SSPIF = 0;
@@ -425,10 +425,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "54
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 54:     }
-[e = _PORTD -> ( _spiRead ..  `uc ]
+[e = _TEMP -> ( _spiRead ..  `uc ]
 "55
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 55: }
-[e ( _spiWrite (1 -> _TEMP `uc ]
+[e ( _spiWrite (1 -> _PORTD `uc ]
 "56
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 56: 
 [e = _SSPIF -> -> 0 `i `b ]
@@ -475,7 +475,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 70:     TRISAbits.TRISA5 = 1;
 [e = _PORTB _ADC ]
 "74
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 74:     initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 74:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [e $ ! > -> _ADC `i -> 18 `i 145  ]
 {
 "75
@@ -547,7 +547,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "107
 [e ( _initADC (1 -> -> 0 `i `uc ]
 "108
-[e ( _initSPI (4 , , , . `E1292 4 . `E1304 0 . `E1300 1 . `E1308 0 ]
+[e ( _spiInit (4 , , , . `E1292 4 . `E1304 0 . `E1300 1 . `E1308 0 ]
 "110
 [e :UE 149 ]
 }

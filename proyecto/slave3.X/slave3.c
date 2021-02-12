@@ -51,8 +51,8 @@ void Setup (void);
 //******************************************************************************
 void __interrupt() isr(void){
     if(SSPIF == 1){
-        PORTD = spiRead();
-        spiWrite(TEMP);
+        TEMP = spiRead();
+        spiWrite(PORTD);
         SSPIF = 0;              // Apagar bandera interrupcion
     }
     
@@ -105,6 +105,6 @@ void Setup(void){
     
     
     initADC(0);             // configuracion ADC canal RA0
-    initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     
 }

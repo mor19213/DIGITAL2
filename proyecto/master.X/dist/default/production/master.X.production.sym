@@ -4,22 +4,33 @@ __S2 0 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-__end_of_initSPI 7A2 0 CODE 0
-_main 7BB 0 CODE 0
+__size_of_spiRead 0 0 ABS 0
+_main 785 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
-_TRISC 87 0 ABS 0
+spiInit@sType 73 0 COMMON 1
+__size_of_spiInit 0 0 ABS 0
+_TRISB 86 0 ABS 0
 reset_vec 0 0 CODE 0
+_TRISD 88 0 ABS 0
+_PORTB 6 0 ABS 0
+_TRISE 89 0 ABS 0
 _ANSEL 188 0 ABS 0
+_PORTD 8 0 ABS 0
+_PORTE 9 0 ABS 0
 wtemp0 7E 0 ABS 0
 __Hconfig 2009 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
+_spiWrite 73B 0 CODE 0
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
-_Setup 7A2 0 CODE 0
+_setup 767 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
+_TRISC0 438 0 ABS 0
 __Lfunctab 0 0 ENTRY 0
+_TRISC1 439 0 ABS 0
+_TRISC2 43A 0 ABS 0
 _TRISC3 43B 0 ABS 0
 _TRISC5 43D 0 ABS 0
 __Hcommon 0 0 ABS 0
@@ -27,7 +38,6 @@ __Lcommon 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 ___int_sp 0 0 STACK 2
-initSPI@clock_idle 71 0 COMMON 1
 _ANSELH 189 0 ABS 0
 _SSPBUF 13 0 ABS 0
 __Habs1 0 0 ABS 0
@@ -41,6 +51,7 @@ __Hsfr2 0 0 ABS 0
 __Lsfr2 0 0 ABS 0
 __Hsfr3 0 0 ABS 0
 __Lsfr3 0 0 ABS 0
+__end_of_spiWrite 741 0 CODE 0
 ___stackhi 0 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
@@ -51,6 +62,7 @@ __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 7FC 0 CODE 0
 ___stacklo 0 0 ABS 0
+__end_of_spiInit 767 0 CODE 0
 _PORTCbits 7 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
@@ -66,21 +78,26 @@ ___latbits 2 0 ABS 0
 __Hpowerup 0 0 CODE 0
 _SSPSTAT 94 0 ABS 0
 __Lpowerup 0 0 CODE 0
-_initSPI 789 0 CODE 0
-__ptext1 7A2 0 CODE 0
-__ptext2 789 0 CODE 0
-__end_of_Setup 7BB 0 CODE 0
+__ptext1 73B 0 CODE 0
+__ptext2 748 0 CODE 0
+__ptext3 741 0 CODE 0
+__ptext4 767 0 CODE 0
+__ptext5 751 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
+__end_of_spiReceiveWait 748 0 CODE 0
 __end_of__initialization 7FC 0 CODE 0
 _SSPSTATbits 94 0 ABS 0
+_spiRead 748 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-initSPI@edge 72 0 COMMON 1
 __Hspace_0 800 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __Hspace_1 76 0 ABS 0
 __Lspace_1 0 0 ABS 0
+__size_of_setup 0 0 ABS 0
+_spiReceiveWait 741 0 CODE 0
+_spiInit 751 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hcinit 800 0 CODE 0
@@ -90,74 +107,109 @@ __Lspace_3 0 0 ABS 0
 __size_of_main 0 0 ABS 0
 __Hspace_4 4010 0 ABS 0
 __Lspace_4 0 0 ABS 0
-__size_of_initSPI 0 0 ABS 0
+spiInit@sTransmitEdge 72 0 COMMON 1
+spiInit@sClockIdle 71 0 COMMON 1
 __Hend_init 3 0 CODE 0
 __Lend_init 0 0 CODE 0
-initSPI@Data_sample 70 0 COMMON 1
+__end_of_setup 785 0 CODE 0
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
+__end_of_spiRead 751 0 CODE 0
 intlevel0 0 0 ENTRY 0
 intlevel1 0 0 ENTRY 0
 intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
 intlevel4 0 0 ENTRY 0
 intlevel5 0 0 ENTRY 0
+spiInit@sDataSample 70 0 COMMON 1
+__size_of_spiWrite 0 0 ABS 0
 __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
-initSPI@Type 73 0 COMMON 1
 __pcstackCOMMON 70 0 COMMON 1
-__size_of_Setup 0 0 ABS 0
+spiWrite@variable 70 0 COMMON 1
 start_initialization 7FC 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 7BB 0 CODE 0
+__pmaintext 785 0 CODE 0
 __initialization 7FC 0 CODE 0
+__size_of_spiReceiveWait 0 0 ABS 0
 %segments
 reset_vec 0 5 CODE 0 0
 cinit FF8 FFF CODE FF8 0
 cstackCOMMON 70 75 COMMON 70 1
-maintext F76 FF7 CODE F76 0
-text1 F44 F75 CODE F44 0
-text2 F12 F43 CODE F12 0
+maintext F0A FF7 CODE F0A 0
+text4 ECE F09 CODE ECE 0
+text5 EA2 ECD CODE EA2 0
+text2 E90 EA1 CODE E90 0
+text3 E82 E8F CODE E82 0
+text1 E76 E81 CODE E76 0
 %locals
 dist/default/production\master.X.production.o
-C:\Users\danie\AppData\Local\Temp\s3j0.s
-601 7FC 0 CODE 0
-604 7FC 0 CODE 0
-610 7FC 0 CODE 0
-612 7FC 0 CODE 0
-613 7FD 0 CODE 0
+C:\Users\danie\AppData\Local\Temp\sc30.s
+620 7FC 0 CODE 0
+623 7FC 0 CODE 0
+629 7FC 0 CODE 0
+631 7FC 0 CODE 0
+632 7FD 0 CODE 0
 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
-48 7BB 0 CODE 0
-49 7BB 0 CODE 0
-51 7C0 0 CODE 0
-52 7C3 0 CODE 0
-57 7CA 0 CODE 0
-58 7D1 0 CODE 0
-60 7D4 0 CODE 0
-61 7D5 0 CODE 0
-66 7DC 0 CODE 0
-67 7E3 0 CODE 0
-69 7E6 0 CODE 0
-70 7E7 0 CODE 0
-75 7EE 0 CODE 0
-76 7F5 0 CODE 0
-81 7A2 0 CODE 0
-82 7A2 0 CODE 0
-83 7A5 0 CODE 0
-84 7A6 0 CODE 0
-85 7A9 0 CODE 0
-86 7AC 0 CODE 0
-87 7AD 0 CODE 0
-88 7AE 0 CODE 0
-89 7BA 0 CODE 0
+44 785 0 CODE 0
+45 785 0 CODE 0
+48 78A 0 CODE 0
+49 78D 0 CODE 0
+51 796 0 CODE 0
+52 79C 0 CODE 0
+54 7A4 0 CODE 0
+55 7AD 0 CODE 0
+58 7B0 0 CODE 0
+59 7B1 0 CODE 0
+61 7BA 0 CODE 0
+62 7C0 0 CODE 0
+64 7C8 0 CODE 0
+65 7D1 0 CODE 0
+68 7D4 0 CODE 0
+69 7D5 0 CODE 0
+71 7DE 0 CODE 0
+72 7E4 0 CODE 0
+74 7EC 0 CODE 0
+75 7F5 0 CODE 0
 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
-13 789 0 CODE 0
-14 78A 0 CODE 0
-16 78D 0 CODE 0
-18 792 0 CODE 0
-19 796 0 CODE 0
-21 79A 0 CODE 0
-22 79B 0 CODE 0
-24 7A0 0 CODE 0
-25 7A1 0 CODE 0
+32 73B 0 CODE 0
+33 73C 0 CODE 0
+34 740 0 CODE 0
+44 748 0 CODE 0
+45 748 0 CODE 0
+46 74D 0 CODE 0
+47 750 0 CODE 0
+28 741 0 CODE 0
+29 741 0 CODE 0
+30 747 0 CODE 0
+C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/master.c
+84 767 0 CODE 0
+85 767 0 CODE 0
+86 76A 0 CODE 0
+89 76B 0 CODE 0
+90 76E 0 CODE 0
+91 76F 0 CODE 0
+93 770 0 CODE 0
+94 771 0 CODE 0
+95 772 0 CODE 0
+96 773 0 CODE 0
+97 776 0 CODE 0
+98 777 0 CODE 0
+101 778 0 CODE 0
+102 779 0 CODE 0
+103 77A 0 CODE 0
+106 77B 0 CODE 0
+108 784 0 CODE 0
+C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/SPI.c
+10 751 0 CODE 0
+12 752 0 CODE 0
+14 755 0 CODE 0
+16 759 0 CODE 0
+17 75B 0 CODE 0
+18 75C 0 CODE 0
+21 75D 0 CODE 0
+22 760 0 CODE 0
+23 761 0 CODE 0
+25 761 0 CODE 0
+26 766 0 CODE 0

@@ -1,38 +1,48 @@
 /*
  * File:   ISP.c
  * Author: danie
- *
+ * basado en "SPI Library for MPLAB XC8" de electroSome
  * Created on 11 de febrero de 2021, 10:11 AM
  */
 
-
-#include <xc.h>
 #include "SPI.h"
 
-
-void initSPI(SPI_type Type, SPI_data Data_sample, clock_IDLE clock_idle, transmit_edge edge){
+void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+{
     TRISC5 = 0;
     // unir seleccion master/slave (y config) con seleccion de reloj 
-    SSPCON = Type | clock_idle;
-    
-    if(Type & 0b00000100){      // si es slave con ss enable
-        SSPSTAT = edge;         // solamente elegir edge, bit7 = 0 (middle)
-
-    } else{
-        SSPSTAT = Data_sample | edge;   // unir edge y sample
+    if(sType & 0b00000100)          // si es slave con ss enable
+    {
+        SSPSTAT = sTransmitEdge;    // solamente elegir edge, bit7 = 0 (middle
+        TRISC3 = 1;                 // SCK innput
     }
-    TRISC3 = 1;             // SCK
+    else              //If Master Mode
+    {
+        SSPSTAT = sDataSample | sTransmitEdge;  // unir edge y sample
+        TRISC3 = 0;                             // SCK output
+    }
+    
+    SSPCON = sType | sClockIdle;
 }
 
-void spiReceive(void){
-    while (!SSPSTATbits.BF);    // esperar a terminar de recibir
-};
+static void spiReceiveWait(){
+    while ( !SSPSTATbits.BF ); // esperar a terminar de recibir
+}
 
-void spiWrite(char variable){
+void spiWrite(char variable)  {
     SSPBUF = variable;          // mover una variable a sspbuf para escribir
 }
 
-char spiRead(void){
-    spiReceive();               // al terminar de recibir
-    return(SSPBUF);      // retornar el valor de sspbuf (con el valor recibido)
+//unsigned spiDataReady() //Check whether the data is ready to read
+//{
+  //  if(SSPSTATbits.BF)
+    //    return 1;
+   // else
+     //   return 0;
+//}
+
+char spiRead(){
+    spiReceiveWait();        // al terminar de recibir
+    return(SSPBUF);       // retornar el valor de sspbuf (con el valor recibido)
 }
+

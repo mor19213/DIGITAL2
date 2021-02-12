@@ -4,8 +4,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4277 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4277: extern volatile __bit SSPIF __attribute__((address(0x63)));
 [v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"55 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h: 55: void spiWrite(char);
+"51 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h: 51: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
 "352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
@@ -87,17 +87,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1433: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
 [v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
 "102 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c
-[c E1292 32 33 34 36 36 37 .. ]
-[n E1292 . SPI_MASTER_OSC_4 SPI_MASTER_OSC_16 SPI_MASTER_OSC_64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
+[c E1292 32 33 34 35 36 37 .. ]
+[n E1292 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1304 0 128 .. ]
-[n E1304 . MIDDLE END  ]
-[c E1300 48 32 .. ]
-[n E1300 . SPI_IDLE_2_HIGH SPI_CLOCK_IDLE_LOW  ]
+[n E1304 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
+[c E1300 16 0 .. ]
+[n E1300 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
 [c E1308 0 64 .. ]
 [n E1308 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
-"53 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h: 53: void initSPI(SPI_type, SPI_data, clock_IDLE, transmit_edge);
-[v _initSPI `(v ~T0 @X0 0 ef4`E1292`E1304`E1300`E1308 ]
+"50 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.h: 50: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+[v _spiInit `(v ~T0 @X0 0 ef4`E1292`E1304`E1300`E1308 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -433,7 +433,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _antirebote1 `i -> 1 `i 146  ]
 {
 "69
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c: 69:     initSPI(SPI_SLAVE_SS_EN, MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c: 69:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [e = _antirebote1 -> -> 0 `i `uc ]
 "70
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c: 70: 
@@ -507,7 +507,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "99
 [e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
 "102
-[e ( _initSPI (4 , , , . `E1292 4 . `E1304 0 . `E1300 1 . `E1308 0 ]
+[e ( _spiInit (4 , , , . `E1292 4 . `E1304 0 . `E1300 1 . `E1308 0 ]
 "104
 [e :UE 150 ]
 }
