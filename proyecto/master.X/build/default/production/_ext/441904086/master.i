@@ -2722,17 +2722,80 @@ uint8_t s22;
 uint8_t s23;
 uint8_t s31;
 uint8_t s32;
+uint8_t CONTX;
+uint8_t bandera;
+
 
 
 
 void setup(void);
 
 
+void __attribute__((picinterrupt(("")))) isr(void){
+    if (INTCONbits.T0IF){
+        CONTX++;
+        INTCONbits.T0IF = 0;
+    }
+
+    if (TXIF == 1){
+        if (bandera == 0){
+        TXREG = s11;
+        bandera = 1;
+        }
+        else if (bandera == 1){
+        TXREG = s12;
+        bandera = 2;
+        }
+        else if (bandera == 2){
+        TXREG = s13;
+        bandera = 3;
+        }
+        else if (bandera == 3){
+        TXREG = 0x2D;
+        bandera = 4;
+        }
+        else if (bandera == 4){
+        TXREG = s21;
+        bandera = 5;
+        }
+        else if (bandera == 5){
+        TXREG = s22;
+        bandera = 6;
+        }
+        else if (bandera == 6){
+        TXREG = s23;
+        bandera = 7;
+        }
+        else if (bandera == 7){
+        TXREG = 0x2D;
+        bandera = 8;
+        }
+        else if (bandera == 8){
+        TXREG = s31;
+        bandera = 9;
+        }
+        else if (bandera == 9){
+        TXREG = s32;
+        bandera = 10;
+        }
+        else if (bandera == 10){
+        TXREG = 0x0D;
+        bandera = 0;
+        }
+
+        TXIE = 0;
+    }
+}
+
 
 
 void main(void) {
     setup();
     while(1){
+        if(CONTX > 15){
+            CONTX = 0;
+            TXIE = 1;
+            }
 
        PORTCbits.RC2 = 0;
        _delay((unsigned long)((1)*(8000000/4000.0)));
@@ -2836,6 +2899,17 @@ void setup(void){
 
 
     initUSART();
+
+
+    OPTION_REGbits.T0CS = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS = 111;
+    TMR0 = 10;
+
+
+    INTCONbits.GIE = 1;
+    INTCONbits.T0IE = 1;
+    INTCONbits.T0IF = 0;
 
 
     Lcd_Init();
