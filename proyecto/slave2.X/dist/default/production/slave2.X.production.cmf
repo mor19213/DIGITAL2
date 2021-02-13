@@ -22,7 +22,7 @@ cstackCOMMON COMMON 1 70 70 8 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 78 78 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\danie\AppData\Local\Temp\sbeo.o
+$C:\Users\danie\AppData\Local\Temp\scs8.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -72,13 +72,13 @@ STRING 96-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\slave2.X.production.o
-F cinit CODE >627:C:\Users\danie\AppData\Local\Temp\sbeo.s
-F cinit CODE >630:C:\Users\danie\AppData\Local\Temp\sbeo.s
-F cinit CODE >644:C:\Users\danie\AppData\Local\Temp\sbeo.s
-10 cinit CODE >645:C:\Users\danie\AppData\Local\Temp\sbeo.s
-11 cinit CODE >651:C:\Users\danie\AppData\Local\Temp\sbeo.s
-11 cinit CODE >653:C:\Users\danie\AppData\Local\Temp\sbeo.s
-12 cinit CODE >654:C:\Users\danie\AppData\Local\Temp\sbeo.s
+F cinit CODE >627:C:\Users\danie\AppData\Local\Temp\scs8.s
+F cinit CODE >630:C:\Users\danie\AppData\Local\Temp\scs8.s
+F cinit CODE >644:C:\Users\danie\AppData\Local\Temp\scs8.s
+10 cinit CODE >645:C:\Users\danie\AppData\Local\Temp\scs8.s
+11 cinit CODE >651:C:\Users\danie\AppData\Local\Temp\scs8.s
+11 cinit CODE >653:C:\Users\danie\AppData\Local\Temp\scs8.s
+12 cinit CODE >654:C:\Users\danie\AppData\Local\Temp\scs8.s
 4 intentry CODE >51:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/slave2.c
 90 text4 CODE >32:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
 91 text4 CODE >33:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave2.X/SPI.c
@@ -151,19 +151,19 @@ __Hspace_4 4010 0 ABS 0 - -
 spiInit@sTransmitEdge 75 0 COMMON 1 cstackCOMMON dist/default/production\slave2.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sbeo.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\scs8.o
 _main 2A 0 CODE 0 maintext dist/default/production\slave2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\slave2.X.production.o
-start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\sbeo.o
+start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\scs8.o
 __size_of_main 0 0 ABS 0 - dist/default/production\slave2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sbeo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sbeo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sbeo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sbeo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sbeo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sbeo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scs8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scs8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scs8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scs8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scs8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\scs8.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\slave2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -171,8 +171,8 @@ __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\slave2.X.production.o
 __size_of_spiInit 0 0 ABS 0 - dist/default/production\slave2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sbeo.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sbeo.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\scs8.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\scs8.o
 __size_of_Setup 0 0 ABS 0 - dist/default/production\slave2.X.production.o
 spiInit@sDataSample 73 0 COMMON 1 cstackCOMMON dist/default/production\slave2.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\slave2.X.production.o
@@ -181,7 +181,7 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\slave2.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\slave2.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\slave2.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\slave2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sbeo.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\scs8.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -226,7 +226,7 @@ _isr F4 0 CODE 0 text3 dist/default/production\slave2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\slave2.X.production.o
 __end_of_isr 120 0 CODE 0 text3 dist/default/production\slave2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\sbeo.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\scs8.o
 spiWrite@variable 70 0 COMMON 1 cstackCOMMON dist/default/production\slave2.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\slave2.X.production.o
 __pmaintext 2A 0 CODE 0 maintext dist/default/production\slave2.X.production.o

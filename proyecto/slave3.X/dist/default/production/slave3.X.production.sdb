@@ -24,7 +24,7 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"109 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
+"128 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
 [e E1292 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -47,11 +47,11 @@ SPI_ACTIVE_2_IDLE 64
 ]
 "4 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c
 [v _initADC initADC `(v  1 e 1 0 ]
-"52 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
+"55 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
 [v _isr isr `II(v  1 e 1 0 ]
-"67
+"83
 [v _main main `(v  1 e 1 0 ]
-"92
+"105
 [v _Setup Setup `(v  1 e 1 0 ]
 "10 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
@@ -59,25 +59,23 @@ SPI_ACTIVE_2_IDLE 64
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
 "32
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-[v ___bmul __bmul `(uc  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[v _PORTB PORTB `VEuc  1 e 1 @6 ]
-"352
+"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S319 . 1 `uc 1 RBIF 1 0 :1:0 
+"414
+[v _PORTE PORTE `VEuc  1 e 1 @9 ]
+[s S320 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -87,14 +85,14 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S328 . 1 `uc 1 . 1 0 :2:0 
+[s S329 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S333 . 1 `S319 1 . 1 0 `S328 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES333  1 e 1 @11 ]
-[s S351 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S334 . 1 `S320 1 . 1 0 `S329 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES334  1 e 1 @11 ]
+[s S352 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -103,8 +101,8 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S359 . 1 `S351 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES359  1 e 1 @12 ]
+[u S360 . 1 `S352 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES360  1 e 1 @12 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
@@ -113,13 +111,13 @@ SPI_ACTIVE_2_IDLE 64
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 "1245
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-[s S260 . 1 `uc 1 ADON 1 0 :1:0 
+[s S259 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1276
-[s S265 . 1 `uc 1 . 1 0 :1:0 
+[s S264 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -128,14 +126,14 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S274 . 1 `uc 1 . 1 0 :1:0 
+[s S273 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S277 . 1 `uc 1 . 1 0 :1:0 
+[s S276 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S280 . 1 `S260 1 . 1 0 `S265 1 . 1 0 `S274 1 . 1 0 `S277 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES280  1 e 1 @31 ]
+[u S279 . 1 `S259 1 . 1 0 `S264 1 . 1 0 `S273 1 . 1 0 `S276 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES279  1 e 1 @31 ]
 [s S43 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -154,6 +152,8 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1664
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
 [s S85 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
@@ -238,12 +238,12 @@ SPI_ACTIVE_2_IDLE 64
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
 "3587
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
-"4181
-[v _RD0 RD0 `VEb  1 e 0 @64 ]
-"4184
-[v _RD1 RD1 `VEb  1 e 0 @65 ]
-"4187
-[v _RD2 RD2 `VEb  1 e 0 @66 ]
+"4205
+[v _RE0 RE0 `VEb  1 e 0 @72 ]
+"4208
+[v _RE1 RE1 `VEb  1 e 0 @73 ]
+"4211
+[v _RE2 RE2 `VEb  1 e 0 @74 ]
 "4277
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
 "4457
@@ -251,65 +251,57 @@ SPI_ACTIVE_2_IDLE 64
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
 "39 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
-[v _ADC ADC `uc  1 e 1 0 ]
+[v _ADC1 ADC1 `uc  1 e 1 0 ]
 "40
+[v _ADC2 ADC2 `uc  1 e 1 0 ]
+"41
 [v _TEMP TEMP `uc  1 e 1 0 ]
-"67
+"42
+[v _bandera bandera `uc  1 e 1 0 ]
+"43
+[v _bandera1 bandera1 `uc  1 e 1 0 ]
+"83
 [v _main main `(v  1 e 1 0 ]
 {
-"90
+"103
 } 0
-"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
-"17
-[v ___wmul@product product `ui  1 a 2 0 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 4 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 6 ]
-"53
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8.c
-[v ___bmul __bmul `(uc  1 e 1 0 ]
-{
-[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
-"6
-[v ___bmul@product product `uc  1 a 1 6 ]
-"4
-[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
-[v ___bmul@multiplicand multiplicand `uc  1 p 1 4 ]
-"6
-[v ___bmul@multiplier multiplier `uc  1 a 1 7 ]
-"51
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 9 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 8 ]
-[v ___awdiv@counter counter `uc  1 a 1 7 ]
-"5
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
-[v ___awdiv@dividend dividend `i  1 p 2 4 ]
-"41
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
 } 0
-"92 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 14 ]
+[v ___flge@ff2 ff2 `d  1 p 4 18 ]
+"19
+} 0
+"105 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
 [v _Setup Setup `(v  1 e 1 0 ]
 {
-"111
+"130
 } 0
 "10 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
 {
 [v spiInit@sType sType `E1264  1 a 1 wreg ]
 [v spiInit@sType sType `E1264  1 a 1 wreg ]
-[v spiInit@sDataSample sDataSample `E1276  1 p 1 4 ]
-[v spiInit@sClockIdle sClockIdle `E1272  1 p 1 5 ]
-[v spiInit@sTransmitEdge sTransmitEdge `E1280  1 p 1 6 ]
+[v spiInit@sDataSample sDataSample `E1276  1 p 1 0 ]
+[v spiInit@sClockIdle sClockIdle `E1272  1 p 1 1 ]
+[v spiInit@sTransmitEdge sTransmitEdge `E1280  1 p 1 2 ]
 "12
-[v spiInit@sType sType `E1264  1 a 1 7 ]
+[v spiInit@sType sType `E1264  1 a 1 4 ]
 "26
 } 0
 "4 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/ADC.c
@@ -318,13 +310,13 @@ SPI_ACTIVE_2_IDLE 64
 [v initADC@IRCF IRCF `uc  1 a 1 wreg ]
 [v initADC@IRCF IRCF `uc  1 a 1 wreg ]
 "6
-[v initADC@IRCF IRCF `uc  1 a 1 6 ]
+[v initADC@IRCF IRCF `uc  1 a 1 4 ]
 "47
 } 0
-"52 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
+"55 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"64
+"80
 } 0
 "32 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/SPI.c
 [v _spiWrite spiWrite `(v  1 e 1 0 ]

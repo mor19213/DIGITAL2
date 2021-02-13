@@ -2722,8 +2722,15 @@ uint8_t s22;
 uint8_t s23;
 uint8_t s31;
 uint8_t s32;
+uint8_t s33;
 uint8_t CONTX;
 uint8_t bandera;
+uint8_t var1;
+uint8_t var2;
+uint16_t temperatura_;
+uint8_t banderaS3;
+uint8_t banderaspi;
+uint8_t band;
 
 
 
@@ -2738,6 +2745,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
     }
 
     if (TXIF == 1){
+
         if (bandera == 0){
         TXREG = s11;
         bandera = 1;
@@ -2750,10 +2758,12 @@ void __attribute__((picinterrupt(("")))) isr(void){
         TXREG = s13;
         bandera = 3;
         }
+
         else if (bandera == 3){
-        TXREG = 0x2D;
+        TXREG = 0x20;
         bandera = 4;
         }
+
         else if (bandera == 4){
         TXREG = s21;
         bandera = 5;
@@ -2766,10 +2776,12 @@ void __attribute__((picinterrupt(("")))) isr(void){
         TXREG = s23;
         bandera = 7;
         }
+
         else if (bandera == 7){
-        TXREG = 0x2D;
+        TXREG = 0x20;
         bandera = 8;
         }
+
         else if (bandera == 8){
         TXREG = s31;
         bandera = 9;
@@ -2778,6 +2790,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
         TXREG = s32;
         bandera = 10;
         }
+
         else if (bandera == 10){
         TXREG = 0x0D;
         bandera = 0;
@@ -2791,6 +2804,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 void main(void) {
     setup();
+    temperatura = 0;
     while(1){
         if(CONTX > 15){
             CONTX = 0;
@@ -2846,21 +2860,44 @@ void main(void) {
        PORTCbits.RC0 = 0;
        _delay((unsigned long)((1)*(8000000/4000.0)));
 
+       if (banderaspi == 0){
        spiWrite(0);
-       temperatura = spiRead();
-
-
+       var2 = spiRead();
+       banderaspi = 1;
+       RA0 = 1;
+       }
+       else {
+       spiWrite(1);
+       var1 = spiRead();
+       banderaspi = 0;
+       RA0 = 0;
+       PORTB = var2;
+       }
        _delay((unsigned long)((1)*(8000000/4000.0)));
        PORTCbits.RC0 = 1;
 
+       if (var2 == 0){
+           temperatura = var1 * 2;
+            Lcd_Set_Cursor(2,13);
+            Lcd_Write_String("+");
+       } else {
+           temperatura = var2 * 2;
+            Lcd_Set_Cursor(2,13);
+            Lcd_Write_String("-");
+       }
 
-       s31 = (temperatura/10) + 48;
-       s32 = (temperatura) - ((s31 - 48) * 10) + 48;
+        s31 = (temperatura/100) + 48;
+        s32 = (temperatura / 10) - ((s31 - 48) * 10) + 48;
+        s33 = temperatura - ((s32 - 48) * 10) - ((s31 - 48) * 100) + 48;
 
-        Lcd_Set_Cursor(2,13);
-        Lcd_Write_Char(s31);
+
+
         Lcd_Set_Cursor(2,14);
+        Lcd_Write_Char(s31);
+        Lcd_Set_Cursor(2,15);
         Lcd_Write_Char(s32);
+        Lcd_Set_Cursor(2,16);
+        Lcd_Write_Char(s33);
 
 
     }
@@ -2892,6 +2929,7 @@ void setup(void){
     PORTCbits.RC2 = 1;
     PORTCbits.RC1 = 1;
     PORTCbits.RC0 = 1;
+    temperatura = 0;
 
 
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
@@ -2925,7 +2963,20 @@ void setup(void){
     Lcd_Write_String("000");
     Lcd_Set_Cursor(1,14);
     Lcd_Write_String("S3");
-    Lcd_Set_Cursor(2,13);
-    Lcd_Write_String("00");
+    Lcd_Set_Cursor(2,14);
+    Lcd_Write_String("000");
+
+    s11 = 0;
+    s12 = 0;
+    s13 = 0;
+
+    s21 = 0;
+    s22 = 0;
+    s23 = 0;
+
+    s31 = 0;
+    s32 = 0;
+    s33 = 0;
+
 
 }

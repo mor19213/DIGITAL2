@@ -36,8 +36,11 @@
 //******************************************************************************
 
 #define _XTAL_FREQ 4000000
-uint8_t ADC;
+uint8_t ADC1;
+uint8_t ADC2;
 uint8_t TEMP;
+uint8_t bandera;
+uint8_t bandera1;
 
 
 //******************************************************************************
@@ -51,13 +54,26 @@ void Setup (void);
 //******************************************************************************
 void __interrupt() isr(void){
     if(SSPIF == 1){
-        //TEMP = spiRead();
-        spiWrite(PORTB);
+        if (bandera1 == 0){
+            spiWrite(ADC1);
+            bandera1 = 1;
+        } else if(bandera1 == 1){
+            spiWrite(ADC2);
+            bandera1 = 0;
+        }
         SSPIF = 0;              // Apagar bandera interrupcion
     }
     
     if(ADIF == 1){          // Vout = 10mV/C * T
-    ADC = ADRESH;
+        if (bandera == 0){
+        ADC1 = ADRESH;
+        bandera = 1;
+        ADCON0bits.CHS0 = 1;
+        } else {
+        ADC2 = ADRESH;
+        ADCON0bits.CHS0 = 0;
+        bandera = 0; 
+        }
     ADIF = 0;
     ADCON0bits.GO = 1; 
     }
@@ -67,22 +83,19 @@ void __interrupt() isr(void){
 void main(void) {
     Setup();
     while(1){
-        TEMP = ADC * 10;
-        PORTB = (ADC * 100) / 51;
-        // conversion temperatura
         
         // RANGO SEMAFORO
-        if (TEMP > 184){
-            PORTD = 0;
-            RD2 = 1;        // ROJO
+        if (ADC1 > 18.36){
+            PORTE = 0;
+            RE2 = 1;        // ROJO
             
-        } else if (TEMP < 128){
-            PORTD = 0;
-            RD0 = 1;        // VERDE
+        } else if (ADC1 < 12.75){
+            PORTE = 0;
+            RE0 = 1;        // VERDE
             
         } else {
-            PORTD = 0;
-            RD1 = 1;        // AMARILLO
+            PORTE = 0;
+            RE1 = 1;        // AMARILLO
         }  
             
         
@@ -94,9 +107,14 @@ void Setup(void){
     ANSELH = 0;
     TRISB = 0;              // VALOR ADC (PRUEBA)
     TRISC = 0;              // COMUNICACION SERIAL
-    TRISD = 0;              // SEMAFORO
-    ADC = 0; 
+    TRISE = 0;              // SEMAFORO
+    PORTE = 0;
+    TRISD = 0;
+    PORTD = 0;
+    ADC1 = 0;
+    ADC2 = 0; 
     TEMP = 0;
+    bandera = 0;
     
     INTCONbits.GIE = 1;     // habilitar interrupciones globales
     INTCONbits.PEIE = 1;    // interrupciones perifericas
@@ -106,6 +124,7 @@ void Setup(void){
     
     
     initADC(0);             // configuracion ADC canal RA0
+    initADC(1);             // configuracion ADC canal RA1
     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     
 }
