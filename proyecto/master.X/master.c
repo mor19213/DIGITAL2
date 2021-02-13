@@ -55,6 +55,7 @@ uint16_t temperatura_;
 uint8_t banderaS3;
 uint8_t banderaspi;
 uint8_t band;
+uint8_t val;
 
 //*****************************************************************************
 // PROTOTIPO DE FUNCIOENS
@@ -105,17 +106,26 @@ void __interrupt() isr(void){
         TXREG = 0x20;
         bandera = 8;           
         }
-        // valores slave 3
+        // signo
         else if (bandera == 8){
-        TXREG = s31;
+        TXREG = val;
         bandera = 9;           
         }
+        // valores slave 3
         else if (bandera == 9){
-        TXREG = s32;
+        TXREG = s31;
         bandera = 10;           
         }
-        // enter
         else if (bandera == 10){
+        TXREG = s32;
+        bandera = 11;           
+        }
+        else if (bandera == 11){
+        TXREG = s33;
+        bandera = 12;           
+        }
+        // enter
+        else if (bandera == 12){
         TXREG = 0x0D;
         bandera = 0;           
         }
@@ -202,12 +212,14 @@ void main(void) {
        
        if (var2 == 0){
            temperatura = var1 * 2;
+           val = 0x2B;
             Lcd_Set_Cursor(2,13);
-            Lcd_Write_String("+");
+            Lcd_Write_Char(val);
        } else {
            temperatura = var2 * 2;
+           val = 0x2D;
             Lcd_Set_Cursor(2,13);
-            Lcd_Write_String("-");
+            Lcd_Write_Char(val);
        }
        
         s31 = (temperatura/100) + 48;
