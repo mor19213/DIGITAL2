@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Sat Feb 13 15:09:37 2021
+                                                                                               Mon Feb 15 16:00:50 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -593,11 +593,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    579                           
    580                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 88:     PIE1bits.S
       +                          SPIE = 1;
-   581  017D  3041               	movlw	65
+   581  017D  3042               	movlw	66
    582  017E  1283               	bcf	3,5	;RP0=0, select bank0
    583  017F  1303               	bcf	3,6	;RP1=0, select bank0
    584  0180  00B1               	movwf	___flge@ff1+3
-   585  0181  3092               	movlw	146
+   585  0181  3012               	movlw	18
    586  0182  00B0               	movwf	___flge@ff1+2
    587  0183  30E1               	movlw	225
    588  0184  00AF               	movwf	___flge@ff1+1
@@ -680,7 +680,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    663  01D0  00AE               	movwf	___flge@ff1
    664  01D1  3041               	movlw	65
    665  01D2  00B5               	movwf	___flge@ff2+3
-   666  01D3  304C               	movlw	76
+   666  01D3  30CC               	movlw	204
    667  01D4  00B4               	movwf	___flge@ff2+2
    668  01D5  3000               	movlw	0
    669  01D6  00B3               	movwf	___flge@ff2+1
@@ -1799,7 +1799,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1738  0268                     i1l862:
   1739                           
   1740                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave3.X/slave3.c: 58:         } else
-      +                           if (ADC1 < 12.75){
+      +                           if (ADC1 < 25.5){
   1741  0268  0874               	movf	_ADC1,w
   1742  0269  120A  118A  22F3  120A  118A  	fcall	_spiWrite
   1743  026E                     i1l864:
@@ -2163,7 +2163,7 @@ DATA                 0      0      28      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Sat Feb 13 15:09:37 2021
+Symbol Table                                                                                   Mon Feb 15 16:00:50 2021
 
             _SSPSTATbits 0094                       l20 020E                       l21 0215  
                      l22 021C                       l23 0223                       l24 022A  

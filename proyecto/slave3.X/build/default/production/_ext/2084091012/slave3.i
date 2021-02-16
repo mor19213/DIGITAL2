@@ -2749,11 +2749,11 @@ void main(void) {
     while(1){
 
 
-        if (ADC1 > 18.36){
+        if (ADC1 > 36.72){
             PORTE = 0;
             RE2 = 1;
 
-        } else if (ADC1 < 12.75){
+        } else if (ADC1 < 25.5){
             PORTE = 0;
             RE0 = 1;
 

@@ -74,58 +74,63 @@ void __interrupt() isr(void){
         if (bandera == 0){
         TXREG = s11;
         bandera = 1;           
-        }
+        } 
+        // punto 2E
         else if (bandera == 1){
-        TXREG = s12;
+        TXREG = 0x2E;
         bandera = 2;           
         }
         else if (bandera == 2){
-        TXREG = s13;
+        TXREG = s12;
         bandera = 3;           
         }
-        // espacio
         else if (bandera == 3){
-        TXREG = 0x20;
+        TXREG = s13;
         bandera = 4;           
         }
-        // valores slave 2
+        // espacio
         else if (bandera == 4){
-        TXREG = s21;
+        TXREG = 0x20;
         bandera = 5;           
         }
+        // valores slave 2
         else if (bandera == 5){
-        TXREG = s22;
+        TXREG = s21;
         bandera = 6;           
         }
         else if (bandera == 6){
-        TXREG = s23;
+        TXREG = s22;
         bandera = 7;           
         }
-        // espacio
         else if (bandera == 7){
-        TXREG = 0x20;
+        TXREG = s23;
         bandera = 8;           
         }
-        // signo
+        // espacio
         else if (bandera == 8){
-        TXREG = val;
+        TXREG = 0x20;
         bandera = 9;           
         }
-        // valores slave 3
+        // signo
         else if (bandera == 9){
-        TXREG = s31;
+        TXREG = val;
         bandera = 10;           
         }
+        // valores slave 3
         else if (bandera == 10){
-        TXREG = s32;
+        TXREG = s31;
         bandera = 11;           
         }
         else if (bandera == 11){
-        TXREG = s33;
+        TXREG = s32;
         bandera = 12;           
         }
-        // enter
         else if (bandera == 12){
+        TXREG = s33;
+        bandera = 13;           
+        }
+        // enter
+        else if (bandera == 13){
         TXREG = 0x0D;
         bandera = 0;           
         }
@@ -156,15 +161,29 @@ void main(void) {
        PORTCbits.RC2 = 1;       //Slave 1 Deselect 
        
        
-       s11 = (ADC/100) + 48;
-       s12 = (ADC/10) - ((s11 - 48) * 10) + 48;
-       s13 = (ADC) - ((s11 - 48) * 100) - ((s12 - 48) * 10) + 48;
+               
+  //conversiones valores adc  a 0.00 a 5.00V
+        s11 = (ADC / 51);
+        s12 = (ADC * 10 / 51) - (s11 * 10);
+        s13 = (ADC * 100 / 51) - (s11 * 100) - (s12 * 10);  
+        
+        s11 = s11 + 48;
+        s12 = s12 + 48;
+        s13 = s13 + 48;
+        
+            if (s12 > 57){
+            s12 = 57;
+        }
+        if (s13 > 57){
+            s13 = 57;
+        }
+        
        // mostrar valor en LCD
         Lcd_Set_Cursor(2,1);
         Lcd_Write_Char(s11);
-        Lcd_Set_Cursor(2,2);
-        Lcd_Write_Char(s12);
         Lcd_Set_Cursor(2,3);
+        Lcd_Write_Char(s12);
+        Lcd_Set_Cursor(2,4);
         Lcd_Write_Char(s13);
         
        
@@ -211,16 +230,26 @@ void main(void) {
        PORTCbits.RC0 = 1;       //Slave 3 Deselect
        
        if (var2 == 0){
-           temperatura = var1 * 2;
+           if (var1 > 29){
+               temperatura = (var1 * 50) / 51;
+           } else{
+               temperatura = var1;
+           }
            val = 0x2B;
             Lcd_Set_Cursor(2,13);
             Lcd_Write_Char(val);
        } else {
-           temperatura = var2 * 2;
+           if (var2 > 29){
+               temperatura = (var2 * 50) / 51;
+           } else{
+               temperatura = var2;
+           }
            val = 0x2D;
             Lcd_Set_Cursor(2,13);
             Lcd_Write_Char(val);
        }
+       
+       PORTB = temperatura;
        
         s31 = (temperatura/100) + 48;
         s32 = (temperatura / 10) - ((s31 - 48) * 10) + 48;
@@ -292,7 +321,7 @@ void setup(void){
     Lcd_Set_Cursor(1,3);
     Lcd_Write_String("S1");
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("000");
+    Lcd_Write_String("0.00");
     Lcd_Set_Cursor(1,8);
     Lcd_Write_String("S2");
     Lcd_Set_Cursor(2,7);
