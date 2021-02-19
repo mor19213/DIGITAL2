@@ -14,17 +14,16 @@
 $dist/default/production\slave1.X.production.o
 cinit CODE 0 F F 5 2
 text1 CODE 0 6E 6E 2A 2
-text2 CODE 0 D3 D3 16 2
+text2 CODE 0 B8 B8 16 2
 text3 CODE 0 14 14 5A 2
 text4 CODE 0 98 98 20 2
-text5 CODE 0 E9 E9 6 2
-maintext CODE 0 B8 B8 1B 2
+text5 CODE 0 D7 D7 6 2
+maintext CODE 0 CE CE 9 2
 cstackCOMMON COMMON 1 70 70 8 1
-cstackBANK0 BANK0 1 20 20 3 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 78 78 1 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\danie\AppData\Local\Temp\s7d8.o
+$C:\Users\danie\AppData\Local\Temp\snc.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -34,22 +33,22 @@ config CONFIG 4 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 23-6F 1
+RAM 20-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 23-6F 1
+BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST EF-1FFF 2
+CONST DD-1FFF 2
 ENTRY 3-3 2
-ENTRY EF-1FFF 2
+ENTRY DD-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE EF-1FFF 2
+CODE DD-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -57,9 +56,9 @@ SFR3 180-18F 1
 COMMON 79-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE EF-1FFF 2
+STRCODE DD-1FFF 2
 STRING 3-3 2
-STRING EF-1FFF 2
+STRING DD-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -74,16 +73,16 @@ STRING EF-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\slave1.X.production.o
-F cinit CODE >795:C:\Users\danie\AppData\Local\Temp\s7d8.s
-F cinit CODE >798:C:\Users\danie\AppData\Local\Temp\s7d8.s
-F cinit CODE >809:C:\Users\danie\AppData\Local\Temp\s7d8.s
-10 cinit CODE >815:C:\Users\danie\AppData\Local\Temp\s7d8.s
-10 cinit CODE >817:C:\Users\danie\AppData\Local\Temp\s7d8.s
-11 cinit CODE >818:C:\Users\danie\AppData\Local\Temp\s7d8.s
+F cinit CODE >795:C:\Users\danie\AppData\Local\Temp\snc.s
+F cinit CODE >798:C:\Users\danie\AppData\Local\Temp\snc.s
+F cinit CODE >809:C:\Users\danie\AppData\Local\Temp\snc.s
+10 cinit CODE >815:C:\Users\danie\AppData\Local\Temp\snc.s
+10 cinit CODE >817:C:\Users\danie\AppData\Local\Temp\snc.s
+11 cinit CODE >818:C:\Users\danie\AppData\Local\Temp\snc.s
 4 intentry CODE >48:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-E9 text5 CODE >32:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-EA text5 CODE >33:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-EE text5 CODE >34:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+D7 text5 CODE >32:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+D8 text5 CODE >33:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+DC text5 CODE >34:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
 98 text4 CODE >48:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
 98 text4 CODE >49:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
 9E text4 CODE >51:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
@@ -136,39 +135,39 @@ B1 text4 CODE >60:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/sla
 4A text3 CODE >45:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.c
 4B text3 CODE >46:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.c
 6D text3 CODE >47:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/ADC.c
-D3 text2 CODE >10:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-D4 text2 CODE >12:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-D7 text2 CODE >14:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-DB text2 CODE >16:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-DD text2 CODE >17:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-DE text2 CODE >18:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-DF text2 CODE >21:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-E2 text2 CODE >22:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-E3 text2 CODE >23:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-E3 text2 CODE >25:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-E8 text2 CODE >26:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
-6E text1 CODE >78:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-6E text1 CODE >79:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-71 text1 CODE >80:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-72 text1 CODE >82:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-75 text1 CODE >83:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-78 text1 CODE >84:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-79 text1 CODE >85:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-7F text1 CODE >86:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-82 text1 CODE >87:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-83 text1 CODE >89:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-86 text1 CODE >90:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-87 text1 CODE >92:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-88 text1 CODE >93:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-89 text1 CODE >94:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-8A text1 CODE >95:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-8D text1 CODE >96:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-8E text1 CODE >98:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-97 text1 CODE >100:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-B8 maintext CODE >64:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-B8 maintext CODE >65:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-BD maintext CODE >70:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
-C1 maintext CODE >71:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+B8 text2 CODE >10:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+B9 text2 CODE >12:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+BC text2 CODE >14:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C0 text2 CODE >16:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C2 text2 CODE >17:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C3 text2 CODE >18:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C4 text2 CODE >21:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C7 text2 CODE >22:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C8 text2 CODE >23:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+C8 text2 CODE >25:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+CD text2 CODE >26:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/SPI.c
+6E text1 CODE >76:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+6E text1 CODE >77:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+71 text1 CODE >78:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+72 text1 CODE >80:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+75 text1 CODE >81:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+78 text1 CODE >82:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+79 text1 CODE >83:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+7F text1 CODE >84:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+82 text1 CODE >85:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+83 text1 CODE >87:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+86 text1 CODE >88:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+87 text1 CODE >90:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+88 text1 CODE >91:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+89 text1 CODE >92:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+8A text1 CODE >93:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+8D text1 CODE >94:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+8E text1 CODE >97:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+97 text1 CODE >99:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+CE maintext CODE >64:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+CE maintext CODE >65:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+D3 maintext CODE >69:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
+D3 maintext CODE >70:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/slave1.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -182,7 +181,7 @@ C1 maintext CODE >71:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/slave1.X/
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\slave1.X.production.o
-__Hspace_0 EF 0 ABS 0 - -
+__Hspace_0 DD 0 ABS 0 - -
 __Hspace_1 79 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
@@ -191,19 +190,19 @@ spiInit@sTransmitEdge 76 0 COMMON 1 cstackCOMMON dist/default/production\slave1.
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _ADIF 66 0 ABS 0 - dist/default/production\slave1.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s7d8.o
-_main 170 0 CODE 0 maintext dist/default/production\slave1.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\snc.o
+_main 19C 0 CODE 0 maintext dist/default/production\slave1.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\slave1.X.production.o
-start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\s7d8.o
+start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\snc.o
 __size_of_main 0 0 ABS 0 - dist/default/production\slave1.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s7d8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s7d8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s7d8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s7d8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s7d8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s7d8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\snc.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\snc.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\snc.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\snc.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\snc.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\snc.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\slave1.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -216,20 +215,19 @@ __size_of_initADC 0 0 ABS 0 - dist/default/production\slave1.X.production.o
 initADC@IRCF 76 0 COMMON 1 cstackCOMMON dist/default/production\slave1.X.production.o
 __size_of_spiInit 0 0 ABS 0 - dist/default/production\slave1.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s7d8.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s7d8.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\snc.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\snc.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\slave1.X.production.o
 spiInit@sDataSample 74 0 COMMON 1 cstackCOMMON dist/default/production\slave1.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\slave1.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\slave1.X.production.o
 _TRISEbits 89 0 ABS 0 - dist/default/production\slave1.X.production.o
-__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\slave1.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\slave1.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\slave1.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\slave1.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\slave1.X.production.o
 __end_of_initADC DC 0 CODE 0 text3 dist/default/production\slave1.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s7d8.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\snc.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -237,7 +235,7 @@ __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 28 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
-__end_of_spiInit 1D2 0 CODE 0 text2 dist/default/production\slave1.X.production.o
+__end_of_spiInit 19C 0 CODE 0 text2 dist/default/production\slave1.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
@@ -263,10 +261,9 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _ADC 78 0 COMMON 1 bssCOMMON dist/default/production\slave1.X.production.o
-__S0 EF 0 ABS 0 - -
+__S0 DD 0 ABS 0 - -
 __S1 79 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
@@ -274,10 +271,10 @@ _isr 130 0 CODE 0 text4 dist/default/production\slave1.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\slave1.X.production.o
 __end_of_isr 170 0 CODE 0 text4 dist/default/production\slave1.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\s7d8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\snc.o
 spiWrite@variable 70 0 COMMON 1 cstackCOMMON dist/default/production\slave1.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\slave1.X.production.o
-__pmaintext 170 0 CODE 0 maintext dist/default/production\slave1.X.production.o
+__pmaintext 19C 0 CODE 0 maintext dist/default/production\slave1.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\slave1.X.production.o
@@ -287,7 +284,6 @@ __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\slave1.X.production.o
-__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits C 0 ABS 0 - dist/default/production\slave1.X.production.o
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
@@ -297,11 +293,11 @@ __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 6 0 CODE 0 reset_vec -
 _initADC 28 0 CODE 0 text3 dist/default/production\slave1.X.production.o
 __ptext1 DC 0 CODE 0 text1 dist/default/production\slave1.X.production.o
-__ptext2 1A6 0 CODE 0 text2 dist/default/production\slave1.X.production.o
+__ptext2 170 0 CODE 0 text2 dist/default/production\slave1.X.production.o
 __ptext3 28 0 CODE 0 text3 dist/default/production\slave1.X.production.o
 __ptext4 130 0 CODE 0 text4 dist/default/production\slave1.X.production.o
-__ptext5 1D2 0 CODE 0 text5 dist/default/production\slave1.X.production.o
-_spiInit 1A6 0 CODE 0 text2 dist/default/production\slave1.X.production.o
+__ptext5 1AE 0 CODE 0 text5 dist/default/production\slave1.X.production.o
+_spiInit 170 0 CODE 0 text2 dist/default/production\slave1.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 spiInit@sType 77 0 COMMON 1 cstackCOMMON dist/default/production\slave1.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
@@ -314,7 +310,7 @@ _ANSELbits 188 0 ABS 0 - dist/default/production\slave1.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\slave1.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\slave1.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 1A6 0 CODE 0 maintext dist/default/production\slave1.X.production.o
+__end_of_main 1AE 0 CODE 0 maintext dist/default/production\slave1.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\slave1.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\slave1.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\slave1.X.production.o
@@ -333,8 +329,8 @@ __pintentry 8 0 CODE 0 intentry dist/default/production\slave1.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\slave1.X.production.o
 spiInit@sClockIdle 75 0 COMMON 1 cstackCOMMON dist/default/production\slave1.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\slave1.X.production.o
-_spiWrite 1D2 0 CODE 0 text5 dist/default/production\slave1.X.production.o
-__end_of_spiWrite 1DE 0 CODE 0 text5 dist/default/production\slave1.X.production.o
+_spiWrite 1AE 0 CODE 0 text5 dist/default/production\slave1.X.production.o
+__end_of_spiWrite 1BA 0 CODE 0 text5 dist/default/production\slave1.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -361,8 +357,7 @@ __end_of_spiWrite 1DE 0 CODE 0 text5 dist/default/production\slave1.X.production
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cstackCOMMON 1 70 70 9 1
-cstackBANK0 1 20 20 3 1
-intentry 0 4 8 EB 2
+intentry 0 4 8 D9 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

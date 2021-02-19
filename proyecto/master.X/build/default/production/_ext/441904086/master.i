@@ -2698,7 +2698,6 @@ void initUSART(void);
 # 22 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.h"
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
-
 void Lcd_Set_Cursor(char a, char b);
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
@@ -2839,13 +2838,16 @@ void main(void) {
 
 
 
+
         s11 = (ADC / 51);
         s12 = (ADC * 10 / 51) - (s11 * 10);
         s13 = (ADC * 100 / 51) - (s11 * 100) - (s12 * 10);
 
+
         s11 = s11 + 48;
         s12 = s12 + 48;
         s13 = s13 + 48;
+
 
             if (s12 > 57){
             s12 = 57;
@@ -2893,39 +2895,57 @@ void main(void) {
        spiWrite(0);
        var2 = spiRead();
        banderaspi = 1;
-       RA0 = 1;
        }
        else {
        spiWrite(1);
        var1 = spiRead();
        banderaspi = 0;
-       RA0 = 0;
-       PORTB = var2;
        }
        _delay((unsigned long)((1)*(8000000/4000.0)));
        PORTCbits.RC0 = 1;
 
        if (var2 == 0){
            if (var1 > 29){
+
                temperatura = (var1 * 50) / 51;
+               if (var1 > 51){
+                   if (var1 < 71){
+                   temperatura = temperatura + 1;
+                   }
+               }
+               if (var1 > 102){
+                   if (var1 < 109){
+                   temperatura = temperatura + 1;
+                   }
+               }
+               if (var1 > 151){
+                   if (var1 < 155){
+                       temperatura = temperatura - 1;
+                   }
+               }
            } else{
                temperatura = var1;
            }
+
            val = 0x2B;
             Lcd_Set_Cursor(2,13);
             Lcd_Write_Char(val);
        } else {
-           if (var2 > 29){
+
+           if (var2 > 38){
                temperatura = (var2 * 50) / 51;
+               if (var2 > 51){
+                   temperatura = temperatura + 1;
+               }
            } else{
                temperatura = var2;
            }
+
            val = 0x2D;
             Lcd_Set_Cursor(2,13);
             Lcd_Write_Char(val);
        }
 
-       PORTB = temperatura;
 
         s31 = (temperatura/100) + 48;
         s32 = (temperatura / 10) - ((s31 - 48) * 10) + 48;
@@ -2997,7 +3017,7 @@ void setup(void){
     Lcd_Set_Cursor(1,3);
     Lcd_Write_String("S1");
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("0.00");
+    Lcd_Write_String("0.00V");
     Lcd_Set_Cursor(1,8);
     Lcd_Write_String("S2");
     Lcd_Set_Cursor(2,7);

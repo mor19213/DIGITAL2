@@ -51,7 +51,7 @@ void Setup (void);
 void __interrupt() isr(void){
     if(SSPIF == 1){
         // = spiRead();
-        spiWrite(PORTD);
+        spiWrite(PORTD);        // enviar valor portd (contador)
         SSPIF = 0;              // Apagar bandera interrupcion
     }
 
@@ -65,8 +65,8 @@ void main(void) {
            antirebote1 = 1;
        }     
        if (RB0 == 0){
-           if (antirebote1 == 1){
-               antirebote1 = 0;
+           if (antirebote1 == 1){   // incrementar hasta que se haya hecho antirebote
+               antirebote1 = 0;     
                PORTD++;
            }
        }
@@ -74,7 +74,7 @@ void main(void) {
            antirebote2 = 1;
        }     
        if (RB1 == 0){
-           if (antirebote2 == 1){
+           if (antirebote2 == 1){   // decrementar hasta que se haya hecho antirebote
                antirebote2 = 0;
                PORTD--;
            }

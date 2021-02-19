@@ -69,7 +69,7 @@ void __interrupt() isr(void){
         INTCONbits.T0IF = 0;        // TERMINAR INTERRUPCION DE TMR0
     }
   
-    if (TXIF == 1){
+    if (TXIF == 1){       
         // valores slave 1
         if (bandera == 0){
         TXREG = s11;
@@ -135,7 +135,7 @@ void __interrupt() isr(void){
         bandera = 0;           
         }
         
-        TXIE = 0; 
+        TXIE = 0;   // deshabilitar interrupcion de tx
     }
 }
 //*****************************************************************************
@@ -145,7 +145,7 @@ void main(void) {
     setup();
     temperatura = 0;
     while(1){  
-        if(CONTX > 15){
+        if(CONTX > 15){     // habilitar interrupcion de tx 
             CONTX = 0;
             TXIE = 1;
             }
@@ -154,7 +154,7 @@ void main(void) {
        __delay_ms(1);
        
        spiWrite(0);
-       ADC = spiRead();
+       ADC = spiRead();         // guardar valor adc de slave1
        //ADC = 243;
        
        __delay_ms(1);
@@ -163,14 +163,17 @@ void main(void) {
        
                
   //conversiones valores adc  a 0.00 a 5.00V
+  // convertir por decenas
         s11 = (ADC / 51);
         s12 = (ADC * 10 / 51) - (s11 * 10);
         s13 = (ADC * 100 / 51) - (s11 * 100) - (s12 * 10);  
         
+  // sumar 48 para convertir a ascii
         s11 = s11 + 48;
         s12 = s12 + 48;
         s13 = s13 + 48;
         
+  // limites de valores ascii
             if (s12 > 57){
             s12 = 57;
         }
@@ -192,7 +195,7 @@ void main(void) {
        __delay_ms(1);
        
        spiWrite(0);
-       contador = spiRead();
+       contador = spiRead();   // guardar valor contador slave 2
        //contador = 156;
        
        __delay_ms(1);
@@ -213,44 +216,62 @@ void main(void) {
        PORTCbits.RC0 = 0;       //Slave 3 Select temperatura
        __delay_ms(1);
        
-       if (banderaspi == 0){
-       spiWrite(0);
-       var2 = spiRead();
+       if (banderaspi == 0){    // alternar que valor se recibe 
+       spiWrite(0);             // escribir valor para bandera 
+       var2 = spiRead();        // guardar valor temperatura negativa
        banderaspi = 1;
-       RA0 = 1;
        } 
        else {
-       spiWrite(1);
-       var1 = spiRead();
+       spiWrite(1);             // escribir valor bandera slave 3
+       var1 = spiRead();        // guardar valor temperatura positiva
        banderaspi = 0;
-       RA0 = 0;
-       PORTB = var2;
        }
        __delay_ms(1);
        PORTCbits.RC0 = 1;       //Slave 3 Deselect
        
-       if (var2 == 0){
-           if (var1 > 29){
+       if (var2 == 0){          // si la temperatura no es negativa
+           if (var1 > 29){      // hacer conversion temp positva
+               // debido a aproximaciones la conversion es diferente en algunos rangos
                temperatura = (var1 * 50) / 51;
+               if (var1 > 51){
+                   if (var1 < 71){
+                   temperatura = temperatura + 1;
+                   }
+               }
+               if (var1 > 102){
+                   if (var1 < 109){
+                   temperatura = temperatura + 1;
+                   }
+               }
+               if (var1 > 151){
+                   if (var1 < 155){
+                       temperatura = temperatura - 1;
+                   }
+               }
            } else{
                temperatura = var1;
            }
+           // guardar ascii + en variable (usar para tx despues)
            val = 0x2B;
             Lcd_Set_Cursor(2,13);
             Lcd_Write_Char(val);
        } else {
-           if (var2 > 29){
+           // si hay temperatura negativa, hacer conversion
+           if (var2 > 38){
                temperatura = (var2 * 50) / 51;
+               if (var2 > 51){
+                   temperatura = temperatura + 1;
+               }
            } else{
                temperatura = var2;
            }
+           // guardar ascii - en variable
            val = 0x2D;
             Lcd_Set_Cursor(2,13);
             Lcd_Write_Char(val);
        }
        
-       PORTB = temperatura;
-       
+       // conversion por decenas del valor de temperatura
         s31 = (temperatura/100) + 48;
         s32 = (temperatura / 10) - ((s31 - 48) * 10) + 48;
         s33 = temperatura - ((s32 - 48) * 10) - ((s31 - 48) * 100) + 48;
@@ -321,7 +342,7 @@ void setup(void){
     Lcd_Set_Cursor(1,3);
     Lcd_Write_String("S1");
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("0.00");
+    Lcd_Write_String("0.00V");
     Lcd_Set_Cursor(1,8);
     Lcd_Write_String("S2");
     Lcd_Set_Cursor(2,7);

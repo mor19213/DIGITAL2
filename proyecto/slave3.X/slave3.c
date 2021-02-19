@@ -54,24 +54,22 @@ void Setup (void);
 //******************************************************************************
 void __interrupt() isr(void){
     if(SSPIF == 1){
-        if (bandera1 == 0){
-            spiWrite(ADC1);
-            bandera1 = 1;
+        if (bandera1 == 0){     // alternar que variable se manda
+            spiWrite(ADC1);     // temperatura negativa
         } else if(bandera1 == 1){
-            spiWrite(ADC2);
-            bandera1 = 0;
+            spiWrite(ADC2);     // temperatura positiva
         }
         SSPIF = 0;              // Apagar bandera interrupcion
     }
     
     if(ADIF == 1){          // Vout = 10mV/C * T
-        if (bandera == 0){
+        if (bandera == 0){      // alternar conversion adc 
         ADC1 = ADRESH;
         bandera = 1;
-        ADCON0bits.CHS0 = 1;
+        ADCON0bits.CHS0 = 1;            // cambio de canal
         } else {
         ADC2 = ADRESH;
-        ADCON0bits.CHS0 = 0;
+        ADCON0bits.CHS0 = 0;            // cambio de canal
         bandera = 0; 
         }
     ADIF = 0;
@@ -83,13 +81,13 @@ void __interrupt() isr(void){
 void main(void) {
     Setup();
     while(1){
-        
+        bandera1 = spiRead();   // leer y guardar para bandera de que adc enviar
         // RANGO SEMAFORO
         if (ADC1 > 36.72){
             PORTE = 0;
             RE2 = 1;        // ROJO
             
-        } else if (ADC1 < 25.5){
+        } else if (ADC1 < 25){
             PORTE = 0;
             RE0 = 1;        // VERDE
             

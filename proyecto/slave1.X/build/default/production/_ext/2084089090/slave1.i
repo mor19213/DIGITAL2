@@ -2732,8 +2732,6 @@ void main(void) {
 
 
     while(1){
-       PORTB = ADC;
-       _delay((unsigned long)((250)*(4000000/4000.0)));
     }
     return;
 }
@@ -2759,6 +2757,7 @@ void setup(void){
     PIR1bits.SSPIF = 0;
     PIE1bits.SSPIE = 1;
     TRISAbits.TRISA5 = 1;
+
 
     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 

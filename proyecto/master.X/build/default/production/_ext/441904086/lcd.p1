@@ -289,8 +289,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 20:  RE1 = 1;
 [e = _RE1 -> -> 1 `i `b ]
 "21
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 21:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 21:         _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "22
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 22:         RE1 = 0;
 [e = _RE1 -> -> 0 `i `b ]
@@ -362,26 +362,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Lcd_Init ]
 [f ]
 "46
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 46:    _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 46:    _delay((unsigned long)((15)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "47
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 47:   Lcd_Port(0x00);
 [e ( _Lcd_Port (1 -> -> 0 `i `uc ]
 "48
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 48:    _delay((unsigned long)((20)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 48:    _delay((unsigned long)((20)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "49
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 49:   Lcd_Cmd(0x030);
 [e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
 "50
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 50:  _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 50:  _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "51
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 51:   Lcd_Cmd(0x030);
 [e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
 "52
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 52:  _delay((unsigned long)((160)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 160 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 52:  _delay((unsigned long)((160)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 160 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "53
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 53:   Lcd_Cmd(0x030);
 [e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
@@ -427,8 +427,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 67:    RE1 = 1;
 [e = _RE1 -> -> 1 `i `b ]
 "68
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 68:    _delay((unsigned long)((40)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 68:    _delay((unsigned long)((40)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "69
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.c: 69:    RE1 = 0;
 [e = _RE1 -> -> 0 `i `b ]

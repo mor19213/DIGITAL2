@@ -2501,7 +2501,6 @@ extern __bank0 __bit __timeout;
 # 22 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto/master.X/lcd.h"
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
-
 void Lcd_Set_Cursor(char a, char b);
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
@@ -2520,7 +2519,7 @@ void Lcd_Cmd(char a)
  RE0 = 0;
  Lcd_Port(a);
  RE1 = 1;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
+        _delay((unsigned long)((10)*(4000000/4000.0)));
         RE1 = 0;
 }
 
@@ -2545,13 +2544,13 @@ void Lcd_Set_Cursor(char a, char b)
 }
 
 void Lcd_Init(){
-   _delay((unsigned long)((15)*(8000000/4000.0)));
+   _delay((unsigned long)((15)*(4000000/4000.0)));
   Lcd_Port(0x00);
-   _delay((unsigned long)((20)*(8000000/4000.0)));
+   _delay((unsigned long)((20)*(4000000/4000.0)));
   Lcd_Cmd(0x030);
- _delay((unsigned long)((5)*(8000000/4000.0)));
+ _delay((unsigned long)((5)*(4000000/4000.0)));
   Lcd_Cmd(0x030);
- _delay((unsigned long)((160)*(8000000/4000000.0)));
+ _delay((unsigned long)((160)*(4000000/4000000.0)));
   Lcd_Cmd(0x030);
 
   Lcd_Cmd(0x038);
@@ -2567,7 +2566,7 @@ void Lcd_Write_Char(char a)
     RE0 = 1;
    Lcd_Port(a);
    RE1 = 1;
-   _delay((unsigned long)((40)*(8000000/4000000.0)));
+   _delay((unsigned long)((40)*(4000000/4000000.0)));
    RE1 = 0;
 }
 

@@ -48,12 +48,12 @@ void setup(void);
 void __interrupt() isr(void){
    if(SSPIF == 1){
         //PORTD = spiRead();
-        spiWrite(ADC);
+        spiWrite(ADC);          // enviar valor adc
         SSPIF = 0;
     }
    
    if(ADIF == 1){
-       ADC = ADRESH;
+       ADC = ADRESH;            // guardar valor adc en variable "ADC"
        ADIF = 0;
        ADCON0bits.GO = 1;
    }
@@ -67,8 +67,6 @@ void main(void) {
     // Loop infinito
     //*************************************************************************
     while(1){
-       PORTB = ADC;
-       __delay_ms(250);
     }
     return;
 }
@@ -82,7 +80,7 @@ void setup(void){
     TRISA = 0;
     PORTA = 0; 
     ADC = 0;
-    initADC(0);
+    initADC(0);                 // conversion adc configuracion ra0
     TRISB = 0;
     TRISD = 0;
     
@@ -95,6 +93,7 @@ void setup(void){
     PIE1bits.SSPIE = 1;         // Habilitar interrupt MSSP
     TRISAbits.TRISA5 = 1;       // Slave Select
    
+    // configuracion spi como slave
     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
 }
