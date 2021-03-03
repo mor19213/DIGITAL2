@@ -23,9 +23,9 @@
 [v _ADXL345_WRITE ADXL345_WRITE `(v  1 e 1 0 ]
 "58 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 [v _isr isr `II(v  1 e 1 0 ]
-"96
+"99
 [v _main main `(v  1 e 1 0 ]
-"121
+"126
 [v _setup setup `(v  1 e 1 0 ]
 "3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
@@ -253,15 +253,15 @@
 [v _prueba prueba `uc  1 e 1 0 ]
 "50
 [v _tx_var tx_var `uc  1 e 1 0 ]
-"96
+"99
 [v _main main `(v  1 e 1 0 ]
 {
-"117
+"122
 } 0
-"121
+"126
 [v _setup setup `(v  1 e 1 0 ]
 {
-"153
+"158
 } 0
 "3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
@@ -358,5 +358,5 @@
 "58 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"92
+"95
 } 0

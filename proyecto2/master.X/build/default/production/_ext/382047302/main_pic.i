@@ -2734,21 +2734,15 @@ void __attribute__((picinterrupt(("")))) isr(void){
     }
 
     if (TXIF == 1){
-        if (tx_var == 1){
-            tx_var = 0;
-            if (bandera == 0){
-                TXREG = eje_x;
+        if (bandera == 1){
+            TXREG = eje_y;
 
-            } else if (bandera == 1) {
-                TXREG = eje_y;
-                bandera++;
-            } else if (bandera == 2){
-                TXREG = eje_z;
-                bandera++;
-            } else if (bandera == 3){
-                TXREG = 10;
-            }
+        } else if (bandera == 2) {
+            TXREG = eje_z;
+        } else if (bandera == 3){
+            TXREG = eje_x;
         }
+        bandera = 0;
 
         TXIE = 0;
     }
@@ -2756,9 +2750,18 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
     if(PIR1bits.RCIF == 1){
         PORTE = RCREG;
-        if (RCREG > 30){
-            tx_var = 1;
+        if (RCREG > 5){
+            if (RCREG < 25){
+                bandera = 1;
+            } else if (RCREG < 40){
+                bandera = 2;
+            } else if (RCREG < 70){
+                bandera = 3;
+            }
+        } else {
+            bandera = 0;
         }
+
     }
 }
 
@@ -2768,7 +2771,9 @@ void main(void) {
     setup();
     while(1){
         if (CONTX > 15){
+
             TXIE = 1;
+
         }
         xL = ADXL345_READ(0x32);
         xH = ADXL345_READ(0x33);

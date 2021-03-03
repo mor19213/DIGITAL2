@@ -23,6 +23,8 @@
 int count = 0;
 int LUZ1 = 0; 
 int ejex = 0; 
+int ejey = 0; 
+int ejez = 0; 
 
 // uart
 #define RX2 16
@@ -32,6 +34,8 @@ int value = 0;
 
 // set up the 'counter' feed
 AdafruitIO_Feed *eje_x = io.feed("eje_x");
+AdafruitIO_Feed *eje_y = io.feed("eje_y");
+AdafruitIO_Feed *eje_z = io.feed("eje_z");
 
 AdafruitIO_Feed *led1 = io.feed("led1");
 
@@ -70,9 +74,7 @@ void setup() {
 void loop() {
   // UART
   
-  Serial1.write(variable + 40); // variable para luces piloto
-  delay(20);
-  Serial.print("PIC: ");
+  Serial.println("Acelerometro: ");
   
   // io.run(); is required for all sketches.
   // it should always be present at the top of your loop
@@ -81,11 +83,29 @@ void loop() {
   io.run();
 
   // save count to the 'counter' feed on Adafruit IO
+  
+  Serial1.write(variable + 16); // variable para luces piloto
+  delay(2);
   ejex = Serial1.read();
   Serial.print("eje x -> ");
   Serial.println(ejex);
   eje_x->save(ejex);
-  // increment the count by 1
+  delay(3000);
+
+  Serial1.write(variable + 32); // variable para luces piloto
+  delay(2);
+  ejey = Serial1.read();
+  Serial.print("eje y -> ");
+  Serial.println(ejey);
+  eje_y->save(ejey);
+  delay(3000);
+  
+  Serial1.write(variable + 64); // variable para luces piloto
+  delay(2);
+  ejez = Serial1.read();
+  Serial.print("eje z -> ");
+  Serial.println(ejez);
+  eje_z->save(ejez);
 
   // Adafruit IO is rate limited for publishing, so a delay is required in
   // between feed->save events. In this example, we will wait three seconds
