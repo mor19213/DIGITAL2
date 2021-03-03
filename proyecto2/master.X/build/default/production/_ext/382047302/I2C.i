@@ -2686,7 +2686,7 @@ void I2C_Master_Init(const unsigned long c)
     SSPCON = 0b00101000;
 
     SSPCON2 = 0;
-    SSPADD = (8000000/(4*c))-1;
+    SSPADD = (4000000/(4*c))-1;
     SSPSTAT = 0;
     TRISCbits.TRISC3 = 1;
     TRISCbits.TRISC4 = 1;
@@ -2778,9 +2778,9 @@ void I2C_Slave_Init(uint8_t address)
 
 void ADXL345_init(void){
     ADXL345_WRITE(0x31, 0x0B);
-    delay_ms(2);
+    _delay((unsigned long)((2)*(4000000/4000.0)));
     ADXL345_WRITE(0x2D, 0x08);
-    delay_ms(2);
+    _delay((unsigned long)((2)*(4000000/4000.0)));
 }
 unsigned short ADXL354_READ(uint8_t var){
     unsigned short leido;

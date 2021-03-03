@@ -57,9 +57,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "105 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.h
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.h: 105: void ADXL345_WRITE(uint8_t var, uint8_t data);
 [v _ADXL345_WRITE `(v ~T0 @X0 0 ef2`uc`uc ]
-"111 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 111:     delay_ms(2);
-[v _delay_ms `(i ~T0 @X0 0 e? ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -314,8 +315,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 18:     SSPCON2 = 0;
 [e = _SSPCON2 -> -> 0 `i `uc ]
 "19
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 19:     SSPADD = (8000000/(4*c))-1;
-[e = _SSPADD -> - / -> -> 8000000 `l `ul * -> -> -> 4 `i `l `ul _c -> -> -> 1 `i `l `ul `uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 19:     SSPADD = (4000000/(4*c))-1;
+[e = _SSPADD -> - / -> -> 4000000 `l `ul * -> -> -> 4 `i `l `ul _c -> -> -> 1 `i `l `ul `uc ]
 "20
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 20:     SSPSTAT = 0;
 [e = _SSPSTAT -> -> 0 `i `uc ]
@@ -544,14 +545,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 110:     ADXL345_WRITE(0x31, 0x0B);
 [e ( _ADXL345_WRITE (2 , -> -> 49 `i `uc -> -> 11 `i `uc ]
 "111
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 111:     delay_ms(2);
-[e ( _delay_ms -> 2 `i ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 111:     _delay((unsigned long)((2)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "112
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 112:     ADXL345_WRITE(0x2D, 0x08);
 [e ( _ADXL345_WRITE (2 , -> -> 45 `i `uc -> -> 8 `i `uc ]
 "113
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 113:     delay_ms(2);
-[e ( _delay_ms -> 2 `i ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 113:     _delay((unsigned long)((2)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "114
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 114: }
 [e :UE 151 ]

@@ -108,9 +108,9 @@ void I2C_Slave_Init(uint8_t address)
 //******************************************************************************
 void ADXL345_init(void){
     ADXL345_WRITE(DATA_FOR, 0x0B);
-    delay_ms(2);
+    __delay_ms(2);
     ADXL345_WRITE(POWER_CTL, 0x08);
-    delay_ms(2);
+    __delay_ms(2);
 }
 unsigned short ADXL354_READ(uint8_t var){
     unsigned short leido;

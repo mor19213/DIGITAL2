@@ -8,7 +8,7 @@
 # 2 "<built-in>" 2
 # 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c" 2
 # 11 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
-#pragma config FOSC = EXTRC_NOCLKOUT
+#pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -2727,7 +2727,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
     if (TXIF == 1){
         if (bandera == 0){
             TXREG = eje_x;
-            bandera++;
+
         } else if (bandera == 1) {
             TXREG = eje_y;
             bandera++;
@@ -2755,9 +2755,13 @@ void main(void) {
         if (CONTX > 15){
             TXIE = 1;
         }
-
         eje_x = ADXL354_READ(0x32);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
+        if (eje_x > 0){
+            PORTAbits.RA0 = 1;
+        } else {
+            PORTAbits.RA0 = 0;
+        }
+        _delay((unsigned long)((200)*(4000000/4000.0)));
 
     }
     return;
@@ -2773,14 +2777,15 @@ void setup(void){
 
     TRISA = 0;
     PORTA = 0;
+    TRISB = 0;
+    PORTB = 0;
     TRISD = 0;
     PORTD = 0;
     TRISE = 0;
     PORTE = 0;
 
-
+    eje_x = 0xf8;
     initUSART();
-
 
     OPTION_REGbits.T0CS = 0;
     OPTION_REGbits.PSA = 0;
@@ -2793,4 +2798,5 @@ void setup(void){
     INTCONbits.T0IF = 0;
 
     I2C_Master_Init(100000);
+    ADXL345_init();
 }

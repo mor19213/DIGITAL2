@@ -8,7 +8,7 @@
 // Palabra de configuración
 //*****************************************************************************
 // CONFIG1
-#pragma config FOSC = EXTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
+#pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
 #pragma config MCLRE = OFF      // RE3/MCLR pin function select bit (RE3/MCLR pin function is digital input, MCLR internally tied to VDD)
@@ -34,7 +34,7 @@
 //*****************************************************************************
 // variables
 //*****************************************************************************
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 uint8_t eje_x;
 uint8_t eje_y;
 uint8_t eje_z;
@@ -56,7 +56,7 @@ void __interrupt() isr(void){
     if (TXIF == 1){  
         if (bandera == 0){
             TXREG = eje_x;
-            bandera++;
+            //bandera++;
         } else if (bandera == 1) {
             TXREG = eje_y;
             bandera++;
@@ -84,8 +84,12 @@ void main(void) {
         if (CONTX > 15){
             TXIE = 1;
         }
-        
         eje_x = ADXL354_READ(DATAX0);
+        if (eje_x > 0){
+            PORTAbits.RA0 = 1;
+        } else {
+            PORTAbits.RA0 = 0;
+        }
         __delay_ms(200);   
         
     }
@@ -102,14 +106,15 @@ void setup(void){
 // Inicializacion de puertos
     TRISA = 0;
     PORTA = 0;
+    TRISB = 0;
+    PORTB = 0;
     TRISD = 0;          //  verificar recepcion sensor
     PORTD = 0;
     TRISE = 0;          // Luces piloto
     PORTE = 0;
     
-    
+    eje_x = 0xf8;
     initUSART();                    // Comunicacion USART
-    
     // CONFIGURACION TIMER0
     OPTION_REGbits.T0CS = 0;        // TMR0 Clock source
     OPTION_REGbits.PSA = 0;         // Prescaler a tmr0
@@ -122,4 +127,5 @@ void setup(void){
     INTCONbits.T0IF = 0;            // bandera tmr0 
     
     I2C_Master_Init(100000);        // Inicializar Comuncación I2C
+    ADXL345_init();
 }
