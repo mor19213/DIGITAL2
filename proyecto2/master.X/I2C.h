@@ -101,7 +101,7 @@ void I2C_Slave_Init(uint8_t address);
 //******************************************************************************
 // FUNCIONES ADXL345
 void ADXL345_init(void);
-unsigned short ADXL354_READ(uint8_t var);
+unsigned short ADXL345_READ(uint8_t var);
 void ADXL345_WRITE(uint8_t var, uint8_t data);
 
 //******************************************************************************

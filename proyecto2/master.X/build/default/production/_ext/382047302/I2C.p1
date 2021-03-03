@@ -558,10 +558,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 151 ]
 }
 "115
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 115: unsigned short ADXL354_READ(uint8_t var){
-[v _ADXL354_READ `(us ~T0 @X0 1 ef1`uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 115: unsigned short ADXL345_READ(uint8_t var){
+[v _ADXL345_READ `(us ~T0 @X0 1 ef1`uc ]
 {
-[e :U _ADXL354_READ ]
+[e :U _ADXL345_READ ]
 [v _var `uc ~T0 @X0 1 r1 ]
 [f ]
 "116

@@ -112,7 +112,7 @@ void ADXL345_init(void){
     ADXL345_WRITE(POWER_CTL, 0x08);
     __delay_ms(2);
 }
-unsigned short ADXL354_READ(uint8_t var){
+unsigned short ADXL345_READ(uint8_t var){
     unsigned short leido;
     I2C_Master_Start();
     I2C_Master_Write(WRITE_REG);

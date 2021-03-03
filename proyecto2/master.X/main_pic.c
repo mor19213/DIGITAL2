@@ -38,6 +38,12 @@
 uint8_t eje_x;
 uint8_t eje_y;
 uint8_t eje_z;
+uint8_t xH;
+uint8_t xL;
+uint8_t yH;
+uint8_t yL;
+uint8_t zH;
+uint8_t zL;
 uint8_t bandera;
 uint8_t CONTX;
 
@@ -55,7 +61,7 @@ void __interrupt() isr(void){
   
     if (TXIF == 1){  
         if (bandera == 0){
-            TXREG = eje_x;
+            TXREG = 45;
             //bandera++;
         } else if (bandera == 1) {
             TXREG = eje_y;
@@ -84,12 +90,17 @@ void main(void) {
         if (CONTX > 15){
             TXIE = 1;
         }
-        eje_x = ADXL354_READ(DATAX0);
-        if (eje_x > 0){
-            PORTAbits.RA0 = 1;
-        } else {
-            PORTAbits.RA0 = 0;
-        }
+        xL = ADXL345_READ(DATAX0);
+        xH = ADXL345_READ(DATAX1);
+        yL = ADXL345_READ(DATAY0);
+        yH = ADXL345_READ(DATAY1);
+        zL = ADXL345_READ(DATAZ0);
+        zH = ADXL345_READ(DATAZ1);
+        eje_x = (xH * 32) + (xL / 4);
+        eje_y = (yH * 32) + (yL / 4);
+        eje_z = (zH * 32) + (zL / 4);
+        PORTB = eje_x;
+        
         __delay_ms(200);   
         
     }

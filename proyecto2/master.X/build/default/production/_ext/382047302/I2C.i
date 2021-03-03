@@ -2672,7 +2672,7 @@ unsigned short I2C_Master_Read(unsigned short a);
 void I2C_Slave_Init(uint8_t address);
 # 103 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.h"
 void ADXL345_init(void);
-unsigned short ADXL354_READ(uint8_t var);
+unsigned short ADXL345_READ(uint8_t var);
 void ADXL345_WRITE(uint8_t var, uint8_t data);
 # 8 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c" 2
 
@@ -2782,7 +2782,7 @@ void ADXL345_init(void){
     ADXL345_WRITE(0x2D, 0x08);
     _delay((unsigned long)((2)*(4000000/4000.0)));
 }
-unsigned short ADXL354_READ(uint8_t var){
+unsigned short ADXL345_READ(uint8_t var){
     unsigned short leido;
     I2C_Master_Start();
     I2C_Master_Write(0xA6);
