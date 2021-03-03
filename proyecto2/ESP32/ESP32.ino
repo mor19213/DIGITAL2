@@ -22,11 +22,12 @@
 // this int will hold the current count for our sketch
 int count = 0;
 int LUZ1 = 0; 
+int ejex = 0; 
 
 // uart
 #define RX2 16
 #define TX2 17
-int variable = 0x30;
+int variable = 0;
 int value = 0;
 
 // set up the 'counter' feed
@@ -69,10 +70,9 @@ void setup() {
 void loop() {
   // UART
   
-  Serial1.write(variable);
+  Serial1.write(variable + 40); // variable para luces piloto
+  delay(20);
   Serial.print("PIC: ");
-  Serial.println(Serial2.readString());
-  variable++;
   
   // io.run(); is required for all sketches.
   // it should always be present at the top of your loop
@@ -81,15 +81,14 @@ void loop() {
   io.run();
 
   // save count to the 'counter' feed on Adafruit IO
-  Serial.print("sending -> ");
-  Serial.println(count);
-  eje_x->save(count);
+  ejex = Serial1.read();
+  Serial.print("eje x -> ");
+  Serial.println(ejex);
+  eje_x->save(ejex);
   // increment the count by 1
-  count++;
 
   // Adafruit IO is rate limited for publishing, so a delay is required in
   // between feed->save events. In this example, we will wait three seconds
-  // (1000 milliseconds == 1 second) during each loop.
   delay(3000);
 
 }

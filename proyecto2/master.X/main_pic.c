@@ -46,6 +46,8 @@ uint8_t zH;
 uint8_t zL;
 uint8_t bandera;
 uint8_t CONTX;
+uint8_t prueba; 
+uint8_t tx_var; 
 
 //*****************************************************************************
 // funciones
@@ -56,21 +58,25 @@ void setup(void);
 void __interrupt() isr(void){
     if (INTCONbits.T0IF){           // INTERRUPCION TMR0
         CONTX++;
+        prueba++; 
         INTCONbits.T0IF = 0;        // TERMINAR INTERRUPCION DE TMR0
     }
   
     if (TXIF == 1){  
-        if (bandera == 0){
-            TXREG = 45;
-            //bandera++;
-        } else if (bandera == 1) {
-            TXREG = eje_y;
-            bandera++;
-        } else if (bandera == 2){
-            TXREG = eje_z;
-            bandera++; 
-        } else if (bandera == 3){
-            TXREG = 10;
+        if (tx_var == 1){
+            tx_var = 0;
+            if (bandera == 0){
+                TXREG = eje_x;
+                //bandera++;
+            } else if (bandera == 1) {
+                TXREG = eje_y;
+                bandera++;
+            } else if (bandera == 2){
+                TXREG = eje_z;
+                bandera++; 
+            } else if (bandera == 3){
+                TXREG = 10;
+            }
         }
         
         TXIE = 0;   // deshabilitar interrupcion de tx
@@ -79,6 +85,9 @@ void __interrupt() isr(void){
     
     if(PIR1bits.RCIF == 1){
         PORTE = RCREG;
+        if (RCREG > 30){
+            tx_var = 1;
+        }
     }
 }
 //*****************************************************************************
@@ -99,8 +108,8 @@ void main(void) {
         eje_x = (xH * 32) + (xL / 4);
         eje_y = (yH * 32) + (yL / 4);
         eje_z = (zH * 32) + (zL / 4);
-        PORTB = eje_x;
         
+        PORTB = eje_x;
         __delay_ms(200);   
         
     }
@@ -123,6 +132,8 @@ void setup(void){
     PORTD = 0;
     TRISE = 0;          // Luces piloto
     PORTE = 0;
+    prueba = 126;
+    tx_var = 0;
     
     eje_x = 0xf8;
     initUSART();                    // Comunicacion USART

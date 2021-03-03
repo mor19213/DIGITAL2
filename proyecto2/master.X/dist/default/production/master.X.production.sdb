@@ -21,11 +21,11 @@
 [v _ADXL345_READ ADXL345_READ `(us  1 e 2 0 ]
 "126
 [v _ADXL345_WRITE ADXL345_WRITE `(v  1 e 1 0 ]
-"56 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+"58 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 [v _isr isr `II(v  1 e 1 0 ]
-"87
+"96
 [v _main main `(v  1 e 1 0 ]
-"112
+"121
 [v _setup setup `(v  1 e 1 0 ]
 "3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
@@ -117,7 +117,7 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S359 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S361 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -127,19 +127,19 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S368 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S370 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S372 . 1 `uc 1 . 1 0 :6:0 
+[s S374 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S375 . 1 `uc 1 . 1 0 :6:0 
+[s S377 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S378 . 1 `S359 1 . 1 0 `S368 1 . 1 0 `S372 1 . 1 0 `S375 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES378  1 e 1 @24 ]
-[s S189 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S380 . 1 `S361 1 . 1 0 `S370 1 . 1 0 `S374 1 . 1 0 `S377 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES380  1 e 1 @24 ]
+[s S191 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -149,9 +149,9 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S198 . 1 `S189 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES198  1 e 1 @135 ]
-[s S403 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S200 . 1 `S191 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES200  1 e 1 @135 ]
+[s S405 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -160,11 +160,11 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S411 . 1 `S403 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES411  1 e 1 @140 ]
+[u S413 . 1 `S405 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES413  1 e 1 @140 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S210 . 1 `uc 1 SEN 1 0 :1:0 
+[s S212 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -174,13 +174,13 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S219 . 1 `S210 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES219  1 e 1 @145 ]
+[u S221 . 1 `S212 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES221  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S300 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S302 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -190,20 +190,20 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S309 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S311 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S313 . 1 `uc 1 . 1 0 :6:0 
+[s S315 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S316 . 1 `S300 1 . 1 0 `S309 1 . 1 0 `S313 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES316  1 e 1 @152 ]
+[u S318 . 1 `S302 1 . 1 0 `S311 1 . 1 0 `S315 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES318  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2704
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
-[s S337 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S339 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -213,8 +213,8 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "3352
-[u S346 . 1 `S337 1 . 1 0 ]
-[v _BAUDCTLbits BAUDCTLbits `VES346  1 e 1 @391 ]
+[u S348 . 1 `S339 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES348  1 e 1 @391 ]
 "3896
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "4040
@@ -249,15 +249,19 @@
 [v _bandera bandera `uc  1 e 1 0 ]
 "48
 [v _CONTX CONTX `uc  1 e 1 0 ]
-"87
+"49
+[v _prueba prueba `uc  1 e 1 0 ]
+"50
+[v _tx_var tx_var `uc  1 e 1 0 ]
+"96
 [v _main main `(v  1 e 1 0 ]
 {
-"108
+"117
 } 0
-"112
+"121
 [v _setup setup `(v  1 e 1 0 ]
 {
-"142
+"153
 } 0
 "3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
@@ -351,8 +355,8 @@
 {
 "34
 } 0
-"56 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+"58 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"83
+"92
 } 0
