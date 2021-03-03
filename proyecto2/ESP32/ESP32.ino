@@ -38,7 +38,7 @@ void setup() {
 
   // start the serial connection
   Serial.begin(9600);
-  Serial2.begin(9600, SERIAL_8N1, TX2, RX2);
+  Serial1.begin(9600, SERIAL_8N1, RX2, TX2);
 
   // wait for serial monitor to open
   while(! Serial);
@@ -68,7 +68,8 @@ void setup() {
 
 void loop() {
   // UART
-  Serial2.write(variable);
+  
+  Serial1.write(variable);
   Serial.print("PIC: ");
   Serial.println(Serial2.readString());
   variable++;
