@@ -127,15 +127,17 @@ void loop() {
   
   eje_x->save(ejex);
   delay(3000);
-  variable = luces(LUZ1, LUZ2);
   io.run();
+  variable = luces(LUZ1, LUZ2);
+  Serial1.write(variable);
   
   Serial.print("eje y -> ");
   Serial.println(ejey);
   eje_y->save(ejey);
   delay(3000);
-  variable = luces(LUZ1, LUZ2);
   io.run();
+  variable = luces(LUZ1, LUZ2);
+  Serial1.write(variable);
 
   
   Serial.print("eje z -> ");
@@ -146,8 +148,9 @@ void loop() {
   // Adafruit IO is rate limited for publishing, so a delay is required in
   // between feed->save events. In this example, we will wait three seconds
   delay(3000);
-  variable = luces(LUZ1, LUZ2);
   io.run();
+  variable = luces(LUZ1, LUZ2);
+  Serial1.write(variable);
 
 }
 
