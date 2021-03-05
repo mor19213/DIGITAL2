@@ -23,6 +23,8 @@
 int count = 0;
 int LUZ1 = 0;
 int LUZ2 = 0; 
+signed int ang_x = 0;
+signed int ang_y = 0;
 signed int ejex = 0; 
 signed int ejey = 0; 
 signed int ejez = 0;
@@ -83,7 +85,7 @@ void setup() {
 void loop() {
   // UART
   
-  Serial.println("Acelerometro: ");
+ // Serial.println("Acelerometro: ");
   
   // io.run(); is required for all sketches.
   // it should always be present at the top of your loop
@@ -91,67 +93,55 @@ void loop() {
   // io.adafruit.com, and processes any incoming data.
   io.run();
 
-  // save count to the 'counter' feed on Adafruit IO
   
   Serial1.write(variable + 16); // variable para luces piloto
-  delay(2);
+  //delay(2);
   tempx = Serial1.read();
+  delay(20);
   Serial1.write(variable + 32); // variable para luces piloto
-  delay(2);
+  //delay(2);
   tempy = Serial1.read();
-  
-  Serial1.write(variable + 64); // variable para luces piloto
-  delay(2);
-  tempz = Serial1.read();
-
-  
+   
   if (tempx > 127){
-    tempx = (128 - (ejex - 128)) * -1;
+    tempx = (128 - (tempx - 128)) * -1;
   }
   if (tempy > 127){
-    tempy = (128 - (ejey - 128)) * -1;
+    tempy = (128 - (tempy - 128)) * -1;
   }
   if (tempz > 127){
-    tempz = (128 - (ejez - 128)) * -1;
+    tempz = (128 - (tempz - 128)) * -1;
   }
 
-  if (tempx != 0 & tempx != -7){
+  if (tempx != 0 & tempx != -7 & tempx != -15){
     ejex = tempx;
   }
-  if (tempy != 0 & tempy != -7){
+  if (tempy != 0 & tempy != -7 & tempx != -15){
     ejey = tempy;
   }
+
+  ang_x = angulo(ejex);
+  ang_y = angulo(ejey);
+
+  ang_x = ang_x * 90 / (abs(ang_x) + abs(ang_y));
+  ang_y = ang_y * 90 / (abs(ang_x) + abs(ang_y));
+
   variable = luces(LUZ1, LUZ2);
   Serial.print("eje x -> ");
-  Serial.println(ejex);
+  Serial.println(ang_x);
   
-  eje_x->save(ejex);
+  eje_x->save(ang_x);
   delay(3000);
   io.run();
   variable = luces(LUZ1, LUZ2);
   Serial1.write(variable);
   
   Serial.print("eje y -> ");
-  Serial.println(ejey);
-  eje_y->save(ejey);
+  Serial.println(ang_y);
+  eje_y->save(ang_y);
   delay(3000);
   io.run();
   variable = luces(LUZ1, LUZ2);
   Serial1.write(variable);
-
-  
-  Serial.print("eje z -> ");
-  Serial.println(ejez);
-  eje_z->save(ejez);
-  
-  Serial.println(abs(ejez) + abs(ejex) + abs(ejey));
-  // Adafruit IO is rate limited for publishing, so a delay is required in
-  // between feed->save events. In this example, we will wait three seconds
-  delay(3000);
-  io.run();
-  variable = luces(LUZ1, LUZ2);
-  Serial1.write(variable);
-
 }
 
 // this function is called whenever a 'counter' message
@@ -190,4 +180,47 @@ int luces(int LUZ1, int LUZ2){
     variable = variable + 2;
   }
   return variable;
+}
+
+signed int angulo(signed int eje){
+  signed int resultado;
+  if ( 0 < eje & eje < 20){
+      if (eje == 16){
+        resultado = 90;
+      }  
+      if (eje == 15){
+        resultado = 85;
+      } 
+      else  if (2 <= eje & eje <= 7){
+        resultado = (eje * 5) + 5;
+      } 
+      else  if (eje == 1 ){
+        resultado = 0;
+      } 
+    digitalWrite(LED, LOW);
+  } else {
+    eje = 256 - (256 + eje);
+    
+    digitalWrite(LED, HIGH);
+
+  if (0 <= eje & eje <= 7){
+    resultado = map(eje, 7, 0, 45, 80);
+  } 
+  
+    if (eje == 16){
+      resultado = 0;
+    }
+    
+    if (16 <= eje & eje <= 23){
+      resultado = map(eje, 17, 23, 10, 40);
+    }
+  if (7 <= eje & eje <= 14){
+    resultado = map(eje, 8, 15, 50, 85);
+  } 
+  if (eje == 31){
+    resultado = 90;
+    }
+  }
+  
+  return resultado;
 }
