@@ -2686,8 +2686,11 @@ unsigned short I2C_Master_Read(unsigned short a);
 void I2C_Slave_Init(uint8_t address);
 # 103 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.h"
 void ADXL345_init(void);
-unsigned short ADXL345_READ(uint8_t var);
+signed short ADXL345_READ(uint8_t var);
 void ADXL345_WRITE(uint8_t var, uint8_t data);
+signed short ADXL345_readX(void);
+signed short ADXL345_readY(void);
+signed short ADXL345_readZ(void);
 # 29 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c" 2
 
 # 1 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.h" 1
@@ -2706,9 +2709,12 @@ void initUSART(void);
 
 
 
-uint8_t eje_x;
-uint8_t eje_y;
-uint8_t eje_z;
+int8_t eje_x;
+int8_t eje_y;
+int8_t eje_z;
+int8_t tempx;
+int8_t tempy;
+int8_t tempz;
 uint8_t xH;
 uint8_t xL;
 uint8_t yH;
@@ -2735,12 +2741,10 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
     if (TXIF == 1){
         if (bandera == 1){
-            TXREG = eje_y;
+            TXREG = eje_x;
 
         } else if (bandera == 2) {
-            TXREG = eje_z;
-        } else if (bandera == 3){
-            TXREG = eje_x;
+            TXREG = eje_y;
         }
         bandera = 0;
 
@@ -2755,8 +2759,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
                 bandera = 1;
             } else if (RCREG < 40){
                 bandera = 2;
-            } else if (RCREG < 70){
-                bandera = 3;
             }
         } else {
             bandera = 0;
@@ -2775,17 +2777,13 @@ void main(void) {
             TXIE = 1;
 
         }
-        xL = ADXL345_READ(0x32);
-        xH = ADXL345_READ(0x33);
-        yL = ADXL345_READ(0x34);
-        yH = ADXL345_READ(0x35);
-        zL = ADXL345_READ(0x36);
-        zH = ADXL345_READ(0x37);
-        eje_x = (xH * 32) + (xL / 4);
-        eje_y = (yH * 32) + (yL / 4);
-        eje_z = (zH * 32) + (zL / 4);
 
-        PORTB = eje_x;
+        eje_x = ADXL345_readX();
+        eje_y = ADXL345_readY();
+
+
+
+        PORTB = ADXL345_readX();
         _delay((unsigned long)((200)*(4000000/4000.0)));
 
     }

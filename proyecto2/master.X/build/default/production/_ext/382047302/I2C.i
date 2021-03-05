@@ -2672,8 +2672,11 @@ unsigned short I2C_Master_Read(unsigned short a);
 void I2C_Slave_Init(uint8_t address);
 # 103 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.h"
 void ADXL345_init(void);
-unsigned short ADXL345_READ(uint8_t var);
+signed short ADXL345_READ(uint8_t var);
 void ADXL345_WRITE(uint8_t var, uint8_t data);
+signed short ADXL345_readX(void);
+signed short ADXL345_readY(void);
+signed short ADXL345_readZ(void);
 # 8 "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c" 2
 
 
@@ -2782,8 +2785,8 @@ void ADXL345_init(void){
     ADXL345_WRITE(0x2D, 0x08);
     _delay((unsigned long)((2)*(4000000/4000.0)));
 }
-unsigned short ADXL345_READ(uint8_t var){
-    unsigned short leido;
+signed short ADXL345_READ(uint8_t var){
+    signed short leido;
     I2C_Master_Start();
     I2C_Master_Write(0xA6);
     I2C_Master_Write(var);
@@ -2799,4 +2802,35 @@ void ADXL345_WRITE(uint8_t var, uint8_t data){
     I2C_Master_Write(var);
     I2C_Master_Write(data);
     I2C_Master_Stop();
+}
+
+signed short ADXL345_readX(void){
+     int8_t data_x[2];
+     int16_t accel_x;
+     signed short acc_x;
+     data_x[0] = ADXL345_READ(0x32);
+     data_x[1] = ADXL345_READ(0x33);
+     accel_x = (data_x[1]*256)+(data_x[0]);
+     acc_x = (accel_x)/16.384;
+     return acc_x;
+}
+signed short ADXL345_readY(void){
+     int8_t data_y[2];
+     int16_t accel_y;
+     signed short acc_y;
+     data_y[0] = ADXL345_READ(0x34);
+     data_y[1] = ADXL345_READ(0x35);
+     accel_y = (data_y[1]*256)+(data_y[0]);
+     acc_y = (accel_y)/16.384;
+     return acc_y;
+}
+signed short ADXL345_readZ(void){
+     int8_t data_z[2];
+     int16_t accel_z;
+     signed short acc_z;
+     data_z[0] = ADXL345_READ(0x36);
+     data_z[1] = ADXL345_READ(0x37);
+     accel_z = (data_z[1]*256)+(data_z[0]);
+     acc_z = (accel_z)/16.384;
+     return acc_z;
 }

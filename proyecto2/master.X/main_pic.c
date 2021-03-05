@@ -35,9 +35,12 @@
 // variables
 //*****************************************************************************
 #define _XTAL_FREQ 4000000
-uint8_t eje_x;
-uint8_t eje_y;
-uint8_t eje_z;
+int8_t eje_x;
+int8_t eje_y;
+int8_t eje_z;
+int8_t tempx;
+int8_t tempy;
+int8_t tempz;
 uint8_t xH;
 uint8_t xL;
 uint8_t yH;
@@ -64,12 +67,10 @@ void __interrupt() isr(void){
   
     if (TXIF == 1){  
         if (bandera == 1){
-            TXREG = eje_y;
+            TXREG = eje_x;
             //bandera++;
         } else if (bandera == 2) {
-            TXREG = eje_z;
-        } else if (bandera == 3){
-            TXREG = eje_x;
+            TXREG = eje_y;
         }
         bandera = 0;
         
@@ -84,9 +85,7 @@ void __interrupt() isr(void){
                 bandera = 1;
             } else if (RCREG < 40){
                 bandera = 2;
-            } else if (RCREG < 70){
-                bandera = 3;
-            }
+            } 
         } else {
             bandera = 0;
         }
@@ -104,17 +103,13 @@ void main(void) {
             TXIE = 1;
             //}
         }
-        xL = ADXL345_READ(DATAX0);
-        xH = ADXL345_READ(DATAX1);
-        yL = ADXL345_READ(DATAY0);
-        yH = ADXL345_READ(DATAY1);
-        zL = ADXL345_READ(DATAZ0);
-        zH = ADXL345_READ(DATAZ1);
-        eje_x = (xH * 32) + (xL / 4);
-        eje_y = (yH * 32) + (yL / 4);
-        eje_z = (zH * 32) + (zL / 4);
         
-        PORTB = eje_x;
+        eje_x = ADXL345_readX();
+        eje_y = ADXL345_readY();
+        
+        //eje_z = ADXL345_readZ();
+        
+        PORTB = ADXL345_readX();
         __delay_ms(200);   
         
     }

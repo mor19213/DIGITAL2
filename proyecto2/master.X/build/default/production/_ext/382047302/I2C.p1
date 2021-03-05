@@ -558,15 +558,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 151 ]
 }
 "115
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 115: unsigned short ADXL345_READ(uint8_t var){
-[v _ADXL345_READ `(us ~T0 @X0 1 ef1`uc ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 115: signed short ADXL345_READ(uint8_t var){
+[v _ADXL345_READ `(s ~T0 @X0 1 ef1`uc ]
 {
 [e :U _ADXL345_READ ]
 [v _var `uc ~T0 @X0 1 r1 ]
 [f ]
 "116
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 116:     unsigned short leido;
-[v _leido `us ~T0 @X0 1 a ]
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 116:     signed short leido;
+[v _leido `s ~T0 @X0 1 a ]
 "117
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 117:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
@@ -584,7 +584,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
 "122
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 122:     leido = I2C_Master_Read(0);
-[e = _leido ( _I2C_Master_Read (1 -> -> 0 `i `us ]
+[e = _leido -> ( _I2C_Master_Read (1 -> -> 0 `i `us `s ]
 "123
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 123:     I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
@@ -622,4 +622,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 132: }
 [e :UE 153 ]
+}
+"134
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 134: signed short ADXL345_readX(void){
+[v _ADXL345_readX `(s ~T0 @X0 1 ef ]
+{
+[e :U _ADXL345_readX ]
+[f ]
+"135
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 135:      int8_t data_x[2];
+[v _data_x `c ~T0 @X0 -> 2 `i a ]
+"136
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 136:      int16_t accel_x;
+[v _accel_x `i ~T0 @X0 1 a ]
+"137
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 137:      signed short acc_x;
+[v _acc_x `s ~T0 @X0 1 a ]
+"138
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 138:      data_x[0] = ADXL345_READ(0x32);
+[e = *U + &U _data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_x `ui `ux -> ( _ADXL345_READ (1 -> -> 50 `i `uc `c ]
+"139
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 139:      data_x[1] = ADXL345_READ(0x33);
+[e = *U + &U _data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_x `ui `ux -> ( _ADXL345_READ (1 -> -> 51 `i `uc `c ]
+"140
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 140:      accel_x = (data_x[1]*256)+(data_x[0]);
+[e = _accel_x + * -> *U + &U _data_x * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_x `ui `ux `i -> 256 `i -> *U + &U _data_x * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_x `ui `ux `i ]
+"141
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 141:      acc_x = (accel_x)/16.384;
+[e = _acc_x -> / -> _accel_x `d .16.384 `s ]
+"142
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 142:      return acc_x;
+[e ) _acc_x ]
+[e $UE 154  ]
+"143
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 143: }
+[e :UE 154 ]
+}
+"144
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 144: signed short ADXL345_readY(void){
+[v _ADXL345_readY `(s ~T0 @X0 1 ef ]
+{
+[e :U _ADXL345_readY ]
+[f ]
+"145
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 145:      int8_t data_y[2];
+[v _data_y `c ~T0 @X0 -> 2 `i a ]
+"146
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 146:      int16_t accel_y;
+[v _accel_y `i ~T0 @X0 1 a ]
+"147
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 147:      signed short acc_y;
+[v _acc_y `s ~T0 @X0 1 a ]
+"148
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 148:      data_y[0] = ADXL345_READ(0x34);
+[e = *U + &U _data_y * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_y `ui `ux -> ( _ADXL345_READ (1 -> -> 52 `i `uc `c ]
+"149
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 149:      data_y[1] = ADXL345_READ(0x35);
+[e = *U + &U _data_y * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_y `ui `ux -> ( _ADXL345_READ (1 -> -> 53 `i `uc `c ]
+"150
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 150:      accel_y = (data_y[1]*256)+(data_y[0]);
+[e = _accel_y + * -> *U + &U _data_y * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_y `ui `ux `i -> 256 `i -> *U + &U _data_y * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_y `ui `ux `i ]
+"151
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 151:      acc_y = (accel_y)/16.384;
+[e = _acc_y -> / -> _accel_y `d .16.384 `s ]
+"152
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 152:      return acc_y;
+[e ) _acc_y ]
+[e $UE 155  ]
+"153
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 153: }
+[e :UE 155 ]
+}
+"154
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 154: signed short ADXL345_readZ(void){
+[v _ADXL345_readZ `(s ~T0 @X0 1 ef ]
+{
+[e :U _ADXL345_readZ ]
+[f ]
+"155
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 155:      int8_t data_z[2];
+[v _data_z `c ~T0 @X0 -> 2 `i a ]
+"156
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 156:      int16_t accel_z;
+[v _accel_z `i ~T0 @X0 1 a ]
+"157
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 157:      signed short acc_z;
+[v _acc_z `s ~T0 @X0 1 a ]
+"158
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 158:      data_z[0] = ADXL345_READ(0x36);
+[e = *U + &U _data_z * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_z `ui `ux -> ( _ADXL345_READ (1 -> -> 54 `i `uc `c ]
+"159
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 159:      data_z[1] = ADXL345_READ(0x37);
+[e = *U + &U _data_z * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_z `ui `ux -> ( _ADXL345_READ (1 -> -> 55 `i `uc `c ]
+"160
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 160:      accel_z = (data_z[1]*256)+(data_z[0]);
+[e = _accel_z + * -> *U + &U _data_z * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_z `ui `ux `i -> 256 `i -> *U + &U _data_z * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_z `ui `ux `i ]
+"161
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 161:      acc_z = (accel_z)/16.384;
+[e = _acc_z -> / -> _accel_z `d .16.384 `s ]
+"162
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 162:      return acc_z;
+[e ) _acc_z ]
+[e $UE 156  ]
+"163
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 163: }
+[e :UE 156 ]
 }

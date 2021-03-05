@@ -18,25 +18,33 @@
 "109
 [v _ADXL345_init ADXL345_init `(v  1 e 1 0 ]
 "115
-[v _ADXL345_READ ADXL345_READ `(us  1 e 2 0 ]
+[v _ADXL345_READ ADXL345_READ `(s  1 e 2 0 ]
 "126
 [v _ADXL345_WRITE ADXL345_WRITE `(v  1 e 1 0 ]
-"58 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+"134
+[v _ADXL345_readX ADXL345_readX `(s  1 e 2 0 ]
+"144
+[v _ADXL345_readY ADXL345_readY `(s  1 e 2 0 ]
+"61 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 [v _isr isr `II(v  1 e 1 0 ]
-"99
+"98
 [v _main main `(v  1 e 1 0 ]
-"126
+"121
 [v _setup setup `(v  1 e 1 0 ]
 "3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
@@ -83,7 +91,7 @@
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1140
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
-[s S106 . 1 `uc 1 PS 1 0 :3:0 
+[s S109 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -91,12 +99,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S113 . 1 `uc 1 PS0 1 0 :1:0 
+[s S116 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S117 . 1 `S106 1 . 1 0 `S113 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES117  1 e 1 @129 ]
+[u S120 . 1 `S109 1 . 1 0 `S116 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES120  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
@@ -117,7 +125,7 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S361 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S380 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -127,19 +135,19 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S370 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S389 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S374 . 1 `uc 1 . 1 0 :6:0 
+[s S393 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S377 . 1 `uc 1 . 1 0 :6:0 
+[s S396 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S380 . 1 `S361 1 . 1 0 `S370 1 . 1 0 `S374 1 . 1 0 `S377 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES380  1 e 1 @24 ]
-[s S191 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S399 . 1 `S380 1 . 1 0 `S389 1 . 1 0 `S393 1 . 1 0 `S396 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES399  1 e 1 @24 ]
+[s S197 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -149,9 +157,9 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S200 . 1 `S191 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES200  1 e 1 @135 ]
-[s S405 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S206 . 1 `S197 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES206  1 e 1 @135 ]
+[s S424 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -160,11 +168,11 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S413 . 1 `S405 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES413  1 e 1 @140 ]
+[u S432 . 1 `S424 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES432  1 e 1 @140 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S212 . 1 `uc 1 SEN 1 0 :1:0 
+[s S218 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -174,13 +182,13 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S221 . 1 `S212 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES221  1 e 1 @145 ]
+[u S227 . 1 `S218 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES227  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S302 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S321 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -190,20 +198,20 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S311 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S330 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S315 . 1 `uc 1 . 1 0 :6:0 
+[s S334 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S318 . 1 `S302 1 . 1 0 `S311 1 . 1 0 `S315 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES318  1 e 1 @152 ]
+[u S337 . 1 `S321 1 . 1 0 `S330 1 . 1 0 `S334 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES337  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2704
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
-[s S339 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S358 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -213,8 +221,8 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "3352
-[u S348 . 1 `S339 1 . 1 0 ]
-[v _BAUDCTLbits BAUDCTLbits `VES348  1 e 1 @391 ]
+[u S367 . 1 `S358 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES367  1 e 1 @391 ]
 "3896
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "4040
@@ -228,40 +236,26 @@
 "4460
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "38 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-[v _eje_x eje_x `uc  1 e 1 0 ]
+[v _eje_x eje_x `c  1 e 1 0 ]
 "39
-[v _eje_y eje_y `uc  1 e 1 0 ]
-"40
-[v _eje_z eje_z `uc  1 e 1 0 ]
-"41
-[v _xH xH `uc  1 e 1 0 ]
-"42
-[v _xL xL `uc  1 e 1 0 ]
-"43
-[v _yH yH `uc  1 e 1 0 ]
-"44
-[v _yL yL `uc  1 e 1 0 ]
-"45
-[v _zH zH `uc  1 e 1 0 ]
-"46
-[v _zL zL `uc  1 e 1 0 ]
-"47
-[v _bandera bandera `uc  1 e 1 0 ]
-"48
-[v _CONTX CONTX `uc  1 e 1 0 ]
-"49
-[v _prueba prueba `uc  1 e 1 0 ]
+[v _eje_y eje_y `c  1 e 1 0 ]
 "50
+[v _bandera bandera `uc  1 e 1 0 ]
+"51
+[v _CONTX CONTX `uc  1 e 1 0 ]
+"52
+[v _prueba prueba `uc  1 e 1 0 ]
+"53
 [v _tx_var tx_var `uc  1 e 1 0 ]
-"99
+"98
 [v _main main `(v  1 e 1 0 ]
 {
-"122
+"117
 } 0
-"126
+"121
 [v _setup setup `(v  1 e 1 0 ]
 {
-"158
+"153
 } 0
 "3 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 [v _initUSART initUSART `(v  1 e 1 0 ]
@@ -271,16 +265,16 @@
 "14 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
 {
-[v I2C_Master_Init@c c `DCul  1 p 4 8 ]
+[v I2C_Master_Init@c c `DCul  1 p 4 13 ]
 "23
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
-[v ___lldiv@quotient quotient `ul  1 a 4 4 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
 "11
-[v ___lldiv@counter counter `uc  1 a 1 8 ]
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
 "5
 [v ___lldiv@divisor divisor `ul  1 p 4 0 ]
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
@@ -297,32 +291,86 @@
 [v ADXL345_WRITE@var var `uc  1 a 1 wreg ]
 [v ADXL345_WRITE@var var `uc  1 a 1 wreg ]
 [v ADXL345_WRITE@data data `uc  1 p 1 5 ]
-[v ADXL345_WRITE@var var `uc  1 a 1 8 ]
+[v ADXL345_WRITE@var var `uc  1 a 1 0 ]
 "132
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"144
+[v _ADXL345_readY ADXL345_readY `(s  1 e 2 0 ]
 {
+"145
+[v ADXL345_readY@data_y data_y `[2]c  1 a 2 57 ]
+"147
+[v ADXL345_readY@acc_y acc_y `s  1 a 2 55 ]
+"146
+[v ADXL345_readY@accel_y accel_y `i  1 a 2 53 ]
+"153
+} 0
+"134
+[v _ADXL345_readX ADXL345_readX `(s  1 e 2 0 ]
+{
+"135
+[v ADXL345_readX@data_x data_x `[2]c  1 a 2 57 ]
+"137
+[v ADXL345_readX@acc_x acc_x `s  1 a 2 55 ]
+"136
+[v ADXL345_readX@accel_x accel_x `i  1 a 2 53 ]
+"143
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 6 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 5 ]
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 2 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 1 ]
-[v ___awdiv@counter counter `uc  1 a 1 0 ]
-"5
-[v ___awdiv@divisor divisor `i  1 p 2 3 ]
-[v ___awdiv@dividend dividend `i  1 p 2 5 ]
-"41
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 3 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 4 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 46 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 45 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 36 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 30 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 23 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 28 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 35 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 34 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 27 ]
+"8
+[v ___fldiv@a a `d  1 p 4 10 ]
+[v ___fldiv@b b `d  1 p 4 14 ]
+"185
 } 0
 "115 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
-[v _ADXL345_READ ADXL345_READ `(us  1 e 2 0 ]
+[v _ADXL345_READ ADXL345_READ `(s  1 e 2 0 ]
 {
 [v ADXL345_READ@var var `uc  1 a 1 wreg ]
 "116
-[v ADXL345_READ@leido leido `us  1 a 2 5 ]
+[v ADXL345_READ@leido leido `s  1 a 2 7 ]
 "115
 [v ADXL345_READ@var var `uc  1 a 1 wreg ]
 "117
-[v ADXL345_READ@var var `uc  1 a 1 4 ]
+[v ADXL345_READ@var var `uc  1 a 1 6 ]
 "125
 } 0
 "64
@@ -345,7 +393,7 @@
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
 {
 "75
-[v I2C_Master_Read@temp temp `us  1 a 2 7 ]
+[v I2C_Master_Read@temp temp `us  1 a 2 0 ]
 "73
 [v I2C_Master_Read@a a `us  1 p 2 3 ]
 "88
@@ -355,8 +403,8 @@
 {
 "34
 } 0
-"58 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+"61 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"95
+"94
 } 0
