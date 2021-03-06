@@ -40,7 +40,7 @@ int suma = 0;
 int variable = 0;
 int value = 0;
 
-// set up the 'counter' feed
+// set up feeds 
 AdafruitIO_Feed *eje_x = io.feed("eje_x");
 AdafruitIO_Feed *eje_y = io.feed("eje_y");
 AdafruitIO_Feed *eje_z = io.feed("eje_z");
@@ -64,6 +64,7 @@ void setup() {
   // connect to io.adafruit.com
   io.connect();
 
+  // feeds para luces piloto 
   led1->onMessage(handleMessage1);
   led2->onMessage(handleMessage2);
   
@@ -86,9 +87,10 @@ void setup() {
 
 void loop() {
   io.run();
-  escribir();
+  escribir();                 // recibir por uart los valores del sensor y pasarlos a angulo
   
-  eje_x->save(abs(ang_x));
+  eje_x->save(abs(ang_x));    // Enviar valor angulo a eje x
+  // delay para interfaz 
   delay(500);
   escribir();
   delay(500);
@@ -102,10 +104,11 @@ void loop() {
   delay(500);
   escribir();
   io.run();
-  variable = luces(LUZ1, LUZ2);
-  Serial1.write(variable);
+  variable = luces(LUZ1, LUZ2);   // variable para luces piloto
+  Serial1.write(variable);        // enviar variable
  
-  eje_y->save(abs(ang_y));
+  eje_y->save(abs(ang_y));        // enviar angulo eje y
+  // delay para interfaz 
   delay(500);
   escribir();
   delay(500);
@@ -119,11 +122,11 @@ void loop() {
   delay(500);
   escribir();
   io.run();
-  variable = luces(LUZ1, LUZ2);
-  Serial1.write(variable);
+  variable = luces(LUZ1, LUZ2); // variable para luces piloto
+  Serial1.write(variable);      // enviar variable
 
   
-  if (ang_x > 0){
+  if (ang_x > 0){               // Determinar en que cuadrante esta la gravedad
     if (ang_y > 0){
       // +,+
       Serial.print("3 ");
@@ -158,6 +161,7 @@ void loop() {
       cuadrante->save("eje +x");
   }
   
+  // delay para interfaz 
   delay(500);
   escribir();
   delay(500);
@@ -171,8 +175,8 @@ void loop() {
   delay(500);
   escribir();
   io.run();
-  variable = luces(LUZ1, LUZ2);
-  Serial1.write(variable);
+  variable = luces(LUZ1, LUZ2);   // variable luces piloto 
+  Serial1.write(variable);        // enviar variable 
 }
 
 // this function is called whenever a 'counter' message
@@ -181,10 +185,10 @@ void loop() {
 void handleMessage1(AdafruitIO_Data *data) {
   Serial.print("received <- ");
   Serial.println(data->value());
-  if(data->toString() == "ON"){
+  if(data->toString() == "ON"){ // si se recibe ON poner en 1
     LUZ1 = 1;
     //digitalWrite(LED, HIGH);
-  } else {
+  } else {                     // si se recibe OFF poner en 0
     LUZ1 = 0;
     digitalWrite(LED, LOW);
   }
@@ -192,10 +196,10 @@ void handleMessage1(AdafruitIO_Data *data) {
 void handleMessage2(AdafruitIO_Data *data) {
   Serial.print("received <- ");
   Serial.println(data->value());
-  if(data->toString() == "ON"){
+  if(data->toString() == "ON"){ // si se recibe ON poner en 1
     LUZ2 = 1;
     //digitalWrite(LED, HIGH);
-  } else {
+  } else {                     // si se recibe OFF poner en 0
     LUZ2 = 0;
     digitalWrite(LED, LOW);
   }
@@ -205,17 +209,17 @@ int luces(int LUZ1, int LUZ2){
   int variable;
   variable = 0;
   if (LUZ1 == 1){
-    variable = variable + 1;
+    variable = variable + 1;  // sumar 1 para prender bit 0 de la variable 
   }
   if (LUZ2 == 1){
-    variable = variable + 2;
+    variable = variable + 2;  // sumar 2 para prender bit 1 de la variable 
   }
   return variable;
 }
 
 signed int angulo(signed int eje){
   signed int resultado;
-  if ( 0 < eje & eje < 20){
+  if ( 0 < eje & eje < 20){     // angulo en cada eje 
       if (eje == 16){
         resultado = 90;
       }  
@@ -268,6 +272,8 @@ void escribir(void){
   Serial1.write(variable + 32); // variable para luces piloto
   //delay(2);
   tempx = Serial1.read();
+
+  // pasar binarios con signo a numeros negativos 
    
   if (tempx > 127){
     tempx = (128 - (tempx - 128)) * -1;
@@ -295,7 +301,7 @@ void escribir(void){
   ang_x = ang_x * 90 / suma;
   ang_y = ang_y * 90 / suma;
 
-  
+  // escribir en serial el cuadrante o eje 
   if (ang_x > 0){
     if (ang_y > 0){
       // +,+
