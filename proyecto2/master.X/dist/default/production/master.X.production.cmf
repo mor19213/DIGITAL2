@@ -39,7 +39,7 @@ intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 5E 5E B 1
 bssCOMMON COMMON 1 78 78 3 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\danie\AppData\Local\Temp\s1f0.o
+$C:\Users\danie\AppData\Local\Temp\s4lk.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -89,27 +89,27 @@ STRING 6AC-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\master.X.production.o
-F cinit CODE >854:C:\Users\danie\AppData\Local\Temp\s1f0.s
-F cinit CODE >857:C:\Users\danie\AppData\Local\Temp\s1f0.s
-F cinit CODE >910:C:\Users\danie\AppData\Local\Temp\s1f0.s
-10 cinit CODE >911:C:\Users\danie\AppData\Local\Temp\s1f0.s
-11 cinit CODE >912:C:\Users\danie\AppData\Local\Temp\s1f0.s
-12 cinit CODE >915:C:\Users\danie\AppData\Local\Temp\s1f0.s
-13 cinit CODE >916:C:\Users\danie\AppData\Local\Temp\s1f0.s
-14 cinit CODE >917:C:\Users\danie\AppData\Local\Temp\s1f0.s
-15 cinit CODE >918:C:\Users\danie\AppData\Local\Temp\s1f0.s
-16 cinit CODE >919:C:\Users\danie\AppData\Local\Temp\s1f0.s
-17 cinit CODE >920:C:\Users\danie\AppData\Local\Temp\s1f0.s
-18 cinit CODE >921:C:\Users\danie\AppData\Local\Temp\s1f0.s
-19 cinit CODE >922:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1A cinit CODE >923:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1B cinit CODE >924:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1C cinit CODE >925:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1D cinit CODE >926:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1E cinit CODE >927:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1F cinit CODE >933:C:\Users\danie\AppData\Local\Temp\s1f0.s
-1F cinit CODE >935:C:\Users\danie\AppData\Local\Temp\s1f0.s
-20 cinit CODE >936:C:\Users\danie\AppData\Local\Temp\s1f0.s
+F cinit CODE >854:C:\Users\danie\AppData\Local\Temp\s4lk.s
+F cinit CODE >857:C:\Users\danie\AppData\Local\Temp\s4lk.s
+F cinit CODE >910:C:\Users\danie\AppData\Local\Temp\s4lk.s
+10 cinit CODE >911:C:\Users\danie\AppData\Local\Temp\s4lk.s
+11 cinit CODE >912:C:\Users\danie\AppData\Local\Temp\s4lk.s
+12 cinit CODE >915:C:\Users\danie\AppData\Local\Temp\s4lk.s
+13 cinit CODE >916:C:\Users\danie\AppData\Local\Temp\s4lk.s
+14 cinit CODE >917:C:\Users\danie\AppData\Local\Temp\s4lk.s
+15 cinit CODE >918:C:\Users\danie\AppData\Local\Temp\s4lk.s
+16 cinit CODE >919:C:\Users\danie\AppData\Local\Temp\s4lk.s
+17 cinit CODE >920:C:\Users\danie\AppData\Local\Temp\s4lk.s
+18 cinit CODE >921:C:\Users\danie\AppData\Local\Temp\s4lk.s
+19 cinit CODE >922:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1A cinit CODE >923:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1B cinit CODE >924:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1C cinit CODE >925:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1D cinit CODE >926:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1E cinit CODE >927:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1F cinit CODE >933:C:\Users\danie\AppData\Local\Temp\s4lk.s
+1F cinit CODE >935:C:\Users\danie\AppData\Local\Temp\s4lk.s
+20 cinit CODE >936:C:\Users\danie\AppData\Local\Temp\s4lk.s
 4 intentry CODE >61:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 476 text18 CODE >61:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 476 text18 CODE >62:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
@@ -133,7 +133,7 @@ F cinit CODE >910:C:\Users\danie\AppData\Local\Temp\s1f0.s
 4BD text18 CODE >88:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 4C2 text18 CODE >91:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 4C4 text18 CODE >92:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4C4 text18 CODE >95:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4C4 text18 CODE >94:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 683 text17 CODE >31:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
 683 text17 CODE >33:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
 68F text17 CODE >34:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
@@ -375,39 +375,39 @@ FF text11 CODE >112:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\
 680 text2 CODE >26:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 681 text2 CODE >27:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
 682 text2 CODE >29:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c
-4CB text1 CODE >122:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4CB text1 CODE >123:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4CE text1 CODE >124:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4CF text1 CODE >128:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4D2 text1 CODE >129:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4D5 text1 CODE >130:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4D8 text1 CODE >131:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4DB text1 CODE >132:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4DE text1 CODE >133:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4E1 text1 CODE >134:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4E4 text1 CODE >135:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4E7 text1 CODE >136:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4EB text1 CODE >137:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4EC text1 CODE >139:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4F0 text1 CODE >140:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4F5 text1 CODE >142:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4F8 text1 CODE >143:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4F9 text1 CODE >144:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4FB text1 CODE >145:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-4FF text1 CODE >148:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-500 text1 CODE >149:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-501 text1 CODE >150:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-502 text1 CODE >152:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-50F text1 CODE >153:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-514 text1 CODE >154:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4CB text1 CODE >117:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4CB text1 CODE >118:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4CE text1 CODE >119:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4CF text1 CODE >123:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4D2 text1 CODE >124:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4D5 text1 CODE >125:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4D8 text1 CODE >126:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4DB text1 CODE >127:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4DE text1 CODE >128:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4E1 text1 CODE >129:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4E4 text1 CODE >130:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4E7 text1 CODE >131:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4EB text1 CODE >132:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4EC text1 CODE >134:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4F0 text1 CODE >135:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4F5 text1 CODE >137:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4F8 text1 CODE >138:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4F9 text1 CODE >139:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4FB text1 CODE >140:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+4FF text1 CODE >143:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+500 text1 CODE >144:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+501 text1 CODE >145:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+502 text1 CODE >147:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+50F text1 CODE >148:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+514 text1 CODE >149:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+55C maintext CODE >98:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 55C maintext CODE >99:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-55C maintext CODE >100:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-561 maintext CODE >102:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-569 maintext CODE >104:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-56C maintext CODE >108:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-577 maintext CODE >109:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-582 maintext CODE >113:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
-58B maintext CODE >114:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+561 maintext CODE >101:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+569 maintext CODE >102:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+56C maintext CODE >105:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+577 maintext CODE >106:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+582 maintext CODE >108:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
+58B maintext CODE >109:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -436,11 +436,11 @@ _PEIE 5E 0 ABS 0 - dist/default/production\master.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\master.X.production.o
 _TXIE 464 0 ABS 0 - dist/default/production\master.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\master.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s1f0.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s4lk.o
 _main AB8 0 CODE 0 maintext dist/default/production\master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\master.X.production.o
 ADXL345_readX@data_x 59 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
-start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\s1f0.o
+start 18 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\s4lk.o
 __size_of___fldiv 0 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of___fltol 0 0 ABS 0 - dist/default/production\master.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\master.X.production.o
@@ -454,12 +454,12 @@ ADXL345_readX@acc_x 57 0 BANK0 1 cstackBANK0 dist/default/production\master.X.pr
 __Hpowerup 0 0 CODE 0 powerup -
 I2C_Master_Read@a 73 0 COMMON 1 cstackCOMMON dist/default/production\master.X.production.o
 ?_ADXL345_READ 22 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s1f0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s1f0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s1f0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s1f0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s1f0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s1f0.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s4lk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s4lk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s4lk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s4lk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s4lk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\s4lk.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\master.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -478,8 +478,8 @@ __end_of___lldiv 8EC 0 CODE 0 text4 dist/default/production\master.X.production.
 _ADXL345_WRITE BB0 0 CODE 0 text6 dist/default/production\master.X.production.o
 _ADXL345_readX 746 0 CODE 0 text8 dist/default/production\master.X.production.o
 _ADXL345_readY 670 0 CODE 0 text7 dist/default/production\master.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s1f0.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s1f0.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s4lk.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\s4lk.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\master.X.production.o
 ___fldiv@a 2A 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
 ___fldiv@b 2E 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
@@ -496,7 +496,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\master.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\master.X.production.o
 ADXL345_readY@acc_y 57 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s1f0.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\s4lk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -558,7 +558,7 @@ __end_of_isr 996 0 CODE 0 text18 dist/default/production\master.X.production.o
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\s1f0.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\s4lk.o
 __end_of___xxtofl 578 0 CODE 0 text9 dist/default/production\master.X.production.o
 ADXL345_WRITE@var 20 0 BANK0 1 cstackBANK0 dist/default/production\master.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -

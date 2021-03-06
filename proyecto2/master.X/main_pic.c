@@ -67,10 +67,10 @@ void __interrupt() isr(void){
   
     if (TXIF == 1){  
         if (bandera == 1){
-            TXREG = eje_x;
+            TXREG = eje_x;          // enviar eje x
             //bandera++;
-        } else if (bandera == 2) {
-            TXREG = eje_y;
+        } else if (bandera == 2) { 
+            TXREG = eje_y;          // enviar eje y
         }
         bandera = 0;
         
@@ -81,16 +81,15 @@ void __interrupt() isr(void){
     if(PIR1bits.RCIF == 1){
         PORTD = RCREG;
         PORTE = RCREG;
-        if (RCREG > 5){
-            if (RCREG < 25){
+        if (RCREG > 5){             // solo recibir valor luces piloto 
+            if (RCREG < 25){        // bandera para enviar eje x 
                 bandera = 1;
-            } else if (RCREG < 40){
+            } else if (RCREG < 40){ // bandera para enviar eje y 
                 bandera = 2;
             } 
         } else {
             bandera = 0;
         }
-        
     }
 }
 //*****************************************************************************
@@ -100,15 +99,11 @@ void main(void) {
     setup();
     while(1){
         if (CONTX > 15){
-            //if (bandera > 0){
-            TXIE = 1;
-            //}
+            TXIE = 1;           // prender interrupcion tx 
         }
         
         eje_x = ADXL345_readX();
         eje_y = ADXL345_readY();
-        
-        //eje_z = ADXL345_readZ();
         
         PORTB = ADXL345_readX();
         __delay_ms(200);   

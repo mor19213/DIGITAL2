@@ -421,140 +421,140 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 92:         }
 }
 [e :U 149 ]
-"94
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 94:     }
+"93
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 93:     }
 }
 [e :U 144 ]
-"95
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 95: }
+"94
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 94: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"99
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 99: void main(void) {
+"98
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 98: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"100
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 100:     setup();
+"99
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 99:     setup();
 [e ( _setup ..  ]
-"101
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 101:     while(1){
+"100
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 100:     while(1){
 [e :U 152 ]
 {
-"102
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 102:         if (CONTX > 15){
+"101
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 101:         if (CONTX > 15){
 [e $ ! > -> _CONTX `i -> 15 `i 154  ]
 {
-"104
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 104:             TXIE = 1;
+"102
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 102:             TXIE = 1;
 [e = _TXIE -> -> 1 `i `b ]
-"106
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 106:         }
+"103
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 103:         }
 }
 [e :U 154 ]
-"108
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 108:         eje_x = ADXL345_readX();
+"105
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 105:         eje_x = ADXL345_readX();
 [e = _eje_x -> ( _ADXL345_readX ..  `c ]
-"109
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 109:         eje_y = ADXL345_readY();
+"106
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 106:         eje_y = ADXL345_readY();
 [e = _eje_y -> ( _ADXL345_readY ..  `c ]
-"113
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 113:         PORTB = ADXL345_readX();
+"108
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 108:         PORTB = ADXL345_readX();
 [e = _PORTB -> ( _ADXL345_readX ..  `uc ]
-"114
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 114:         _delay((unsigned long)((200)*(4000000/4000.0)));
+"109
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 109:         _delay((unsigned long)((200)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"116
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 116:     }
+"111
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 111:     }
 }
 [e :U 151 ]
 [e $U 152  ]
 [e :U 153 ]
-"117
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 117:     return;
+"112
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 112:     return;
 [e $UE 150  ]
-"118
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 118: }
+"113
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 113: }
 [e :UE 150 ]
 }
-"122
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 122: void setup(void){
+"117
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 117: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"123
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 123:     ANSEL = 0;
+"118
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 118:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"124
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 124:     ANSELH = 0;
+"119
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 119:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"128
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 128:     TRISA = 0;
+"123
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 123:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"129
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 129:     PORTA = 0;
+"124
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 124:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"130
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 130:     TRISB = 0;
+"125
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 125:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"131
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 131:     PORTB = 0;
+"126
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 126:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"132
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 132:     TRISD = 0;
+"127
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 127:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"133
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 133:     PORTD = 0;
+"128
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 128:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"134
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 134:     TRISE = 0;
+"129
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 129:     TRISE = 0;
 [e = _TRISE -> -> 0 `i `uc ]
-"135
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 135:     PORTE = 0;
+"130
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 130:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"136
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 136:     prueba = 126;
+"131
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 131:     prueba = 126;
 [e = _prueba -> -> 126 `i `uc ]
-"137
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 137:     tx_var = 0;
+"132
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 132:     tx_var = 0;
 [e = _tx_var -> -> 0 `i `uc ]
-"139
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 139:     eje_x = 0xf8;
+"134
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 134:     eje_x = 0xf8;
 [e = _eje_x -> -> 248 `i `c ]
-"140
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 140:     initUSART();
+"135
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 135:     initUSART();
 [e ( _initUSART ..  ]
-"142
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 142:     OPTION_REGbits.T0CS = 0;
+"137
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 137:     OPTION_REGbits.T0CS = 0;
 [e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
-"143
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 143:     OPTION_REGbits.PSA = 0;
+"138
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 138:     OPTION_REGbits.PSA = 0;
 [e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
-"144
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 144:     OPTION_REGbits.PS = 111;
+"139
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 139:     OPTION_REGbits.PS = 111;
 [e = . . _OPTION_REGbits 0 0 -> -> 111 `i `uc ]
-"145
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 145:     TMR0 = 10;
+"140
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 140:     TMR0 = 10;
 [e = _TMR0 -> -> 10 `i `uc ]
-"148
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 148:     INTCONbits.GIE = 1;
+"143
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 143:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"149
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 149:     INTCONbits.T0IE = 1;
+"144
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 144:     INTCONbits.T0IE = 1;
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"150
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 150:     INTCONbits.T0IF = 0;
+"145
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 145:     INTCONbits.T0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"152
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 152:     I2C_Master_Init(100000);
+"147
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 147:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"153
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 153:     ADXL345_init();
+"148
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 148:     ADXL345_init();
 [e ( _ADXL345_init ..  ]
-"154
-[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 154: }
+"149
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 149: }
 [e :UE 155 ]
 }

@@ -2764,7 +2764,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
         } else {
             bandera = 0;
         }
-
     }
 }
 
@@ -2774,15 +2773,11 @@ void main(void) {
     setup();
     while(1){
         if (CONTX > 15){
-
             TXIE = 1;
-
         }
 
         eje_x = ADXL345_readX();
         eje_y = ADXL345_readY();
-
-
 
         PORTB = ADXL345_readX();
         _delay((unsigned long)((200)*(4000000/4000.0)));

@@ -107,25 +107,25 @@ void I2C_Slave_Init(uint8_t address)
 // ADXL345
 //******************************************************************************
 void ADXL345_init(void){
-    ADXL345_WRITE(DATA_FOR, 0x0B);
+    ADXL345_WRITE(DATA_FOR, 0x0B);  // formato del dato 
     __delay_ms(2);
-    ADXL345_WRITE(POWER_CTL, 0x08);
+    ADXL345_WRITE(POWER_CTL, 0x08); // registro power 
     __delay_ms(2);
 }
 signed short ADXL345_READ(uint8_t var){
     signed short leido;
     I2C_Master_Start();
-    I2C_Master_Write(WRITE_REG);
-    I2C_Master_Write(var);
-    I2C_Master_Start();
-    I2C_Master_Write(READ_REG);
-    leido = I2C_Master_Read(0);
+    I2C_Master_Write(WRITE_REG);    // escribir registro Write 
+    I2C_Master_Write(var);          // Data que se quiere leer
+    I2C_Master_Start();             
+    I2C_Master_Write(READ_REG);     // registro lectura
+    leido = I2C_Master_Read(0);     // leer 
     I2C_Master_Stop();
     return leido;
 }
 void ADXL345_WRITE(uint8_t var, uint8_t data){
     I2C_Master_Start();
-    I2C_Master_Write(WRITE_REG);
+    I2C_Master_Write(WRITE_REG);        // registro escritura
     I2C_Master_Write(var);
     I2C_Master_Write(data);
     I2C_Master_Stop();
@@ -135,9 +135,9 @@ signed short ADXL345_readX(void){
      int8_t data_x[2];
      int16_t accel_x;
      signed short acc_x;
-     data_x[0] = ADXL345_READ(DATAX0);
+     data_x[0] = ADXL345_READ(DATAX0);      // obtener 2 bytes data x
      data_x[1] = ADXL345_READ(DATAX1);
-     accel_x = (data_x[1]*256)+(data_x[0]);
+     accel_x = (data_x[1]*256)+(data_x[0]); // unir dos bytes 
      acc_x = (accel_x)/16.384;
      return acc_x;
 }
@@ -145,9 +145,9 @@ signed short ADXL345_readY(void){
      int8_t data_y[2];
      int16_t accel_y;
      signed short acc_y;
-     data_y[0] = ADXL345_READ(DATAY0);
+     data_y[0] = ADXL345_READ(DATAY0); // obtener 2 bytes data y
      data_y[1] = ADXL345_READ(DATAY1);
-     accel_y = (data_y[1]*256)+(data_y[0]);
+     accel_y = (data_y[1]*256)+(data_y[0]); // unir dos bytes
      acc_y = (accel_y)/16.384;
      return acc_y;
 }
@@ -155,9 +155,9 @@ signed short ADXL345_readZ(void){
      int8_t data_z[2];
      int16_t accel_z;
      signed short acc_z;
-     data_z[0] = ADXL345_READ(DATAZ0);
+     data_z[0] = ADXL345_READ(DATAZ0);  // obtener 2 bytes data z 
      data_z[1] = ADXL345_READ(DATAZ1);
-     accel_z = (data_z[1]*256)+(data_z[0]);
+     accel_z = (data_z[1]*256)+(data_z[0]); // unir dos bytes 
      acc_z = (accel_z)/16.384;
      return acc_z;
 }

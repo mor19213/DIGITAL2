@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Fri Mar 05 21:14:38 2021
+                                                                                               Sat Mar 06 00:02:29 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -762,7 +762,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    748 ;;
    749 ;; *************** function _main *****************
    750 ;; Defined at:
-   751 ;;		line 99 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
+   751 ;;		line 98 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
    752 ;; Parameters:    Size  Location     Type
    753 ;;		None
    754 ;; Auto vars:     Size  Location     Type
@@ -799,12 +799,12 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    785                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
    786                           
    787                           
-   788                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 100:     setup(
-      +                          );
+   788                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 99:     setup()
+      +                          ;
    789  055C  120A  118A  24CB  120A  118A  	fcall	_setup
    790  0561                     l1854:
    791                           
-   792                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 102:         if
+   792                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 101:         if
       +                           (CONTX > 15){
    793  0561  3010               	movlw	16
    794  0562  1283               	bcf	3,5	;RP0=0, select bank0
@@ -818,14 +818,14 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    802  0569                     u1720:
    803  0569                     l1856:
    804                           
-   805                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 104:           
+   805                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 102:           
       +                            TXIE = 1;
    806  0569  1683               	bsf	3,5	;RP0=1, select bank1
    807  056A  1303               	bcf	3,6	;RP1=0, select bank1
    808  056B  160C               	bsf	12,4	;volatile
    809  056C                     l1858:
    810                           
-   811                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 108:         ej
+   811                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 105:         ej
       +                          e_x = ADXL345_readX();
    812  056C  120A  118A  23A3  120A  118A  	fcall	_ADXL345_readX
    813  0571  1283               	bcf	3,5	;RP0=0, select bank0
@@ -835,7 +835,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    817  0575  085B               	movf	??_main,w
    818  0576  00EA               	movwf	_eje_x
    819                           
-   820                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 109:         ej
+   820                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 106:         ej
       +                          e_y = ADXL345_readY();
    821  0577  120A  118A  2338  120A  118A  	fcall	_ADXL345_readY
    822  057C  1283               	bcf	3,5	;RP0=0, select bank0
@@ -845,7 +845,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    826  0580  085B               	movf	??_main,w
    827  0581  00E8               	movwf	_eje_y
    828                           
-   829                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 113:         PO
+   829                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 108:         PO
       +                          RTB = ADXL345_readX();
    830  0582  120A  118A  23A3  120A  118A  	fcall	_ADXL345_readX
    831  0587  1283               	bcf	3,5	;RP0=0, select bank0
@@ -854,7 +854,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    834  058A  0086               	movwf	6	;volatile
    835  058B                     l1860:
    836                           
-   837                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 114:         _d
+   837                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 109:         _d
       +                          elay((unsigned long)((200)*(4000000/4000.0)));
    838  058B  3002               	movlw	2
    839  058C  1283               	bcf	3,5	;RP0=0, select bank0
@@ -880,7 +880,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    859  04CB                     __ptext1:	
    860 ;; *************** function _setup *****************
    861 ;; Defined at:
-   862 ;;		line 122 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
+   862 ;;		line 117 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
    863 ;; Parameters:    Size  Location     Type
    864 ;;		None
    865 ;; Auto vars:     Size  Location     Type
@@ -918,66 +918,66 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    897                           ; Regs used in _setup: [wreg+status,2+status,0+pclath+cstack]
    898                           
    899                           
-   900                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 123:     ANSEL 
+   900                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 118:     ANSEL 
       +                          = 0;
    901  04CB  1683               	bsf	3,5	;RP0=1, select bank3
    902  04CC  1703               	bsf	3,6	;RP1=1, select bank3
    903  04CD  0188               	clrf	8	;volatile
    904                           
-   905                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 124:     ANSELH
+   905                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 119:     ANSELH
       +                           = 0;
    906  04CE  0189               	clrf	9	;volatile
    907                           
-   908                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 128:     TRISA 
+   908                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 123:     TRISA 
       +                          = 0;
    909  04CF  1683               	bsf	3,5	;RP0=1, select bank1
    910  04D0  1303               	bcf	3,6	;RP1=0, select bank1
    911  04D1  0185               	clrf	5	;volatile
    912                           
-   913                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 129:     PORTA 
+   913                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 124:     PORTA 
       +                          = 0;
    914  04D2  1283               	bcf	3,5	;RP0=0, select bank0
    915  04D3  1303               	bcf	3,6	;RP1=0, select bank0
    916  04D4  0185               	clrf	5	;volatile
    917                           
-   918                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 130:     TRISB 
+   918                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 125:     TRISB 
       +                          = 0;
    919  04D5  1683               	bsf	3,5	;RP0=1, select bank1
    920  04D6  1303               	bcf	3,6	;RP1=0, select bank1
    921  04D7  0186               	clrf	6	;volatile
    922                           
-   923                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 131:     PORTB 
+   923                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 126:     PORTB 
       +                          = 0;
    924  04D8  1283               	bcf	3,5	;RP0=0, select bank0
    925  04D9  1303               	bcf	3,6	;RP1=0, select bank0
    926  04DA  0186               	clrf	6	;volatile
    927                           
-   928                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 132:     TRISD 
+   928                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 127:     TRISD 
       +                          = 0;
    929  04DB  1683               	bsf	3,5	;RP0=1, select bank1
    930  04DC  1303               	bcf	3,6	;RP1=0, select bank1
    931  04DD  0188               	clrf	8	;volatile
    932                           
-   933                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 133:     PORTD 
+   933                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 128:     PORTD 
       +                          = 0;
    934  04DE  1283               	bcf	3,5	;RP0=0, select bank0
    935  04DF  1303               	bcf	3,6	;RP1=0, select bank0
    936  04E0  0188               	clrf	8	;volatile
    937                           
-   938                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 134:     TRISE 
+   938                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 129:     TRISE 
       +                          = 0;
    939  04E1  1683               	bsf	3,5	;RP0=1, select bank1
    940  04E2  1303               	bcf	3,6	;RP1=0, select bank1
    941  04E3  0189               	clrf	9	;volatile
    942                           
-   943                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 135:     PORTE 
+   943                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 130:     PORTE 
       +                          = 0;
    944  04E4  1283               	bcf	3,5	;RP0=0, select bank0
    945  04E5  1303               	bcf	3,6	;RP1=0, select bank0
    946  04E6  0189               	clrf	9	;volatile
    947  04E7                     l1808:
    948                           
-   949                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 136:     prueba
+   949                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 131:     prueba
       +                           = 126;
    950  04E7  307E               	movlw	126
    951  04E8  00B1               	movwf	??_setup
@@ -985,11 +985,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    953  04EA  00E9               	movwf	_prueba
    954  04EB                     l1810:
    955                           
-   956                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 137:     tx_var
+   956                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 132:     tx_var
       +                           = 0;
    957  04EB  01DE               	clrf	_tx_var
    958                           
-   959                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 139:     eje_x 
+   959                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 134:     eje_x 
       +                          = 0xf8;
    960  04EC  30F8               	movlw	248
    961  04ED  00B1               	movwf	??_setup
@@ -997,30 +997,30 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    963  04EF  00EA               	movwf	_eje_x
    964  04F0                     l1812:
    965                           
-   966                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 140:     initUS
+   966                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 135:     initUS
       +                          ART();
    967  04F0  120A  118A  2666  120A  118A  	fcall	_initUSART
    968  04F5                     l1814:
    969                           
-   970                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 142:     OPTION
+   970                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 137:     OPTION
       +                          _REGbits.T0CS = 0;
    971  04F5  1683               	bsf	3,5	;RP0=1, select bank1
    972  04F6  1303               	bcf	3,6	;RP1=0, select bank1
    973  04F7  1281               	bcf	1,5	;volatile
    974  04F8                     l1816:
    975                           
-   976                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 143:     OPTION
+   976                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 138:     OPTION
       +                          _REGbits.PSA = 0;
    977  04F8  1181               	bcf	1,3	;volatile
    978  04F9                     l1818:
    979                           
-   980                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 144:     OPTION
+   980                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 139:     OPTION
       +                          _REGbits.PS = 111;
    981  04F9  3007               	movlw	7
    982  04FA  0481               	iorwf	1,f	;volatile
    983  04FB                     l1820:
    984                           
-   985                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 145:     TMR0 =
+   985                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 140:     TMR0 =
       +                           10;
    986  04FB  300A               	movlw	10
    987  04FC  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1028,22 +1028,22 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    989  04FE  0081               	movwf	1	;volatile
    990  04FF                     l1822:
    991                           
-   992                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 148:     INTCON
+   992                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 143:     INTCON
       +                          bits.GIE = 1;
    993  04FF  178B               	bsf	11,7	;volatile
    994  0500                     l1824:
    995                           
-   996                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 149:     INTCON
+   996                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 144:     INTCON
       +                          bits.T0IE = 1;
    997  0500  168B               	bsf	11,5	;volatile
    998  0501                     l1826:
    999                           
-  1000                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 150:     INTCON
+  1000                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 145:     INTCON
       +                          bits.T0IF = 0;
   1001  0501  110B               	bcf	11,2	;volatile
   1002  0502                     l1828:
   1003                           
-  1004                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 152:     I2C_Ma
+  1004                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 147:     I2C_Ma
       +                          ster_Init(100000);
   1005  0502  3000               	movlw	0
   1006  0503  00B0               	movwf	I2C_Master_Init@c+3
@@ -1056,7 +1056,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1013  050A  120A  118A  259E  120A  118A  	fcall	_I2C_Master_Init
   1014  050F                     l1830:
   1015                           
-  1016                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 153:     ADXL34
+  1016                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 148:     ADXL34
       +                          5_init();
   1017  050F  120A  118A  2639  120A  118A  	fcall	_ADXL345_init
   1018  0514                     l110:
@@ -4119,7 +4119,7 @@ DATA                 0      0      56      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Fri Mar 05 21:14:38 2021
+Symbol Table                                                                                   Sat Mar 06 00:02:29 2021
 
              ___fldiv@aexp 0043               ___fldiv@bexp 0042               ___fldiv@sign 003B  
                        _xH 0065                         _yH 0063                         _xL 0064  
