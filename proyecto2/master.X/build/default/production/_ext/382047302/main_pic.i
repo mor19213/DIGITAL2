@@ -2753,6 +2753,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 
     if(PIR1bits.RCIF == 1){
+        PORTD = RCREG;
         PORTE = RCREG;
         if (RCREG > 5){
             if (RCREG < 25){

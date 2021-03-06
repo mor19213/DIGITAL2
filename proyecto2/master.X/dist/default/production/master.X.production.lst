@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Mar 04 19:17:46 2021
+                                                                                               Fri Mar 05 21:14:38 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -401,11 +401,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    387  0013                     _SSPBUF	set	19
    388  0014                     _SSPCON	set	20
    389  0001                     _TMR0	set	1
-   390  0008                     _PORTD	set	8
-   391  0005                     _PORTA	set	5
-   392  0006                     _PORTB	set	6
+   390  0005                     _PORTA	set	5
+   391  0006                     _PORTB	set	6
+   392  0009                     _PORTE	set	9
    393  001A                     _RCREG	set	26
-   394  0009                     _PORTE	set	9
+   394  0008                     _PORTD	set	8
    395  000C                     _PIR1bits	set	12
    396  0019                     _TXREG	set	25
    397  000B                     _INTCONbits	set	11
@@ -465,7 +465,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    451                           
    452  001F                     __end_of__initialization:
    453  001F  0183               	clrf	3
-   454  0020  120A  118A  2D5A   	ljmp	_main	;jump to C main() function
+   454  0020  120A  118A  2D5C   	ljmp	_main	;jump to C main() function
    455                           
    456                           	psect	bssCOMMON
    457  0078                     __pbssCOMMON:
@@ -756,13 +756,13 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    742  005B                     	ds	3
    743                           
    744                           	psect	maintext
-   745  055A                     __pmaintext:	
+   745  055C                     __pmaintext:	
    746 ;;
    747 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
    748 ;;
    749 ;; *************** function _main *****************
    750 ;; Defined at:
-   751 ;;		line 98 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
+   751 ;;		line 99 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
    752 ;; Parameters:    Size  Location     Type
    753 ;;		None
    754 ;; Auto vars:     Size  Location     Type
@@ -793,94 +793,94 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    779                           
    780                           
    781                           ;psect for function _main
-   782  055A                     _main:
-   783  055A                     l1852:	
+   782  055C                     _main:
+   783  055C                     l1852:	
    784                           ;incstack = 0
    785                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
    786                           
    787                           
-   788                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 99:     setup()
-      +                          ;
-   789  055A  120A  118A  24C9  120A  118A  	fcall	_setup
-   790  055F                     l1854:
+   788                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 100:     setup(
+      +                          );
+   789  055C  120A  118A  24CB  120A  118A  	fcall	_setup
+   790  0561                     l1854:
    791                           
-   792                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 101:         if
+   792                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 102:         if
       +                           (CONTX > 15){
-   793  055F  3010               	movlw	16
-   794  0560  1283               	bcf	3,5	;RP0=0, select bank0
-   795  0561  1303               	bcf	3,6	;RP1=0, select bank0
-   796  0562  025F               	subwf	_CONTX,w
-   797  0563  1C03               	skipc
-   798  0564  2D66               	goto	u1721
-   799  0565  2D67               	goto	u1720
-   800  0566                     u1721:
-   801  0566  2D6A               	goto	l1858
-   802  0567                     u1720:
-   803  0567                     l1856:
+   793  0561  3010               	movlw	16
+   794  0562  1283               	bcf	3,5	;RP0=0, select bank0
+   795  0563  1303               	bcf	3,6	;RP1=0, select bank0
+   796  0564  025F               	subwf	_CONTX,w
+   797  0565  1C03               	skipc
+   798  0566  2D68               	goto	u1721
+   799  0567  2D69               	goto	u1720
+   800  0568                     u1721:
+   801  0568  2D6C               	goto	l1858
+   802  0569                     u1720:
+   803  0569                     l1856:
    804                           
-   805                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 103:           
+   805                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 104:           
       +                            TXIE = 1;
-   806  0567  1683               	bsf	3,5	;RP0=1, select bank1
-   807  0568  1303               	bcf	3,6	;RP1=0, select bank1
-   808  0569  160C               	bsf	12,4	;volatile
-   809  056A                     l1858:
+   806  0569  1683               	bsf	3,5	;RP0=1, select bank1
+   807  056A  1303               	bcf	3,6	;RP1=0, select bank1
+   808  056B  160C               	bsf	12,4	;volatile
+   809  056C                     l1858:
    810                           
-   811                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 107:         ej
+   811                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 108:         ej
       +                          e_x = ADXL345_readX();
-   812  056A  120A  118A  23A3  120A  118A  	fcall	_ADXL345_readX
-   813  056F  1283               	bcf	3,5	;RP0=0, select bank0
-   814  0570  1303               	bcf	3,6	;RP1=0, select bank0
-   815  0571  084F               	movf	?_ADXL345_readX,w
-   816  0572  00DB               	movwf	??_main
-   817  0573  085B               	movf	??_main,w
-   818  0574  00EA               	movwf	_eje_x
+   812  056C  120A  118A  23A3  120A  118A  	fcall	_ADXL345_readX
+   813  0571  1283               	bcf	3,5	;RP0=0, select bank0
+   814  0572  1303               	bcf	3,6	;RP1=0, select bank0
+   815  0573  084F               	movf	?_ADXL345_readX,w
+   816  0574  00DB               	movwf	??_main
+   817  0575  085B               	movf	??_main,w
+   818  0576  00EA               	movwf	_eje_x
    819                           
-   820                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 108:         ej
+   820                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 109:         ej
       +                          e_y = ADXL345_readY();
-   821  0575  120A  118A  2338  120A  118A  	fcall	_ADXL345_readY
-   822  057A  1283               	bcf	3,5	;RP0=0, select bank0
-   823  057B  1303               	bcf	3,6	;RP1=0, select bank0
-   824  057C  084F               	movf	?_ADXL345_readY,w
-   825  057D  00DB               	movwf	??_main
-   826  057E  085B               	movf	??_main,w
-   827  057F  00E8               	movwf	_eje_y
+   821  0577  120A  118A  2338  120A  118A  	fcall	_ADXL345_readY
+   822  057C  1283               	bcf	3,5	;RP0=0, select bank0
+   823  057D  1303               	bcf	3,6	;RP1=0, select bank0
+   824  057E  084F               	movf	?_ADXL345_readY,w
+   825  057F  00DB               	movwf	??_main
+   826  0580  085B               	movf	??_main,w
+   827  0581  00E8               	movwf	_eje_y
    828                           
-   829                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 112:         PO
+   829                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 113:         PO
       +                          RTB = ADXL345_readX();
-   830  0580  120A  118A  23A3  120A  118A  	fcall	_ADXL345_readX
-   831  0585  1283               	bcf	3,5	;RP0=0, select bank0
-   832  0586  1303               	bcf	3,6	;RP1=0, select bank0
-   833  0587  084F               	movf	?_ADXL345_readX,w
-   834  0588  0086               	movwf	6	;volatile
-   835  0589                     l1860:
+   830  0582  120A  118A  23A3  120A  118A  	fcall	_ADXL345_readX
+   831  0587  1283               	bcf	3,5	;RP0=0, select bank0
+   832  0588  1303               	bcf	3,6	;RP1=0, select bank0
+   833  0589  084F               	movf	?_ADXL345_readX,w
+   834  058A  0086               	movwf	6	;volatile
+   835  058B                     l1860:
    836                           
-   837                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 113:         _d
+   837                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 114:         _d
       +                          elay((unsigned long)((200)*(4000000/4000.0)));
-   838  0589  3002               	movlw	2
-   839  058A  1283               	bcf	3,5	;RP0=0, select bank0
-   840  058B  1303               	bcf	3,6	;RP1=0, select bank0
-   841  058C  00DD               	movwf	??_main+2
-   842  058D  3004               	movlw	4
-   843  058E  00DC               	movwf	??_main+1
-   844  058F  30B9               	movlw	185
-   845  0590  00DB               	movwf	??_main
-   846  0591                     u1737:
-   847  0591  0BDB               	decfsz	??_main,f
-   848  0592  2D91               	goto	u1737
-   849  0593  0BDC               	decfsz	??_main+1,f
-   850  0594  2D91               	goto	u1737
-   851  0595  0BDD               	decfsz	??_main+2,f
-   852  0596  2D91               	goto	u1737
-   853  0597  2D98               	nop2
-   854  0598  2D5F               	goto	l1854
-   855  0599  120A  118A  280C   	ljmp	start
-   856  059C                     __end_of_main:
+   838  058B  3002               	movlw	2
+   839  058C  1283               	bcf	3,5	;RP0=0, select bank0
+   840  058D  1303               	bcf	3,6	;RP1=0, select bank0
+   841  058E  00DD               	movwf	??_main+2
+   842  058F  3004               	movlw	4
+   843  0590  00DC               	movwf	??_main+1
+   844  0591  30B9               	movlw	185
+   845  0592  00DB               	movwf	??_main
+   846  0593                     u1737:
+   847  0593  0BDB               	decfsz	??_main,f
+   848  0594  2D93               	goto	u1737
+   849  0595  0BDC               	decfsz	??_main+1,f
+   850  0596  2D93               	goto	u1737
+   851  0597  0BDD               	decfsz	??_main+2,f
+   852  0598  2D93               	goto	u1737
+   853  0599  2D9A               	nop2
+   854  059A  2D61               	goto	l1854
+   855  059B  120A  118A  280C   	ljmp	start
+   856  059E                     __end_of_main:
    857                           
    858                           	psect	text1
-   859  04C9                     __ptext1:	
+   859  04CB                     __ptext1:	
    860 ;; *************** function _setup *****************
    861 ;; Defined at:
-   862 ;;		line 121 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
+   862 ;;		line 122 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c"
    863 ;; Parameters:    Size  Location     Type
    864 ;;		None
    865 ;; Auto vars:     Size  Location     Type
@@ -912,159 +912,159 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    891                           
    892                           
    893                           ;psect for function _setup
-   894  04C9                     _setup:
-   895  04C9                     l1806:	
+   894  04CB                     _setup:
+   895  04CB                     l1806:	
    896                           ;incstack = 0
    897                           ; Regs used in _setup: [wreg+status,2+status,0+pclath+cstack]
    898                           
    899                           
-   900                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 122:     ANSEL 
+   900                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 123:     ANSEL 
       +                          = 0;
-   901  04C9  1683               	bsf	3,5	;RP0=1, select bank3
-   902  04CA  1703               	bsf	3,6	;RP1=1, select bank3
-   903  04CB  0188               	clrf	8	;volatile
+   901  04CB  1683               	bsf	3,5	;RP0=1, select bank3
+   902  04CC  1703               	bsf	3,6	;RP1=1, select bank3
+   903  04CD  0188               	clrf	8	;volatile
    904                           
-   905                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 123:     ANSELH
+   905                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 124:     ANSELH
       +                           = 0;
-   906  04CC  0189               	clrf	9	;volatile
+   906  04CE  0189               	clrf	9	;volatile
    907                           
-   908                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 127:     TRISA 
+   908                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 128:     TRISA 
       +                          = 0;
-   909  04CD  1683               	bsf	3,5	;RP0=1, select bank1
-   910  04CE  1303               	bcf	3,6	;RP1=0, select bank1
-   911  04CF  0185               	clrf	5	;volatile
+   909  04CF  1683               	bsf	3,5	;RP0=1, select bank1
+   910  04D0  1303               	bcf	3,6	;RP1=0, select bank1
+   911  04D1  0185               	clrf	5	;volatile
    912                           
-   913                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 128:     PORTA 
+   913                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 129:     PORTA 
       +                          = 0;
-   914  04D0  1283               	bcf	3,5	;RP0=0, select bank0
-   915  04D1  1303               	bcf	3,6	;RP1=0, select bank0
-   916  04D2  0185               	clrf	5	;volatile
+   914  04D2  1283               	bcf	3,5	;RP0=0, select bank0
+   915  04D3  1303               	bcf	3,6	;RP1=0, select bank0
+   916  04D4  0185               	clrf	5	;volatile
    917                           
-   918                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 129:     TRISB 
+   918                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 130:     TRISB 
       +                          = 0;
-   919  04D3  1683               	bsf	3,5	;RP0=1, select bank1
-   920  04D4  1303               	bcf	3,6	;RP1=0, select bank1
-   921  04D5  0186               	clrf	6	;volatile
+   919  04D5  1683               	bsf	3,5	;RP0=1, select bank1
+   920  04D6  1303               	bcf	3,6	;RP1=0, select bank1
+   921  04D7  0186               	clrf	6	;volatile
    922                           
-   923                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 130:     PORTB 
+   923                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 131:     PORTB 
       +                          = 0;
-   924  04D6  1283               	bcf	3,5	;RP0=0, select bank0
-   925  04D7  1303               	bcf	3,6	;RP1=0, select bank0
-   926  04D8  0186               	clrf	6	;volatile
+   924  04D8  1283               	bcf	3,5	;RP0=0, select bank0
+   925  04D9  1303               	bcf	3,6	;RP1=0, select bank0
+   926  04DA  0186               	clrf	6	;volatile
    927                           
-   928                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 131:     TRISD 
+   928                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 132:     TRISD 
       +                          = 0;
-   929  04D9  1683               	bsf	3,5	;RP0=1, select bank1
-   930  04DA  1303               	bcf	3,6	;RP1=0, select bank1
-   931  04DB  0188               	clrf	8	;volatile
+   929  04DB  1683               	bsf	3,5	;RP0=1, select bank1
+   930  04DC  1303               	bcf	3,6	;RP1=0, select bank1
+   931  04DD  0188               	clrf	8	;volatile
    932                           
-   933                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 132:     PORTD 
+   933                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 133:     PORTD 
       +                          = 0;
-   934  04DC  1283               	bcf	3,5	;RP0=0, select bank0
-   935  04DD  1303               	bcf	3,6	;RP1=0, select bank0
-   936  04DE  0188               	clrf	8	;volatile
+   934  04DE  1283               	bcf	3,5	;RP0=0, select bank0
+   935  04DF  1303               	bcf	3,6	;RP1=0, select bank0
+   936  04E0  0188               	clrf	8	;volatile
    937                           
-   938                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 133:     TRISE 
+   938                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 134:     TRISE 
       +                          = 0;
-   939  04DF  1683               	bsf	3,5	;RP0=1, select bank1
-   940  04E0  1303               	bcf	3,6	;RP1=0, select bank1
-   941  04E1  0189               	clrf	9	;volatile
+   939  04E1  1683               	bsf	3,5	;RP0=1, select bank1
+   940  04E2  1303               	bcf	3,6	;RP1=0, select bank1
+   941  04E3  0189               	clrf	9	;volatile
    942                           
-   943                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 134:     PORTE 
+   943                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 135:     PORTE 
       +                          = 0;
-   944  04E2  1283               	bcf	3,5	;RP0=0, select bank0
-   945  04E3  1303               	bcf	3,6	;RP1=0, select bank0
-   946  04E4  0189               	clrf	9	;volatile
-   947  04E5                     l1808:
+   944  04E4  1283               	bcf	3,5	;RP0=0, select bank0
+   945  04E5  1303               	bcf	3,6	;RP1=0, select bank0
+   946  04E6  0189               	clrf	9	;volatile
+   947  04E7                     l1808:
    948                           
-   949                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 135:     prueba
+   949                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 136:     prueba
       +                           = 126;
-   950  04E5  307E               	movlw	126
-   951  04E6  00B1               	movwf	??_setup
-   952  04E7  0831               	movf	??_setup,w
-   953  04E8  00E9               	movwf	_prueba
-   954  04E9                     l1810:
+   950  04E7  307E               	movlw	126
+   951  04E8  00B1               	movwf	??_setup
+   952  04E9  0831               	movf	??_setup,w
+   953  04EA  00E9               	movwf	_prueba
+   954  04EB                     l1810:
    955                           
-   956                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 136:     tx_var
+   956                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 137:     tx_var
       +                           = 0;
-   957  04E9  01DE               	clrf	_tx_var
+   957  04EB  01DE               	clrf	_tx_var
    958                           
-   959                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 138:     eje_x 
+   959                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 139:     eje_x 
       +                          = 0xf8;
-   960  04EA  30F8               	movlw	248
-   961  04EB  00B1               	movwf	??_setup
-   962  04EC  0831               	movf	??_setup,w
-   963  04ED  00EA               	movwf	_eje_x
-   964  04EE                     l1812:
+   960  04EC  30F8               	movlw	248
+   961  04ED  00B1               	movwf	??_setup
+   962  04EE  0831               	movf	??_setup,w
+   963  04EF  00EA               	movwf	_eje_x
+   964  04F0                     l1812:
    965                           
-   966                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 139:     initUS
+   966                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 140:     initUS
       +                          ART();
-   967  04EE  120A  118A  2664  120A  118A  	fcall	_initUSART
-   968  04F3                     l1814:
+   967  04F0  120A  118A  2666  120A  118A  	fcall	_initUSART
+   968  04F5                     l1814:
    969                           
-   970                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 141:     OPTION
+   970                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 142:     OPTION
       +                          _REGbits.T0CS = 0;
-   971  04F3  1683               	bsf	3,5	;RP0=1, select bank1
-   972  04F4  1303               	bcf	3,6	;RP1=0, select bank1
-   973  04F5  1281               	bcf	1,5	;volatile
-   974  04F6                     l1816:
+   971  04F5  1683               	bsf	3,5	;RP0=1, select bank1
+   972  04F6  1303               	bcf	3,6	;RP1=0, select bank1
+   973  04F7  1281               	bcf	1,5	;volatile
+   974  04F8                     l1816:
    975                           
-   976                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 142:     OPTION
+   976                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 143:     OPTION
       +                          _REGbits.PSA = 0;
-   977  04F6  1181               	bcf	1,3	;volatile
-   978  04F7                     l1818:
+   977  04F8  1181               	bcf	1,3	;volatile
+   978  04F9                     l1818:
    979                           
-   980                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 143:     OPTION
+   980                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 144:     OPTION
       +                          _REGbits.PS = 111;
-   981  04F7  3007               	movlw	7
-   982  04F8  0481               	iorwf	1,f	;volatile
-   983  04F9                     l1820:
+   981  04F9  3007               	movlw	7
+   982  04FA  0481               	iorwf	1,f	;volatile
+   983  04FB                     l1820:
    984                           
-   985                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 144:     TMR0 =
+   985                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 145:     TMR0 =
       +                           10;
-   986  04F9  300A               	movlw	10
-   987  04FA  1283               	bcf	3,5	;RP0=0, select bank0
-   988  04FB  1303               	bcf	3,6	;RP1=0, select bank0
-   989  04FC  0081               	movwf	1	;volatile
-   990  04FD                     l1822:
+   986  04FB  300A               	movlw	10
+   987  04FC  1283               	bcf	3,5	;RP0=0, select bank0
+   988  04FD  1303               	bcf	3,6	;RP1=0, select bank0
+   989  04FE  0081               	movwf	1	;volatile
+   990  04FF                     l1822:
    991                           
-   992                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 147:     INTCON
+   992                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 148:     INTCON
       +                          bits.GIE = 1;
-   993  04FD  178B               	bsf	11,7	;volatile
-   994  04FE                     l1824:
+   993  04FF  178B               	bsf	11,7	;volatile
+   994  0500                     l1824:
    995                           
-   996                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 148:     INTCON
+   996                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 149:     INTCON
       +                          bits.T0IE = 1;
-   997  04FE  168B               	bsf	11,5	;volatile
-   998  04FF                     l1826:
+   997  0500  168B               	bsf	11,5	;volatile
+   998  0501                     l1826:
    999                           
-  1000                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 149:     INTCON
+  1000                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 150:     INTCON
       +                          bits.T0IF = 0;
-  1001  04FF  110B               	bcf	11,2	;volatile
-  1002  0500                     l1828:
+  1001  0501  110B               	bcf	11,2	;volatile
+  1002  0502                     l1828:
   1003                           
-  1004                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 151:     I2C_Ma
+  1004                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 152:     I2C_Ma
       +                          ster_Init(100000);
-  1005  0500  3000               	movlw	0
-  1006  0501  00B0               	movwf	I2C_Master_Init@c+3
-  1007  0502  3001               	movlw	1
-  1008  0503  00AF               	movwf	I2C_Master_Init@c+2
-  1009  0504  3086               	movlw	134
-  1010  0505  00AE               	movwf	I2C_Master_Init@c+1
-  1011  0506  30A0               	movlw	160
-  1012  0507  00AD               	movwf	I2C_Master_Init@c
-  1013  0508  120A  118A  259C  120A  118A  	fcall	_I2C_Master_Init
-  1014  050D                     l1830:
+  1005  0502  3000               	movlw	0
+  1006  0503  00B0               	movwf	I2C_Master_Init@c+3
+  1007  0504  3001               	movlw	1
+  1008  0505  00AF               	movwf	I2C_Master_Init@c+2
+  1009  0506  3086               	movlw	134
+  1010  0507  00AE               	movwf	I2C_Master_Init@c+1
+  1011  0508  30A0               	movlw	160
+  1012  0509  00AD               	movwf	I2C_Master_Init@c
+  1013  050A  120A  118A  259E  120A  118A  	fcall	_I2C_Master_Init
+  1014  050F                     l1830:
   1015                           
-  1016                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 152:     ADXL34
+  1016                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 153:     ADXL34
       +                          5_init();
-  1017  050D  120A  118A  2637  120A  118A  	fcall	_ADXL345_init
-  1018  0512                     l110:
-  1019  0512  0008               	return
-  1020  0513                     __end_of_setup:
+  1017  050F  120A  118A  2639  120A  118A  	fcall	_ADXL345_init
+  1018  0514                     l110:
+  1019  0514  0008               	return
+  1020  0515                     __end_of_setup:
   1021                           
   1022                           	psect	text2
-  1023  0664                     __ptext2:	
+  1023  0666                     __ptext2:	
   1024 ;; *************** function _initUSART *****************
   1025 ;; Defined at:
   1026 ;;		line 3 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c"
@@ -1097,102 +1097,102 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1053                           
   1054                           
   1055                           ;psect for function _initUSART
-  1056  0664                     _initUSART:
-  1057  0664                     l1304:	
+  1056  0666                     _initUSART:
+  1057  0666                     l1304:	
   1058                           ;incstack = 0
   1059                           ; Regs used in _initUSART: [wreg+status,2]
   1060                           
   1061                           
   1062                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 5:     TRISCbits.T
       +                          RISC6 = 0;
-  1063  0664  1683               	bsf	3,5	;RP0=1, select bank1
-  1064  0665  1303               	bcf	3,6	;RP1=0, select bank1
-  1065  0666  1307               	bcf	7,6	;volatile
+  1063  0666  1683               	bsf	3,5	;RP0=1, select bank1
+  1064  0667  1303               	bcf	3,6	;RP1=0, select bank1
+  1065  0668  1307               	bcf	7,6	;volatile
   1066                           
   1067                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 6:     TRISCbits.T
       +                          RISC7 = 1;
-  1068  0667  1787               	bsf	7,7	;volatile
-  1069  0668                     l1306:
+  1068  0669  1787               	bsf	7,7	;volatile
+  1069  066A                     l1306:
   1070                           
   1071                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 9:     SPBRG = 25;
-  1072  0668  3019               	movlw	25
-  1073  0669  0099               	movwf	25	;volatile
-  1074  066A                     l1308:
+  1072  066A  3019               	movlw	25
+  1073  066B  0099               	movwf	25	;volatile
+  1074  066C                     l1308:
   1075                           
   1076                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 10:     TXSTAbits.
       +                          BRGH = 1;
-  1077  066A  1518               	bsf	24,2	;volatile
-  1078  066B                     l1310:
+  1077  066C  1518               	bsf	24,2	;volatile
+  1078  066D                     l1310:
   1079                           
   1080                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 11:     BAUDCTLbit
       +                          s.BRG16 = 0;
-  1081  066B  1683               	bsf	3,5	;RP0=1, select bank3
-  1082  066C  1703               	bsf	3,6	;RP1=1, select bank3
-  1083  066D  1187               	bcf	7,3	;volatile
-  1084  066E                     l1312:
+  1081  066D  1683               	bsf	3,5	;RP0=1, select bank3
+  1082  066E  1703               	bsf	3,6	;RP1=1, select bank3
+  1083  066F  1187               	bcf	7,3	;volatile
+  1084  0670                     l1312:
   1085                           
   1086                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 12:     SPBRGH = 0
       +                          ;
-  1087  066E  1683               	bsf	3,5	;RP0=1, select bank1
-  1088  066F  1303               	bcf	3,6	;RP1=0, select bank1
-  1089  0670  019A               	clrf	26	;volatile
-  1090  0671                     l1314:
+  1087  0670  1683               	bsf	3,5	;RP0=1, select bank1
+  1088  0671  1303               	bcf	3,6	;RP1=0, select bank1
+  1089  0672  019A               	clrf	26	;volatile
+  1090  0673                     l1314:
   1091                           
   1092                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 15:     TXSTAbits.
       +                          SYNC = 0;
-  1093  0671  1218               	bcf	24,4	;volatile
-  1094  0672                     l1316:
+  1093  0673  1218               	bcf	24,4	;volatile
+  1094  0674                     l1316:
   1095                           
   1096                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 16:     RCSTAbits.
       +                          SPEN = 1;
-  1097  0672  1283               	bcf	3,5	;RP0=0, select bank0
-  1098  0673  1303               	bcf	3,6	;RP1=0, select bank0
-  1099  0674  1798               	bsf	24,7	;volatile
-  1100  0675                     l1318:
+  1097  0674  1283               	bcf	3,5	;RP0=0, select bank0
+  1098  0675  1303               	bcf	3,6	;RP1=0, select bank0
+  1099  0676  1798               	bsf	24,7	;volatile
+  1100  0677                     l1318:
   1101                           
   1102                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 17:     TXSTAbits.
       +                          TX9 = 0;
-  1103  0675  1683               	bsf	3,5	;RP0=1, select bank1
-  1104  0676  1303               	bcf	3,6	;RP1=0, select bank1
-  1105  0677  1318               	bcf	24,6	;volatile
-  1106  0678                     l1320:
+  1103  0677  1683               	bsf	3,5	;RP0=1, select bank1
+  1104  0678  1303               	bcf	3,6	;RP1=0, select bank1
+  1105  0679  1318               	bcf	24,6	;volatile
+  1106  067A                     l1320:
   1107                           
   1108                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 18:     TXSTAbits.
       +                          TXEN = 1;
-  1109  0678  1698               	bsf	24,5	;volatile
-  1110  0679                     l1322:
+  1109  067A  1698               	bsf	24,5	;volatile
+  1110  067B                     l1322:
   1111                           
   1112                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 21:     PIE1bits.R
       +                          CIE = 1;
-  1113  0679  168C               	bsf	12,5	;volatile
-  1114  067A                     l1324:
+  1113  067B  168C               	bsf	12,5	;volatile
+  1114  067C                     l1324:
   1115                           
   1116                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 22:     RCSTAbits.
       +                          RX9 = 0;
-  1117  067A  1283               	bcf	3,5	;RP0=0, select bank0
-  1118  067B  1303               	bcf	3,6	;RP1=0, select bank0
-  1119  067C  1318               	bcf	24,6	;volatile
-  1120  067D                     l1326:
+  1117  067C  1283               	bcf	3,5	;RP0=0, select bank0
+  1118  067D  1303               	bcf	3,6	;RP1=0, select bank0
+  1119  067E  1318               	bcf	24,6	;volatile
+  1120  067F                     l1326:
   1121                           
   1122                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 23:     RCSTAbits.
       +                          CREN = 1;
-  1123  067D  1618               	bsf	24,4	;volatile
-  1124  067E                     l1328:
+  1123  067F  1618               	bsf	24,4	;volatile
+  1124  0680                     l1328:
   1125                           
   1126                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 26:     INTCONbits
       +                          .GIE = 1;
-  1127  067E  178B               	bsf	11,7	;volatile
-  1128  067F                     l1330:
+  1127  0680  178B               	bsf	11,7	;volatile
+  1128  0681                     l1330:
   1129                           
   1130                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/USART.c: 27:     INTCONbits
       +                          .PEIE = 1;
-  1131  067F  170B               	bsf	11,6	;volatile
-  1132  0680                     l206:
-  1133  0680  0008               	return
-  1134  0681                     __end_of_initUSART:
+  1131  0681  170B               	bsf	11,6	;volatile
+  1132  0682                     l206:
+  1133  0682  0008               	return
+  1134  0683                     __end_of_initUSART:
   1135                           
   1136                           	psect	text3
-  1137  059C                     __ptext3:	
+  1137  059E                     __ptext3:	
   1138 ;; *************** function _I2C_Master_Init *****************
   1139 ;; Defined at:
   1140 ;;		line 14 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -1225,8 +1225,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1167                           
   1168                           
   1169                           ;psect for function _I2C_Master_Init
-  1170  059C                     _I2C_Master_Init:
-  1171  059C                     l1738:	
+  1170  059E                     _I2C_Master_Init:
+  1171  059E                     l1738:	
   1172                           ;incstack = 0
   1173                           ; Regs used in _I2C_Master_Init: [wreg+status,2+status,0+pclath+cstack]
   1174                           
@@ -1235,82 +1235,82 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
       +                          Init(const unsigned long c);C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/
       +                          I2C.c: 15: {;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 16:     
       +                          SSPCON = 0b00101000;
-  1177  059C  3028               	movlw	40
-  1178  059D  1283               	bcf	3,5	;RP0=0, select bank0
-  1179  059E  1303               	bcf	3,6	;RP1=0, select bank0
-  1180  059F  0094               	movwf	20	;volatile
-  1181  05A0                     l1740:
+  1177  059E  3028               	movlw	40
+  1178  059F  1283               	bcf	3,5	;RP0=0, select bank0
+  1179  05A0  1303               	bcf	3,6	;RP1=0, select bank0
+  1180  05A1  0094               	movwf	20	;volatile
+  1181  05A2                     l1740:
   1182                           
   1183                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 18:     SSPCON2 = 0;
-  1184  05A0  1683               	bsf	3,5	;RP0=1, select bank1
-  1185  05A1  1303               	bcf	3,6	;RP1=0, select bank1
-  1186  05A2  0191               	clrf	17	;volatile
-  1187  05A3                     l1742:
+  1184  05A2  1683               	bsf	3,5	;RP0=1, select bank1
+  1185  05A3  1303               	bcf	3,6	;RP1=0, select bank1
+  1186  05A4  0191               	clrf	17	;volatile
+  1187  05A5                     l1742:
   1188                           
   1189                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 19:     SSPADD = (40
       +                          00000/(4*c))-1;
-  1190  05A3  1283               	bcf	3,5	;RP0=0, select bank0
-  1191  05A4  1303               	bcf	3,6	;RP1=0, select bank0
-  1192  05A5  082D               	movf	I2C_Master_Init@c,w
-  1193  05A6  00F4               	movwf	??_I2C_Master_Init
-  1194  05A7  082E               	movf	I2C_Master_Init@c+1,w
-  1195  05A8  00F5               	movwf	??_I2C_Master_Init+1
-  1196  05A9  082F               	movf	I2C_Master_Init@c+2,w
-  1197  05AA  00F6               	movwf	??_I2C_Master_Init+2
-  1198  05AB  0830               	movf	I2C_Master_Init@c+3,w
-  1199  05AC  00F7               	movwf	??_I2C_Master_Init+3
-  1200  05AD  3002               	movlw	2
-  1201  05AE                     u1575:
-  1202  05AE  1003               	clrc
-  1203  05AF  0DF4               	rlf	??_I2C_Master_Init,f
-  1204  05B0  0DF5               	rlf	??_I2C_Master_Init+1,f
-  1205  05B1  0DF6               	rlf	??_I2C_Master_Init+2,f
-  1206  05B2  0DF7               	rlf	??_I2C_Master_Init+3,f
-  1207  05B3                     u1570:
-  1208  05B3  3EFF               	addlw	-1
-  1209  05B4  1D03               	skipz
-  1210  05B5  2DAE               	goto	u1575
-  1211  05B6  0877               	movf	??_I2C_Master_Init+3,w
-  1212  05B7  00A3               	movwf	___lldiv@divisor+3
-  1213  05B8  0876               	movf	??_I2C_Master_Init+2,w
-  1214  05B9  00A2               	movwf	___lldiv@divisor+2
-  1215  05BA  0875               	movf	??_I2C_Master_Init+1,w
-  1216  05BB  00A1               	movwf	___lldiv@divisor+1
-  1217  05BC  0874               	movf	??_I2C_Master_Init,w
-  1218  05BD  00A0               	movwf	___lldiv@divisor
-  1219  05BE  3000               	movlw	0
-  1220  05BF  00A7               	movwf	___lldiv@dividend+3
-  1221  05C0  303D               	movlw	61
-  1222  05C1  00A6               	movwf	___lldiv@dividend+2
-  1223  05C2  3009               	movlw	9
-  1224  05C3  00A5               	movwf	___lldiv@dividend+1
-  1225  05C4  3000               	movlw	0
-  1226  05C5  00A4               	movwf	___lldiv@dividend
-  1227  05C6  120A  118A  240E  120A  118A  	fcall	___lldiv
-  1228  05CB  1283               	bcf	3,5	;RP0=0, select bank0
-  1229  05CC  1303               	bcf	3,6	;RP1=0, select bank0
-  1230  05CD  0820               	movf	?___lldiv,w
-  1231  05CE  3EFF               	addlw	255
-  1232  05CF  1683               	bsf	3,5	;RP0=1, select bank1
-  1233  05D0  1303               	bcf	3,6	;RP1=0, select bank1
-  1234  05D1  0093               	movwf	19	;volatile
-  1235  05D2                     l1744:
+  1190  05A5  1283               	bcf	3,5	;RP0=0, select bank0
+  1191  05A6  1303               	bcf	3,6	;RP1=0, select bank0
+  1192  05A7  082D               	movf	I2C_Master_Init@c,w
+  1193  05A8  00F4               	movwf	??_I2C_Master_Init
+  1194  05A9  082E               	movf	I2C_Master_Init@c+1,w
+  1195  05AA  00F5               	movwf	??_I2C_Master_Init+1
+  1196  05AB  082F               	movf	I2C_Master_Init@c+2,w
+  1197  05AC  00F6               	movwf	??_I2C_Master_Init+2
+  1198  05AD  0830               	movf	I2C_Master_Init@c+3,w
+  1199  05AE  00F7               	movwf	??_I2C_Master_Init+3
+  1200  05AF  3002               	movlw	2
+  1201  05B0                     u1575:
+  1202  05B0  1003               	clrc
+  1203  05B1  0DF4               	rlf	??_I2C_Master_Init,f
+  1204  05B2  0DF5               	rlf	??_I2C_Master_Init+1,f
+  1205  05B3  0DF6               	rlf	??_I2C_Master_Init+2,f
+  1206  05B4  0DF7               	rlf	??_I2C_Master_Init+3,f
+  1207  05B5                     u1570:
+  1208  05B5  3EFF               	addlw	-1
+  1209  05B6  1D03               	skipz
+  1210  05B7  2DB0               	goto	u1575
+  1211  05B8  0877               	movf	??_I2C_Master_Init+3,w
+  1212  05B9  00A3               	movwf	___lldiv@divisor+3
+  1213  05BA  0876               	movf	??_I2C_Master_Init+2,w
+  1214  05BB  00A2               	movwf	___lldiv@divisor+2
+  1215  05BC  0875               	movf	??_I2C_Master_Init+1,w
+  1216  05BD  00A1               	movwf	___lldiv@divisor+1
+  1217  05BE  0874               	movf	??_I2C_Master_Init,w
+  1218  05BF  00A0               	movwf	___lldiv@divisor
+  1219  05C0  3000               	movlw	0
+  1220  05C1  00A7               	movwf	___lldiv@dividend+3
+  1221  05C2  303D               	movlw	61
+  1222  05C3  00A6               	movwf	___lldiv@dividend+2
+  1223  05C4  3009               	movlw	9
+  1224  05C5  00A5               	movwf	___lldiv@dividend+1
+  1225  05C6  3000               	movlw	0
+  1226  05C7  00A4               	movwf	___lldiv@dividend
+  1227  05C8  120A  118A  240E  120A  118A  	fcall	___lldiv
+  1228  05CD  1283               	bcf	3,5	;RP0=0, select bank0
+  1229  05CE  1303               	bcf	3,6	;RP1=0, select bank0
+  1230  05CF  0820               	movf	?___lldiv,w
+  1231  05D0  3EFF               	addlw	255
+  1232  05D1  1683               	bsf	3,5	;RP0=1, select bank1
+  1233  05D2  1303               	bcf	3,6	;RP1=0, select bank1
+  1234  05D3  0093               	movwf	19	;volatile
+  1235  05D4                     l1744:
   1236                           
   1237                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 20:     SSPSTAT = 0;
-  1238  05D2  0194               	clrf	20	;volatile
-  1239  05D3                     l1746:
+  1238  05D4  0194               	clrf	20	;volatile
+  1239  05D5                     l1746:
   1240                           
   1241                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 21:     TRISCbits.TR
       +                          ISC3 = 1;
-  1242  05D3  1587               	bsf	7,3	;volatile
-  1243  05D4                     l1748:
+  1242  05D5  1587               	bsf	7,3	;volatile
+  1243  05D6                     l1748:
   1244                           
   1245                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 22:     TRISCbits.TR
       +                          ISC4 = 1;
-  1246  05D4  1607               	bsf	7,4	;volatile
-  1247  05D5                     l143:
-  1248  05D5  0008               	return
-  1249  05D6                     __end_of_I2C_Master_Init:
+  1246  05D6  1607               	bsf	7,4	;volatile
+  1247  05D7                     l143:
+  1248  05D7  0008               	return
+  1249  05D8                     __end_of_I2C_Master_Init:
   1250                           
   1251                           	psect	text4
   1252  040E                     __ptext4:	
@@ -1483,7 +1483,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1419  0476                     __end_of___lldiv:
   1420                           
   1421                           	psect	text5
-  1422  0637                     __ptext5:	
+  1422  0639                     __ptext5:	
   1423 ;; *************** function _ADXL345_init *****************
   1424 ;; Defined at:
   1425 ;;		line 109 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -1516,69 +1516,69 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1452                           
   1453                           
   1454                           ;psect for function _ADXL345_init
-  1455  0637                     _ADXL345_init:
-  1456  0637                     l1750:	
+  1455  0639                     _ADXL345_init:
+  1456  0639                     l1750:	
   1457                           ;incstack = 0
   1458                           ; Regs used in _ADXL345_init: [wreg+status,2+status,0+pclath+cstack]
   1459                           
   1460                           
   1461                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 110:     ADXL345_WRI
       +                          TE(0x31, 0x0B);
-  1462  0637  300B               	movlw	11
-  1463  0638  1283               	bcf	3,5	;RP0=0, select bank0
-  1464  0639  1303               	bcf	3,6	;RP1=0, select bank0
-  1465  063A  00A1               	movwf	??_ADXL345_init
-  1466  063B  0821               	movf	??_ADXL345_init,w
-  1467  063C  00F5               	movwf	ADXL345_WRITE@data
-  1468  063D  3031               	movlw	49
-  1469  063E  120A  118A  25D6  120A  118A  	fcall	_ADXL345_WRITE
-  1470  0643                     l1752:
+  1462  0639  300B               	movlw	11
+  1463  063A  1283               	bcf	3,5	;RP0=0, select bank0
+  1464  063B  1303               	bcf	3,6	;RP1=0, select bank0
+  1465  063C  00A1               	movwf	??_ADXL345_init
+  1466  063D  0821               	movf	??_ADXL345_init,w
+  1467  063E  00F5               	movwf	ADXL345_WRITE@data
+  1468  063F  3031               	movlw	49
+  1469  0640  120A  118A  25D8  120A  118A  	fcall	_ADXL345_WRITE
+  1470  0645                     l1752:
   1471                           
   1472                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 111:     _delay((uns
       +                          igned long)((2)*(4000000/4000.0)));
-  1473  0643  3003               	movlw	3
-  1474  0644  1283               	bcf	3,5	;RP0=0, select bank0
-  1475  0645  1303               	bcf	3,6	;RP1=0, select bank0
-  1476  0646  00A2               	movwf	??_ADXL345_init+1
-  1477  0647  3097               	movlw	151
-  1478  0648  00A1               	movwf	??_ADXL345_init
-  1479  0649                     u1747:
-  1480  0649  0BA1               	decfsz	??_ADXL345_init,f
-  1481  064A  2E49               	goto	u1747
-  1482  064B  0BA2               	decfsz	??_ADXL345_init+1,f
-  1483  064C  2E49               	goto	u1747
-  1484  064D                     l1754:
+  1473  0645  3003               	movlw	3
+  1474  0646  1283               	bcf	3,5	;RP0=0, select bank0
+  1475  0647  1303               	bcf	3,6	;RP1=0, select bank0
+  1476  0648  00A2               	movwf	??_ADXL345_init+1
+  1477  0649  3097               	movlw	151
+  1478  064A  00A1               	movwf	??_ADXL345_init
+  1479  064B                     u1747:
+  1480  064B  0BA1               	decfsz	??_ADXL345_init,f
+  1481  064C  2E4B               	goto	u1747
+  1482  064D  0BA2               	decfsz	??_ADXL345_init+1,f
+  1483  064E  2E4B               	goto	u1747
+  1484  064F                     l1754:
   1485                           
   1486                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 112:     ADXL345_WRI
       +                          TE(0x2D, 0x08);
-  1487  064D  3008               	movlw	8
-  1488  064E  1283               	bcf	3,5	;RP0=0, select bank0
-  1489  064F  1303               	bcf	3,6	;RP1=0, select bank0
-  1490  0650  00A1               	movwf	??_ADXL345_init
-  1491  0651  0821               	movf	??_ADXL345_init,w
-  1492  0652  00F5               	movwf	ADXL345_WRITE@data
-  1493  0653  302D               	movlw	45
-  1494  0654  120A  118A  25D6  120A  118A  	fcall	_ADXL345_WRITE
+  1487  064F  3008               	movlw	8
+  1488  0650  1283               	bcf	3,5	;RP0=0, select bank0
+  1489  0651  1303               	bcf	3,6	;RP1=0, select bank0
+  1490  0652  00A1               	movwf	??_ADXL345_init
+  1491  0653  0821               	movf	??_ADXL345_init,w
+  1492  0654  00F5               	movwf	ADXL345_WRITE@data
+  1493  0655  302D               	movlw	45
+  1494  0656  120A  118A  25D8  120A  118A  	fcall	_ADXL345_WRITE
   1495                           
   1496                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 113:     _delay((uns
       +                          igned long)((2)*(4000000/4000.0)));
-  1497  0659  3003               	movlw	3
-  1498  065A  1283               	bcf	3,5	;RP0=0, select bank0
-  1499  065B  1303               	bcf	3,6	;RP1=0, select bank0
-  1500  065C  00A2               	movwf	??_ADXL345_init+1
-  1501  065D  3097               	movlw	151
-  1502  065E  00A1               	movwf	??_ADXL345_init
-  1503  065F                     u1757:
-  1504  065F  0BA1               	decfsz	??_ADXL345_init,f
-  1505  0660  2E5F               	goto	u1757
-  1506  0661  0BA2               	decfsz	??_ADXL345_init+1,f
-  1507  0662  2E5F               	goto	u1757
-  1508  0663                     l172:
-  1509  0663  0008               	return
-  1510  0664                     __end_of_ADXL345_init:
+  1497  065B  3003               	movlw	3
+  1498  065C  1283               	bcf	3,5	;RP0=0, select bank0
+  1499  065D  1303               	bcf	3,6	;RP1=0, select bank0
+  1500  065E  00A2               	movwf	??_ADXL345_init+1
+  1501  065F  3097               	movlw	151
+  1502  0660  00A1               	movwf	??_ADXL345_init
+  1503  0661                     u1757:
+  1504  0661  0BA1               	decfsz	??_ADXL345_init,f
+  1505  0662  2E61               	goto	u1757
+  1506  0663  0BA2               	decfsz	??_ADXL345_init+1,f
+  1507  0664  2E61               	goto	u1757
+  1508  0665                     l172:
+  1509  0665  0008               	return
+  1510  0666                     __end_of_ADXL345_init:
   1511                           
   1512                           	psect	text6
-  1513  05D6                     __ptext6:	
+  1513  05D8                     __ptext6:	
   1514 ;; *************** function _ADXL345_WRITE *****************
   1515 ;; Defined at:
   1516 ;;		line 126 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -1614,58 +1614,58 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1546                           
   1547                           
   1548                           ;psect for function _ADXL345_WRITE
-  1549  05D6                     _ADXL345_WRITE:
+  1549  05D8                     _ADXL345_WRITE:
   1550                           
   1551                           ;incstack = 0
   1552                           ; Regs used in _ADXL345_WRITE: [wreg+status,2+status,0+pclath+cstack]
   1553                           ;ADXL345_WRITE@var stored from wreg
-  1554  05D6  1283               	bcf	3,5	;RP0=0, select bank0
-  1555  05D7  1303               	bcf	3,6	;RP1=0, select bank0
-  1556  05D8  00A0               	movwf	ADXL345_WRITE@var
-  1557  05D9                     l1712:
+  1554  05D8  1283               	bcf	3,5	;RP0=0, select bank0
+  1555  05D9  1303               	bcf	3,6	;RP1=0, select bank0
+  1556  05DA  00A0               	movwf	ADXL345_WRITE@var
+  1557  05DB                     l1712:
   1558                           
   1559                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 127:     I2C_Master_
       +                          Start();
-  1560  05D9  120A  118A  26A1  120A  118A  	fcall	_I2C_Master_Start
+  1560  05DB  120A  118A  26A3  120A  118A  	fcall	_I2C_Master_Start
   1561                           
   1562                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 128:     I2C_Master_
       +                          Write(0xA6);
-  1563  05DE  30A6               	movlw	166
-  1564  05DF  00F3               	movwf	I2C_Master_Write@d
-  1565  05E0  3000               	movlw	0
-  1566  05E1  00F4               	movwf	I2C_Master_Write@d+1
-  1567  05E2  120A  118A  268E  120A  118A  	fcall	_I2C_Master_Write
+  1563  05E0  30A6               	movlw	166
+  1564  05E1  00F3               	movwf	I2C_Master_Write@d
+  1565  05E2  3000               	movlw	0
+  1566  05E3  00F4               	movwf	I2C_Master_Write@d+1
+  1567  05E4  120A  118A  2690  120A  118A  	fcall	_I2C_Master_Write
   1568                           
   1569                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 129:     I2C_Master_
       +                          Write(var);
-  1570  05E7  1283               	bcf	3,5	;RP0=0, select bank0
-  1571  05E8  1303               	bcf	3,6	;RP1=0, select bank0
-  1572  05E9  0820               	movf	ADXL345_WRITE@var,w
-  1573  05EA  00F6               	movwf	??_ADXL345_WRITE
-  1574  05EB  01F7               	clrf	??_ADXL345_WRITE+1
-  1575  05EC  0876               	movf	??_ADXL345_WRITE,w
-  1576  05ED  00F3               	movwf	I2C_Master_Write@d
-  1577  05EE  0877               	movf	??_ADXL345_WRITE+1,w
-  1578  05EF  00F4               	movwf	I2C_Master_Write@d+1
-  1579  05F0  120A  118A  268E  120A  118A  	fcall	_I2C_Master_Write
+  1570  05E9  1283               	bcf	3,5	;RP0=0, select bank0
+  1571  05EA  1303               	bcf	3,6	;RP1=0, select bank0
+  1572  05EB  0820               	movf	ADXL345_WRITE@var,w
+  1573  05EC  00F6               	movwf	??_ADXL345_WRITE
+  1574  05ED  01F7               	clrf	??_ADXL345_WRITE+1
+  1575  05EE  0876               	movf	??_ADXL345_WRITE,w
+  1576  05EF  00F3               	movwf	I2C_Master_Write@d
+  1577  05F0  0877               	movf	??_ADXL345_WRITE+1,w
+  1578  05F1  00F4               	movwf	I2C_Master_Write@d+1
+  1579  05F2  120A  118A  2690  120A  118A  	fcall	_I2C_Master_Write
   1580                           
   1581                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 130:     I2C_Master_
       +                          Write(data);
-  1582  05F5  0875               	movf	ADXL345_WRITE@data,w
-  1583  05F6  00F6               	movwf	??_ADXL345_WRITE
-  1584  05F7  01F7               	clrf	??_ADXL345_WRITE+1
-  1585  05F8  0876               	movf	??_ADXL345_WRITE,w
-  1586  05F9  00F3               	movwf	I2C_Master_Write@d
-  1587  05FA  0877               	movf	??_ADXL345_WRITE+1,w
-  1588  05FB  00F4               	movwf	I2C_Master_Write@d+1
-  1589  05FC  120A  118A  268E  120A  118A  	fcall	_I2C_Master_Write
+  1582  05F7  0875               	movf	ADXL345_WRITE@data,w
+  1583  05F8  00F6               	movwf	??_ADXL345_WRITE
+  1584  05F9  01F7               	clrf	??_ADXL345_WRITE+1
+  1585  05FA  0876               	movf	??_ADXL345_WRITE,w
+  1586  05FB  00F3               	movwf	I2C_Master_Write@d
+  1587  05FC  0877               	movf	??_ADXL345_WRITE+1,w
+  1588  05FD  00F4               	movwf	I2C_Master_Write@d+1
+  1589  05FE  120A  118A  2690  120A  118A  	fcall	_I2C_Master_Write
   1590                           
   1591                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 131:     I2C_Master_
       +                          Stop();
-  1592  0601  120A  118A  2698  120A  118A  	fcall	_I2C_Master_Stop
-  1593  0606                     l178:
-  1594  0606  0008               	return
-  1595  0607                     __end_of_ADXL345_WRITE:
+  1592  0603  120A  118A  269A  120A  118A  	fcall	_I2C_Master_Stop
+  1593  0608                     l178:
+  1594  0608  0008               	return
+  1595  0609                     __end_of_ADXL345_WRITE:
   1596                           
   1597                           	psect	text7
   1598  0338                     __ptext7:	
@@ -1718,7 +1718,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
       +                             signed short acc_y;;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
       +                          : 148:      data_y[0] = ADXL345_READ(0x34);
   1643  0338  3034               	movlw	52
-  1644  0339  120A  118A  2513  120A  118A  	fcall	_ADXL345_READ
+  1644  0339  120A  118A  2515  120A  118A  	fcall	_ADXL345_READ
   1645  033E  1283               	bcf	3,5	;RP0=0, select bank0
   1646  033F  1303               	bcf	3,6	;RP1=0, select bank0
   1647  0340  0822               	movf	?_ADXL345_READ,w
@@ -1729,7 +1729,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1652                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 149:      data_y[1] 
       +                          = ADXL345_READ(0x35);
   1653  0344  3035               	movlw	53
-  1654  0345  120A  118A  2513  120A  118A  	fcall	_ADXL345_READ
+  1654  0345  120A  118A  2515  120A  118A  	fcall	_ADXL345_READ
   1655  034A  1283               	bcf	3,5	;RP0=0, select bank0
   1656  034B  1303               	bcf	3,6	;RP1=0, select bank0
   1657  034C  0822               	movf	?_ADXL345_READ,w
@@ -1873,7 +1873,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
       +                             signed short acc_x;;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c
       +                          : 138:      data_x[0] = ADXL345_READ(0x32);
   1790  03A3  3032               	movlw	50
-  1791  03A4  120A  118A  2513  120A  118A  	fcall	_ADXL345_READ
+  1791  03A4  120A  118A  2515  120A  118A  	fcall	_ADXL345_READ
   1792  03A9  1283               	bcf	3,5	;RP0=0, select bank0
   1793  03AA  1303               	bcf	3,6	;RP1=0, select bank0
   1794  03AB  0822               	movf	?_ADXL345_READ,w
@@ -1884,7 +1884,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1799                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 139:      data_x[1] 
       +                          = ADXL345_READ(0x33);
   1800  03AF  3033               	movlw	51
-  1801  03B0  120A  118A  2513  120A  118A  	fcall	_ADXL345_READ
+  1801  03B0  120A  118A  2515  120A  118A  	fcall	_ADXL345_READ
   1802  03B5  1283               	bcf	3,5	;RP0=0, select bank0
   1803  03B6  1303               	bcf	3,6	;RP1=0, select bank0
   1804  03B7  0822               	movf	?_ADXL345_READ,w
@@ -3115,7 +3115,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3026  0200                     __end_of___fldiv:
   3027                           
   3028                           	psect	text12
-  3029  0513                     __ptext12:	
+  3029  0515                     __ptext12:	
   3030 ;; *************** function _ADXL345_READ *****************
   3031 ;; Defined at:
   3032 ;;		line 115 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -3154,86 +3154,86 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3065                           
   3066                           
   3067                           ;psect for function _ADXL345_READ
-  3068  0513                     _ADXL345_READ:
+  3068  0515                     _ADXL345_READ:
   3069                           
   3070                           ;incstack = 0
   3071                           ; Regs used in _ADXL345_READ: [wreg+status,2+status,0+pclath+cstack]
   3072                           ;ADXL345_READ@var stored from wreg
-  3073  0513  1283               	bcf	3,5	;RP0=0, select bank0
-  3074  0514  1303               	bcf	3,6	;RP1=0, select bank0
-  3075  0515  00A6               	movwf	ADXL345_READ@var
-  3076  0516                     l1756:
+  3073  0515  1283               	bcf	3,5	;RP0=0, select bank0
+  3074  0516  1303               	bcf	3,6	;RP1=0, select bank0
+  3075  0517  00A6               	movwf	ADXL345_READ@var
+  3076  0518                     l1756:
   3077                           
   3078                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 116:     signed shor
       +                          t leido;;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 117:     I2C
       +                          _Master_Start();
-  3079  0516  120A  118A  26A1  120A  118A  	fcall	_I2C_Master_Start
+  3079  0518  120A  118A  26A3  120A  118A  	fcall	_I2C_Master_Start
   3080                           
   3081                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 118:     I2C_Master_
       +                          Write(0xA6);
-  3082  051B  30A6               	movlw	166
-  3083  051C  00F3               	movwf	I2C_Master_Write@d
-  3084  051D  3000               	movlw	0
-  3085  051E  00F4               	movwf	I2C_Master_Write@d+1
-  3086  051F  120A  118A  268E  120A  118A  	fcall	_I2C_Master_Write
+  3082  051D  30A6               	movlw	166
+  3083  051E  00F3               	movwf	I2C_Master_Write@d
+  3084  051F  3000               	movlw	0
+  3085  0520  00F4               	movwf	I2C_Master_Write@d+1
+  3086  0521  120A  118A  2690  120A  118A  	fcall	_I2C_Master_Write
   3087                           
   3088                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 119:     I2C_Master_
       +                          Write(var);
-  3089  0524  1283               	bcf	3,5	;RP0=0, select bank0
-  3090  0525  1303               	bcf	3,6	;RP1=0, select bank0
-  3091  0526  0826               	movf	ADXL345_READ@var,w
-  3092  0527  00A4               	movwf	??_ADXL345_READ
-  3093  0528  01A5               	clrf	??_ADXL345_READ+1
-  3094  0529  0824               	movf	??_ADXL345_READ,w
-  3095  052A  00F3               	movwf	I2C_Master_Write@d
-  3096  052B  0825               	movf	??_ADXL345_READ+1,w
-  3097  052C  00F4               	movwf	I2C_Master_Write@d+1
-  3098  052D  120A  118A  268E  120A  118A  	fcall	_I2C_Master_Write
+  3089  0526  1283               	bcf	3,5	;RP0=0, select bank0
+  3090  0527  1303               	bcf	3,6	;RP1=0, select bank0
+  3091  0528  0826               	movf	ADXL345_READ@var,w
+  3092  0529  00A4               	movwf	??_ADXL345_READ
+  3093  052A  01A5               	clrf	??_ADXL345_READ+1
+  3094  052B  0824               	movf	??_ADXL345_READ,w
+  3095  052C  00F3               	movwf	I2C_Master_Write@d
+  3096  052D  0825               	movf	??_ADXL345_READ+1,w
+  3097  052E  00F4               	movwf	I2C_Master_Write@d+1
+  3098  052F  120A  118A  2690  120A  118A  	fcall	_I2C_Master_Write
   3099                           
   3100                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 120:     I2C_Master_
       +                          Start();
-  3101  0532  120A  118A  26A1  120A  118A  	fcall	_I2C_Master_Start
+  3101  0534  120A  118A  26A3  120A  118A  	fcall	_I2C_Master_Start
   3102                           
   3103                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 121:     I2C_Master_
       +                          Write(0xA7);
-  3104  0537  30A7               	movlw	167
-  3105  0538  00F3               	movwf	I2C_Master_Write@d
-  3106  0539  3000               	movlw	0
-  3107  053A  00F4               	movwf	I2C_Master_Write@d+1
-  3108  053B  120A  118A  268E  120A  118A  	fcall	_I2C_Master_Write
+  3104  0539  30A7               	movlw	167
+  3105  053A  00F3               	movwf	I2C_Master_Write@d
+  3106  053B  3000               	movlw	0
+  3107  053C  00F4               	movwf	I2C_Master_Write@d+1
+  3108  053D  120A  118A  2690  120A  118A  	fcall	_I2C_Master_Write
   3109                           
   3110                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 122:     leido = I2C
       +                          _Master_Read(0);
-  3111  0540  3000               	movlw	0
-  3112  0541  00F3               	movwf	I2C_Master_Read@a
-  3113  0542  00F4               	movwf	I2C_Master_Read@a+1
-  3114  0543  120A  118A  2607  120A  118A  	fcall	_I2C_Master_Read
-  3115  0548  0874               	movf	?_I2C_Master_Read+1,w
-  3116  0549  1283               	bcf	3,5	;RP0=0, select bank0
-  3117  054A  1303               	bcf	3,6	;RP1=0, select bank0
-  3118  054B  00A8               	movwf	ADXL345_READ@leido+1
-  3119  054C  0873               	movf	?_I2C_Master_Read,w
-  3120  054D  00A7               	movwf	ADXL345_READ@leido
+  3111  0542  3000               	movlw	0
+  3112  0543  00F3               	movwf	I2C_Master_Read@a
+  3113  0544  00F4               	movwf	I2C_Master_Read@a+1
+  3114  0545  120A  118A  2609  120A  118A  	fcall	_I2C_Master_Read
+  3115  054A  0874               	movf	?_I2C_Master_Read+1,w
+  3116  054B  1283               	bcf	3,5	;RP0=0, select bank0
+  3117  054C  1303               	bcf	3,6	;RP1=0, select bank0
+  3118  054D  00A8               	movwf	ADXL345_READ@leido+1
+  3119  054E  0873               	movf	?_I2C_Master_Read,w
+  3120  054F  00A7               	movwf	ADXL345_READ@leido
   3121                           
   3122                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 123:     I2C_Master_
       +                          Stop();
-  3123  054E  120A  118A  2698  120A  118A  	fcall	_I2C_Master_Stop
-  3124  0553                     l1758:
+  3123  0550  120A  118A  269A  120A  118A  	fcall	_I2C_Master_Stop
+  3124  0555                     l1758:
   3125                           
   3126                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 124:     return leid
       +                          o;
-  3127  0553  1283               	bcf	3,5	;RP0=0, select bank0
-  3128  0554  1303               	bcf	3,6	;RP1=0, select bank0
-  3129  0555  0828               	movf	ADXL345_READ@leido+1,w
-  3130  0556  00A3               	movwf	?_ADXL345_READ+1
-  3131  0557  0827               	movf	ADXL345_READ@leido,w
-  3132  0558  00A2               	movwf	?_ADXL345_READ
-  3133  0559                     l175:
-  3134  0559  0008               	return
-  3135  055A                     __end_of_ADXL345_READ:
+  3127  0555  1283               	bcf	3,5	;RP0=0, select bank0
+  3128  0556  1303               	bcf	3,6	;RP1=0, select bank0
+  3129  0557  0828               	movf	ADXL345_READ@leido+1,w
+  3130  0558  00A3               	movwf	?_ADXL345_READ+1
+  3131  0559  0827               	movf	ADXL345_READ@leido,w
+  3132  055A  00A2               	movwf	?_ADXL345_READ
+  3133  055B                     l175:
+  3134  055B  0008               	return
+  3135  055C                     __end_of_ADXL345_READ:
   3136                           
   3137                           	psect	text13
-  3138  068E                     __ptext13:	
+  3138  0690                     __ptext13:	
   3139 ;; *************** function _I2C_Master_Write *****************
   3140 ;; Defined at:
   3141 ;;		line 64 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -3267,8 +3267,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3169                           
   3170                           
   3171                           ;psect for function _I2C_Master_Write
-  3172  068E                     _I2C_Master_Write:
-  3173  068E                     l1692:	
+  3172  0690                     _I2C_Master_Write:
+  3173  0690                     l1692:	
   3174                           ;incstack = 0
   3175                           ; Regs used in _I2C_Master_Write: [wreg+status,2+status,0+pclath+cstack]
   3176                           
@@ -3277,20 +3277,20 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
       +                          Write(unsigned d);C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 65:
       +                           {;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 66:     I2C_Master
       +                          _Wait();
-  3179  068E  120A  118A  2681  120A  118A  	fcall	_I2C_Master_Wait
-  3180  0693                     l1694:
+  3179  0690  120A  118A  2683  120A  118A  	fcall	_I2C_Master_Wait
+  3180  0695                     l1694:
   3181                           
   3182                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 67:     SSPBUF = d;
-  3183  0693  0873               	movf	I2C_Master_Write@d,w
-  3184  0694  1283               	bcf	3,5	;RP0=0, select bank0
-  3185  0695  1303               	bcf	3,6	;RP1=0, select bank0
-  3186  0696  0093               	movwf	19	;volatile
-  3187  0697                     l161:
-  3188  0697  0008               	return
-  3189  0698                     __end_of_I2C_Master_Write:
+  3183  0695  0873               	movf	I2C_Master_Write@d,w
+  3184  0696  1283               	bcf	3,5	;RP0=0, select bank0
+  3185  0697  1303               	bcf	3,6	;RP1=0, select bank0
+  3186  0698  0093               	movwf	19	;volatile
+  3187  0699                     l161:
+  3188  0699  0008               	return
+  3189  069A                     __end_of_I2C_Master_Write:
   3190                           
   3191                           	psect	text14
-  3192  0698                     __ptext14:	
+  3192  069A                     __ptext14:	
   3193 ;; *************** function _I2C_Master_Stop *****************
   3194 ;; Defined at:
   3195 ;;		line 54 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -3324,28 +3324,28 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3223                           
   3224                           
   3225                           ;psect for function _I2C_Master_Stop
-  3226  0698                     _I2C_Master_Stop:
-  3227  0698                     l1688:	
+  3226  069A                     _I2C_Master_Stop:
+  3227  069A                     l1688:	
   3228                           ;incstack = 0
   3229                           ; Regs used in _I2C_Master_Stop: [wreg+status,2+status,0+pclath+cstack]
   3230                           
   3231                           
   3232                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 56:     I2C_Master_W
       +                          ait();
-  3233  0698  120A  118A  2681  120A  118A  	fcall	_I2C_Master_Wait
-  3234  069D                     l1690:
+  3233  069A  120A  118A  2683  120A  118A  	fcall	_I2C_Master_Wait
+  3234  069F                     l1690:
   3235                           
   3236                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 57:     SSPCON2bits.
       +                          PEN = 1;
-  3237  069D  1683               	bsf	3,5	;RP0=1, select bank1
-  3238  069E  1303               	bcf	3,6	;RP1=0, select bank1
-  3239  069F  1511               	bsf	17,2	;volatile
-  3240  06A0                     l158:
-  3241  06A0  0008               	return
-  3242  06A1                     __end_of_I2C_Master_Stop:
+  3237  069F  1683               	bsf	3,5	;RP0=1, select bank1
+  3238  06A0  1303               	bcf	3,6	;RP1=0, select bank1
+  3239  06A1  1511               	bsf	17,2	;volatile
+  3240  06A2                     l158:
+  3241  06A2  0008               	return
+  3242  06A3                     __end_of_I2C_Master_Stop:
   3243                           
   3244                           	psect	text15
-  3245  06A1                     __ptext15:	
+  3245  06A3                     __ptext15:	
   3246 ;; *************** function _I2C_Master_Start *****************
   3247 ;; Defined at:
   3248 ;;		line 38 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -3379,28 +3379,28 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3276                           
   3277                           
   3278                           ;psect for function _I2C_Master_Start
-  3279  06A1                     _I2C_Master_Start:
-  3280  06A1                     l1684:	
+  3279  06A3                     _I2C_Master_Start:
+  3280  06A3                     l1684:	
   3281                           ;incstack = 0
   3282                           ; Regs used in _I2C_Master_Start: [wreg+status,2+status,0+pclath+cstack]
   3283                           
   3284                           
   3285                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 40:     I2C_Master_W
       +                          ait();
-  3286  06A1  120A  118A  2681  120A  118A  	fcall	_I2C_Master_Wait
-  3287  06A6                     l1686:
+  3286  06A3  120A  118A  2683  120A  118A  	fcall	_I2C_Master_Wait
+  3287  06A8                     l1686:
   3288                           
   3289                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 41:     SSPCON2bits.
       +                          SEN = 1;
-  3290  06A6  1683               	bsf	3,5	;RP0=1, select bank1
-  3291  06A7  1303               	bcf	3,6	;RP1=0, select bank1
-  3292  06A8  1411               	bsf	17,0	;volatile
-  3293  06A9                     l152:
-  3294  06A9  0008               	return
-  3295  06AA                     __end_of_I2C_Master_Start:
+  3290  06A8  1683               	bsf	3,5	;RP0=1, select bank1
+  3291  06A9  1303               	bcf	3,6	;RP1=0, select bank1
+  3292  06AA  1411               	bsf	17,0	;volatile
+  3293  06AB                     l152:
+  3294  06AB  0008               	return
+  3295  06AC                     __end_of_I2C_Master_Start:
   3296                           
   3297                           	psect	text16
-  3298  0607                     __ptext16:	
+  3298  0609                     __ptext16:	
   3299 ;; *************** function _I2C_Master_Read *****************
   3300 ;; Defined at:
   3301 ;;		line 73 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -3433,8 +3433,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3328                           
   3329                           
   3330                           ;psect for function _I2C_Master_Read
-  3331  0607                     _I2C_Master_Read:
-  3332  0607                     l1696:	
+  3331  0609                     _I2C_Master_Read:
+  3332  0609                     l1696:	
   3333                           ;incstack = 0
   3334                           ; Regs used in _I2C_Master_Read: [wreg+status,2+status,0+pclath+cstack]
   3335                           
@@ -3444,86 +3444,86 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
       +                          er.X/I2C.c: 74: {;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 75:
       +                               unsigned short temp;;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2
       +                          C.c: 76:     I2C_Master_Wait();
-  3338  0607  120A  118A  2681  120A  118A  	fcall	_I2C_Master_Wait
-  3339  060C                     l1698:
+  3338  0609  120A  118A  2683  120A  118A  	fcall	_I2C_Master_Wait
+  3339  060E                     l1698:
   3340                           
   3341                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 77:     SSPCON2bits.
       +                          RCEN = 1;
-  3342  060C  1683               	bsf	3,5	;RP0=1, select bank1
-  3343  060D  1303               	bcf	3,6	;RP1=0, select bank1
-  3344  060E  1591               	bsf	17,3	;volatile
+  3342  060E  1683               	bsf	3,5	;RP0=1, select bank1
+  3343  060F  1303               	bcf	3,6	;RP1=0, select bank1
+  3344  0610  1591               	bsf	17,3	;volatile
   3345                           
   3346                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 78:     I2C_Master_W
       +                          ait();
-  3347  060F  120A  118A  2681  120A  118A  	fcall	_I2C_Master_Wait
-  3348  0614                     l1700:
+  3347  0611  120A  118A  2683  120A  118A  	fcall	_I2C_Master_Wait
+  3348  0616                     l1700:
   3349                           
   3350                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 79:     temp = SSPBU
       +                          F;
-  3351  0614  1283               	bcf	3,5	;RP0=0, select bank0
-  3352  0615  1303               	bcf	3,6	;RP1=0, select bank0
-  3353  0616  0813               	movf	19,w	;volatile
-  3354  0617  00F5               	movwf	??_I2C_Master_Read
-  3355  0618  01F6               	clrf	??_I2C_Master_Read+1
-  3356  0619  0875               	movf	??_I2C_Master_Read,w
-  3357  061A  00A0               	movwf	I2C_Master_Read@temp
-  3358  061B  0876               	movf	??_I2C_Master_Read+1,w
-  3359  061C  00A1               	movwf	I2C_Master_Read@temp+1
-  3360  061D                     l1702:
+  3351  0616  1283               	bcf	3,5	;RP0=0, select bank0
+  3352  0617  1303               	bcf	3,6	;RP1=0, select bank0
+  3353  0618  0813               	movf	19,w	;volatile
+  3354  0619  00F5               	movwf	??_I2C_Master_Read
+  3355  061A  01F6               	clrf	??_I2C_Master_Read+1
+  3356  061B  0875               	movf	??_I2C_Master_Read,w
+  3357  061C  00A0               	movwf	I2C_Master_Read@temp
+  3358  061D  0876               	movf	??_I2C_Master_Read+1,w
+  3359  061E  00A1               	movwf	I2C_Master_Read@temp+1
+  3360  061F                     l1702:
   3361                           
   3362                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 80:     I2C_Master_W
       +                          ait();
-  3363  061D  120A  118A  2681  120A  118A  	fcall	_I2C_Master_Wait
-  3364  0622                     l1704:
+  3363  061F  120A  118A  2683  120A  118A  	fcall	_I2C_Master_Wait
+  3364  0624                     l1704:
   3365                           
   3366                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 81:     if(a == 1){
-  3367  0622  0373               	decf	I2C_Master_Read@a,w
-  3368  0623  0474               	iorwf	I2C_Master_Read@a+1,w
-  3369  0624  1D03               	btfss	3,2
-  3370  0625  2E27               	goto	u1491
-  3371  0626  2E28               	goto	u1490
-  3372  0627                     u1491:
-  3373  0627  2E2C               	goto	l164
-  3374  0628                     u1490:
-  3375  0628                     l1706:
+  3367  0624  0373               	decf	I2C_Master_Read@a,w
+  3368  0625  0474               	iorwf	I2C_Master_Read@a+1,w
+  3369  0626  1D03               	btfss	3,2
+  3370  0627  2E29               	goto	u1491
+  3371  0628  2E2A               	goto	u1490
+  3372  0629                     u1491:
+  3373  0629  2E2E               	goto	l164
+  3374  062A                     u1490:
+  3375  062A                     l1706:
   3376                           
   3377                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 82:         SSPCON2b
       +                          its.ACKDT = 0;
-  3378  0628  1683               	bsf	3,5	;RP0=1, select bank1
-  3379  0629  1303               	bcf	3,6	;RP1=0, select bank1
-  3380  062A  1291               	bcf	17,5	;volatile
+  3378  062A  1683               	bsf	3,5	;RP0=1, select bank1
+  3379  062B  1303               	bcf	3,6	;RP1=0, select bank1
+  3380  062C  1291               	bcf	17,5	;volatile
   3381                           
   3382                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 83:     }else{
-  3383  062B  2E2F               	goto	l165
-  3384  062C                     l164:
+  3383  062D  2E31               	goto	l165
+  3384  062E                     l164:
   3385                           
   3386                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 84:         SSPCON2b
       +                          its.ACKDT = 1;
-  3387  062C  1683               	bsf	3,5	;RP0=1, select bank1
-  3388  062D  1303               	bcf	3,6	;RP1=0, select bank1
-  3389  062E  1691               	bsf	17,5	;volatile
-  3390  062F                     l165:	
+  3387  062E  1683               	bsf	3,5	;RP0=1, select bank1
+  3388  062F  1303               	bcf	3,6	;RP1=0, select bank1
+  3389  0630  1691               	bsf	17,5	;volatile
+  3390  0631                     l165:	
   3391                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 85:     }
   3392                           
   3393                           
   3394                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 86:     SSPCON2bits.
       +                          ACKEN = 1;
-  3395  062F  1611               	bsf	17,4	;volatile
-  3396  0630                     l1708:
+  3395  0631  1611               	bsf	17,4	;volatile
+  3396  0632                     l1708:
   3397                           
   3398                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 87:     return temp;
-  3399  0630  1283               	bcf	3,5	;RP0=0, select bank0
-  3400  0631  1303               	bcf	3,6	;RP1=0, select bank0
-  3401  0632  0821               	movf	I2C_Master_Read@temp+1,w
-  3402  0633  00F4               	movwf	?_I2C_Master_Read+1
-  3403  0634  0820               	movf	I2C_Master_Read@temp,w
-  3404  0635  00F3               	movwf	?_I2C_Master_Read
-  3405  0636                     l166:
-  3406  0636  0008               	return
-  3407  0637                     __end_of_I2C_Master_Read:
+  3399  0632  1283               	bcf	3,5	;RP0=0, select bank0
+  3400  0633  1303               	bcf	3,6	;RP1=0, select bank0
+  3401  0634  0821               	movf	I2C_Master_Read@temp+1,w
+  3402  0635  00F4               	movwf	?_I2C_Master_Read+1
+  3403  0636  0820               	movf	I2C_Master_Read@temp,w
+  3404  0637  00F3               	movwf	?_I2C_Master_Read
+  3405  0638                     l166:
+  3406  0638  0008               	return
+  3407  0639                     __end_of_I2C_Master_Read:
   3408                           
   3409                           	psect	text17
-  3410  0681                     __ptext17:	
+  3410  0683                     __ptext17:	
   3411 ;; *************** function _I2C_Master_Wait *****************
   3412 ;; Defined at:
   3413 ;;		line 31 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c"
@@ -3560,35 +3560,35 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3444                           
   3445                           
   3446                           ;psect for function _I2C_Master_Wait
-  3447  0681                     _I2C_Master_Wait:
-  3448  0681                     l1680:	
+  3447  0683                     _I2C_Master_Wait:
+  3448  0683                     l1680:	
   3449                           ;incstack = 0
   3450                           ; Regs used in _I2C_Master_Wait: [wreg+status,2]
   3451                           
-  3452  0681                     l146:	
+  3452  0683                     l146:	
   3453                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/I2C.c: 33:     while ((SSPS
       +                          TAT & 0x04) || (SSPCON2 & 0x1F));
   3454                           
-  3455  0681  1683               	bsf	3,5	;RP0=1, select bank1
-  3456  0682  1303               	bcf	3,6	;RP1=0, select bank1
-  3457  0683  1914               	btfsc	20,2	;volatile
-  3458  0684  2E86               	goto	u1471
-  3459  0685  2E87               	goto	u1470
-  3460  0686                     u1471:
-  3461  0686  2E81               	goto	l146
-  3462  0687                     u1470:
-  3463  0687                     l1682:
-  3464  0687  0811               	movf	17,w	;volatile
-  3465  0688  391F               	andlw	31
-  3466  0689  1D03               	btfss	3,2
-  3467  068A  2E8C               	goto	u1481
-  3468  068B  2E8D               	goto	u1480
-  3469  068C                     u1481:
-  3470  068C  2E81               	goto	l146
-  3471  068D                     u1480:
-  3472  068D                     l149:
-  3473  068D  0008               	return
-  3474  068E                     __end_of_I2C_Master_Wait:
+  3455  0683  1683               	bsf	3,5	;RP0=1, select bank1
+  3456  0684  1303               	bcf	3,6	;RP1=0, select bank1
+  3457  0685  1914               	btfsc	20,2	;volatile
+  3458  0686  2E88               	goto	u1471
+  3459  0687  2E89               	goto	u1470
+  3460  0688                     u1471:
+  3461  0688  2E83               	goto	l146
+  3462  0689                     u1470:
+  3463  0689                     l1682:
+  3464  0689  0811               	movf	17,w	;volatile
+  3465  068A  391F               	andlw	31
+  3466  068B  1D03               	btfss	3,2
+  3467  068C  2E8E               	goto	u1481
+  3468  068D  2E8F               	goto	u1480
+  3469  068E                     u1481:
+  3470  068E  2E83               	goto	l146
+  3471  068F                     u1480:
+  3472  068F                     l149:
+  3473  068F  0008               	return
+  3474  0690                     __end_of_I2C_Master_Wait:
   3475                           
   3476                           	psect	text18
   3477  0476                     __ptext18:	
@@ -3725,136 +3725,141 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   3596  04A1  2CA3               	goto	u142_21
   3597  04A2  2CA4               	goto	u142_20
   3598  04A3                     u142_21:
-  3599  04A3  2CC2               	goto	i1l98
+  3599  04A3  2CC4               	goto	i1l98
   3600  04A4                     u142_20:
   3601  04A4                     i1l1646:
   3602                           
   3603                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 82:         POR
-      +                          TE = RCREG;
+      +                          TD = RCREG;
   3604  04A4  081A               	movf	26,w	;volatile
-  3605  04A5  0089               	movwf	9	;volatile
+  3605  04A5  0088               	movwf	8	;volatile
   3606                           
-  3607                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 83:         if 
+  3607                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 83:         POR
+      +                          TE = RCREG;
+  3608  04A6  081A               	movf	26,w	;volatile
+  3609  04A7  0089               	movwf	9	;volatile
+  3610                           
+  3611                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 84:         if 
       +                          (RCREG > 5){
-  3608  04A6  3006               	movlw	6
-  3609  04A7  021A               	subwf	26,w	;volatile
-  3610  04A8  1C03               	skipc
-  3611  04A9  2CAB               	goto	u143_21
-  3612  04AA  2CAC               	goto	u143_20
-  3613  04AB                     u143_21:
-  3614  04AB  2CC0               	goto	i1l1656
-  3615  04AC                     u143_20:
-  3616  04AC                     i1l1648:
-  3617                           
-  3618                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 84:            
+  3612  04A8  3006               	movlw	6
+  3613  04A9  021A               	subwf	26,w	;volatile
+  3614  04AA  1C03               	skipc
+  3615  04AB  2CAD               	goto	u143_21
+  3616  04AC  2CAE               	goto	u143_20
+  3617  04AD                     u143_21:
+  3618  04AD  2CC2               	goto	i1l1656
+  3619  04AE                     u143_20:
+  3620  04AE                     i1l1648:
+  3621                           
+  3622                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 85:            
       +                           if (RCREG < 25){
-  3619  04AC  3019               	movlw	25
-  3620  04AD  021A               	subwf	26,w	;volatile
-  3621  04AE  1803               	skipnc
-  3622  04AF  2CB1               	goto	u144_21
-  3623  04B0  2CB2               	goto	u144_20
-  3624  04B1                     u144_21:
-  3625  04B1  2CB5               	goto	i1l1652
-  3626  04B2                     u144_20:
-  3627  04B2                     i1l1650:
-  3628                           
-  3629                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 85:            
-      +                               bandera = 1;
-  3630  04B2  01F8               	clrf	_bandera
-  3631  04B3  0AF8               	incf	_bandera,f
+  3623  04AE  3019               	movlw	25
+  3624  04AF  021A               	subwf	26,w	;volatile
+  3625  04B0  1803               	skipnc
+  3626  04B1  2CB3               	goto	u144_21
+  3627  04B2  2CB4               	goto	u144_20
+  3628  04B3                     u144_21:
+  3629  04B3  2CB7               	goto	i1l1652
+  3630  04B4                     u144_20:
+  3631  04B4                     i1l1650:
   3632                           
   3633                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 86:            
+      +                               bandera = 1;
+  3634  04B4  01F8               	clrf	_bandera
+  3635  04B5  0AF8               	incf	_bandera,f
+  3636                           
+  3637                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 87:            
       +                           } else if (RCREG < 40){
-  3634  04B4  2CC2               	goto	i1l98
-  3635  04B5                     i1l1652:
-  3636  04B5  3028               	movlw	40
-  3637  04B6  021A               	subwf	26,w	;volatile
-  3638  04B7  1803               	skipnc
-  3639  04B8  2CBA               	goto	u145_21
-  3640  04B9  2CBB               	goto	u145_20
-  3641  04BA                     u145_21:
-  3642  04BA  2CC2               	goto	i1l97
-  3643  04BB                     u145_20:
-  3644  04BB                     i1l1654:
-  3645                           
-  3646                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 87:            
+  3638  04B6  2CC4               	goto	i1l98
+  3639  04B7                     i1l1652:
+  3640  04B7  3028               	movlw	40
+  3641  04B8  021A               	subwf	26,w	;volatile
+  3642  04B9  1803               	skipnc
+  3643  04BA  2CBC               	goto	u145_21
+  3644  04BB  2CBD               	goto	u145_20
+  3645  04BC                     u145_21:
+  3646  04BC  2CC4               	goto	i1l97
+  3647  04BD                     u145_20:
+  3648  04BD                     i1l1654:
+  3649                           
+  3650                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 88:            
       +                               bandera = 2;
-  3647  04BB  3002               	movlw	2
-  3648  04BC  00F0               	movwf	??_isr
-  3649  04BD  0870               	movf	??_isr,w
-  3650  04BE  00F8               	movwf	_bandera
-  3651  04BF  2CC2               	goto	i1l98
-  3652  04C0                     i1l1656:
-  3653                           
-  3654                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 90:            
+  3651  04BD  3002               	movlw	2
+  3652  04BE  00F0               	movwf	??_isr
+  3653  04BF  0870               	movf	??_isr,w
+  3654  04C0  00F8               	movwf	_bandera
+  3655  04C1  2CC4               	goto	i1l98
+  3656  04C2                     i1l1656:
+  3657                           
+  3658                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 91:            
       +                           bandera = 0;
-  3655  04C0  01F8               	clrf	_bandera
-  3656  04C1  2CC2               	goto	i1l98
-  3657  04C2                     i1l97:	
-  3658                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 91:         }
-  3659                           
-  3660  04C2                     i1l98:
-  3661  04C2  0872               	movf	??_isr+2,w
-  3662  04C3  008A               	movwf	10
-  3663  04C4  0E71               	swapf	??_isr+1,w
-  3664  04C5  0083               	movwf	3
-  3665  04C6  0EFE               	swapf	btemp,f
-  3666  04C7  0E7E               	swapf	btemp,w
-  3667  04C8  0009               	retfie
-  3668  04C9                     __end_of_isr:
-  3669  007E                     btemp	set	126	;btemp
-  3670  007E                     wtemp0	set	126
-  3671                           
-  3672                           	psect	intentry
-  3673  0004                     __pintentry:	
-  3674                           ;incstack = 0
-  3675                           ; Regs used in _isr: [wreg+status,2+status,0]
-  3676                           
-  3677  0004                     interrupt_function:
-  3678  007E                     saved_w	set	btemp
-  3679  0004  00FE               	movwf	btemp
-  3680  0005  0E03               	swapf	3,w
-  3681  0006  00F1               	movwf	??_isr+1
-  3682  0007  080A               	movf	10,w
-  3683  0008  00F2               	movwf	??_isr+2
-  3684  0009  120A  118A  2C76   	ljmp	_isr
-  3685                           
-  3686                           	psect	config
-  3687                           
-  3688                           ;Config register CONFIG1 @ 0x2007
-  3689                           ;	Oscillator Selection bits
-  3690                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
+  3659  04C2  01F8               	clrf	_bandera
+  3660  04C3  2CC4               	goto	i1l98
+  3661  04C4                     i1l97:	
+  3662                           ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto2/master.X/main_pic.c: 92:         }
+  3663                           
+  3664  04C4                     i1l98:
+  3665  04C4  0872               	movf	??_isr+2,w
+  3666  04C5  008A               	movwf	10
+  3667  04C6  0E71               	swapf	??_isr+1,w
+  3668  04C7  0083               	movwf	3
+  3669  04C8  0EFE               	swapf	btemp,f
+  3670  04C9  0E7E               	swapf	btemp,w
+  3671  04CA  0009               	retfie
+  3672  04CB                     __end_of_isr:
+  3673  007E                     btemp	set	126	;btemp
+  3674  007E                     wtemp0	set	126
+  3675                           
+  3676                           	psect	intentry
+  3677  0004                     __pintentry:	
+  3678                           ;incstack = 0
+  3679                           ; Regs used in _isr: [wreg+status,2+status,0]
+  3680                           
+  3681  0004                     interrupt_function:
+  3682  007E                     saved_w	set	btemp
+  3683  0004  00FE               	movwf	btemp
+  3684  0005  0E03               	swapf	3,w
+  3685  0006  00F1               	movwf	??_isr+1
+  3686  0007  080A               	movf	10,w
+  3687  0008  00F2               	movwf	??_isr+2
+  3688  0009  120A  118A  2C76   	ljmp	_isr
+  3689                           
+  3690                           	psect	config
+  3691                           
+  3692                           ;Config register CONFIG1 @ 0x2007
+  3693                           ;	Oscillator Selection bits
+  3694                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
       +                          unction on RA7/OSC1/CLKIN
-  3691                           ;	Watchdog Timer Enable bit
-  3692                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-  3693                           ;	Power-up Timer Enable bit
-  3694                           ;	PWRTE = OFF, PWRT disabled
-  3695                           ;	RE3/MCLR pin function select bit
-  3696                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
-  3697                           ;	Code Protection bit
-  3698                           ;	CP = OFF, Program memory code protection is disabled
-  3699                           ;	Data Code Protection bit
-  3700                           ;	CPD = OFF, Data memory code protection is disabled
-  3701                           ;	Brown Out Reset Selection bits
-  3702                           ;	BOREN = OFF, BOR disabled
-  3703                           ;	Internal External Switchover bit
-  3704                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-  3705                           ;	Fail-Safe Clock Monitor Enabled bit
-  3706                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-  3707                           ;	Low Voltage Programming Enable bit
-  3708                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-  3709                           ;	In-Circuit Debugger Mode bit
-  3710                           ;	DEBUG = 0x1, unprogrammed default
-  3711  2007                     	org	8199
-  3712  2007  20D4               	dw	8404
-  3713                           
-  3714                           ;Config register CONFIG2 @ 0x2008
-  3715                           ;	Brown-out Reset Selection bit
-  3716                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
-  3717                           ;	Flash Program Memory Self Write Enable bits
-  3718                           ;	WRT = OFF, Write protection off
-  3719  2008                     	org	8200
-  3720  2008  3FFF               	dw	16383
+  3695                           ;	Watchdog Timer Enable bit
+  3696                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  3697                           ;	Power-up Timer Enable bit
+  3698                           ;	PWRTE = OFF, PWRT disabled
+  3699                           ;	RE3/MCLR pin function select bit
+  3700                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
+  3701                           ;	Code Protection bit
+  3702                           ;	CP = OFF, Program memory code protection is disabled
+  3703                           ;	Data Code Protection bit
+  3704                           ;	CPD = OFF, Data memory code protection is disabled
+  3705                           ;	Brown Out Reset Selection bits
+  3706                           ;	BOREN = OFF, BOR disabled
+  3707                           ;	Internal External Switchover bit
+  3708                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  3709                           ;	Fail-Safe Clock Monitor Enabled bit
+  3710                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  3711                           ;	Low Voltage Programming Enable bit
+  3712                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+  3713                           ;	In-Circuit Debugger Mode bit
+  3714                           ;	DEBUG = 0x1, unprogrammed default
+  3715  2007                     	org	8199
+  3716  2007  20D4               	dw	8404
+  3717                           
+  3718                           ;Config register CONFIG2 @ 0x2008
+  3719                           ;	Brown-out Reset Selection bit
+  3720                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+  3721                           ;	Flash Program Memory Self Write Enable bits
+  3722                           ;	WRT = OFF, Write protection off
+  3723  2008                     	org	8200
+  3724  2008  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
@@ -4114,17 +4119,17 @@ DATA                 0      0      56      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Mar 04 19:17:46 2021
+Symbol Table                                                                                   Fri Mar 05 21:14:38 2021
 
              ___fldiv@aexp 0043               ___fldiv@bexp 0042               ___fldiv@sign 003B  
                        _xH 0065                         _yH 0063                         _xL 0064  
                        _zH 0061                         _yL 0062                         _zL 0060  
-                      l110 0512                        l206 0680                        l143 05D5  
-                      l152 06A9                        l161 0697                        l146 0681  
-                      l164 062C                        l172 0663                        l149 068D  
-                      l165 062F                        l181 040D                        l166 0636  
-                      l158 06A0                        l175 0559                        l184 03A2  
-                      l328 0475                        l178 0606                        l641 007F  
+                      l110 0514                        l206 0682                        l143 05D7  
+                      l152 06AB                        l161 0699                        l146 0683  
+                      l164 062E                        l172 0665                        l149 068F  
+                      l165 0631                        l181 040D                        l166 0638  
+                      l158 06A2                        l175 055B                        l184 03A2  
+                      l328 0475                        l178 0608                        l641 007F  
                       l643 01FF                        l731 0269                        l485 0322  
                       l725 0224                        l478 0337                        l663 01E3  
                       l727 02BB                        l488 0337                        l665 01F3  
@@ -4139,65 +4144,65 @@ Symbol Table                                                                    
                       u865 02DB                        u970 003F                        u971 003E  
                       u980 0061                        u981 0060                        u990 0067  
                       u991 0066                        u895 02FF                        _isr 0476  
-    __size_of_ADXL345_READ 0047               ___fltol@exp1 004E                       l1310 066B  
-                     l1400 0035                       l1320 0678                       l1312 066E  
-                     l1304 0664                       l1402 003A                       l1410 004A  
-                     l1330 067F                       l1322 0679                       l1314 0671  
-                     l1306 0668                       l1420 0062                       l1412 0052  
-                     l1404 003F                       l1324 067A                       l1316 0672  
-                     l1308 066A                       l1510 01A6                       l1502 0176  
+    __size_of_ADXL345_READ 0047               ___fltol@exp1 004E                       l1310 066D  
+                     l1400 0035                       l1320 067A                       l1312 0670  
+                     l1304 0666                       l1402 003A                       l1410 004A  
+                     l1330 0681                       l1322 067B                       l1314 0673  
+                     l1306 066A                       l1420 0062                       l1412 0052  
+                     l1404 003F                       l1324 067C                       l1316 0674  
+                     l1308 066C                       l1510 01A6                       l1502 0176  
                      l1422 0067                       l1430 0077                       l1414 0057  
-                     l1406 0047                       l1326 067D                       l1318 0675  
+                     l1406 0047                       l1326 067F                       l1318 0677  
                      l1520 01DA                       l1504 017B                       l1512 01AC  
                      l1432 0087                       l1440 00A0                       l1424 006C  
-                     l1416 005D                       l1408 0048                       l1328 067E  
+                     l1416 005D                       l1408 0048                       l1328 0680  
                      l1522 01E2                       l1514 01B9                       l1506 0189  
                      l1450 00C8                       l1442 00A5                       l1434 0093  
                      l1426 0074                       l1418 0061                       l1370 02F2  
-                     l1362 02D2                       l1700 0614                       l1524 01E9  
+                     l1362 02D2                       l1700 0616                       l1524 01E9  
                      l1516 01C7                       l1508 018D                       l1460 00F1  
                      l1452 00D0                       l1436 0097                       l1428 0075  
                      l1372 02F6                       l1380 0310                       l1364 02E7  
-                     l1356 02BC                       l1702 061D                       l1526 01ED  
+                     l1356 02BC                       l1702 061F                       l1526 01ED  
                      l1518 01D6                       l1470 0112                       l1462 00F5  
                      l1454 00D8                       l1446 00AE                       l1390 032C  
-                     l1366 02E8                       l1358 02C9                       l1704 0622  
+                     l1366 02E8                       l1358 02C9                       l1704 0624  
                      l1528 01EF                       l1480 0134                       l1472 0120  
                      l1464 00F6                       l1456 00DA                       l1448 00C0  
                      l1392 0023                       l1368 02F0                       l1800 02B2  
-                     l1712 05D9                       l1720 0430                       l1706 0628  
+                     l1712 05DB                       l1720 0430                       l1706 062A  
                      l1482 013D                       l1490 0151                       l1458 00DF  
                      l1466 00FF                       l1474 0124                       l1394 002A  
                      l1386 0317                       l1378 02FE                       l1802 02B3  
                      l1730 045E                       l1722 0434                       l1714 040E  
-                     l1810 04E9                       l1708 0630                       l1492 0155  
+                     l1810 04EB                       l1708 0632                       l1492 0155  
                      l1484 0141                       l1476 012A                       l1468 0111  
                      l1396 0030                       l1388 0327                       l1732 0467  
-                     l1724 043D                       l1716 0420                       l1740 05A0  
-                     l1820 04F9                       l1812 04EE                       l1494 0156  
+                     l1724 043D                       l1716 0420                       l1740 05A2  
+                     l1820 04FB                       l1812 04F0                       l1494 0156  
                      l1486 0142                       l1478 0132                       l1398 0034  
-                     l1750 0637                       l1726 044F                       l1718 0423  
-                     l1734 046D                       l1742 05A3                       l1830 050D  
-                     l1822 04FD                       l1814 04F3                       l1806 04C9  
-                     l1680 0681                       l1496 015A                       l1488 014B  
-                     l1832 03A3                       l1752 0643                       l1728 045D  
-                     l1744 05D2                       l1824 04FE                       l1816 04F6  
-                     l1808 04E5                       l1682 0687                       l1690 069D  
+                     l1750 0639                       l1726 044F                       l1718 0423  
+                     l1734 046D                       l1742 05A5                       l1830 050F  
+                     l1822 04FF                       l1814 04F5                       l1806 04CB  
+                     l1680 0683                       l1496 015A                       l1488 014B  
+                     l1832 03A3                       l1752 0645                       l1728 045D  
+                     l1744 05D4                       l1824 0500                       l1816 04F8  
+                     l1808 04E7                       l1682 0689                       l1690 069F  
                      l1498 016E                       l1770 022C                       l1762 0203  
-                     l1834 03BB                       l1842 0338                       l1754 064D  
-                     l1746 05D3                       l1738 059C                       l1826 04FF  
-                     l1818 04F7                       l1684 06A1                       l1692 068E  
-                     l1756 0516                       l1780 024E                       l1764 0208  
-                     l1836 03CE                       l1844 0350                       l1748 05D4  
-                     l1828 0500                       l1860 0589                       l1852 055A  
-                     l1686 06A6                       l1694 0693                       l1758 0553  
+                     l1834 03BB                       l1842 0338                       l1754 064F  
+                     l1746 05D5                       l1738 059E                       l1826 0501  
+                     l1818 04F9                       l1684 06A3                       l1692 0690  
+                     l1756 0518                       l1780 024E                       l1764 0208  
+                     l1836 03CE                       l1844 0350                       l1748 05D6  
+                     l1828 0502                       l1860 058B                       l1852 055C  
+                     l1686 06A8                       l1694 0695                       l1758 0555  
                      l1790 027F                       l1782 0252                       l1774 0235  
                      l1766 020C                       l1838 0409                       l1846 0363  
-                     l1854 055F                       l1696 0607                       l1688 0698  
+                     l1854 0561                       l1696 0609                       l1688 069A  
                      l1792 0289                       l1784 0260                       l1776 023A  
-                     l1768 021C                       l1848 039E                       l1856 0567  
-                     l1698 060C                       l1794 0293                       l1786 0270  
-                     l1778 0247                       l1858 056A                       l1796 02A9  
+                     l1768 021C                       l1848 039E                       l1856 0569  
+                     l1698 060E                       l1794 0293                       l1786 0270  
+                     l1778 0247                       l1858 056C                       l1796 02A9  
                      l1788 027B                       l1798 02AE                       ?_isr 0070  
                      u1000 006C                       u1001 006B                       u1010 0087  
                      u1011 0086                       u1100 0132                       u1020 00A5  
@@ -4218,50 +4223,50 @@ Symbol Table                                                                    
                      u1600 022C                       u1520 0434                       u1601 022B  
                      u1521 0433                       u1515 0425                       u1700 02AE  
                      u1620 024D                       u1540 044F                       u1701 02AD  
-                     u1621 024C                       u1541 044E                       u1470 0687  
-                     u1710 02B2                       u1471 0686                       u1711 02B1  
-                     u1615 023F                       u1535 0436                       u1480 068D  
-                     u1640 026F                       u1560 046D                       u1720 0567  
-                     u1481 068C                       u1641 026E                       u1561 046C  
-                     u1545 044B                       u1721 0566                       u1490 0628  
-                     u1570 05B3                       u1491 0627                       u1635 0261  
+                     u1621 024C                       u1541 044E                       u1470 0689  
+                     u1710 02B2                       u1471 0688                       u1711 02B1  
+                     u1615 023F                       u1535 0436                       u1480 068F  
+                     u1640 026F                       u1560 046D                       u1720 0569  
+                     u1481 068E                       u1641 026E                       u1561 046C  
+                     u1545 044B                       u1721 0568                       u1490 062A  
+                     u1570 05B5                       u1491 0629                       u1635 0261  
                      u1555 045F                       u1660 027F                       u1580 0208  
                      u1661 027E                       u1581 0207                       u1670 0285  
                      u1590 020C                       u1671 0284                       u1655 0274  
-                     u1591 020B                       u1575 05AE                       u1680 0289  
-                     u1681 0288                       u1737 0591                       u1690 029E  
-                     u1747 0649                       u1757 065F                       u1695 0299  
-                     _PEIE 005E      __size_of_ADXL345_init 002D                       i1l97 04C2  
-                     i1l98 04C2                       _TMR0 0001                       _TXIE 0464  
+                     u1591 020B                       u1575 05B0                       u1680 0289  
+                     u1681 0288                       u1737 0593                       u1690 029E  
+                     u1747 064B                       u1757 0661                       u1695 0299  
+                     _PEIE 005E      __size_of_ADXL345_init 002D                       i1l97 04C4  
+                     i1l98 04C4                       _TMR0 0001                       _TXIE 0464  
                      _TXIF 0064       ADXL345_readX@accel_x 0055       ADXL345_readY@accel_y 0055  
-                     _main 055A                       btemp 007E                       start 000C  
+                     _main 055C                       btemp 007E                       start 000C  
           ___fldiv@new_exp 003C                      ??_isr 0070     __size_of_ADXL345_WRITE 0031  
          ?_I2C_Master_Init 002D           ?_I2C_Master_Read 0073           ?_I2C_Master_Wait 0070  
          ?_I2C_Master_Stop 0070              ___fltol@sign1 004D                      ?_main 0070  
-          __end_of___fldiv 0200               _ADXL345_READ 0513            __end_of___fltol 0338  
+          __end_of___fldiv 0200               _ADXL345_READ 0515            __end_of___fltol 0338  
                     _ANSEL 0188            __end_of___lldiv 0476                      _CONTX 005F  
    __size_of_ADXL345_readX 006B     __size_of_ADXL345_readY 006B                      _RCREG 001A  
                     _SPBRG 0099                      _PORTA 0005                      _PORTB 0006  
                     _PORTD 0008                      _PORTE 0009                      _TRISA 0085  
                     _TRISB 0086                      _TRISD 0088                      _SSPIE 0463  
                     _TRISE 0089                      _SSPIF 0063                      _TXREG 0019  
-             _ADXL345_init 0637                      _eje_x 006A                      _eje_y 0068  
+             _ADXL345_init 0639                      _eje_x 006A                      _eje_y 0068  
                     _eje_z 007A                      _tempx 0079                      _tempy 0067  
-                    _tempz 0066                      _setup 04C9                      pclath 000A  
+                    _tempz 0066                      _setup 04CB                      pclath 000A  
                     status 0003                      wtemp0 007E            __initialization 000F  
-             __end_of_main 059C                     ??_main 005B          ?_I2C_Master_Start 0070  
+             __end_of_main 059E                     ??_main 005B          ?_I2C_Master_Start 0070  
         ?_I2C_Master_Write 0073         ??_I2C_Master_Start 0073         ??_I2C_Master_Write 0075  
-                   ?_setup 0070                     _ANSELH 0189              _ADXL345_WRITE 05D6  
+                   ?_setup 0070                     _ANSELH 0189              _ADXL345_WRITE 05D8  
                    i1l1630 0485                     i1l1640 049B                     i1l1632 048B  
-                   i1l1624 0476                     i1l1650 04B2                     i1l1642 049C  
-                   i1l1634 0490                     i1l1626 047A                     i1l1652 04B5  
+                   i1l1624 0476                     i1l1650 04B4                     i1l1642 049C  
+                   i1l1634 0490                     i1l1626 047A                     i1l1652 04B7  
                    i1l1636 0493                     i1l1644 049F                     i1l1628 0484  
-                   i1l1654 04BB                     i1l1646 04A4                     i1l1638 0499  
-                   i1l1648 04AC                     i1l1656 04C0                     u140_20 0490  
+                   i1l1654 04BD                     i1l1646 04A4                     i1l1638 0499  
+                   i1l1648 04AE                     i1l1656 04C2                     u140_20 0490  
                    u140_21 048F                     u141_20 0499                     u141_21 0498  
-                   u142_20 04A4                     u142_21 04A3                     u143_20 04AC  
-                   u143_21 04AB                     u144_20 04B2                     u144_21 04B1  
-                   u145_20 04BB                     u145_21 04BA                     u138_20 047A  
+                   u142_20 04A4                     u142_21 04A3                     u143_20 04AE  
+                   u143_21 04AD                     u144_20 04B4                     u144_21 04B3  
+                   u145_20 04BD                     u145_21 04BC                     u138_20 047A  
                    u138_21 0479                     u139_20 048B                     u139_21 048A  
                    _SPBRGH 009A                     _SSPADD 0093                     _TRISC3 043B  
                    _TRISC4 043C                     _SSPCON 0014                     _SSPBUF 0013  
@@ -4271,16 +4276,16 @@ Symbol Table                                                                    
            ?_ADXL345_WRITE 0075               ___xxtofl@arg 0026               ___xxtofl@exp 0025  
              ___xxtofl@val 0073    __end_of__initialization 001F             ?_ADXL345_readX 004F  
            ?_ADXL345_readY 004F                 ___fltol@f1 0044             __pcstackCOMMON 0070  
-            __end_of_setup 0513             _OPTION_REGbits 0081                    ??_setup 0031  
-               __pbssBANK0 005E         __size_of_initUSART 001D                 __pmaintext 055A  
+            __end_of_setup 0515             _OPTION_REGbits 0081                    ??_setup 0031  
+               __pbssBANK0 005E         __size_of_initUSART 001D                 __pmaintext 055C  
                __pintentry 0004                  ?___xxtofl 0073            ??_ADXL345_WRITE 0076  
                   _SSPCON2 0091                    _SSPSTAT 0094            ??_ADXL345_readX 0051  
           ??_ADXL345_readY 0051                    ___fldiv 0023                    ___fltol 02BC  
-                  ___lldiv 040E                    _bandera 0078          __end_of_initUSART 0681  
-                  __ptext1 04C9                    __ptext2 0664                    __ptext3 059C  
-                  __ptext4 040E                    __ptext5 0637                    __ptext6 05D6  
+                  ___lldiv 040E                    _bandera 0078          __end_of_initUSART 0683  
+                  __ptext1 04CB                    __ptext2 0666                    __ptext3 059E  
+                  __ptext4 040E                    __ptext5 0639                    __ptext6 05D8  
                   __ptext7 0338                    __ptext8 03A3                    __ptext9 0200  
-             __size_of_isr 0053                 ??___xxtofl 0020   __size_of_I2C_Master_Init 003A  
+             __size_of_isr 0055                 ??___xxtofl 0020   __size_of_I2C_Master_Init 003A  
  __size_of_I2C_Master_Read 0030   __size_of_I2C_Master_Wait 000D   __size_of_I2C_Master_Stop 0009  
      end_of_initialization 001F  __size_of_I2C_Master_Start 0009  __size_of_I2C_Master_Write 000A  
           ___lldiv@divisor 0020            ___lldiv@counter 002C            ADXL345_READ@var 0026  
@@ -4288,26 +4293,26 @@ Symbol Table                                                                    
             ___xxtofl@sign 0024                  _TRISCbits 0087                ___fldiv@grs 003E  
               ___fldiv@rem 0037                  _TXSTAbits 0098        ADXL345_readX@data_x 0059  
       ADXL345_readY@data_y 0059                _BAUDCTLbits 0187        start_initialization 000F  
-              __end_of_isr 04C9          ??_I2C_Master_Init 0074          ??_I2C_Master_Read 0075  
+              __end_of_isr 04CB          ??_I2C_Master_Init 0074          ??_I2C_Master_Read 0075  
         ??_I2C_Master_Wait 0073          ??_I2C_Master_Stop 0073              ?_ADXL345_READ 0022  
                 ___fldiv@a 002A                  ___fldiv@b 002E              ?_ADXL345_init 0070  
               __pbssCOMMON 0078                  ___latbits 0002              __pcstackBANK0 0020  
-        __size_of___xxtofl 00BC                  __pnvBANK0 0069           _I2C_Master_Start 06A1  
-         _I2C_Master_Write 068E                   ?___fldiv 002A                   ?___fltol 0044  
+        __size_of___xxtofl 00BC                  __pnvBANK0 0069           _I2C_Master_Start 06A3  
+         _I2C_Master_Write 0690                   ?___fldiv 002A                   ?___fltol 0044  
                  ?___lldiv 0020             ??_ADXL345_READ 0024             ??_ADXL345_init 0021  
-                _initUSART 0664      __end_of_ADXL345_WRITE 0607             __size_of_setup 004A  
+                _initUSART 0666      __end_of_ADXL345_WRITE 0609             __size_of_setup 004A  
         interrupt_function 0004      __end_of_ADXL345_readX 040E      __end_of_ADXL345_readY 03A3  
                  _PIE1bits 008C                   _PIR1bits 000C         ADXL345_readX@acc_x 0057  
        ADXL345_readY@acc_y 0057                 ?_initUSART 0070        I2C_Master_Read@temp 0020  
          __size_of___fldiv 01DD           __size_of___fltol 007C           __size_of___lldiv 0068  
-          _I2C_Master_Init 059C            _I2C_Master_Read 0607                   ___xxtofl 0200  
-          _I2C_Master_Wait 0681            _I2C_Master_Stop 0698                   __ptext10 02BC  
-                 __ptext11 0023                   __ptext12 0513                   __ptext13 068E  
-                 __ptext14 0698                   __ptext15 06A1                   __ptext16 0607  
-                 __ptext17 0681                   __ptext18 0476       __end_of_ADXL345_READ 055A  
-            __size_of_main 0042       __end_of_ADXL345_init 0664          ADXL345_READ@leido 0027  
- __end_of_I2C_Master_Start 06AA   __end_of_I2C_Master_Write 0698                 _INTCONbits 000B  
+          _I2C_Master_Init 059E            _I2C_Master_Read 0609                   ___xxtofl 0200  
+          _I2C_Master_Wait 0683            _I2C_Master_Stop 069A                   __ptext10 02BC  
+                 __ptext11 0023                   __ptext12 0515                   __ptext13 0690  
+                 __ptext14 069A                   __ptext15 06A3                   __ptext16 0609  
+                 __ptext17 0683                   __ptext18 0476       __end_of_ADXL345_READ 055C  
+            __size_of_main 0042       __end_of_ADXL345_init 0666          ADXL345_READ@leido 0027  
+ __end_of_I2C_Master_Start 06AC   __end_of_I2C_Master_Write 069A                 _INTCONbits 000B  
               ??_initUSART 0073                   intlevel1 0000           ___lldiv@dividend 0024  
-  __end_of_I2C_Master_Init 05D6    __end_of_I2C_Master_Read 0637    __end_of_I2C_Master_Wait 068E  
-  __end_of_I2C_Master_Stop 06A1           ___lldiv@quotient 0028          I2C_Master_Write@d 0073  
+  __end_of_I2C_Master_Init 05D8    __end_of_I2C_Master_Read 0639    __end_of_I2C_Master_Wait 0690  
+  __end_of_I2C_Master_Stop 06A3           ___lldiv@quotient 0028          I2C_Master_Write@d 0073  
               _SSPCON2bits 0091          ADXL345_WRITE@data 0075           ADXL345_WRITE@var 0020  
