@@ -48,6 +48,8 @@ AdafruitIO_Feed *eje_z = io.feed("eje_z");
 AdafruitIO_Feed *led1 = io.feed("led1");
 AdafruitIO_Feed *led2 = io.feed("led2");
 
+AdafruitIO_Feed *cuadrante = io.feed("cuadrante");
+
 void setup() {
   pinMode(LED, OUTPUT);
   // start the serial connection
@@ -83,62 +85,91 @@ void setup() {
 }
 
 void loop() {
-  // UART
-  
- // Serial.println("Acelerometro: ");
-  
-  // io.run(); is required for all sketches.
-  // it should always be present at the top of your loop
-  // function. it keeps the client connected to
-  // io.adafruit.com, and processes any incoming data.
   io.run();
-
+  escribir();
   
-  Serial1.write(variable + 16); // variable para luces piloto
-  //delay(2);
-  tempx = Serial1.read();
-  delay(20);
-  Serial1.write(variable + 32); // variable para luces piloto
-  //delay(2);
-  tempy = Serial1.read();
-   
-  if (tempx > 127){
-    tempx = (128 - (tempx - 128)) * -1;
-  }
-  if (tempy > 127){
-    tempy = (128 - (tempy - 128)) * -1;
-  }
-  if (tempz > 127){
-    tempz = (128 - (tempz - 128)) * -1;
-  }
-
-  if (tempx != 0 & tempx != -7 & tempx != -15){
-    ejex = tempx;
-  }
-  if (tempy != 0 & tempy != -7 & tempx != -15){
-    ejey = tempy;
-  }
-
-  ang_x = angulo(ejex);
-  ang_y = angulo(ejey);
-
-  ang_x = ang_x * 90 / (abs(ang_x) + abs(ang_y));
-  ang_y = ang_y * 90 / (abs(ang_x) + abs(ang_y));
-
-  variable = luces(LUZ1, LUZ2);
-  Serial.print("eje x -> ");
-  Serial.println(ang_x);
-  
-  eje_x->save(ang_x);
-  delay(3000);
+  eje_x->save(abs(ang_x));
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
   io.run();
   variable = luces(LUZ1, LUZ2);
   Serial1.write(variable);
+ 
+  eje_y->save(abs(ang_y));
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  io.run();
+  variable = luces(LUZ1, LUZ2);
+  Serial1.write(variable);
+
   
-  Serial.print("eje y -> ");
-  Serial.println(ang_y);
-  eje_y->save(ang_y);
-  delay(3000);
+  if (ang_x > 0){
+    if (ang_y > 0){
+      // +,+
+      Serial.print("3 ");
+      cuadrante->save("3 cuadrante");
+    } else if (ang_y < 0){
+      // +,-
+      Serial.print("4 ");
+      cuadrante->save("4 cuadrante");
+    } else if (ang_y == 0){
+      Serial.print("-y ");
+      cuadrante->save("eje -y");
+    }
+  } else if (ang_x < 0){
+    if (ang_y > 0){
+      // -,+
+      Serial.print("2 ");
+      cuadrante->save("2 cuadrante");
+    } else if (ang_y < 0){
+      // -,-
+      Serial.print("1 ");
+      cuadrante->save("1 cuadrante");
+    } else if (ang_y == 0){
+      Serial.print("+y ");
+      cuadrante->save("eje +y");
+    }
+  } else if (ang_x == 0){
+    if (ang_y == 90);
+    Serial.print("-x ");
+      cuadrante->save("eje -x");
+  } else if (ang_y == -90 | ang_y == 166){
+    Serial.print("+x ");
+      cuadrante->save("eje +x");
+  }
+  
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
+  delay(500);
+  escribir();
   io.run();
   variable = luces(LUZ1, LUZ2);
   Serial1.write(variable);
@@ -152,7 +183,7 @@ void handleMessage1(AdafruitIO_Data *data) {
   Serial.println(data->value());
   if(data->toString() == "ON"){
     LUZ1 = 1;
-    digitalWrite(LED, HIGH);
+    //digitalWrite(LED, HIGH);
   } else {
     LUZ1 = 0;
     digitalWrite(LED, LOW);
@@ -163,7 +194,7 @@ void handleMessage2(AdafruitIO_Data *data) {
   Serial.println(data->value());
   if(data->toString() == "ON"){
     LUZ2 = 1;
-    digitalWrite(LED, HIGH);
+    //digitalWrite(LED, HIGH);
   } else {
     LUZ2 = 0;
     digitalWrite(LED, LOW);
@@ -201,7 +232,7 @@ signed int angulo(signed int eje){
   } else {
     eje = 256 - (256 + eje);
     
-    digitalWrite(LED, HIGH);
+    //digitalWrite(LED, HIGH);
 
   if (0 <= eje & eje <= 7){
     resultado = map(eje, 7, 0, 45, 80);
@@ -213,14 +244,89 @@ signed int angulo(signed int eje){
     
     if (16 <= eje & eje <= 23){
       resultado = map(eje, 17, 23, 10, 40);
+   resultado = resultado * -1;
     }
   if (7 <= eje & eje <= 14){
     resultado = map(eje, 8, 15, 50, 85);
+   resultado = resultado * -1;
   } 
   if (eje == 31){
     resultado = 90;
+   resultado = resultado * -1;
     }
   }
   
   return resultado;
+}
+
+void escribir(void){
+  
+  Serial1.write(variable + 16); // variable para luces piloto
+  //delay(2);
+  tempy = Serial1.read();
+  delay(20);
+  Serial1.write(variable + 32); // variable para luces piloto
+  //delay(2);
+  tempx = Serial1.read();
+   
+  if (tempx > 127){
+    tempx = (128 - (tempx - 128)) * -1;
+  }
+  if (tempy > 127){
+    tempy = (128 - (tempy - 128)) * -1;
+  }
+  if (tempz > 127){
+    tempz = (128 - (tempz - 128)) * -1;
+  }
+
+  if (tempx != 0 & tempx != -7 & tempx != -15){
+    ejex = tempx;
+  }
+  if (tempy != 0 & tempy != -7 & tempx != -15){
+    ejey = tempy;
+  }
+
+  ang_x = angulo(ejex);
+  ang_y = angulo(ejey);
+  suma = (abs(ang_x) + abs(ang_y));
+  if (suma == 0){
+    suma = 90;
+  }
+  ang_x = ang_x * 90 / suma;
+  ang_y = ang_y * 90 / suma;
+
+  
+  if (ang_x > 0){
+    if (ang_y > 0){
+      // +,+
+      Serial.print("3 ");
+    } else if (ang_y < 0){
+      // +,-
+      Serial.print("4 ");
+    } else if (ang_y == 0){
+      Serial.print("-y ");
+    }
+  } else if (ang_x < 0){
+    if (ang_y > 0){
+      // -,+
+      Serial.print("2 ");
+    } else if (ang_y < 0){
+      // -,-
+      Serial.print("1 ");
+    } else if (ang_y == 0){
+      Serial.print("+y ");
+    }
+  } else if (ang_x == 0){
+    if (ang_y == 90);
+    Serial.print("-x ");
+  } else if (ang_y == 166){
+    Serial.print("+x ");
+  }
+  
+  Serial.print(ang_x);
+  Serial.print(" ");
+  Serial.print(ang_y);
+  Serial.print(" ");
+  Serial.println();
+  
 }
