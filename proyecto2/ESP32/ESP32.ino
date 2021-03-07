@@ -91,7 +91,7 @@ void loop() {
   
   eje_x->save(abs(ang_x));    // Enviar valor angulo a eje x
   // delay para interfaz 
-  delay(500);
+  delay(500);                 // delay de 0.5 segundos con escribir en serial los valores de los angulos y ubicacion
   escribir();
   delay(500);
   escribir();
@@ -109,7 +109,7 @@ void loop() {
  
   eje_y->save(abs(ang_y));        // enviar angulo eje y
   // delay para interfaz 
-  delay(500);
+  delay(500);                 // delay de 0.5 segundos con escribir en serial los valores de los angulos y ubicacion
   escribir();
   delay(500);
   escribir();
@@ -126,37 +126,37 @@ void loop() {
   Serial1.write(variable);      // enviar variable
 
   
-  if (ang_x > 0){               // Determinar en que cuadrante esta la gravedad
-    if (ang_y > 0){
+  if (ang_x > 0){                       // Determinar en que cuadrante esta la gravedad
+    if (ang_y > 0){                     // si ambos angulos son positivos esta en el cuadrante 3
       // +,+
       Serial.print("3 ");
       cuadrante->save("3 cuadrante");
-    } else if (ang_y < 0){
+    } else if (ang_y < 0){              // si y es negativo y x positivo, esta en el cuarto cuadrante
       // +,-
       Serial.print("4 ");
       cuadrante->save("4 cuadrante");
-    } else if (ang_y == 0){
+    } else if (ang_y == 0){             // si y es 0, esta en el eje -y
       Serial.print("-y ");
       cuadrante->save("eje -y");
     }
   } else if (ang_x < 0){
-    if (ang_y > 0){
+    if (ang_y > 0){                     // si ambos son negativos, esta en el cuadrante 2 
       // -,+
       Serial.print("2 ");
       cuadrante->save("2 cuadrante");
-    } else if (ang_y < 0){
+    } else if (ang_y < 0){              // si x es negativo y y positivo, esta en el cuadrante 1
       // -,-
       Serial.print("1 ");
       cuadrante->save("1 cuadrante");
-    } else if (ang_y == 0){
+    } else if (ang_y == 0){             // si y es igual a 0, esta en el eje +y
       Serial.print("+y ");
       cuadrante->save("eje +y");
     }
-  } else if (ang_x == 0){
-    if (ang_y == 90);
+  } else if (ang_x == 0){               // si x es igual a 0, esta en el eje x
+    if (ang_y == 90);                   // positivo 
     Serial.print("-x ");
       cuadrante->save("eje -x");
-  } else if (ang_y == -90 | ang_y == 166){
+  } else if (ang_y == -90 | ang_y == 166){  // negativo 
     Serial.print("+x ");
       cuadrante->save("eje +x");
   }
@@ -219,11 +219,12 @@ int luces(int LUZ1, int LUZ2){
 
 signed int angulo(signed int eje){
   signed int resultado;
+  // mapeo de valor obtenido de los ejes, a angulos
   if ( 0 < eje & eje < 20){     // angulo en cada eje 
       if (eje == 16){
         resultado = 90;
       }  
-      if (eje == 15){
+      if (eje == 15){     
         resultado = 85;
       } 
       else  if (2 <= eje & eje <= 7){
