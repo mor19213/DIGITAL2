@@ -138,7 +138,7 @@ signed short ADXL345_readX(void){
      data_x[0] = ADXL345_READ(DATAX0);      // obtener 2 bytes data x
      data_x[1] = ADXL345_READ(DATAX1);
      accel_x = (data_x[1]*256)+(data_x[0]); // unir dos bytes 
-     acc_x = (accel_x)/16.384;
+     acc_x = (accel_x)/16;
      return acc_x;
 }
 signed short ADXL345_readY(void){
@@ -148,7 +148,7 @@ signed short ADXL345_readY(void){
      data_y[0] = ADXL345_READ(DATAY0); // obtener 2 bytes data y
      data_y[1] = ADXL345_READ(DATAY1);
      accel_y = (data_y[1]*256)+(data_y[0]); // unir dos bytes
-     acc_y = (accel_y)/16.384;
+     acc_y = (accel_y)/16;
      return acc_y;
 }
 signed short ADXL345_readZ(void){
