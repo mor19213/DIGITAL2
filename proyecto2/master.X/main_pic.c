@@ -61,7 +61,6 @@ void setup(void);
 void __interrupt() isr(void){
     if (INTCONbits.T0IF){           // INTERRUPCION TMR0
         CONTX++;
-        prueba++; 
         INTCONbits.T0IF = 0;        // TERMINAR INTERRUPCION DE TMR0
     }
   
@@ -73,14 +72,13 @@ void __interrupt() isr(void){
             TXREG = eje_y;          // enviar eje y
         }
         bandera = 0;
-        
+            CONTX = 0;
         TXIE = 0;   // deshabilitar interrupcion de tx
     }
     
     
     if(PIR1bits.RCIF == 1){
         PORTD = RCREG;
-        PORTE = RCREG;
         if (RCREG > 5){             // solo recibir valor luces piloto 
             if (RCREG < 25){        // bandera para enviar eje x 
                 bandera = 1;
