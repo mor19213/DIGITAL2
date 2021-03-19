@@ -77,6 +77,7 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
+  
   Serial.print(J1);
   Serial.print("  ");
   Serial.println(J2);
