@@ -85,6 +85,64 @@ void loop() {
       avanzar();
     }
   }
+  leds();
+}
+void leds(void){
+  if (J1 == 1){
+    digitalWrite(p11, HIGH);
+  } else if (J1 == 2){
+    digitalWrite(p12, HIGH);
+    digitalWrite(p11, LOW);
+  } else if (J1 == 3){
+    digitalWrite(p13, HIGH);
+    digitalWrite(p12, LOW);
+  } else if (J1 == 4){
+    digitalWrite(p14, HIGH);
+    digitalWrite(p13, LOW);
+  } else if (J1 == 5){
+    digitalWrite(p15, HIGH);
+    digitalWrite(p14, LOW);
+  } else if (J1 == 6){
+    digitalWrite(p16, HIGH);
+    digitalWrite(p15, LOW);
+  } else if (J1 == 7){
+    digitalWrite(p17, HIGH);
+    digitalWrite(p16, LOW);
+  } else if (J1 == 8){
+    digitalWrite(p18, HIGH);
+    digitalWrite(p17, LOW);
+  } else if (J1 == 9){
+    digitalWrite(p19, HIGH);
+    digitalWrite(p18, LOW);
+  }
+
+  if (J2 == 1){
+    digitalWrite(p21, HIGH);
+  } else if (J2 == 2){
+    digitalWrite(p22, HIGH);
+    digitalWrite(p21, LOW);
+  } else if (J2 == 3){
+    digitalWrite(p23, HIGH);
+    digitalWrite(p22, LOW);
+  } else if (J2 == 4){
+    digitalWrite(p24, HIGH);
+    digitalWrite(p23, LOW);
+  } else if (J2 == 5){
+    digitalWrite(p25, HIGH);
+    digitalWrite(p24, LOW);
+  } else if (J2 == 6){
+    digitalWrite(p26, HIGH);
+    digitalWrite(p25, LOW);
+  } else if (J2 == 7){
+    digitalWrite(p27, HIGH);
+    digitalWrite(p26, LOW);
+  } else if (J2 == 8){
+    digitalWrite(p28, HIGH);
+    digitalWrite(p27, LOW);
+  } else if (J2 == 9){
+    digitalWrite(p29, HIGH);
+    digitalWrite(p28, LOW);
+  }
 }
 void avanzar(void){
   int reading1 = digitalRead(PUSH1);
