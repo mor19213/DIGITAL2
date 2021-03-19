@@ -76,11 +76,13 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  if (J1 < 9 && J2 < 9){
-    avanzar(J1, J2);
+  if (J1 < 9){
+    if (J2 < 9){
+      avanzar();
+    }
   }
 }
-void avanzar(int jugador1, int jugador2){
+void avanzar(void){
   int reading1 = digitalRead(PUSH1);
   if (reading1 == LOW){
     a1 = 1;
@@ -92,12 +94,14 @@ void avanzar(int jugador1, int jugador2){
       a1 = 0;
     }
   }
+
+  
   int reading2 = digitalRead(PUSH2);
   if (reading2 == LOW){
     a2 = 1;
     digitalWrite(LEDR, HIGH);
   } else {
-    if (a2 == 1){
+    if (a2 == 1){ 
       J2++;
       digitalWrite(LEDR, LOW);
       a2 = 0;
