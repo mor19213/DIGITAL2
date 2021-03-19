@@ -39,7 +39,8 @@ uint8_t J1, J2, a1, a2;
 
   
 // the setup routine runs once when you press reset:
-void setup() {                
+void setup() {  
+  Serial.begin(9600);              
   // initialize the digital pin as an output.
   pinMode(LEDR, OUTPUT);  
   pinMode(LEDB, OUTPUT);  
@@ -76,6 +77,9 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
+  Serial.print(J1);
+  Serial.print("  ");
+  Serial.println(J2);
   if (J1 < 9){
     if (J2 < 9){
       avanzar();
