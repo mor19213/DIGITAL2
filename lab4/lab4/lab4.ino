@@ -88,7 +88,8 @@ void avanzar(int jugador1, int jugador2){
   } else {
     if (a1 == 1){ 
       J1++;
-      digitalWrite(LEDB, HIGH);
+      digitalWrite(LEDB, LOW);
+      a1 = 0;
     }
   }
   int reading2 = digitalRead(PUSH2);
@@ -99,6 +100,7 @@ void avanzar(int jugador1, int jugador2){
     if (a2 == 1){
       J2++;
       digitalWrite(LEDR, LOW);
+      a2 = 0;
     }
   }
   
