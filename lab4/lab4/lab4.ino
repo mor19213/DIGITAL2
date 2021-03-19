@@ -34,7 +34,7 @@
 #define p28 PF_2
 #define p29 PB_3
 
-uint8_t J1, J2, a1, a2;
+uint8_t J1, J2, a1, a2, terminado;
 
 
   
@@ -72,6 +72,7 @@ void setup() {
   J2 = 0; 
   a1 = 0;
   a2 = 0;
+  terminado = 0;
   semaforo();  
 }
 
@@ -81,12 +82,14 @@ void loop() {
   Serial.print(J1);
   Serial.print("  ");
   Serial.println(J2);
-  if (J1 < 9){
-    if (J2 < 9){
+  if (J1 < 10){
+    if (J2 < 10){
       avanzar();
     }
   }
+    
   leds();
+  
 }
 void leds(void){
   if (J1 == 1){
@@ -115,6 +118,9 @@ void leds(void){
   } else if (J1 == 9){
     digitalWrite(p19, HIGH);
     digitalWrite(p18, LOW);
+    terminado = 1;
+  } else if (J1 == 10){
+    terminado = 1;
   }
 
   if (J2 == 1){
@@ -143,12 +149,18 @@ void leds(void){
   } else if (J2 == 9){
     digitalWrite(p29, HIGH);
     digitalWrite(p28, LOW);
+    terminado = 1;
+  } else if (J2 == 10){
+    terminado = 1;
   }
 }
 void avanzar(void){
   int reading1 = digitalRead(PUSH1);
   if (reading1 == LOW){
     a1 = 1;
+    if (terminado == 1){
+      setup();
+    }
     digitalWrite(LEDB, HIGH);
   } else {
     if (a1 == 1){ 
@@ -162,6 +174,9 @@ void avanzar(void){
   int reading2 = digitalRead(PUSH2);
   if (reading2 == LOW){
     a2 = 1;
+    if (terminado == 1){
+      setup();
+    }
     digitalWrite(LEDR, HIGH);
   } else {
     if (a2 == 1){ 
