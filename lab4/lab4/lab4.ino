@@ -14,6 +14,7 @@
 #define LEDR RED_LED      //PF_1
 #define LEDG GREEN_LED    //PF_1
 #define LEDB BLUE_LED     //PF_1
+// definir pines a usar para jugadores
 #define p11 PB_5
 #define p12 PB_0
 #define p13 PB_1
@@ -31,7 +32,7 @@
 #define p25 PE_1
 #define p26 PE_2
 #define p27 PE_3
-#define p28 PF_2
+#define p28 PB_2
 #define p29 PB_3
 
 uint8_t J1, J2, a1, a2, terminado;
@@ -45,9 +46,11 @@ void setup() {
   pinMode(LEDR, OUTPUT);  
   pinMode(LEDB, OUTPUT);  
   pinMode(LEDG, OUTPUT); 
+  // botones
   pinMode(PUSH1, INPUT_PULLUP);
   pinMode(PUSH2, INPUT_PULLUP);
-  
+
+  // salidas para jugadores
   pinMode(p11, OUTPUT);
   pinMode(p12, OUTPUT);
   pinMode(p13, OUTPUT);
@@ -67,21 +70,43 @@ void setup() {
   pinMode(p27, OUTPUT);
   pinMode(p28, OUTPUT);
   pinMode(p29, OUTPUT);
-  
+
+  // variables en 0
   J1 = 0;
   J2 = 0; 
   a1 = 0;
   a2 = 0;
+  // apagar todos los leds
+  digitalWrite(p11, LOW);
+  digitalWrite(p12, LOW);
+  digitalWrite(p13, LOW);
+  digitalWrite(p14, LOW);
+  digitalWrite(p15, LOW);
+  digitalWrite(p16, LOW);
+  digitalWrite(p17, LOW);
+  digitalWrite(p18, LOW);
+  digitalWrite(p19, LOW);
+  digitalWrite(p21, LOW);
+  digitalWrite(p22, LOW);
+  digitalWrite(p23, LOW);
+  digitalWrite(p24, LOW);
+  digitalWrite(p25, LOW);
+  digitalWrite(p26, LOW);
+  digitalWrite(p27, LOW);
+  digitalWrite(p28, LOW);
+  digitalWrite(p29, LOW);
   terminado = 0;
+  // iniciar semaforo
   semaforo();  
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
-  
+  // puntaje jugadores
   Serial.print(J1);
   Serial.print("  ");
   Serial.println(J2);
+  // si nadie a ganado avanzar
   if (J1 < 10){
     if (J2 < 10){
       avanzar();
@@ -91,6 +116,7 @@ void loop() {
   leds();
   
 }
+// mostrar en los leds el puntaje
 void leds(void){
   if (J1 == 1){
     digitalWrite(p11, HIGH);
@@ -154,18 +180,22 @@ void leds(void){
     terminado = 1;
   }
 }
+// leer botones para avanzar
 void avanzar(void){
   int reading1 = digitalRead(PUSH1);
+  
   if (reading1 == LOW){
+    // antirebote
     a1 = 1;
     if (terminado == 1){
+      // si ya termino y se presiono el boton volver a iniciar
+      delay(1000);
       setup();
     }
-    digitalWrite(LEDB, HIGH);
   } else {
     if (a1 == 1){ 
+      // si no ha terminado, avanzar
       J1++;
-      digitalWrite(LEDB, LOW);
       a1 = 0;
     }
   }
@@ -173,21 +203,24 @@ void avanzar(void){
   
   int reading2 = digitalRead(PUSH2);
   if (reading2 == LOW){
+    // antirebote
     a2 = 1;
     if (terminado == 1){
+      // si ya termino y se presiono el boton volver a iniciar
+      delay(1000);
       setup();
     }
-    digitalWrite(LEDR, HIGH);
   } else {
     if (a2 == 1){ 
+      // si no ha terminado, avanzar
       J2++;
-      digitalWrite(LEDR, LOW);
       a2 = 0;
     }
   }
   
 }
 void semaforo(void){
+  // secuencia para semaforo antes de iniciar carrera
   digitalWrite(LEDR, HIGH);   
   digitalWrite(LEDG, LOW);    
   delay(1000);               
