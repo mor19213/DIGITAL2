@@ -36,9 +36,7 @@ void setup()
 void loop() {
   // put your main code here, to run repeatedly: 
   menu = Serial.read();
-  if (menu > 0){
-    abrir(1);
-  }
+  abrir(menu);
 }
 
 void printDirectory(File dir, int numTabs) {
@@ -67,18 +65,51 @@ void printDirectory(File dir, int numTabs) {
 
 void abrir(int num){
     // re-open the file for reading:
-  myFile = SD.open("mario.txt");
-  if (myFile) {
-    Serial.println("mario.txt:");
+    if (num == 0x31){
+        myFile = SD.open("mario.txt");
+        if (myFile) {
+          Serial.println("mario.txt:");
+      
+          // read from the file until there's nothing else in it:
+          while (myFile.available()) {
+            Serial.write(myFile.read());
+          }
+          // close the file:
+          myFile.close();
+        } else {
+          // if the file didn't open, print an error:
+          Serial.println("error opening test.txt");
+        }
+    } else if (num == 0x32){
+        myFile = SD.open("pacman.txt");
+        if (myFile) {
+          Serial.println("pacman.txt:");
+      
+          // read from the file until there's nothing else in it:
+          while (myFile.available()) {
+            Serial.write(myFile.read());
+          }
+          // close the file:
+          myFile.close();
+        } else {
+          // if the file didn't open, print an error:
+          Serial.println("error opening test.txt");
+        }
+    }  else if (num == 0x33){
+        myFile = SD.open("yin-yang.txt");
+        if (myFile) {
+          Serial.println("yin-yang.txt:");
+      
+          // read from the file until there's nothing else in it:
+          while (myFile.available()) {
+            Serial.write(myFile.read());
+          }
+          // close the file:
+          myFile.close();
+        } else {
+          // if the file didn't open, print an error:
+          Serial.println("error opening test.txt");
+        }
+    } 
 
-    // read from the file until there's nothing else in it:
-    while (myFile.available()) {
-      Serial.write(myFile.read());
-    }
-    // close the file:
-    myFile.close();
-  } else {
-    // if the file didn't open, print an error:
-    Serial.println("error opening test.txt");
-  }
 }
