@@ -3,16 +3,18 @@
 
 File root;
 File myFile;
-
+int var;
 int menu;
+int numero;
 
 void setup()
 {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   SPI.setModule(0);
-
-
+  var = 0;
+  numero = 0;
+  
   Serial.print("Initializing SD card...");
   // On the Ethernet Shield, CS is pin 4. It's set as an output by default.
   // Note that even if it's not used as the CS pin, the hardware SS pin
@@ -29,14 +31,15 @@ void setup()
   root = SD.open("/");
 
   printDirectory(root, 0);
-
-  Serial.println("done!");
 }
 
 void loop() {
   // put your main code here, to run repeatedly: 
   menu = Serial.read();
-  abrir(menu);
+  if (menu > 20){
+    abrir(menu);
+  }
+  
 }
 
 void printDirectory(File dir, int numTabs) {
@@ -57,7 +60,17 @@ void printDirectory(File dir, int numTabs) {
      } else {
        // files have sizes, directories do not
        Serial.print("\t\t");
-       Serial.println(entry.size(), DEC);
+        Serial.println(entry.size(), DEC);
+        var++;
+        if(var > 2){
+          if (var < 6){
+            numero++;
+            Serial.println("");
+            Serial.print("imagen ");
+            Serial.print(numero);
+            Serial.println(":");
+          }
+        }
      }
      entry.close();
    }
@@ -68,7 +81,7 @@ void abrir(int num){
     if (num == 0x31){
         myFile = SD.open("mario.txt");
         if (myFile) {
-          Serial.println("mario.txt:");
+          Serial.print("mario.txt:");
       
           // read from the file until there's nothing else in it:
           while (myFile.available()) {
@@ -83,7 +96,7 @@ void abrir(int num){
     } else if (num == 0x32){
         myFile = SD.open("pacman.txt");
         if (myFile) {
-          Serial.println("pacman.txt:");
+          Serial.print("pacman.txt:");
       
           // read from the file until there's nothing else in it:
           while (myFile.available()) {
@@ -98,7 +111,7 @@ void abrir(int num){
     }  else if (num == 0x33){
         myFile = SD.open("yin-yang.txt");
         if (myFile) {
-          Serial.println("yin-yang.txt:");
+          Serial.print("yin-yang.txt:");
       
           // read from the file until there's nothing else in it:
           while (myFile.available()) {
@@ -110,6 +123,7 @@ void abrir(int num){
           // if the file didn't open, print an error:
           Serial.println("error opening test.txt");
         }
-    } 
-
+    } else {
+      Serial.println("Imagen no encontrada");
+    }
 }
