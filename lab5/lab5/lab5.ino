@@ -34,8 +34,9 @@ void setup()
 }
 
 void loop() {
-  // put your main code here, to run repeatedly: 
+   // leer serial
   menu = Serial.read();
+  // si se recibe algo ir a la subrutina para abrir imagenes
   if (menu > 20){
     abrir(menu);
   }
@@ -62,8 +63,10 @@ void printDirectory(File dir, int numTabs) {
        Serial.print("\t\t");
         Serial.println(entry.size(), DEC);
         var++;
-        if(var > 2){
-          if (var < 6){
+        if(var > 4){
+          if (var < 8){
+            // se estan imprimiendo los nombres de los archivos
+            // enumerarlos
             numero++;
             Serial.println("");
             Serial.print("imagen ");
@@ -78,7 +81,10 @@ void printDirectory(File dir, int numTabs) {
 
 void abrir(int num){
     // re-open the file for reading:
-    if (num == 0x31){
+    // 3 = mario
+    // 2 = pacman
+    // 1 = yin yang
+    if (num == 0x33){
         myFile = SD.open("mario.txt");
         if (myFile) {
           Serial.print("mario.txt:");
@@ -108,7 +114,7 @@ void abrir(int num){
           // if the file didn't open, print an error:
           Serial.println("error opening test.txt");
         }
-    }  else if (num == 0x33){
+    }  else if (num == 0x31){
         myFile = SD.open("yin-yang.txt");
         if (myFile) {
           Serial.print("yin-yang.txt:");
@@ -124,6 +130,7 @@ void abrir(int num){
           Serial.println("error opening test.txt");
         }
     } else {
+      // si es un numero distinto, imprimir que no se encontro la imagen
       Serial.println("Imagen no encontrada");
     }
 }
