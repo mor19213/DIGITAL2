@@ -34,6 +34,12 @@ int J1 = 80;
 int J2 = 240;
 int D1 = J1 + 7;
 int D2 = J2 + 7;
+int Disp = 0;
+int antirebote1 = 1;
+int antirebote2 = 1;
+int Y1 = 0;
+int Y2 = 0;
+int var = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -63,20 +69,20 @@ void setup() {
   Serial.println("Inicio");
   LCD_Init();
   LCD_Clear(0x00);
-//  for(int x = 0; x < 320-128; x++){
-//   LCD_Bitmap(x, 10, 127, 39, logo);
-//   V_line( x-1, 10, 30, 0x0000);
-//   delay(7);
-//  }
-//  delay(100);
-  //LCD_Clear(0x00);
+  for(int x = 0; x < 315-128; x++){
+   LCD_Bitmap(x, 100, 127, 39, logo);
+   V_line( x-1, 100, 30, 0x0000);
+   delay(7);
+  }
+  delay(1000);
+  LCD_Clear(0x00);
    LCD_Bitmap(J1, 200, 13, 8, chunche);
    LCD_Bitmap(J2, 200, 13, 8, chunche);
    H_line(0,209,319,  0xD0A3);
    H_line(0,210,319,  0xD0A3);
    H_line(0,211,319,  0xD0A3);
    // dos jugadores divididos en 170
-   V_line(160, 170, 120,  0xD0A3);
+   V_line(160, 185, 120,  0xD0A3);
    String text = "jugador 1";
    LCD_Print(text, 50, 220, 1, 0x3E1C, 0);
    text = "jugador 2";
@@ -87,6 +93,44 @@ void setup() {
 //***************************************************************************************************************************************
 void loop() {
 
+
+   if (Y1 < 186){
+    V_line(D1, 185-Y1, 6, 0x3E1C);
+    V_line(D1, 185-6-Y1, 6, 0x3E1C);
+    V_line(D1, 185+6-Y1, 6, 0x00); 
+    delay(7);
+    Y1++;  
+   }  else {
+    V_line(D1, 0, 15, 0x00); 
+      if (Disp == 1){
+      antirebote1 = 1;
+      } else {
+      if (antirebote1 == 1){
+      antirebote1 = 1;
+      D1 = J1 + 7;
+      Y1 = 0;
+    }
+    }
+   }
+
+   if (Y2 < 186){
+    V_line(D2, 185-Y2, 6, 0x3E1C);
+    V_line(D2, 185-6-Y2, 6, 0x3E1C);
+    V_line(D2, 185+6-Y2, 6, 0x00); 
+    delay(7);
+    Y2++;  
+   }  else {
+    V_line(D2, 0, 15, 0x00); 
+      if (Disp == 1){
+      antirebote2 = 1;
+      } else {
+      if (antirebote2 == 1){
+      antirebote2 = 1;
+      D2 = J2 + 7;
+      Y2 = 0;
+    }
+    }
+   }
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
