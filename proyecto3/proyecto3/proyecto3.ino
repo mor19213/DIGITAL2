@@ -29,16 +29,18 @@
 #define LCD_RS PD_2
 #define LCD_WR PD_3
 #define LCD_RD PE_1
+#define der1 PE_2
+#define izq1 PE_3
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};  
 int J1 = 80;
 int J2 = 240;
 int D1 = J1 + 7;
 int D2 = J2 + 7;
 int Disp = 0;
-int antirebote1 = 1;
-int antirebote2 = 1;
-int Y1 = 0;
-int Y2 = 0;
+int antirebote1 = 0;
+int antirebote2 = 0;
+int Y1 = 180;
+int Y2 = 180;
 int var = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
@@ -74,6 +76,10 @@ void setup() {
    V_line( x-1, 100, 30, 0x0000);
    delay(7);
   }
+  pinMode(PUSH1, INPUT_PULLUP);
+  pinMode(PUSH2, INPUT_PULLUP);
+  pinMode(izq1, INPUT);
+  pinMode(der1, INPUT);
   delay(1000);
   LCD_Clear(0x00);
    LCD_Bitmap(J1, 200, 13, 8, chunche);
@@ -92,7 +98,8 @@ void setup() {
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
-
+  int reading1 = digitalRead(PUSH1);
+  int reading2 = digitalRead(PUSH2);
 
    if (Y1 < 186){
     V_line(D1, 185-Y1, 6, 0x3E1C);
@@ -102,11 +109,11 @@ void loop() {
     Y1++;  
    }  else {
     V_line(D1, 0, 15, 0x00); 
-      if (Disp == 1){
+      if (reading1 == LOW){
       antirebote1 = 1;
       } else {
       if (antirebote1 == 1){
-      antirebote1 = 1;
+      antirebote1 = 0;
       D1 = J1 + 7;
       Y1 = 0;
     }
@@ -121,11 +128,11 @@ void loop() {
     Y2++;  
    }  else {
     V_line(D2, 0, 15, 0x00); 
-      if (Disp == 1){
+      if (reading2 == LOW){
       antirebote2 = 1;
       } else {
       if (antirebote2 == 1){
-      antirebote2 = 1;
+      antirebote2 = 0;
       D2 = J2 + 7;
       Y2 = 0;
     }
