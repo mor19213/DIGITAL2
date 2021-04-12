@@ -29,9 +29,13 @@
 #define LCD_RS PD_2
 #define LCD_WR PD_3
 #define LCD_RD PE_1
-#define der1 PE_2
-#define izq1 PE_3
-int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};  
+#define der2 PE_2
+#define izq2 PE_3
+#define izq1 PA_5
+#define der1 PA_6
+#define disp2 PF_1
+#define disp1 PA_7
+int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7}; 
 int J1 = 80;
 int J2 = 240;
 int D1 = J1 + 7;
@@ -42,6 +46,15 @@ int antirebote2 = 0;
 int Y1 = 180;
 int Y2 = 180;
 int var = 0;
+int CI = 15;
+int mov = 1;
+int vuelta = 0;
+int LI = 40;
+int M1 = 1;
+int M2 = 1;
+int M3 = 1;
+int nivel = 1;
+int juego = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -58,7 +71,7 @@ void LCD_Print(String text, int x, int y, int fontSize, int color, int backgroun
 
 void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
-
+void reiniciar(void);
 
 extern uint8_t fondo[];
 //***************************************************************************************************************************************
@@ -70,44 +83,120 @@ void setup() {
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
   Serial.println("Inicio");
   LCD_Init();
-  LCD_Clear(0x00);
-  for(int x = 0; x < 315-128; x++){
-   LCD_Bitmap(x, 100, 127, 39, logo);
-   V_line( x-1, 100, 30, 0x0000);
-   delay(7);
-  }
-  pinMode(PUSH1, INPUT_PULLUP);
-  pinMode(PUSH2, INPUT_PULLUP);
-  pinMode(izq1, INPUT);
-  pinMode(der1, INPUT);
-  delay(1000);
-  LCD_Clear(0x00);
-   LCD_Bitmap(J1, 200, 13, 8, chunche);
-   LCD_Bitmap(J2, 200, 13, 8, chunche);
-   H_line(0,209,319,  0xD0A3);
-   H_line(0,210,319,  0xD0A3);
-   H_line(0,211,319,  0xD0A3);
-   // dos jugadores divididos en 170
-   V_line(160, 185, 120,  0xD0A3);
-   String text = "jugador 1";
-   LCD_Print(text, 50, 220, 1, 0x3E1C, 0);
-   text = "jugador 2";
-   LCD_Print(text, 210, 220, 1, 0x3E1C, 0);
+  reiniciar();
+    pinMode(PUSH1, INPUT_PULLUP);
+    pinMode(PUSH2, INPUT_PULLUP);
+    pinMode(izq1, INPUT);
+    pinMode(der1, INPUT);
+    pinMode(izq2, INPUT);
+    pinMode(der2, INPUT);
+    pinMode(disp1, INPUT);
+    pinMode(disp2, INPUT);
 }
 //***************************************************************************************************************************************
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
-  int reading1 = digitalRead(PUSH1);
-  int reading2 = digitalRead(PUSH2);
+  int reading1 = digitalRead(disp1);
+  int reading2 = digitalRead(disp2);
+   LCD_Bitmap(J1, 200, 13, 8, chunche);
+   LCD_Bitmap(J2, 200, 13, 8, chunche);
+   if (M1 == 1){
+    LCD_Bitmap(CI, LI, 10, 8, malo1);
+   }
+   if (M2 == 1){
+    LCD_Bitmap(CI+30, LI, 10, 8, malo1);
+   }
+   if (M3 == 1){
+    LCD_Bitmap(CI+60, LI, 10, 8, malo1); 
+   } 
+   
+  if (juego == 1){
+    if (LI > 170){
+      LCD_Clear(0x00);
+      LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+      M1 = 0;
+      M2 = 0;
+      M3 = 0;
+      juego = 0;
+   }
+   if (M3 == 0 && M2 == 0 && M1==0){
+    LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
+    nivel++;
+    var = 1;
+    delay(1500);
+    M1 = 1;
+    M2 = 1;
+    M3 = 1;
+    vuelta = 0;
+   } else if(var == 1){
+    LCD_Print("                  ", 25, 5, 2, 0x3E1C, 0);
+    var = 0;
+   }
+   if (mov == 1){
+    CI++;
+   } else if (mov == 0){
+    CI--;
+   }
+   if (CI > 250){
+    mov = 0;
+   } else if (CI < 10){
+    mov = 1;
+    vuelta++;
+   }
+   if (vuelta > (5/nivel)){
+    vuelta = 0;
+    LCD_Print("                          ", CI, LI, 2, 0x3E1C, 0);
+    LI = LI + 25;
+   }
+   int B_der1 = digitalRead(der1);
+   if (B_der1 == HIGH){
+    J1++;
+    V_line(J1 -1, 200, 8, 0);  
+   }
+   int B_izq1 = digitalRead(izq1);
+   if (B_izq1 == HIGH){
+     J1--; 
+     V_line(J1 + 14, 200, 8, 0);  
+   }
+   int B_der2 = digitalRead(der2);
+   if (B_der2 == HIGH){
+    J2++;
+    V_line(J2 -1, 200, 8, 0);  
+   }
+   int B_izq2 = digitalRead(izq2);
+   if (B_izq2 == HIGH){
+    J2--; 
+    V_line(J2 + 14, 200, 8, 0);  
+   }
+   J1 = (J1 > 146 ? 146 : J1);
+   J1 = (J1 < 1 ? 1 : J1);
+   J2 = (J2 > 306 ? 306 : J2);
+   J2 = (J2 < 161 ? 161 : J2);
 
    if (Y1 < 186){
     V_line(D1, 185-Y1, 6, 0x3E1C);
-    V_line(D1, 185-6-Y1, 6, 0x3E1C);
     V_line(D1, 185+6-Y1, 6, 0x00); 
-    delay(7);
     Y1++;  
-   }  else {
+    if (185-Y1 >= (LI - 7) && (185-Y1)<= (LI+7)){
+      if ((CI-1) <= D1 && (CI + 10) >= D1 && M1==1){
+        Y1 = 190;       
+        V_line(D1, LI-6, 20, 0x0);
+        LCD_Bitmap(CI, LI, 10, 8, negro); 
+        M1 = 0;
+      } else if ((CI+30) <= D1 && (CI + 40) >= D1 && M2==1){
+        Y1 = 190;       
+        V_line(D1, LI-6, 20, 0x0); 
+        LCD_Bitmap(CI+30, LI, 10, 8, negro);
+        M2 = 0;
+      } else if ((CI +60) <= D1 && (CI + 70) >= D1 && M3==1){
+        Y1 = 190;       
+        V_line(D1, LI-6, 20, 0x0);
+        LCD_Bitmap(CI+60, LI, 10, 8, negro); 
+        M3 = 0;
+      }
+   }
+   } else {
     V_line(D1, 0, 15, 0x00); 
       if (reading1 == LOW){
       antirebote1 = 1;
@@ -122,11 +211,27 @@ void loop() {
 
    if (Y2 < 186){
     V_line(D2, 185-Y2, 6, 0x3E1C);
-    V_line(D2, 185-6-Y2, 6, 0x3E1C);
     V_line(D2, 185+6-Y2, 6, 0x00); 
-    delay(7);
     Y2++;  
-   }  else {
+    if (185-Y2 >= (LI - 7) && (185-Y2)<= (LI+7)){
+      if ((CI-1) <= D2 && (CI + 10) >= D2 && M1==1){
+        Y2 = 190;       
+        V_line(D2, LI-6, 20, 0x0);
+        LCD_Bitmap(CI, LI, 10, 8, negro); 
+        M1 = 0;
+      } else if ((CI+30) <= D2 && (CI + 40) >= D2 && M2==1){
+        Y2 = 190;       
+        V_line(D2, LI-6, 20, 0x0); 
+        LCD_Bitmap(CI+30, LI, 10, 8, negro);
+        M2 = 0;
+      } else if ((CI +60) <= D2 && (CI + 70) >= D2 && M3==1){
+        Y2 = 190;       
+        V_line(D2, LI-6, 20, 0x0);
+        LCD_Bitmap(CI+60, LI, 10, 8, negro); 
+        M3 = 0;
+      }
+   }
+   } else {
     V_line(D2, 0, 15, 0x00); 
       if (reading2 == LOW){
       antirebote2 = 1;
@@ -138,7 +243,53 @@ void loop() {
     }
     }
    }
-}
+   delay(5);
+  } else {
+    reiniciar();
+    }
+  }
+  
+void reiniciar(void){
+    LCD_Clear(0x00);
+    for(int x = 0; x < 315-128; x++){
+     LCD_Bitmap(x, 100, 127, 39, logo);
+     V_line( x-1, 100, 30, 0x0000);
+     delay(7);
+    } 
+    J1 = 80;
+    J2 = 240;
+    D1 = J1 + 7;
+    D2 = J2 + 7;
+    Disp = 0;
+    antirebote1 = 0;
+    antirebote2 = 0;
+    Y1 = 180;
+    Y2 = 180;
+    var = 0;
+    CI = 15;
+    mov = 1;
+    vuelta = 0;
+    LI = 40;
+    M1 = 1;
+    M2 = 1;
+    M3 = 1;
+    nivel = 1;
+    juego = 0;
+    delay(1000);
+    LCD_Clear(0x00);
+     LCD_Bitmap(J1, 200, 13, 8, chunche);
+     LCD_Bitmap(J2, 200, 13, 8, chunche);
+     H_line(0,209,319,  0xD0A3);
+     H_line(0,210,319,  0xD0A3);
+     H_line(0,211,319,  0xD0A3);
+     // dos jugadores divididos en 170
+     V_line(160, 185, 120,  0xD0A3);
+     String text = "jugador 1";
+     LCD_Print(text, 50, 220, 1, 0x3E1C, 0);
+     text = "jugador 2";
+     LCD_Print(text, 210, 220, 1, 0x3E1C, 0);
+     juego = 1;
+  }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
 //***************************************************************************************************************************************
