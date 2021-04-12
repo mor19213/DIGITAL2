@@ -99,6 +99,7 @@ void setup() {
 void loop() {
   int reading1 = digitalRead(disp1);
   int reading2 = digitalRead(disp2);
+  // mostrar tanquecitos y malos
    LCD_Bitmap(J1, 200, 13, 8, chunche);
    LCD_Bitmap(J2, 200, 13, 8, chunche);
    if (M1 == 1){
@@ -110,19 +111,21 @@ void loop() {
    if (M3 == 1){
     LCD_Bitmap(CI+60, LI, 10, 8, malo1); 
    } 
-   
+
   if (juego == 1){
+    // jugador pierde
     if (LI > 160){
       LCD_Clear(0x00);
-      LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+      //LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
       M1 = 0;
       M2 = 0;
       M3 = 0;
       juego = 0;
    }
+   // si se matan a todos los malos
    if (M3 == 0 && M2 == 0 && M1==0){
     LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
-    nivel++;
+    nivel--;
     var = 1;
     delay(1500);
     LI = 20;
@@ -143,7 +146,7 @@ void loop() {
     mov = 0;
    } else if (CI < 10){
     mov = 1;
-    vuelta--;
+    vuelta++;
    }
    if (vuelta > nivel){
     vuelta = 0;
