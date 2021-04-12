@@ -53,7 +53,7 @@ int LI = 20;
 int M1 = 1;
 int M2 = 1;
 int M3 = 1;
-int nivel = 10;
+int nivel = 12;
 int juego = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
@@ -122,6 +122,10 @@ void loop() {
       M3 = 0;
       juego = 0;
    }
+   // jugador gana
+//   if (nivel == 1){
+//    juego = 0;
+//   }
    // si se matan a todos los malos
    if (M3 == 0 && M2 == 0 && M1==0){
     LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
@@ -277,7 +281,7 @@ void reiniciar(void){
     M1 = 1;
     M2 = 1;
     M3 = 1;
-    nivel = 1;
+    nivel = 10;
     juego = 0;
     delay(1000);
     LCD_Clear(0x00);
