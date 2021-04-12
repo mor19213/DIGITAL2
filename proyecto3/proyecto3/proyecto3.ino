@@ -55,6 +55,8 @@ int M2 = 1;
 int M3 = 1;
 int nivel = 12;
 int juego = 0;
+int reading1;
+int reading2;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -83,23 +85,26 @@ void setup() {
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
   Serial.println("Inicio");
   LCD_Init();
+  pinMode(PUSH1, INPUT_PULLUP);
+  pinMode(PUSH2, INPUT_PULLUP);
+  pinMode(izq1, INPUT);
+  pinMode(der1, INPUT);
+  pinMode(izq2, INPUT);
+  pinMode(der2, INPUT);
+  pinMode(disp1, INPUT);
+  pinMode(disp2, INPUT);
   reiniciar();
-    pinMode(PUSH1, INPUT_PULLUP);
-    pinMode(PUSH2, INPUT_PULLUP);
-    pinMode(izq1, INPUT);
-    pinMode(der1, INPUT);
-    pinMode(izq2, INPUT);
-    pinMode(der2, INPUT);
-    pinMode(disp1, INPUT);
-    pinMode(disp2, INPUT);
+
 }
 //***************************************************************************************************************************************
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
-  int reading1 = digitalRead(disp1);
-  int reading2 = digitalRead(disp2);
-  // mostrar tanquecitos y malos
+  while (juego == 1){
+    reading1 = digitalRead(disp1);
+    reading2 = digitalRead(disp2);
+    
+     // mostrar tanquecitos y malos
    LCD_Bitmap(J1, 200, 13, 8, chunche);
    LCD_Bitmap(J2, 200, 13, 8, chunche);
    if (M1 == 1){
@@ -112,20 +117,6 @@ void loop() {
     LCD_Bitmap(CI+60, LI, 10, 8, malo1); 
    } 
 
-  if (juego == 1){
-    // jugador pierde
-    if (LI > 160){
-      LCD_Clear(0x00);
-      //LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
-      M1 = 0;
-      M2 = 0;
-      M3 = 0;
-      juego = 0;
-   }
-   // jugador gana
-//   if (nivel == 1){
-//    juego = 0;
-//   }
    // si se matan a todos los malos
    if (M3 == 0 && M2 == 0 && M1==0){
     LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
@@ -252,8 +243,30 @@ void loop() {
     }
    }
    delay(5);
-  } else {
-    reiniciar();
+   // jugador pierde
+    if (LI > 160){
+      LCD_Clear(0x00);
+      LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+      juego = 0;
+      delay(100);
+   }
+   // jugador gana
+   if (nivel == 1){
+    LCD_Clear(0x00);
+    LCD_Print("Yeiiiii", 25, 5, 2, 0x3E1C, 0);
+    juego = 0;
+    delay(100);
+   }
+  } 
+  
+  while (juego == 0){
+    reading1 = digitalRead(disp1);
+    reading2 = digitalRead(disp2);
+    LCD_Print("Presionar para ", 5, 120, 2, 0x3E1C, 0);
+    LCD_Print(" ir al menu", 5, 140, 2, 0x3E1C, 0);
+    if (reading1 == HIGH && reading2 == HIGH){
+      reiniciar(); 
+    }
     }
   }
   
@@ -271,8 +284,8 @@ void reiniciar(void){
     Disp = 0;
     antirebote1 = 0;
     antirebote2 = 0;
-    Y1 = 180;
-    Y2 = 180;
+    Y1 = 300;
+    Y2 = 300;
     var = 0;
     CI = 15;
     mov = 1;
@@ -281,7 +294,7 @@ void reiniciar(void){
     M1 = 1;
     M2 = 1;
     M3 = 1;
-    nivel = 10;
+    nivel = 8;
     juego = 0;
     delay(1000);
     LCD_Clear(0x00);
@@ -292,10 +305,8 @@ void reiniciar(void){
      H_line(0,211,319,  0xD0A3);
      // dos jugadores divididos en 170
      V_line(160, 185, 120,  0xD0A3);
-     String text = "jugador 1";
-     LCD_Print(text, 50, 220, 1, 0x3E1C, 0);
-     text = "jugador 2";
-     LCD_Print(text, 210, 220, 1, 0x3E1C, 0);
+     LCD_Print("jugador 1", 50, 220, 1, 0x3E1C, 0);
+     LCD_Print("jugador 2", 210, 220, 1, 0x3E1C, 0);
      juego = 1;
   }
 //***************************************************************************************************************************************
