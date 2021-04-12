@@ -49,11 +49,11 @@ int var = 0;
 int CI = 15;
 int mov = 1;
 int vuelta = 0;
-int LI = 40;
+int LI = 20;
 int M1 = 1;
 int M2 = 1;
 int M3 = 1;
-int nivel = 1;
+int nivel = 10;
 int juego = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
@@ -112,7 +112,7 @@ void loop() {
    } 
    
   if (juego == 1){
-    if (LI > 170){
+    if (LI > 160){
       LCD_Clear(0x00);
       LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
       M1 = 0;
@@ -125,6 +125,7 @@ void loop() {
     nivel++;
     var = 1;
     delay(1500);
+    LI = 20;
     M1 = 1;
     M2 = 1;
     M3 = 1;
@@ -142,9 +143,9 @@ void loop() {
     mov = 0;
    } else if (CI < 10){
     mov = 1;
-    vuelta++;
+    vuelta--;
    }
-   if (vuelta > (5/nivel)){
+   if (vuelta > nivel){
     vuelta = 0;
     LCD_Print("                          ", CI, LI, 2, 0x3E1C, 0);
     LI = LI + 25;
