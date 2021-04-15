@@ -53,10 +53,14 @@ int LI = 20;
 int M1 = 1;
 int M2 = 1;
 int M3 = 1;
+int M4 = 1;
+int M5 = 1;
 int nivel = 12;
 int juego = 0;
 int reading1;
 int reading2;
+int menu;
+int malos;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -74,6 +78,7 @@ void LCD_Print(String text, int x, int y, int fontSize, int color, int backgroun
 void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 void reiniciar(void);
+void menuu(void);
 
 extern uint8_t fondo[];
 //***************************************************************************************************************************************
@@ -111,14 +116,21 @@ void loop() {
     LCD_Bitmap(CI, LI, 10, 8, malo1);
    }
    if (M2 == 1){
-    LCD_Bitmap(CI+30, LI, 10, 8, malo1);
+    LCD_Bitmap(CI+20, LI, 10, 8, malo1);
    }
    if (M3 == 1){
+    LCD_Bitmap(CI+40, LI, 10, 8, malo1); 
+   } 
+   if (M4 == 1){
     LCD_Bitmap(CI+60, LI, 10, 8, malo1); 
+   } 
+   if (M5 == 1){
+    LCD_Bitmap(CI+80, LI, 10, 8, malo1); 
    } 
 
    // si se matan a todos los malos
-   if (M3 == 0 && M2 == 0 && M1==0){
+   malos = M1 + M2 + M3 + M4 + M5;
+   if (malos == 0){
     LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
     nivel--;
     var = 1;
@@ -127,6 +139,12 @@ void loop() {
     M1 = 1;
     M2 = 1;
     M3 = 1;
+    M4 = 1;
+    M5 = 1;
+    V_line(D1, Y1, 20, 0x0);
+    V_line(D2, Y2, 20, 0x0);
+    Y1 = 300;
+    Y2 = 300;
     vuelta = 0;
    } else if(var == 1){
     LCD_Print("                  ", 25, 5, 2, 0x3E1C, 0);
@@ -137,7 +155,7 @@ void loop() {
    } else if (mov == 0){
     CI--;
    }
-   if (CI > 250){
+   if (CI > 220){
     mov = 0;
    } else if (CI < 10){
     mov = 1;
@@ -183,16 +201,26 @@ void loop() {
         V_line(D1, LI-6, 20, 0x0);
         LCD_Bitmap(CI, LI, 10, 8, negro); 
         M1 = 0;
-      } else if ((CI+30) <= D1 && (CI + 40) >= D1 && M2==1){
+      } else if ((CI+20) <= D1 && (CI + 30) >= D1 && M2==1){
         Y1 = 190;       
         V_line(D1, LI-6, 20, 0x0); 
-        LCD_Bitmap(CI+30, LI, 10, 8, negro);
+        LCD_Bitmap(CI+20, LI, 10, 8, negro);
         M2 = 0;
-      } else if ((CI +60) <= D1 && (CI + 70) >= D1 && M3==1){
+      } else if ((CI +40) <= D1 && (CI + 50) >= D1 && M3==1){
+        Y1 = 190;       
+        V_line(D1, LI-6, 20, 0x0);
+        LCD_Bitmap(CI+40, LI, 10, 8, negro); 
+        M3 = 0;
+      } else if ((CI +60) <= D1 && (CI + 70) >= D1 && M4==1){
         Y1 = 190;       
         V_line(D1, LI-6, 20, 0x0);
         LCD_Bitmap(CI+60, LI, 10, 8, negro); 
-        M3 = 0;
+        M4 = 0;
+      } else if ((CI +80) <= D1 && (CI + 90) >= D1 && M5==1){
+        Y1 = 190;       
+        V_line(D1, LI-6, 20, 0x0);
+        LCD_Bitmap(CI+80, LI, 10, 8, negro); 
+        M5 = 0;
       }
    }
    } else {
@@ -218,16 +246,26 @@ void loop() {
         V_line(D2, LI-6, 20, 0x0);
         LCD_Bitmap(CI, LI, 10, 8, negro); 
         M1 = 0;
-      } else if ((CI+30) <= D2 && (CI + 40) >= D2 && M2==1){
+      } else if ((CI+20) <= D2 && (CI + 30) >= D2 && M2==1){
         Y2 = 190;       
         V_line(D2, LI-6, 20, 0x0); 
-        LCD_Bitmap(CI+30, LI, 10, 8, negro);
+        LCD_Bitmap(CI+20, LI, 10, 8, negro);
         M2 = 0;
-      } else if ((CI +60) <= D2 && (CI + 70) >= D2 && M3==1){
+      } else if ((CI +40) <= D2 && (CI + 50) >= D2 && M3==1){
+        Y2 = 190;       
+        V_line(D2, LI-6, 20, 0x0);
+        LCD_Bitmap(CI+40, LI, 10, 8, negro); 
+        M3 = 0;
+      } else if ((CI +60) <= D2 && (CI + 70) >= D2 && M4==1){
         Y2 = 190;       
         V_line(D2, LI-6, 20, 0x0);
         LCD_Bitmap(CI+60, LI, 10, 8, negro); 
-        M3 = 0;
+        M4 = 0;
+      } else if ((CI +80) <= D2 && (CI + 90) >= D2 && M5==1){
+        Y2 = 190;       
+        V_line(D2, LI-6, 20, 0x0);
+        LCD_Bitmap(CI+80, LI, 10, 8, negro); 
+        M5 = 0;
       }
    }
    } else {
@@ -269,7 +307,18 @@ void loop() {
     }
     }
   }
-  
+
+void menuu(void){
+    //juego = 1;
+  while (menu == 1){
+    reading1 = digitalRead(disp1); 
+    if (reading1 == HIGH){
+      juego = 1;
+      menu = 0;
+    }
+  }
+}
+
 void reiniciar(void){
     LCD_Clear(0x00);
     for(int x = 0; x < 315-128; x++){
@@ -294,20 +343,24 @@ void reiniciar(void){
     M1 = 1;
     M2 = 1;
     M3 = 1;
+    M4 = 1;
+    M5 = 1;
     nivel = 8;
-    juego = 0;
     delay(1000);
     LCD_Clear(0x00);
-     LCD_Bitmap(J1, 200, 13, 8, chunche);
-     LCD_Bitmap(J2, 200, 13, 8, chunche);
-     H_line(0,209,319,  0xD0A3);
-     H_line(0,210,319,  0xD0A3);
-     H_line(0,211,319,  0xD0A3);
-     // dos jugadores divididos en 170
-     V_line(160, 185, 120,  0xD0A3);
-     LCD_Print("jugador 1", 50, 220, 1, 0x3E1C, 0);
-     LCD_Print("jugador 2", 210, 220, 1, 0x3E1C, 0);
-     juego = 1;
+    menu = 1;
+    menuu();
+     if (juego ==1){
+       LCD_Bitmap(J1, 200, 13, 8, chunche);
+       LCD_Bitmap(J2, 200, 13, 8, chunche);
+       H_line(0,209,319,  0xD0A3);
+       H_line(0,210,319,  0xD0A3);
+       H_line(0,211,319,  0xD0A3);
+       // dos jugadores divididos en 170
+       V_line(160, 185, 120,  0xD0A3);
+       LCD_Print("jugador 1", 50, 220, 1, 0x3E1C, 0);
+       LCD_Print("jugador 2", 210, 220, 1, 0x3E1C, 0);
+     }
   }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
