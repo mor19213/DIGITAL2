@@ -50,15 +50,15 @@ File modo2;
 //       Serial.println(snum);
 char snum[5];
 int modo = 0;
-int highscore1[] = {48, 48, 48};
-int highscore2[] = {48, 48, 48};
-int highscore3[2];
+int highscore1[] = {48, 48, 48, 48, 48};
+int highscore2[] = {48, 48, 48, 48, 48};
+int highscore3[] = {48, 48, 48, 48, 48};
+int highscore12[] = {48, 48, 48, 48, 48};
+int highscore22[] = {48, 48, 48, 48, 48};
+int highscore32[] = {48, 48, 48, 48, 48};
 int high1;
 int high2;
 int high3;
-int highscore12[2];
-int highscore22[2];
-int highscore32[2];
 int high12;
 int high22;
 int high32;
@@ -143,20 +143,7 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for Leonardo only
   }
-  high1 = 239;
-  high2 = 45;
-  high3 = 123;
 
-        highscore1[2]  = (char)high1;
-        highscore2[2]  = (char)high2;
-        highscore3[2]  = (char)high3;
-  Serial.println(highscore1[2]);
-  Serial.println(highscore2[2]);
-  Serial.println(highscore3[2]);
-
-while(1){
-  
-}
   SPI.setModule(0);
 
   Serial.print("Initializing SD card...");
@@ -172,7 +159,7 @@ while(1){
   }
   Serial.println("initialization done.");
 
-  //*********************************** highscores para modo de 1 jugador
+  //*********************************** highscores para modo de 2 jugadores
   // re-open the file for reading:
   modo2 = SD.open("2jugador.txt");
   if (modo2) {
@@ -185,15 +172,6 @@ while(1){
       }
       var++;
     }
-
-    if (var < 2) {
-      high1 = highscore1[0] - 48;
-    } else if (var < 3) {
-      high1 = ((highscore1[1] - 48) * 10) + (highscore1[0]) - 48;
-    } else if (var < 4) {
-      high1 = ((highscore1[2] - 48) * 100) + ((highscore1[1] - 48) * 10) + (highscore1[0]) - 48;
-    }
-    high1 = (int)highscore1;
     var = 0;
     while (highscore2[var - 1] != 10) {
       highscore2[var] = modo2.read();
@@ -201,13 +179,6 @@ while(1){
         highscore2[var] = 48;
       }
       var++;
-    }
-    if (var < 2) {
-      high2 = highscore2[0] - 48;
-    } else if (var < 3) {
-      high2 = ((highscore2[1] - 48) * 10) + (highscore2[0]) - 48;
-    } else if (var < 4) {
-      high2 = ((highscore2[2] - 48) * 100) + ((highscore2[1] - 48) * 10) + (highscore1[0]) - 48;
     }
     var = 0;
     while (highscore3[var - 1] != 10) {
@@ -217,24 +188,21 @@ while(1){
       }
       var++;
     }
-    if (var < 2) {
-      high3 = highscore3[0] - 48;
-    } else if (var < 3) {
-      high3 = ((highscore3[1] - 48) * 10) + (highscore3[0]) - 48;
-    } else if (var < 4) {
-      high3 = ((highscore3[2] - 48) * 100) + ((highscore3[1] - 48) * 10) + (highscore1[0]) - 48;
-    }
     var = 0;
     Serial.println("leer modo 1");
-    Serial.println(high1);
-    Serial.println(high2);
-    Serial.println(high3);
     // close the file:
     modo2.close();
   } else {
     // if the file didn't open, print an error:
     Serial.println("error opening 2jugador.txt");
   }
+  high1 = (((int)highscore1[0] - 48)*100)+(((int)highscore1[1] - 48)*10)+((int)highscore1[2] - 48);
+  high2 = (((int)highscore2[0] - 48)*100)+(((int)highscore2[1] - 48)*10)+((int)highscore2[2] - 48);
+  high3 = (((int)highscore3[0] - 48)*100)+(((int)highscore3[1] - 48)*10)+((int)highscore3[2] - 48);
+  Serial.println(high1);
+  Serial.println(high2);
+  Serial.println(high3);
+  
   //*********************************** highscores para modo de 1 jugador
   // re-open the file for reading:
   modo2 = SD.open("1jugador.txt");
@@ -265,25 +233,20 @@ while(1){
       var++;
     }
     var = 0;
-    high12 = ((highscore12[2] - 48) * 100) + ((highscore12[1] - 48) * 10) + (highscore12[2]) - 48;
-    high22 = ((highscore22[2] - 48) * 100) + ((highscore22[1] - 48) * 10) + (highscore22[2]) - 48;
-    high32 = ((highscore32[2] - 48) * 100) + ((highscore32[1] - 48) * 10) + (highscore32[2]) - 48;
-    Serial.println("aaaaa");
-
-    Serial.println(high12);
-    Serial.println(high22);
-    Serial.println(high32);
+    Serial.println("leer modo 2");
     // close the file:
     modo2.close();
   } else {
     // if the file didn't open, print an error:
     Serial.println("error opening 1jugador.txt");
   }
-
-  highscores(8, 1);
-  //  highscores(6, 1);
-  //  highscores(5, 2);
-  //  highscores(305, 2);
+  high12 = (((int)highscore12[0] - 48)*100)+(((int)highscore12[1] - 48)*10)+((int)highscore12[2] - 48);
+  high22 = (((int)highscore22[0] - 48)*100)+(((int)highscore22[1] - 48)*10)+((int)highscore22[2] - 48);
+  high32 = (((int)highscore32[0] - 48)*100)+(((int)highscore32[1] - 48)*10)+((int)highscore32[2] - 48);
+  Serial.println(high12);
+  Serial.println(high22);
+  Serial.println(high32);
+  
 
   LCD_Init();
   pinMode(PUSH1, INPUT_PULLUP);
@@ -295,7 +258,7 @@ while(1){
   pinMode(disp1, INPUT);
   pinMode(disp2, INPUT);
   reiniciar();
-  highscores(344, 1);
+  
 }
 //***************************************************************************************************************************************
 // Loop Infinito
@@ -549,7 +512,6 @@ void loop() {
           LCD_Clear(0x00);
           LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
           juego = 0;
-          puntaje1 = 0;
           M1 = 0;
           M2 = 0;
           M3 = 0;
@@ -802,9 +764,42 @@ void loop() {
 
   LCD_Print("Presionar para ", 5, 190, 1, 0x3E1C, 0);
   LCD_Print(" ir al menu", 5, 200, 1, 0x3E1C, 0);
+  if (juego == 4){
+    // mostrar los highscores
+    // leer los archivos de la SD
+    LCD_Print("Highscores", 90, 5, 2, 0x3E1C, 0);
+    LCD_Print("2 players", 5, 50, 2, 0x3E1C, 0);
+    LCD_Print("|", 155, 50, 2, 0x3E1C, 0);
+    LCD_Print("1 player", 170, 50, 2, 0x3E1C, 0);
+    
+    itoa(high1, snum, 10);
+    LCD_Print("1-", 5, 70, 2, 0x3E1C, 0);
+    LCD_Print(snum, 50, 70, 2, 0x3E1C, 0);
+    LCD_Print("|", 155, 70, 2, 0x3E1C, 0);
+    itoa(high12, snum, 10);
+    LCD_Print("1-", 170, 70, 2, 0x3E1C, 0);
+    LCD_Print(snum, 215, 70, 2, 0x3E1C, 0);
+    
+    itoa(high2, snum, 10);
+    LCD_Print("2-", 5, 90, 2, 0x3E1C, 0);
+    LCD_Print(snum, 50, 90, 2, 0x3E1C, 0);
+    LCD_Print("|", 155, 90, 2, 0x3E1C, 0);
+    itoa(high22, snum, 10);
+    LCD_Print("2-", 170, 90, 2, 0x3E1C, 0);
+    LCD_Print(snum, 215, 90, 2, 0x3E1C, 0);
+    
+    itoa(high3, snum, 10);
+    LCD_Print("3- ", 5, 110, 2, 0x3E1C, 0);
+    LCD_Print(snum, 50, 110, 2, 0x3E1C, 0);
+    LCD_Print("|", 155, 110, 2, 0x3E1C, 0);
+    itoa(high32, snum, 10);
+    LCD_Print("3- ", 170, 110, 2, 0x3E1C, 0);
+    LCD_Print(snum, 215, 110, 2, 0x3E1C, 0);
+    juego = 0;
+  }
   if (modo == 3) {
-    puntaje1 = puntaje1 * vida1;
-    puntaje2 = puntaje2 * vida2;
+    puntaje1 = puntaje1 * (vida1 + 1);
+    puntaje2 = puntaje2 * (vida2 + 1);
     itoa(puntaje1, snum, 10);
     LCD_Print(snum, 105, 70, 2, 0x3E1C, 0);
     LCD_Print("vs", 125, 70, 2, 0x3E1C, 0);
@@ -824,6 +819,7 @@ void loop() {
     itoa(puntaje1, snum, 10);
     LCD_Print("Puntaje Final:", 85, 70, 2, 0x3E1C, 0);
     LCD_Print(snum, 85, 100, 2, 0x3E1C, 0);
+      highscores(puntaje1, 2);
   } else if (modo == 1) {
     // 2 jugadores juntos
     //    puntaje1 = puntaje1 - (5*vida1);
@@ -831,7 +827,9 @@ void loop() {
     itoa(puntaje1 + puntaje2, snum, 10);
     LCD_Print("puntaje final:", 85, 100, 2, 0x3E1C, 0);
     LCD_Print(snum, 105, 70, 2, 0x3E1C, 0);
+      highscores(puntaje1 + puntaje2, 1);
   }
+  
   while (juego == 0) {
     modo = 0;
     reading1 = digitalRead(disp1);
@@ -845,15 +843,23 @@ void loop() {
 // 2 - modo 2
 void highscores(int puntaje, int num) {
   if (num == 1) {
+    
+  Serial.println("......");
     if (puntaje > high1) {
       high3 = high2;
       high2 = high1;
       high1 = puntaje;
+    LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
+    Serial.println("primer lugar");
     } else if (puntaje > high2) {
       high3 = high2;
       high2 = puntaje;
+    LCD_Print("new 2nd highscore", 150, 170, 1, 0x3E1C, 0);
+    Serial.println("2 lugar");
     } else if (puntaje > high3) {
       high3 = puntaje;
+    LCD_Print("new 3rd highscore", 150, 170, 1, 0x3E1C, 0);
+    Serial.println("3 lugar");
     } else {
       high3 = high3;
       high2 = high2;
@@ -863,14 +869,60 @@ void highscores(int puntaje, int num) {
     modo2 = SD.open("2jugador.txt", FILE_WRITE);
     // if the file opened okay, write to it:
     if (modo2) {
-      Serial.print("Writing to 2jugador.txt...");
+      Serial.println("Writing to 2jugador.txt...");
+      Serial.println(high1);
+      Serial.println(high2);
+      Serial.println(high3);
+      itoa(high1, snum, 10);
+      if (high1 > 99){
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+        modo2.print(snum[2]);
+      } else if (high1 > 9){
+        modo2.print("0");
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+      } else {
+        modo2.print("0");
+        modo2.print("0");
+        modo2.print(snum[0]);
+      }
+      modo2.print("\n");
+      
 
-      highscore1[2] = (char)high1;
-      highscore2[2] = (char)high2;
-      highscore3[2] = (char)high3;
-      modo2.println(high1);
-      modo2.println(high2);
-      modo2.println(high3);
+      itoa(high2, snum, 10);
+      if (high2 > 99){
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+        modo2.print(snum[2]);
+      } else if (high2 > 9){
+        modo2.print("0");
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+      } else {
+        modo2.print("0");
+        modo2.print("0");
+        modo2.print(snum[0]);
+      }
+      modo2.print("\n");
+
+      
+      itoa(high3, snum, 10);
+      if (high3 > 99){
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+        modo2.print(snum[2]);
+      } else if (high3 > 9){
+        modo2.print("0");
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+      } else {
+        modo2.print("0");
+        modo2.print("0");
+        modo2.print(snum[0]);
+      }
+      modo2.print("\n");
+      
       // close the file:
       modo2.close();
       Serial.println("done.");
@@ -880,24 +932,86 @@ void highscores(int puntaje, int num) {
     }
   }
   if (num == 2) {
-    if (puntaje > high1) {
-      high32 = high2;
-      high22 = high1;
+    
+  Serial.println("......");
+    if (puntaje > high12) {
+      high32 = high22;
+      high22 = high12;
       high12 = puntaje;
-    } else if (puntaje > high2) {
-      high32 = high2;
+    LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
+    Serial.println("primer lugar");
+    } else if (puntaje > high22) {
+      high32 = high22;
       high22 = puntaje;
-    } else if (puntaje > high3) {
+    LCD_Print("new 2nd highscore", 150, 170, 1, 0x3E1C, 0);
+    Serial.println("2 lugar");
+    } else if (puntaje > high32) {
       high32 = puntaje;
+    LCD_Print("new 3rd highscore", 150, 170, 1, 0x3E1C, 0);
+    Serial.println("3 lugar");
+    } else {
+      high32 = high32;
+      high22 = high22;
+      high12 = high12;
     }
     SD.remove("1jugador.txt");
     modo2 = SD.open("1jugador.txt", FILE_WRITE);
     // if the file opened okay, write to it:
     if (modo2) {
-      Serial.print("Writing to 1jugador.txt...");
-      modo2.println(high12);
-      modo2.println(high22);
-      modo2.println(high32);
+      Serial.println("Writing to 2jugador.txt...");
+      Serial.println(high12);
+      Serial.println(high22);
+      Serial.println(high32);
+      itoa(high12, snum, 10);
+      if (high12 > 99){
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+        modo2.print(snum[2]);
+      } else if (high12 > 9){
+        modo2.print("0");
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+      } else {
+        modo2.print("0");
+        modo2.print("0");
+        modo2.print(snum[0]);
+      }
+      modo2.print("\n");
+      
+
+      itoa(high22, snum, 10);
+      if (high22 > 99){
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+        modo2.print(snum[2]);
+      } else if (high22 > 9){
+        modo2.print("0");
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+      } else {
+        modo2.print("0");
+        modo2.print("0");
+        modo2.print(snum[0]);
+      }
+      modo2.print("\n");
+
+      
+      itoa(high32, snum, 10);
+      if (high32 > 99){
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+        modo2.print(snum[2]);
+      } else if (high32 > 9){
+        modo2.print("0");
+        modo2.print(snum[0]);
+        modo2.print(snum[1]);
+      } else {
+        modo2.print("0");
+        modo2.print("0");
+        modo2.print(snum[0]);
+      }
+      modo2.print("\n");
+      
       // close the file:
       modo2.close();
       Serial.println("done.");
@@ -1047,6 +1161,7 @@ void menuu(void) {
   LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);
   LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
   LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
+  LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
   while (menu == 1) {
     B_der1 = digitalRead(der1);
     B_der2 = digitalRead(der2);
@@ -1064,16 +1179,27 @@ void menuu(void) {
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xC992, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
-          V_line( x, 114, 120, 0x0000);
+          V_line( x, 114, 160, 0x0000);
         }
       } else  if (var_flecha == 144) {
         var_flecha = 174;
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);
+  LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
-          V_line( x, 114, 120, 0x0000);
+          V_line( x, 114, 160, 0x0000);
+        }
+      } else if (var_flecha == 174){
+        var_flecha = 204;
+        LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
+        LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
+        LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xC992, 0);
+        for (int x = 20; x < 35; x++) {
+          V_line( x, 114, 160, 0x0000);
         }
       }
     }
@@ -1087,18 +1213,33 @@ void menuu(void) {
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xC992, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
-          V_line( x, 114, 120, 0x0000);
+          V_line( x, 114, 160, 0x0000);
         }
       } else if (var_flecha == 144) {
         var_flecha = 114;
         LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
-          V_line( x, 114, 120, 0x0000);
+          V_line( x, 114, 160, 0x0000);
         }
-      }
+      } else if (var_flecha == 204) {
+        var_flecha = 174;
+        LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
+        LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
+        LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
+        for (int x = 20; x < 35; x++) {
+          V_line( x, 114, 160, 0x0000);
+        }
+        H_line(5, 230, 100, 0);
+        H_line(5, 229, 100, 0);
+        H_line(5, 228, 100, 0);
+        H_line(5, 227, 100, 0);
+      } 
     }
     LCD_Bitmap(20, var_flecha, 13, 26, flecha);
     if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 114) {
@@ -1116,6 +1257,11 @@ void menuu(void) {
       modo = 3;
       menu = 0;
     }
+    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 194) {
+      juego = 4;
+      modo = 0;
+      menu = 0;
+    }
   }
 }
 void reiniciar(void) {
@@ -1125,6 +1271,7 @@ void reiniciar(void) {
     V_line( x - 1, 100, 30, 0x0000);
     delay(7);
   }
+  Serial.println("highscores");
   puntaje1 = 0;
   puntaje2 = 0;
   puntaje = 0;
@@ -1157,24 +1304,25 @@ void reiniciar(void) {
   menu = 1;
   menuu();
   LCD_Clear(0x00);
-  LCD_Bitmap(J1, 200, 13, 8, chunche);
-  H_line(0, 209, 319,  0xD0A3);
-  H_line(0, 210, 319,  0xD0A3);
-  H_line(0, 211, 319,  0xD0A3);
-
-  if (modo != 2) {
-    // dos jugadores divididos en 170
-    V_line(160, 195, 209,  0xD0A3);
-    LCD_Print("jugador1 = 3 vidas", 10, 220, 1, 0x3E1C, 0);
-    LCD_Print("jugador2 = 3 vidas", 165, 220, 1, 0x3E1C, 0);
-
-
-    LCD_Bitmap(J2, 200, 13, 8, chunche);
-  } else {
-    LCD_Print("jugador = 3 vidas", 10, 220, 1, 0x3E1c, 0);
-    LCD_Print("                 ", 165, 220, 1, 0x3E1C, 0);
+  if (juego != 4){
+    LCD_Bitmap(J1, 200, 13, 8, chunche);
+    H_line(0, 209, 319,  0xD0A3);
+    H_line(0, 210, 319,  0xD0A3);
+    H_line(0, 211, 319,  0xD0A3);
+  
+    if (modo != 2) {
+      // dos jugadores divididos en 170
+      V_line(160, 195, 209,  0xD0A3);
+      LCD_Print("jugador1 = 3 vidas", 10, 220, 1, 0x3E1C, 0);
+      LCD_Print("jugador2 = 3 vidas", 165, 220, 1, 0x3E1C, 0);
+  
+  
+      LCD_Bitmap(J2, 200, 13, 8, chunche);
+    } else {
+      LCD_Print("jugador = 3 vidas", 10, 220, 1, 0x3E1c, 0);
+      LCD_Print("                 ", 165, 220, 1, 0x3E1C, 0);
+    }
   }
-
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
