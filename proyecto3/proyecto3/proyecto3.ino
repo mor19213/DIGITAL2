@@ -371,10 +371,14 @@ void loop() {
         }
         if (vida1 == 0) {
           tanque1 = 0;
-          for (int x = J1; x < J1 + 14; x++){
+          LCD_Print("jugador1 = 0 vidas", 10, 220, 1, 0x3E1C, 0);
+          
+          for (int x = J1; x < J1 +13; x++) {
             V_line(x, 200, 8, 0);
           }
-        V_line(D1, 185 - Y1, 6, 0);
+          if (Y1 < 186){
+          V_line(D1, 185-Y1, 6, 0);
+          }
         } else if (vida1 == 2) {
           LCD_Print("jugador1 = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -382,10 +386,13 @@ void loop() {
         }
         if (vida2 == 0) {
           tanque2 = 0;
-          for (int x = J2; x < J2 + 14; x++){
+          for (int x = J1; x < J1 +13; x++) {
             V_line(x, 200, 8, 0);
           }
-        V_line(D2, 185 - Y2, 6, 0);
+          if (Y2 < 186){
+          V_line(D2, 185-Y2, 6, 0);
+          }
+          LCD_Print("jugador2 = 0 vidas ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 1) {
           LCD_Print("jugador2 = 1 vida  ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 2) {
@@ -488,7 +495,6 @@ void loop() {
       juego = 0;
       delay(100);
     }
-  puntajeT = puntaje1 + puntaje2;
   }
   
   while (juego == 2) { // 1 jugador
