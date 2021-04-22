@@ -49,6 +49,7 @@ File modo2;
 //       LCD_Print(snum, 165, 220, 1, 0x3E1C, 0);
 //       Serial.println(snum);
 char snum[5];
+int musica[] = {PE_0, PF_0};
 int modo = 0;
 int highscore1[] = {48, 48, 48, 48, 48};
 int highscore2[] = {48, 48, 48, 48, 48};
@@ -62,6 +63,7 @@ int high3;
 int high12;
 int high22;
 int high32;
+int puntajeT = 0;
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 int J1 = 80;
 int J2 = 240;
@@ -109,6 +111,16 @@ int reading1;
 int reading2;
 int menu;
 int malos;
+int tempx1;
+int tempy1;
+int tempx2;
+int tempy2;
+int tempx3;
+int tempy3;
+int tempx4;
+int tempy4;
+int tempx5;
+int tempy5;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -165,12 +177,12 @@ void setup() {
   if (modo2) {
     //    Serial.println("2jugador.txt:");
 
-    while (highscore1[var - 1] != 10) {
+    while (highscore1[var - 1] != 10) { // leer hasta el enter
       highscore1[var] = modo2.read();
-      if ((highscore1[var] < 48) && (highscore1[var] != 10)) {
+      if ((highscore1[var] < 48) && (highscore1[var] != 10)) { // si el caracter es menor a 0 y no es un enter
         highscore1[var] = 48;
       }
-      var++;
+      var++; // incrementar el indice del array
     }
     var = 0;
     while (highscore2[var - 1] != 10) {
@@ -196,6 +208,7 @@ void setup() {
     // if the file didn't open, print an error:
     Serial.println("error opening 2jugador.txt");
   }
+  // convertir a int el array
   high1 = (((int)highscore1[0] - 48)*100)+(((int)highscore1[1] - 48)*10)+((int)highscore1[2] - 48);
   high2 = (((int)highscore2[0] - 48)*100)+(((int)highscore2[1] - 48)*10)+((int)highscore2[2] - 48);
   high3 = (((int)highscore3[0] - 48)*100)+(((int)highscore3[1] - 48)*10)+((int)highscore3[2] - 48);
@@ -240,6 +253,7 @@ void setup() {
     // if the file didn't open, print an error:
     Serial.println("error opening 1jugador.txt");
   }
+  // guardar en int los puntajes
   high12 = (((int)highscore12[0] - 48)*100)+(((int)highscore12[1] - 48)*10)+((int)highscore12[2] - 48);
   high22 = (((int)highscore22[0] - 48)*100)+(((int)highscore22[1] - 48)*10)+((int)highscore22[2] - 48);
   high32 = (((int)highscore32[0] - 48)*100)+(((int)highscore32[1] - 48)*10)+((int)highscore32[2] - 48);
@@ -257,6 +271,10 @@ void setup() {
   pinMode(der2, INPUT);
   pinMode(disp1, INPUT);
   pinMode(disp2, INPUT);
+  pinMode(musica[0], OUTPUT);
+  pinMode(musica[1], OUTPUT);
+  digitalWrite(musica[0], LOW);//RB6
+  digitalWrite(musica[1], LOW);//RB7
   reiniciar();
   
 }
@@ -264,16 +282,49 @@ void setup() {
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
-  while (juego == 1) { //2 jugadores
+  digitalWrite(musica[0], LOW);//RB6
+  digitalWrite(musica[1], HIGH);//RB7
+  
+  while (juego == 1) {
     var++;
     if (var == 11) {
       var = 1;
     }
 
+    if (Y1 < 186 || Y2 <186){
+      digitalWrite(musica[0], HIGH);//RB6
+    } else {
+      digitalWrite(musica[0], LOW);//RB6
+    }
     itoa(puntaje1, snum, 10);
     LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
     itoa(puntaje2, snum, 10);
     LCD_Print(snum, 300, 5, 1, 0x3E1C, 0);
+    // si se matan a todos los malos
+    malos = M1 + M2 + M3 + M4 + M5;
+    if (malos == 0) {
+      LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
+      nivel--;
+      delay(1500);
+      LI = 20;
+      M1 = 1;
+      M2 = 1;
+      M3 = 1;
+      M4 = 1;
+      M5 = 1;
+      MY1 = 300;
+      MY2 = 300;
+      MX1 = 400;
+      MX2 = 400;
+      MD1 = 0;
+      MD2 = 0;
+      for (int x = 0; x < 320; x++) {
+        V_line(x, 0, 195, 0);
+      }
+      Y1 = 300;
+      Y2 = 300;
+      vuelta = 0;
+    }
     reading1 = digitalRead(disp1);
     reading2 = digitalRead(disp2);
 
@@ -320,11 +371,10 @@ void loop() {
         }
         if (vida1 == 0) {
           tanque1 = 0;
-          //          LCD_Print("sin vidas jugador 2", 25, 100, 2, 0x3E1C, 0);
-          LCD_Print("jugador1 = 0 vidas", 10, 220, 1, 0x3E1C, 0);
-          for (int x = J1; x < (J1 + 14); x++) {
-            V_line( x, 200, 8, 0x0000);
+          for (int x = J1; x < J1 + 14; x++){
+            V_line(x, 200, 8, 0);
           }
+        V_line(D1, 185 - Y1, 6, 0);
         } else if (vida1 == 2) {
           LCD_Print("jugador1 = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -332,12 +382,12 @@ void loop() {
         }
         if (vida2 == 0) {
           tanque2 = 0;
-          for (int x = J2; x < (J2 + 15); x++) {
-            V_line( x, 200, 8, 0x0000);
+          for (int x = J2; x < J2 + 14; x++){
+            V_line(x, 200, 8, 0);
           }
-          LCD_Print("jugador2 = 0 vidas ", 165, 220, 1, 0x3E1C, 0);
+        V_line(D2, 185 - Y2, 6, 0);
         } else if (vida2 == 1) {
-          LCD_Print("jugador2 = 1 vidas ", 165, 220, 1, 0x3E1C, 0);
+          LCD_Print("jugador2 = 1 vida  ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 2) {
           LCD_Print("jugador2 = 2 vidas ", 165, 220, 1, 0x3E1C, 0);
         }
@@ -351,47 +401,58 @@ void loop() {
     if (tanque2 == 1) {
       tanque_2();
     }
-    if (M1 == 1) {
+        if (M1 == 1) {
       LCD_Bitmap(CI, LI, 10, 8, malo1);
+    } else if (M1 < 7 && M1 != 0){
+      M1++;
+    }  else if (M1 > 6){
+      M1 = 0;
+      for (int x = tempx1; x < tempx1 + 13; x++){
+        V_line (x, tempy1, 8, 0);
+      }
     }
     if (M2 == 1) {
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
+    } else if (M2 < 7 && M2 != 0){
+      M2++;
+    } else if (M2 > 6){
+      M2 = 0;
+      for (int x = tempx2; x < tempx2 + 13; x++){
+        V_line (x, tempy2, 8, 0);
+      }
     }
     if (M3 == 1) {
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
+    } else if (M3 < 7 && M3 != 0){
+      M3++;
+    }  else if (M3 > 6){
+      M3 = 0;
+      for (int x = tempx3; x < tempx3 + 13; x++){
+        V_line (x, tempy3, 8, 0);
+      }
     }
     if (M4 == 1) {
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
+    } else if (M4 < 7 && M4 != 0){
+      M4++;
+    }  else if (M4> 6){
+      M4 = 0;
+      for (int x = tempx4; x < tempx4 + 13; x++){
+        V_line (x, tempy4, 8, 0);
+      }
     }
     if (M5 == 1) {
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
+    } else if (M5 < 7 && M5 != 0){
+      M5++;
+    }  else if (M5 > 6){
+      M5 = 0;
+      for (int x = tempx5; x < tempx5 + 13; x++){
+        V_line (x, tempy5, 8, 0);
+      }
     }
 
-    // si se matan a todos los malos
-    malos = M1 + M2 + M3 + M4 + M5;
-    if (malos == 0) {
-      LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
-      nivel--;
-      delay(1500);
-      LI = 20;
-      M1 = 1;
-      M2 = 1;
-      M3 = 1;
-      M4 = 1;
-      M5 = 1;
-      MY1 = 300;
-      MY2 = 300;
-      MX1 = 400;
-      MX2 = 400;
-      MD1 = 0;
-      MD2 = 0;
-      for (int x = 0; x < 320; x++) {
-        V_line(x, 0, 195, 0);
-      }
-      Y1 = 300;
-      Y2 = 300;
-      vuelta = 0;
-    }
+
     if (mov == 1) {
       CI++;
     } else if (mov == 0) {
@@ -416,7 +477,7 @@ void loop() {
     // jugador pierde
     if (LI > 160) {
       LCD_Clear(0x00);
-      LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+      LCD_Print("GAME OVER", 25, 15, 2, 0x3E1C, 0);
       juego = 0;
       delay(100);
     }
@@ -427,34 +488,42 @@ void loop() {
       juego = 0;
       delay(100);
     }
+  puntajeT = puntaje1 + puntaje2;
   }
-
+  
   while (juego == 2) { // 1 jugador
     var++;
     if (var == 11) {
       var = 1;
+    } 
+    
+    if (Y1 < 186 || Y2 <186){ // si hay algun disparo, musica 11
+      digitalWrite(musica[0], HIGH);//RB6
+    } else {
+      digitalWrite(musica[0], LOW);//RB6
     }
-
-    itoa(puntaje1, snum, 10);
-    LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
     // si se matan a todos los malos
     malos = M1 + M2 + M3 + M4 + M5;
-    if (malos == 0) {
+    if (malos == 0) { // pasar al siguiente nivel
+      digitalWrite(musica[0], LOW);//RB6 = 1;
       LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
       nivel--;
       delay(1500);
+      // reiniciar posicion de los malos
       LI = 20;
       M1 = 1;
       M2 = 1;
       M3 = 1;
       M4 = 1;
       M5 = 1;
+      // reiniciar los disparos de los malos
       MY1 = 300;
       MY2 = 300;
       MX1 = 400;
       MX2 = 400;
       MD1 = 0;
       MD2 = 0;
+      // borrar pantalla
       for (int x = 0; x < 320; x++) {
         V_line(x, 0, 195, 0);
       }
@@ -462,6 +531,8 @@ void loop() {
       Y2 = 300;
       vuelta = 0;
     }
+    itoa(puntaje1, snum, 10);
+    LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
     reading1 = digitalRead(disp1);
     reading2 = digitalRead(disp2);
 
@@ -510,7 +581,7 @@ void loop() {
             V_line( x, 200, 8, 0x0000);
           }
           LCD_Clear(0x00);
-          LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+          LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
           juego = 0;
           M1 = 0;
           M2 = 0;
@@ -519,7 +590,18 @@ void loop() {
           M5 = 0;
           tanque1 = 0;
           tanque2 = 0;
-          delay(100);
+          tanque1 = 0;
+          digitalWrite(musica[0], LOW);//RB6
+            LCD_Clear(0x00);  
+//            LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
+            juego = 0;
+            M1 = 0;
+            M2 = 0;
+            M3 = 0;
+            M4 = 0;
+            M5 = 0;
+            tanque2 = 0;
+            delay(100);
         } else if (vida1 == 2) {
           LCD_Print("jugador = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -531,20 +613,55 @@ void loop() {
     if (tanque1 == 1) {
       tanque_1();
     }
-    if (M1 == 1) {
+        if (M1 == 1) {
       LCD_Bitmap(CI, LI, 10, 8, malo1);
+    } else if (M1 < 7 && M1 != 0){
+      M1++;
+    }  else if (M1 > 6){
+      M1 = 0;
+      for (int x = tempx1; x < tempx1 + 13; x++){
+        V_line (x, tempy1, 8, 0);
+      }
     }
     if (M2 == 1) {
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
+    } else if (M2 < 7 && M2 != 0){
+      M2++;
+    } else if (M2 > 6){
+      M2 = 0;
+      for (int x = tempx2; x < tempx2 + 13; x++){
+        V_line (x, tempy2, 8, 0);
+      }
     }
     if (M3 == 1) {
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
+    } else if (M3 < 7 && M3 != 0){
+      M3++;
+    }  else if (M3 > 6){
+      M3 = 0;
+      for (int x = tempx3; x < tempx3 + 13; x++){
+        V_line (x, tempy3, 8, 0);
+      }
     }
     if (M4 == 1) {
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
+    } else if (M4 < 7 && M4 != 0){
+      M4++;
+    }  else if (M4> 6){
+      M4 = 0;
+      for (int x = tempx4; x < tempx4 + 13; x++){
+        V_line (x, tempy4, 8, 0);
+      }
     }
     if (M5 == 1) {
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
+    } else if (M5 < 7 && M5 != 0){
+      M5++;
+    }  else if (M5 > 6){
+      M5 = 0;
+      for (int x = tempx5; x < tempx5 + 13; x++){
+        V_line (x, tempy5, 8, 0);
+      }
     }
 
 
@@ -570,16 +687,14 @@ void loop() {
     // jugador pierde
     if (LI > 160) {
       LCD_Clear(0x00);
-      LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+      LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
       juego = 0;
-      delay(100);
     }
     // jugador gana
     if (nivel == 1) {
       LCD_Clear(0x00);
       LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0x3E1C, 0);
       juego = 0;
-      delay(100);
     }
   }
 
@@ -589,6 +704,11 @@ void loop() {
       var = 1;
     }
 
+    if (Y1 < 186 || Y2 <186){
+      digitalWrite(musica[0], HIGH);//RB6
+    } else {
+      digitalWrite(musica[0], LOW);//RB6
+    }
     itoa(puntaje1, snum, 10);
     LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
     itoa(puntaje2, snum, 10);
@@ -664,7 +784,7 @@ void loop() {
         }
         if (vida1 == 0) {
           LCD_Clear(0x00);
-          LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+          LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
           juego = 0;
           puntaje1 = 0;
           M1 = 0;
@@ -682,7 +802,7 @@ void loop() {
         }
         if (vida2 == 0) {
           LCD_Clear(0x00);
-          LCD_Print("ADIOS", 25, 5, 2, 0x3E1C, 0);
+          LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
           juego = 0;
           puntaje2 = 0;
           M1 = 0;
@@ -694,7 +814,7 @@ void loop() {
           tanque2 = 0;
           delay(100);
         } else if (vida2 == 1) {
-          LCD_Print("jugador2 = 1 vidas ", 165, 220, 1, 0x3E1C, 0);
+          LCD_Print("jugador2 = 1 vida  ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 2) {
           LCD_Print("jugador2 = 2 vidas ", 165, 220, 1, 0x3E1C, 0);
         }
@@ -708,20 +828,55 @@ void loop() {
     if (tanque2 == 1) {
       tanque_2();
     }
-    if (M1 == 1) {
+        if (M1 == 1) {
       LCD_Bitmap(CI, LI, 10, 8, malo1);
+    } else if (M1 < 7 && M1 != 0){
+      M1++;
+    }  else if (M1 > 6){
+      M1 = 0;
+      for (int x = tempx1; x < tempx1 + 13; x++){
+        V_line (x, tempy1, 8, 0);
+      }
     }
     if (M2 == 1) {
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
+    } else if (M2 < 7 && M2 != 0){
+      M2++;
+    } else if (M2 > 6){
+      M2 = 0;
+      for (int x = tempx2; x < tempx2 + 13; x++){
+        V_line (x, tempy2, 8, 0);
+      }
     }
     if (M3 == 1) {
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
+    } else if (M3 < 7 && M3 != 0){
+      M3++;
+    }  else if (M3 > 6){
+      M3 = 0;
+      for (int x = tempx3; x < tempx3 + 13; x++){
+        V_line (x, tempy3, 8, 0);
+      }
     }
     if (M4 == 1) {
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
+    } else if (M4 < 7 && M4 != 0){
+      M4++;
+    }  else if (M4> 6){
+      M4 = 0;
+      for (int x = tempx4; x < tempx4 + 13; x++){
+        V_line (x, tempy4, 8, 0);
+      }
     }
     if (M5 == 1) {
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
+    } else if (M5 < 7 && M5 != 0){
+      M5++;
+    }  else if (M5 > 6){
+      M5 = 0;
+      for (int x = tempx5; x < tempx5 + 13; x++){
+        V_line (x, tempy5, 8, 0);
+      }
     }
 
 
@@ -761,7 +916,7 @@ void loop() {
       delay(100);
     }
   }
-
+  
   LCD_Print("Presionar para ", 5, 190, 1, 0x3E1C, 0);
   LCD_Print(" ir al menu", 5, 200, 1, 0x3E1C, 0);
   if (juego == 4){
@@ -798,10 +953,10 @@ void loop() {
     juego = 0;
   }
   if (modo == 3) {
-    puntaje1 = puntaje1 * (vida1 + 1);
-    puntaje2 = puntaje2 * (vida2 + 1);
+    puntaje1 = puntaje1 * (vida1);
+    puntaje2 = puntaje2 * (vida2);
     itoa(puntaje1, snum, 10);
-    LCD_Print(snum, 105, 70, 2, 0x3E1C, 0);
+    LCD_Print(snum, 90, 70, 2, 0x3E1C, 0);
     LCD_Print("vs", 125, 70, 2, 0x3E1C, 0);
     itoa(puntaje2, snum, 10);
     LCD_Print(snum, 160, 70, 2, 0x3E1C, 0);
@@ -824,17 +979,19 @@ void loop() {
     // 2 jugadores juntos
     //    puntaje1 = puntaje1 - (5*vida1);
     //    puntaje2 = puntaje2 - (5*vida2);
-    itoa(puntaje1 + puntaje2, snum, 10);
-    LCD_Print("puntaje final:", 85, 100, 2, 0x3E1C, 0);
-    LCD_Print(snum, 105, 70, 2, 0x3E1C, 0);
-      highscores(puntaje1 + puntaje2, 1);
+    itoa(puntajeT, snum, 10);
+    LCD_Print("puntaje Final:", 65, 100, 2, 0x3E1C, 0);
+    LCD_Print(snum, 105, 85, 2, 0x3E1C, 0);
+      highscores(puntajeT, 1);
   }
   
   while (juego == 0) {
+    digitalWrite(musica[0], LOW);//RB6
+    digitalWrite(musica[1], LOW);//RB7
     modo = 0;
     reading1 = digitalRead(disp1);
     reading2 = digitalRead(disp2);
-    if (reading1 == HIGH && reading2 == HIGH) {
+    if (reading1 == HIGH || reading2 == HIGH) {
       reiniciar();
     }
   }
@@ -1044,33 +1201,43 @@ void tanque_2(void) {
       if ((CI - 1) <= D2 && (CI + 10) >= D2 && M1 == 1) {
         Y2 = 190;
         V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI, LI, 10, 8, negro);
+        LCD_Bitmap(CI, LI, 13, 8, explo);
         puntaje2++;
-        M1 = 0;
+        M1++;
+        tempx1 = CI;
+        tempy1 = LI;
       } else if ((CI + 20) <= D2 && (CI + 30) >= D2 && M2 == 1) {
         Y2 = 190;
         V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 20, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 20, LI, 13, 8, explo);
         puntaje2++;
-        M2 = 0;
+        M2++;
+        tempx2 = CI+20;
+        tempy2 = LI;
       } else if ((CI + 40) <= D2 && (CI + 50) >= D2 && M3 == 1) {
         Y2 = 190;
         V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 40, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 40, LI, 13, 8, explo);
         puntaje2++;
-        M3 = 0;
+        M3++;
+        tempx3 = CI+40;
+        tempy3 = LI;
       } else if ((CI + 60) <= D2 && (CI + 70) >= D2 && M4 == 1) {
         Y2 = 190;
         V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 60, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 60, LI, 13, 8, explo);
         puntaje2++;
-        M4 = 0;
+        M4++;
+        tempx4 = CI+60;
+        tempy4 = LI;
       } else if ((CI + 80) <= D2 && (CI + 90) >= D2 && M5 == 1) {
         Y2 = 190;
         V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 80, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 80, LI, 13, 8, explo);
         puntaje2++;
-        M5 = 0;
+        M5++;
+        tempx5 = CI+80;
+        tempy5 = LI;
       }
     }
   } else {
@@ -1112,33 +1279,43 @@ void tanque_1(void) {
       if ((CI - 1) <= D1 && (CI + 10) >= D1 && M1 == 1) {
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI, LI, 10, 8, negro);
+        LCD_Bitmap(CI, LI, 13, 8, explo);
         puntaje1++;
-        M1 = 0;
+        M1++;
+        tempx1 = CI;
+        tempy1 = LI;
       } else if ((CI + 20) <= D1 && (CI + 30) >= D1 && M2 == 1) {
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 20, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 20, LI, 13, 8, explo);
         puntaje1++;
-        M2 = 0;
+        M2++;
+        tempx2 = CI+20;
+        tempy2 = LI;
       } else if ((CI + 40) <= D1 && (CI + 50) >= D1 && M3 == 1) {
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 40, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 40, LI, 13, 8, explo);
         puntaje1++;
-        M3 = 0;
+        M3++;
+        tempx3 = CI+40;
+        tempy3 = LI;
       } else if ((CI + 60) <= D1 && (CI + 70) >= D1 && M4 == 1) {
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 60, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 60, LI, 13, 8, explo);
         puntaje1++;
-        M4 = 0;
+        M4++;
+        tempx4 = CI+60;
+        tempy4 = LI;
       } else if ((CI + 80) <= D1 && (CI + 90) >= D1 && M5 == 1) {
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 80, LI, 10, 8, negro);
+        LCD_Bitmap(CI + 80, LI, 13, 8, explo);
         puntaje1++;
-        M5 = 0;
+        M5++;
+        tempx5 = CI+80;
+        tempy5 = LI;
       }
     }
   } else {
@@ -1156,12 +1333,15 @@ void tanque_1(void) {
 }
 void menuu(void) {
   //juego = 1;
+  puntajeT = 0;
   var_flecha = 114;
   LCD_Bitmap(100, 50, 127, 39, logo);
   LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);
   LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
   LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
   LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
+  digitalWrite(musica[0], HIGH);//RB6
+  digitalWrite(musica[1], LOW);//RB7
   while (menu == 1) {
     B_der1 = digitalRead(der1);
     B_der2 = digitalRead(der2);
@@ -1257,7 +1437,7 @@ void menuu(void) {
       modo = 3;
       menu = 0;
     }
-    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 194) {
+    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 204) {
       juego = 4;
       modo = 0;
       menu = 0;
@@ -1266,10 +1446,12 @@ void menuu(void) {
 }
 void reiniciar(void) {
   LCD_Clear(0x00);
+  digitalWrite(musica[0], LOW);//RB6
+  digitalWrite(musica[1], LOW);//RB7
   for (int x = 0; x < 315 - 128; x++) {
     LCD_Bitmap(x, 100, 127, 39, logo);
     V_line( x - 1, 100, 30, 0x0000);
-    delay(7);
+    delay(4);
   }
   Serial.println("highscores");
   puntaje1 = 0;
