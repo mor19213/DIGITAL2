@@ -282,8 +282,10 @@ void setup() {
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
+  if (juego != 4){
   digitalWrite(musica[0], LOW);//RB6
   digitalWrite(musica[1], HIGH);//RB7
+  }
   
   while (juego == 1) {
     var++;
@@ -359,26 +361,23 @@ void loop() {
       MY1++;
       if (MY1 > 194) {
         MD1 = 0;
-        if (tanque1 != 2) {
           if (J1 < MX1 && MX1 < (J1 + 13)) {
             vida1--;
-            //            LCD_Print("wuuuuu", 25, 100, 2, 0x3E1C, 0);
-          }
+            
         }
         if (J2 < MX1 && MX1 < (J2 + 13)) {
           vida2--;
-          //LCD_Print("wuuuuu", 25, 100, 2, 0x3E1C, 0);
         }
         if (vida1 == 0) {
-          tanque1 = 0;
           LCD_Print("jugador1 = 0 vidas", 10, 220, 1, 0x3E1C, 0);
           
-          for (int x = J1; x < J1 +13; x++) {
-            V_line(x, 200, 8, 0);
+          for (int x = J1; x < J1 +14; x++) {
+            V_line(x-1, 200, 8, 0);
           }
           if (Y1 < 186){
           V_line(D1, 185-Y1, 6, 0);
           }
+          tanque1 = 0;
         } else if (vida1 == 2) {
           LCD_Print("jugador1 = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -386,8 +385,11 @@ void loop() {
         }
         if (vida2 == 0) {
           tanque2 = 0;
-          for (int x = J1; x < J1 +13; x++) {
-            V_line(x, 200, 8, 0);
+          for (int x = J2; x < J2 +14; x++) {
+            V_line(x-1, 200, 8, 0);
+          }
+          if (Y2 < 186){
+          V_line(D1, 185-Y2, 6, 0);
           }
           if (Y2 < 186){
           V_line(D2, 185-Y2, 6, 0);
@@ -792,7 +794,6 @@ void loop() {
           LCD_Clear(0x00);
           LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
           juego = 0;
-          puntaje1 = 0;
           M1 = 0;
           M2 = 0;
           M3 = 0;
@@ -810,7 +811,6 @@ void loop() {
           LCD_Clear(0x00);
           LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
           juego = 0;
-          puntaje2 = 0;
           M1 = 0;
           M2 = 0;
           M3 = 0;
@@ -904,7 +904,7 @@ void loop() {
     }
 
     delay(5);
-    if (tanque1 == 0 && tanque2 == 0) {
+    if (tanque1 == 0 || tanque2 == 0) {
       LI = 400;
     }
     // jugador pierde
@@ -959,8 +959,8 @@ void loop() {
     juego = 0;
   }
   if (modo == 3) {
-    puntaje1 = puntaje1 * (vida1);
-    puntaje2 = puntaje2 * (vida2);
+    puntaje1 = puntaje1 * (vida1 + 1);
+    puntaje2 = puntaje2 * (vida2 + 1);
     itoa(puntaje1, snum, 10);
     LCD_Print(snum, 90, 70, 2, 0x3E1C, 0);
     LCD_Print("vs", 125, 70, 2, 0x3E1C, 0);
@@ -977,14 +977,16 @@ void loop() {
     }
   } else if (modo == 2) {
     // 1 jugador
+    puntaje1 = puntaje1 * (vida1 +1);
     itoa(puntaje1, snum, 10);
     LCD_Print("Puntaje Final:", 85, 70, 2, 0x3E1C, 0);
     LCD_Print(snum, 85, 100, 2, 0x3E1C, 0);
       highscores(puntaje1, 2);
   } else if (modo == 1) {
     // 2 jugadores juntos
-    //    puntaje1 = puntaje1 - (5*vida1);
-    //    puntaje2 = puntaje2 - (5*vida2);
+    puntaje1 = puntaje1 * (vida1 + 1);
+    puntaje2 = puntaje2 * (vida2 + 1);
+    puntajeT = puntaje1 + puntaje2;
     itoa(puntajeT, snum, 10);
     LCD_Print("puntaje Final:", 65, 100, 2, 0x3E1C, 0);
     LCD_Print(snum, 105, 85, 2, 0x3E1C, 0);
