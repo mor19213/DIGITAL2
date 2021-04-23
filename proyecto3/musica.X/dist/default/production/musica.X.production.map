@@ -1,0 +1,444 @@
+Microchip MPLAB XC8 Compiler V2.31
+
+Linker command line:
+
+-W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
+  -h+dist/default/production\musica.X.production.sym \
+  --cmf=dist/default/production\musica.X.production.cmf -z -Q16F887 \
+  -oC:\Users\danie\AppData\Local\Temp\sb8c.2 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/production/musica.X.production.map -E1 -ver=XC8 Compiler \
+  --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
+  -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
+  -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
+  -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
+  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ASFR0=00h-01Fh \
+  -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
+  -ACONFIG=02007h-02008h -DCONFIG=2 -AIDLOC=02000h-02003h -DIDLOC=2 \
+  -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
+  -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
+  -pfunctab=ENTRY -k C:\Users\danie\AppData\Local\Temp\sb8c.o \
+  dist/default/production\musica.X.production.o 
+
+Object code version is 3.11
+
+Machine type is 16F887
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\danie\AppData\Local\Temp\sb8c.o
+                end_init                              0        0        3        0       0
+                config                             2007     2007        2        0       4
+dist/default/production\musica.X.production.o
+                cinit                               7BE      7BE       42      F7C       0
+                config                             2007     2007        2        0       4
+                text2                                41       41       5C       82       0
+                text1                                1E       1E       23       3C       0
+                maintext                             9D       9D      721      13A       0
+                cstackBANK0                          20       20       2E       20       1
+                cstackCOMMON                         78       78        6       70       1
+                inittext                            FED      FED       13     1FDA       0
+                dataBANK0                            4E       4E       18       20       1
+                dataCOMMON                           70       70        8       70       1
+                idataBANK0                            6        6       18        C       0
+                idataCOMMON                         FE5      FE5        8     1FCA       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                              0        0        3         0
+                cinit                               7BE      7BE       42         0
+                text2                                41       41       5C         0
+                text1                                1E       1E       23         0
+                maintext                             9D       9D      721         0
+                inittext                            FED      FED       13         0
+                idataBANK0                            6        6       18         0
+                idataCOMMON                         FE5      FE5        8         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   COMMON         
+                cstackCOMMON                         78       78        6         1
+                dataCOMMON                           70       70        8         1
+
+        CLASS   BANK0          
+                cstackBANK0                          20       20       2E         1
+                dataBANK0                            4E       4E       18         1
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   SFR3           
+
+        CLASS   CONFIG         
+                config                             2007     2007        2         4
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000003  000003         0       0  CODE        2
+                idataBANK0                     000006  000018  00001E         C       0  CODE        2
+                cstackBANK0                    000020  000046  000066        20       1  BANK0       1
+                text1                          00001E  000023  000041        3C       0  CODE        2
+                dataCOMMON                     000070  00000E  00007E        70       1  COMMON      1
+                text2                          000041  00005C  00009D        82       0  CODE        2
+                maintext                       00009D  000721  0007BE       13A       0  CODE        2
+                cinit                          0007BE  000042  000800       F7C       0  CODE        2
+                idataCOMMON                    000FE5  000008  000FED      1FCA       0  CODE        2
+                inittext                       000FED  000013  001000      1FDA       0  CODE        2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0066-006F              A           1
+        BANK1            00A0-00EF             50           1
+        BANK2            0110-016F             60           1
+        BANK3            0190-01EF             60           1
+        CODE             0003-0005              3           2
+                         0800-0FE4            7E5
+                         1000-1FFF            800
+        CONST            0003-0005              3           2
+                         0800-0FE4            100
+                         1000-1FFF            100
+        EEDATA           2100-21FF            100           2
+        ENTRY            0003-0005              3           2
+                         0800-0FE4            100
+                         1000-1FFF            100
+        IDLOC            2000-2003              4           2
+        RAM              0066-006F              A           1
+                         00A0-00EF             50
+                         0110-016F             60
+                         0190-01EF             60
+        SFR0             0000-001F             20           1
+        SFR1             0080-009F             20           1
+        SFR2             0100-010F             10           1
+        SFR3             0180-018F             10           1
+        STACK            0110-016F             60           1
+        STRCODE          0003-0005              3           2
+                         0800-0FE4            7E5
+                         1000-1FFF           1000
+        STRING           0003-0005              3           2
+                         0800-0FE4            100
+                         1000-1FFF            100
+
+                                  Symbol Table
+
+_ANSEL                   (abs)        0188
+_ANSELH                  (abs)        0189
+_OPTION_REGbits          (abs)        0081
+_OSCCONbits              (abs)        008F
+_PORTC                   (abs)        0007
+_PORTCbits               (abs)        0007
+_PORTD                   (abs)        0008
+_RB6                     (abs)        0036
+_RB7                     (abs)        0037
+_Setup                   text1        001E
+_TRISAbits               (abs)        0085
+_TRISBbits               (abs)        0086
+_TRISC                   (abs)        0087
+_TRISD                   (abs)        0088
+__Habs1                  abs1         0000
+__Hbank0                 bank0        0000
+__Hbank1                 bank1        0000
+__Hbank2                 bank2        0000
+__Hbank3                 bank3        0000
+__Hcinit                 cinit        0800
+__Hclrtext               clrtext      0000
+__Hcode                  code         0000
+__Hcommon                common       0000
+__Hconfig                config       2009
+__HcstackBANK0           cstackBANK0  0000
+__HcstackCOMMON          cstackCOMMON 0000
+__HdataBANK0             dataBANK0    0000
+__HdataCOMMON            dataCOMMON   0000
+__Heeprom_data           eeprom_data  0000
+__Hend_init              end_init     0003
+__Hfunctab               functab      0000
+__HidataBANK0            idataBANK0   0000
+__HidataCOMMON           idataCOMMON  0000
+__Hinit                  init         0000
+__Hinittext              inittext     0000
+__Hintentry              intentry     0000
+__Hmaintext              maintext     0000
+__Hpowerup               powerup      0000
+__Hram                   ram          0000
+__Hreset_vec             reset_vec    0000
+__Hsfr0                  sfr0         0000
+__Hsfr1                  sfr1         0000
+__Hsfr2                  sfr2         0000
+__Hsfr3                  sfr3         0000
+__Hspace_0               (abs)        1000
+__Hspace_1               (abs)        007E
+__Hspace_2               (abs)        0000
+__Hspace_3               (abs)        0000
+__Hspace_4               (abs)        4010
+__Hstack                 stack        0000
+__Hstrings               strings      0000
+__Htext                  text         0000
+__Labs1                  abs1         0000
+__Lbank0                 bank0        0000
+__Lbank1                 bank1        0000
+__Lbank2                 bank2        0000
+__Lbank3                 bank3        0000
+__Lcinit                 cinit        07BE
+__Lclrtext               clrtext      0000
+__Lcode                  code         0000
+__Lcommon                common       0000
+__Lconfig                config       0000
+__LcstackBANK0           cstackBANK0  0000
+__LcstackCOMMON          cstackCOMMON 0000
+__LdataBANK0             dataBANK0    0000
+__LdataCOMMON            dataCOMMON   0000
+__Leeprom_data           eeprom_data  0000
+__Lend_init              end_init     0000
+__Lfunctab               functab      0000
+__LidataBANK0            idataBANK0   0000
+__LidataCOMMON           idataCOMMON  0000
+__Linit                  init         0000
+__Linittext              inittext     0000
+__Lintentry              intentry     0000
+__Lmaintext              maintext     0000
+__Lpowerup               powerup      0000
+__Lram                   ram          0000
+__Lreset_vec             reset_vec    0000
+__Lsfr0                  sfr0         0000
+__Lsfr1                  sfr1         0000
+__Lsfr2                  sfr2         0000
+__Lsfr3                  sfr3         0000
+__Lspace_0               (abs)        0000
+__Lspace_1               (abs)        0000
+__Lspace_2               (abs)        0000
+__Lspace_3               (abs)        0000
+__Lspace_4               (abs)        0000
+__Lstack                 stack        0000
+__Lstrings               strings      0000
+__Ltext                  text         0000
+__S0                     (abs)        1000
+__S1                     (abs)        007E
+__S2                     (abs)        0000
+__S3                     (abs)        0000
+___int_sp                stack        0000
+___latbits               (abs)        0002
+___sp                    stack        0000
+___stackhi               (abs)        0000
+___stacklo               (abs)        0000
+__end_of_Setup           text1        0041
+__end_of__initialization cinit        07FC
+__end_of_initOsc         text2        009D
+__end_of_main            maintext     07BE
+__initialization         cinit        07BE
+__pcstackBANK0           cstackBANK0  0020
+__pcstackCOMMON          cstackCOMMON 0078
+__pdataBANK0             dataBANK0    004E
+__pdataCOMMON            dataCOMMON   0070
+__pidataBANK0            idataBANK0   0006
+__pidataCOMMON           idataCOMMON  0FE5
+__pmaintext              maintext     009D
+__ptext1                 text1        001E
+__ptext2                 text2        0041
+__size_of_Setup          (abs)        0000
+__size_of_initOsc        (abs)        0000
+__size_of_main           (abs)        0000
+_initOsc                 text2        0041
+_main                    maintext     009D
+btemp                    (abs)        007E
+end_of_initialization    cinit        07FC
+initOsc@IRCF             cstackCOMMON 007A
+init_fetch0              inittext     0FED
+init_ram0                inittext     0FF1
+intlevel0                functab      0000
+intlevel1                functab      0000
+intlevel2                functab      0000
+intlevel3                functab      0000
+intlevel4                functab      0000
+intlevel5                functab      0000
+main@x                   cstackBANK0  0020
+main@x_156               cstackBANK0  0022
+main@x_157               cstackBANK0  0024
+main@x_158               cstackBANK0  0026
+main@x_159               cstackBANK0  0028
+main@x_160               cstackBANK0  002A
+main@x_161               cstackBANK0  002C
+main@x_162               cstackBANK0  002E
+main@x_163               cstackBANK0  0030
+main@x_164               cstackBANK0  0032
+main@x_165               cstackBANK0  0034
+main@x_166               cstackBANK0  0036
+main@x_167               cstackBANK0  0038
+main@x_168               cstackBANK0  003A
+main@x_169               cstackBANK0  003C
+main@x_170               cstackBANK0  003E
+main@x_171               cstackBANK0  0040
+main@x_172               cstackBANK0  0042
+main@x_173               cstackBANK0  0044
+main@x_174               cstackBANK0  0046
+main@x_175               cstackBANK0  0048
+main@x_176               cstackBANK0  004A
+main@x_177               cstackBANK0  004C
+reset_vec                reset_vec    0000
+start                    init         0000
+start_initialization     cinit        07BE
+wtemp0                   (abs)        007E
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 78 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  x               2   44[BANK0 ] int 
+  x               2   42[BANK0 ] int 
+  x               2   40[BANK0 ] int 
+  x               2   38[BANK0 ] int 
+  x               2   36[BANK0 ] int 
+  x               2   34[BANK0 ] int 
+  x               2   32[BANK0 ] int 
+  x               2   30[BANK0 ] int 
+  x               2   28[BANK0 ] int 
+  x               2   26[BANK0 ] int 
+  x               2   24[BANK0 ] int 
+  x               2   22[BANK0 ] int 
+  x               2   20[BANK0 ] int 
+  x               2   18[BANK0 ] int 
+  x               2   16[BANK0 ] int 
+  x               2   14[BANK0 ] int 
+  x               2   12[BANK0 ] int 
+  x               2   10[BANK0 ] int 
+  x               2    8[BANK0 ] int 
+  x               2    6[BANK0 ] int 
+  x               2    4[BANK0 ] int 
+  x               2    2[BANK0 ] int 
+  x               2    0[BANK0 ] int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0      46       0       0       0
+      Temps:          3       0       0       0       0
+      Totals:         3      46       0       0       0
+Total ram usage:       49 bytes
+ Hardware stack levels required when called:    2
+ This function calls:
+		_Setup
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _Setup *****************
+ Defined at:
+		line 367 in file "C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_initOsc
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _initOsc *****************
+ Defined at:
+		line 4 in file "Osc.c"
+ Parameters:    Size  Location     Type
+  IRCF            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  IRCF            1    2[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         1       0       0       0       0
+      Temps:          2       0       0       0       0
+      Totals:         3       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_Setup
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+Osc.c
+		_initOsc       		CODE           	0041	0000	92
+
+Osc.c estimated size: 92
+
+C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
+		_main          		CODE           	009D	0000	1825
+		_Setup         		CODE           	001E	0000	35
+
+C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c estimated size: 1860
+
+shared
+		__initialization		CODE           	07BE	0000	62
+
+shared estimated size: 62
+

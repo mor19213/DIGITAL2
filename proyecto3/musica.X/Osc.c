@@ -1,5 +1,5 @@
 
-#include "Oscilador.h"
+#include "Osc.h"
 
 void initOsc(uint8_t IRCF) {
     switch(IRCF){

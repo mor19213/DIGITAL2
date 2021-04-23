@@ -1,0 +1,1582 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"76 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 76: void Setup (void);
+[v _Setup `(v ~T0 @X0 0 ef ]
+"296 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 296:     struct {
+[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"295
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 295: typedef union {
+[u S9 `S10 1 ]
+[n S9 . . ]
+"307
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 307: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
+[v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"4124 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4124: extern volatile __bit RB7 __attribute__((address(0x37)));
+[v _RB7 `Vb ~T0 @X0 0 e@55 ]
+"4121
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4121: extern volatile __bit RB6 __attribute__((address(0x36)));
+[v _RB6 `Vb ~T0 @X0 0 e@54 ]
+"16 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/Osc.h
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/Osc.h: 16: void initOsc(uint8_t IRCF);
+[v _initOsc `(v ~T0 @X0 0 ef1`uc ]
+"1540 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"290
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"1602
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"3387
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3449
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1484
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1484:     struct {
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1483
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1483: typedef union {
+[u S54 `S55 1 ]
+[n S54 . . ]
+"1495
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1495: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x086)));
+[v _TRISBbits `VS54 ~T0 @X0 0 e@134 ]
+"1422
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1422:     struct {
+[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S53 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1421
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1421: typedef union {
+[u S52 `S53 1 ]
+[n S52 . . ]
+"1433
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1433: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
+[v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
+"1352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1352:     struct {
+[s S50 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"1360
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1360:     struct {
+[s S51 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S51 . PS0 PS1 PS2 ]
+"1351
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1351: typedef union {
+[u S49 `S50 1 `S51 1 ]
+[n S49 . . . ]
+"1366
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1366: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS49 ~T0 @X0 0 e@129 ]
+"54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"230
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 230: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"292
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 292: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"354
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 354: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"416
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 416: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"454
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 454: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"461
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 461: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"539
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 539: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"595
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 595: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"652
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 652: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"659
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 659: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"666
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 666: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"673
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 673: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"767
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 767: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"774
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 774: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"845
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 845: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"852
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 852: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"922
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 922: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"929
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 929: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"936
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 936: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"943
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 943: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"1040
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1040: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1135
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1135: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1142
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1142: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1149
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1149: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1156
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1156: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1163
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1163: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1170
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1170: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1240
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1240: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1247
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1247: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1348
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1348: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1418
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1418: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1480
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1480: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1542
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1542: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1604
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1604: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1666
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1666: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1704
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1704: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1760
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1760: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1817
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1817: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1864
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1864: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1929
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1929: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1981
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1981: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"2043
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2043: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"2050
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2050: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"2057
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2057: __asm("SSPMSK equ 093h");
+[; <" SSPMSK equ 093h ;# ">
+"2062
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2062: __asm("MSK equ 093h");
+[; <" MSK equ 093h ;# ">
+"2179
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2179: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2348
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2348: __asm("WPUB equ 095h");
+[; <" WPUB equ 095h ;# ">
+"2418
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2418: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"2488
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2488: __asm("VRCON equ 097h");
+[; <" VRCON equ 097h ;# ">
+"2558
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2558: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2644
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2644: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2706
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2706: __asm("SPBRGH equ 09Ah");
+[; <" SPBRGH equ 09Ah ;# ">
+"2776
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2776: __asm("PWM1CON equ 09Bh");
+[; <" PWM1CON equ 09Bh ;# ">
+"2846
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2846: __asm("ECCPAS equ 09Ch");
+[; <" ECCPAS equ 09Ch ;# ">
+"2928
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2928: __asm("PSTRCON equ 09Dh");
+[; <" PSTRCON equ 09Dh ;# ">
+"2972
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2972: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2979
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2979: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"3013
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3013: __asm("WDTCON equ 0105h");
+[; <" WDTCON equ 0105h ;# ">
+"3066
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3066: __asm("CM1CON0 equ 0107h");
+[; <" CM1CON0 equ 0107h ;# ">
+"3131
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3131: __asm("CM2CON0 equ 0108h");
+[; <" CM2CON0 equ 0108h ;# ">
+"3196
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3196: __asm("CM2CON1 equ 0109h");
+[; <" CM2CON1 equ 0109h ;# ">
+"3247
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3247: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"3252
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3252: __asm("EEDAT equ 010Ch");
+[; <" EEDAT equ 010Ch ;# ">
+"3259
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3259: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"3266
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3266: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"3273
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3273: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"3280
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3280: __asm("SRCON equ 0185h");
+[; <" SRCON equ 0185h ;# ">
+"3337
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3337: __asm("BAUDCTL equ 0187h");
+[; <" BAUDCTL equ 0187h ;# ">
+"3389
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3389: __asm("ANSEL equ 0188h");
+[; <" ANSEL equ 0188h ;# ">
+"3451
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3451: __asm("ANSELH equ 0189h");
+[; <" ANSELH equ 0189h ;# ">
+"3501
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3501: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"3546
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"16 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
+[p x FOSC  =  INTRC_NOCLKOUT ]
+"17
+[p x WDTE  =  OFF        ]
+"18
+[p x PWRTE  =  OFF       ]
+"19
+[p x MCLRE  =  OFF       ]
+"20
+[p x CP  =  OFF          ]
+"21
+[p x CPD  =  OFF         ]
+"22
+[p x BOREN  =  OFF       ]
+"23
+[p x IESO  =  OFF        ]
+"24
+[p x FCMEN  =  OFF       ]
+"25
+[p x LVP  =  OFF         ]
+"28
+[p x BOR4V  =  BOR40V    ]
+"29
+[p x WRT  =  OFF         ]
+"63
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 63: long C4 = 382;
+[v _C4 `l ~T0 @X0 1 e ]
+[i _C4
+-> -> 382 `i `l
+]
+"64
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 64: long D4 = 340;
+[v _D4 `l ~T0 @X0 1 e ]
+[i _D4
+-> -> 340 `i `l
+]
+"65
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 65: long E4 = 303;
+[v _E4 `l ~T0 @X0 1 e ]
+[i _E4
+-> -> 303 `i `l
+]
+"66
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 66: long F4 = 287;
+[v _F4 `l ~T0 @X0 1 e ]
+[i _F4
+-> -> 287 `i `l
+]
+"67
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 67: long G4 = 255;
+[v _G4 `l ~T0 @X0 1 e ]
+[i _G4
+-> -> 255 `i `l
+]
+"68
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 68: long A4 = 227;
+[v _A4 `l ~T0 @X0 1 e ]
+[i _A4
+-> -> 227 `i `l
+]
+"69
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 69: long B4 = 215;
+[v _B4 `l ~T0 @X0 1 e ]
+[i _B4
+-> -> 215 `i `l
+]
+"70
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 70: long C5 = 202;
+[v _C5 `l ~T0 @X0 1 e ]
+[i _C5
+-> -> 202 `i `l
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"78
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 78: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"79
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 79:     Setup();
+[e ( _Setup ..  ]
+"81
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 81:     while(RB7 == 1 && RB6 == 1){
+[e $U 139  ]
+[e :U 140 ]
+{
+"82
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 82:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"83
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 83:                 _delay((unsigned long)((400)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"84
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 84:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"85
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 85:                 _delay((unsigned long)((400)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"87
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 87:     }
+}
+[e :U 139 ]
+"81
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 81:     while(RB7 == 1 && RB6 == 1){
+[e $ && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 1 `i 140  ]
+[e :U 141 ]
+"88
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 88:     if (RB7 == 0 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 0 `i 142  ]
+{
+"89
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 89:         PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"90
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 90:     }
+}
+[e :U 142 ]
+"93
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 93:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 143  ]
+{
+"94
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 94:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 144  ]
+[e $U 145  ]
+[e :U 144 ]
+{
+"95
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 95:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"96
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 96:                 _delay((unsigned long)((955)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 955 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"97
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 97:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"98
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 98:                 _delay((unsigned long)((955)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 955 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"99
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 99:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 144  ]
+[e :U 145 ]
+}
+"100
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 100:         }
+}
+[e :U 143 ]
+"101
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 101:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 147  ]
+{
+"102
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 102:             _delay((unsigned long)((350)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 350 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"103
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 103:         }
+}
+[e :U 147 ]
+"104
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 104:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 148  ]
+{
+"105
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 105:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 149  ]
+[e $U 150  ]
+[e :U 149 ]
+{
+"106
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 106:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"107
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 107:                 _delay((unsigned long)((1275)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1275 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"108
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 108:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"109
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 109:                 _delay((unsigned long)((1275)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1275 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"110
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 110:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 149  ]
+[e :U 150 ]
+}
+"111
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 111:         }
+}
+[e :U 148 ]
+"112
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 112:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 152  ]
+{
+"113
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 113:             _delay((unsigned long)((350)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 350 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"114
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 114:         }
+}
+[e :U 152 ]
+"115
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 115:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 153  ]
+{
+"116
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 116:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 154  ]
+[e $U 155  ]
+[e :U 154 ]
+{
+"117
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 117:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"118
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 118:                 _delay((unsigned long)((1515)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1515 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"119
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 119:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"120
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 120:                 _delay((unsigned long)((1515)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1515 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"121
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 121:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 154  ]
+[e :U 155 ]
+}
+"122
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 122:         }
+}
+[e :U 153 ]
+"123
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 123:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 157  ]
+{
+"124
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 124:             _delay((unsigned long)((350)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 350 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"125
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 125:         }
+}
+[e :U 157 ]
+"127
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 127:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 158  ]
+{
+"128
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 128:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 159  ]
+[e $U 160  ]
+[e :U 159 ]
+{
+"129
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 129:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"130
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 130:                 _delay((unsigned long)((1135)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1135 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"131
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 131:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"132
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 132:                 _delay((unsigned long)((1135)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1135 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"133
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 133:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 159  ]
+[e :U 160 ]
+}
+"134
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 134:         }
+}
+[e :U 158 ]
+"135
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 135:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 162  ]
+{
+"136
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 136:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"137
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 137:         }
+}
+[e :U 162 ]
+"138
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 138:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 163  ]
+{
+"139
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 139:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 164  ]
+[e $U 165  ]
+[e :U 164 ]
+{
+"140
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 140:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"141
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 141:                 _delay((unsigned long)((1015)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1015 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"142
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 142:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"143
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 143:                 _delay((unsigned long)((1015)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1015 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"144
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 144:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 164  ]
+[e :U 165 ]
+}
+"145
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 145:         }
+}
+[e :U 163 ]
+"146
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 146:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 167  ]
+{
+"147
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 147:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"148
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 148:         }
+}
+[e :U 167 ]
+"149
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 149:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 168  ]
+{
+"150
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 150:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 169  ]
+[e $U 170  ]
+[e :U 169 ]
+{
+"151
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 151:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"152
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 152:                 _delay((unsigned long)((1075)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1075 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"153
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 153:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"154
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 154:                 _delay((unsigned long)((1075)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1075 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"155
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 155:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 169  ]
+[e :U 170 ]
+}
+"156
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 156:         }
+}
+[e :U 168 ]
+"157
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 157:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 172  ]
+{
+"158
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 158:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"159
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 159:         }
+}
+[e :U 172 ]
+"160
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 160:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 173  ]
+{
+"161
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 161:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 174  ]
+[e $U 175  ]
+[e :U 174 ]
+{
+"162
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 162:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"163
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 163:                 _delay((unsigned long)((1135)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1135 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"164
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 164:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"165
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 165:                 _delay((unsigned long)((1135)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1135 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"166
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 166:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 174  ]
+[e :U 175 ]
+}
+"167
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 167:         }
+}
+[e :U 173 ]
+"168
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 168:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 177  ]
+{
+"169
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 169:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"170
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 170:         }
+}
+[e :U 177 ]
+"172
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 172:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 178  ]
+{
+"173
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 173:             for (int x = 0; x < 67; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 67 `i 179  ]
+[e $U 180  ]
+[e :U 179 ]
+{
+"174
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 174:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"175
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 175:                 _delay((unsigned long)((1275)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1275 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"176
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 176:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"177
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 177:                 _delay((unsigned long)((1275)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1275 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"178
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 178:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 67 `i 179  ]
+[e :U 180 ]
+}
+"179
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 179:         }
+}
+[e :U 178 ]
+"180
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 180:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 182  ]
+{
+"181
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 181:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"182
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 182:         }
+}
+[e :U 182 ]
+"184
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 184:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 183  ]
+{
+"185
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 185:             for (int x = 0; x < 67; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 67 `i 184  ]
+[e $U 185  ]
+[e :U 184 ]
+{
+"186
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 186:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"187
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 187:                 _delay((unsigned long)((758)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 758 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"188
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 188:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"189
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 189:                 _delay((unsigned long)((758)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 758 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"190
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 190:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 67 `i 184  ]
+[e :U 185 ]
+}
+"191
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 191:         }
+}
+[e :U 183 ]
+"192
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 192:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 187  ]
+{
+"193
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 193:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"194
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 194:         }
+}
+[e :U 187 ]
+"195
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 195:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 188  ]
+{
+"196
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 196:             for (int x = 0; x < 67; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 67 `i 189  ]
+[e $U 190  ]
+[e :U 189 ]
+{
+"197
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 197:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"198
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 198:                 _delay((unsigned long)((638)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 638 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"199
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 199:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"200
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 200:                 _delay((unsigned long)((638)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 638 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"201
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 201:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 67 `i 189  ]
+[e :U 190 ]
+}
+"202
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 202:         }
+}
+[e :U 188 ]
+"203
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 203:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 192  ]
+{
+"204
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 204:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"205
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 205:         }
+}
+[e :U 192 ]
+"206
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 206:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 193  ]
+{
+"207
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 207:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 194  ]
+[e $U 195  ]
+[e :U 194 ]
+{
+"208
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 208:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"209
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 209:                 _delay((unsigned long)((568)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 568 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"210
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 210:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"211
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 211:                 _delay((unsigned long)((568)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 568 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"212
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 212:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 194  ]
+[e :U 195 ]
+}
+"213
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 213:         }
+}
+[e :U 193 ]
+"214
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 214:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 197  ]
+{
+"215
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 215:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"216
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 216:         }
+}
+[e :U 197 ]
+"217
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 217:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 198  ]
+{
+"218
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 218:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 199  ]
+[e $U 200  ]
+[e :U 199 ]
+{
+"219
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 219:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"220
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 220:                 _delay((unsigned long)((716)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 716 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"221
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 221:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"222
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 222:                 _delay((unsigned long)((716)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 716 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"223
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 223:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 199  ]
+[e :U 200 ]
+}
+"224
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 224:         }
+}
+[e :U 198 ]
+"225
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 225:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 202  ]
+{
+"226
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 226:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"227
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 227:         }
+}
+[e :U 202 ]
+"228
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 228:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 203  ]
+{
+"229
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 229:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 204  ]
+[e $U 205  ]
+[e :U 204 ]
+{
+"230
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 230:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"231
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 231:                 _delay((unsigned long)((638)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 638 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"232
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 232:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"233
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 233:                 _delay((unsigned long)((638)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 638 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"234
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 234:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 204  ]
+[e :U 205 ]
+}
+"235
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 235:         }
+}
+[e :U 203 ]
+"236
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 236:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 207  ]
+{
+"237
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 237:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"238
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 238:         }
+}
+[e :U 207 ]
+"240
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 240:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 208  ]
+{
+"241
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 241:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 209  ]
+[e $U 210  ]
+[e :U 209 ]
+{
+"242
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 242:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"243
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 243:                 _delay((unsigned long)((758)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 758 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"244
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 244:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"245
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 245:                 _delay((unsigned long)((758)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 758 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"246
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 246:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 209  ]
+[e :U 210 ]
+}
+"247
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 247:         }
+}
+[e :U 208 ]
+"248
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 248:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 212  ]
+{
+"249
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 249:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"250
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 250:         }
+}
+[e :U 212 ]
+"251
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 251:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 213  ]
+{
+"252
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 252:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 214  ]
+[e $U 215  ]
+[e :U 214 ]
+{
+"253
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 253:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"254
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 254:                 _delay((unsigned long)((956)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 956 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"255
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 255:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"256
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 256:                 _delay((unsigned long)((956)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 956 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"257
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 257:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 214  ]
+[e :U 215 ]
+}
+"258
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 258:         }
+}
+[e :U 213 ]
+"259
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 259:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 217  ]
+{
+"260
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 260:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"261
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 261:         }
+}
+[e :U 217 ]
+"262
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 262:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 218  ]
+{
+"263
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 263:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 219  ]
+[e $U 220  ]
+[e :U 219 ]
+{
+"264
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 264:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"265
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 265:                 _delay((unsigned long)((851)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 851 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"266
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 266:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"267
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 267:                 _delay((unsigned long)((851)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 851 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"268
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 268:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 219  ]
+[e :U 220 ]
+}
+"269
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 269:         }
+}
+[e :U 218 ]
+"270
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 270:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 222  ]
+{
+"271
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 271:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"272
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 272:         }
+}
+[e :U 222 ]
+"273
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 273:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 223  ]
+{
+"274
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 274:             for (int x = 0; x < 100; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 100 `i 224  ]
+[e $U 225  ]
+[e :U 224 ]
+{
+"275
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 275:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"276
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 276:                 _delay((unsigned long)((1012)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1012 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"277
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 277:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"278
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 278:                 _delay((unsigned long)((1012)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1012 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"279
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 279:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 100 `i 224  ]
+[e :U 225 ]
+}
+"280
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 280:         }
+}
+[e :U 223 ]
+"281
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 281:     if (RB7 == 0 && RB6 == 1){
+[e $ ! && == -> _RB7 `i -> 0 `i == -> _RB6 `i -> 1 `i 227  ]
+{
+"282
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 282:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"283
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 283:         }
+}
+[e :U 227 ]
+"295
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 295:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 228  ]
+{
+"296
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 296:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 229  ]
+[e $U 230  ]
+[e :U 229 ]
+{
+"297
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 297:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"298
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 298:                 _delay((unsigned long)((382)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 382 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"299
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 299:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"300
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 300:                 _delay((unsigned long)((382)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 382 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"301
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 301:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 229  ]
+[e :U 230 ]
+}
+"302
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 302:         }
+}
+[e :U 228 ]
+"303
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 303:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 232  ]
+{
+"304
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 304:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"305
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 305:         }
+}
+[e :U 232 ]
+"306
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 306:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 233  ]
+{
+"307
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 307:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 234  ]
+[e $U 235  ]
+[e :U 234 ]
+{
+"308
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 308:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"309
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 309:                 _delay((unsigned long)((191)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 191 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"310
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 310:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"311
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 311:                 _delay((unsigned long)((191)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 191 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"312
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 312:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 234  ]
+[e :U 235 ]
+}
+"313
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 313:         }
+}
+[e :U 233 ]
+"314
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 314:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 237  ]
+{
+"315
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 315:             _delay((unsigned long)((250)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"316
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 316:         }
+}
+[e :U 237 ]
+"317
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 317:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 238  ]
+{
+"318
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 318:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 239  ]
+[e $U 240  ]
+[e :U 239 ]
+{
+"319
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 319:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"320
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 320:                 _delay((unsigned long)((454)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 454 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"321
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 321:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"322
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 322:                 _delay((unsigned long)((454)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 454 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"323
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 323:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 239  ]
+[e :U 240 ]
+}
+"324
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 324:         }
+}
+[e :U 238 ]
+"325
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 325:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 242  ]
+{
+"326
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 326:             _delay((unsigned long)((250)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"327
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 327:         }
+}
+[e :U 242 ]
+"328
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 328:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 243  ]
+{
+"329
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 329:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 244  ]
+[e $U 245  ]
+[e :U 244 ]
+{
+"330
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 330:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"331
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 331:                 _delay((unsigned long)((227)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 227 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"332
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 332:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"333
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 333:                 _delay((unsigned long)((227)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 227 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"334
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 334:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 244  ]
+[e :U 245 ]
+}
+"335
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 335:         }
+}
+[e :U 243 ]
+"336
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 336:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 247  ]
+{
+"337
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 337:             _delay((unsigned long)((250)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"338
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 338:         }
+}
+[e :U 247 ]
+"339
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 339:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 248  ]
+{
+"340
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 340:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 249  ]
+[e $U 250  ]
+[e :U 249 ]
+{
+"341
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 341:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"342
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 342:                 _delay((unsigned long)((405)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 405 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"343
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 343:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"344
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 344:                 _delay((unsigned long)((405)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 405 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"345
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 345:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 249  ]
+[e :U 250 ]
+}
+"346
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 346:         }
+}
+[e :U 248 ]
+"347
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 347:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 252  ]
+{
+"348
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 348:             _delay((unsigned long)((250)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"349
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 349:         }
+}
+[e :U 252 ]
+"350
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 350:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 253  ]
+{
+"351
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 351:             for (int x = 0; x < 50; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 50 `i 254  ]
+[e $U 255  ]
+[e :U 254 ]
+{
+"352
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 352:                 PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+"353
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 353:                 _delay((unsigned long)((202)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 202 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"354
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 354:                 PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"355
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 355:                 _delay((unsigned long)((202)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 202 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"356
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 356:             }
+}
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 50 `i 254  ]
+[e :U 255 ]
+}
+"357
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 357:         }
+}
+[e :U 253 ]
+"358
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 358:     if (RB7 == 1 && RB6 == 0){
+[e $ ! && == -> _RB7 `i -> 1 `i == -> _RB6 `i -> 0 `i 257  ]
+{
+"359
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 359:             _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"360
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 360:         }
+}
+[e :U 257 ]
+"362
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 362: }
+[e :UE 138 ]
+}
+"367
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 367: void Setup(void){
+[v _Setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _Setup ]
+[f ]
+"368
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 368:     initOsc(7);
+[e ( _initOsc (1 -> -> 7 `i `uc ]
+"369
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 369:     TRISC = 0;
+[e = _TRISC -> -> 0 `i `uc ]
+"370
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 370:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"371
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 371:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"372
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 372:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"373
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 373:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"374
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 374:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"375
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 375:     TRISBbits.TRISB7 = 1;
+[e = . . _TRISBbits 0 7 -> -> 1 `i `uc ]
+"376
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 376:     TRISBbits.TRISB6 = 1;
+[e = . . _TRISBbits 0 6 -> -> 1 `i `uc ]
+"377
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 377:     TRISBbits.TRISB5 = 1;
+[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
+"378
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 378:     TRISBbits.TRISB4 = 1;
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+"379
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 379:     TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+"380
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 380:     TRISBbits.TRISB2 = 1;
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+"381
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 381:     TRISBbits.TRISB1 = 1;
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+"383
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 383:     TRISAbits.TRISA7 = 0;
+[e = . . _TRISAbits 0 7 -> -> 0 `i `uc ]
+"384
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 384:     TRISAbits.TRISA6 = 0;
+[e = . . _TRISAbits 0 6 -> -> 0 `i `uc ]
+"385
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 385:     OPTION_REGbits.nRBPU=0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"388
+[; ;C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c: 388: }
+[e :UE 258 ]
+}
