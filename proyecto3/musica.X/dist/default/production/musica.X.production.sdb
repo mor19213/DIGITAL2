@@ -33,20 +33,6 @@
 [v _PORTCbits PORTCbits `VES35  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S108 . 1 `uc 1 PS 1 0 :3:0 
-`uc 1 PSA 1 0 :1:3 
-`uc 1 T0SE 1 0 :1:4 
-`uc 1 T0CS 1 0 :1:5 
-`uc 1 INTEDG 1 0 :1:6 
-`uc 1 nRBPU 1 0 :1:7 
-]
-"1366
-[s S115 . 1 `uc 1 PS0 1 0 :1:0 
-`uc 1 PS1 1 0 :1:1 
-`uc 1 PS2 1 0 :1:2 
-]
-[u S119 . 1 `S108 1 . 1 0 `S115 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES119  1 e 1 @129 ]
 [s S87 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -75,20 +61,20 @@
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S201 . 1 `uc 1 SCS 1 0 :1:0 
+[s S169 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S207 . 1 `uc 1 . 1 0 :4:0 
+[s S175 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S212 . 1 `S201 1 . 1 0 `S207 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES212  1 e 1 @143 ]
+[u S180 . 1 `S169 1 . 1 0 `S175 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES180  1 e 1 @143 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
@@ -101,49 +87,49 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "351
-[v main@x_177 x `i  1 a 2 44 ]
+[v main@x_151 x `i  1 a 2 44 ]
 "340
-[v main@x_176 x `i  1 a 2 42 ]
+[v main@x_150 x `i  1 a 2 42 ]
 "329
-[v main@x_175 x `i  1 a 2 40 ]
+[v main@x_149 x `i  1 a 2 40 ]
 "318
-[v main@x_174 x `i  1 a 2 38 ]
+[v main@x_148 x `i  1 a 2 38 ]
 "307
-[v main@x_173 x `i  1 a 2 36 ]
+[v main@x_147 x `i  1 a 2 36 ]
 "296
-[v main@x_172 x `i  1 a 2 34 ]
+[v main@x_146 x `i  1 a 2 34 ]
 "274
-[v main@x_171 x `i  1 a 2 32 ]
+[v main@x_145 x `i  1 a 2 32 ]
 "263
-[v main@x_170 x `i  1 a 2 30 ]
+[v main@x_144 x `i  1 a 2 30 ]
 "252
-[v main@x_169 x `i  1 a 2 28 ]
+[v main@x_143 x `i  1 a 2 28 ]
 "241
-[v main@x_168 x `i  1 a 2 26 ]
+[v main@x_142 x `i  1 a 2 26 ]
 "229
-[v main@x_167 x `i  1 a 2 24 ]
+[v main@x_141 x `i  1 a 2 24 ]
 "218
-[v main@x_166 x `i  1 a 2 22 ]
+[v main@x_140 x `i  1 a 2 22 ]
 "207
-[v main@x_165 x `i  1 a 2 20 ]
+[v main@x_139 x `i  1 a 2 20 ]
 "196
-[v main@x_164 x `i  1 a 2 18 ]
+[v main@x_138 x `i  1 a 2 18 ]
 "185
-[v main@x_163 x `i  1 a 2 16 ]
+[v main@x_137 x `i  1 a 2 16 ]
 "173
-[v main@x_162 x `i  1 a 2 14 ]
+[v main@x_136 x `i  1 a 2 14 ]
 "161
-[v main@x_161 x `i  1 a 2 12 ]
+[v main@x_135 x `i  1 a 2 12 ]
 "150
-[v main@x_160 x `i  1 a 2 10 ]
+[v main@x_134 x `i  1 a 2 10 ]
 "139
-[v main@x_159 x `i  1 a 2 8 ]
+[v main@x_133 x `i  1 a 2 8 ]
 "128
-[v main@x_158 x `i  1 a 2 6 ]
+[v main@x_132 x `i  1 a 2 6 ]
 "116
-[v main@x_157 x `i  1 a 2 4 ]
+[v main@x_131 x `i  1 a 2 4 ]
 "105
-[v main@x_156 x `i  1 a 2 2 ]
+[v main@x_130 x `i  1 a 2 2 ]
 "94
 [v main@x x `i  1 a 2 0 ]
 "362

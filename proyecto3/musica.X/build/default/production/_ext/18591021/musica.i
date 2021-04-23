@@ -2972,7 +2972,7 @@ void Setup(void){
 
     TRISAbits.TRISA7 = 0;
     TRISAbits.TRISA6 = 0;
-    OPTION_REGbits.nRBPU=0;
+
 
 
 }

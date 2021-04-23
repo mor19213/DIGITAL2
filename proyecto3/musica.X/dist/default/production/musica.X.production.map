@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\musica.X.production.sym \
   --cmf=dist/default/production\musica.X.production.cmf -z -Q16F887 \
-  -oC:\Users\danie\AppData\Local\Temp\sb8c.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\danie\AppData\Local\Temp\shbc.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/musica.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\danie\AppData\Local\Temp\sb8c.o \
+  -pfunctab=ENTRY -k C:\Users\danie\AppData\Local\Temp\shbc.o \
   dist/default/production\musica.X.production.o 
 
 Object code version is 3.11
@@ -28,21 +28,21 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\danie\AppData\Local\Temp\sb8c.o
+C:\Users\danie\AppData\Local\Temp\shbc.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2        0       4
 dist/default/production\musica.X.production.o
                 cinit                               7BE      7BE       42      F7C       0
                 config                             2007     2007        2        0       4
                 text2                                41       41       5C       82       0
-                text1                                1E       1E       23       3C       0
+                text1                                1F       1F       22       3E       0
                 maintext                             9D       9D      721      13A       0
                 cstackBANK0                          20       20       2E       20       1
                 cstackCOMMON                         78       78        6       70       1
                 inittext                            FED      FED       13     1FDA       0
                 dataBANK0                            4E       4E       18       20       1
                 dataCOMMON                           70       70        8       70       1
-                idataBANK0                            6        6       18        C       0
+                idataBANK0                            7        7       18        E       0
                 idataCOMMON                         FE5      FE5        8     1FCA       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -52,10 +52,10 @@ TOTAL           Name                               Link     Load   Length     Sp
                 end_init                              0        0        3         0
                 cinit                               7BE      7BE       42         0
                 text2                                41       41       5C         0
-                text1                                1E       1E       23         0
+                text1                                1F       1F       22         0
                 maintext                             9D       9D      721         0
                 inittext                            FED      FED       13         0
-                idataBANK0                            6        6       18         0
+                idataBANK0                            7        7       18         0
                 idataCOMMON                         FE5      FE5        8         0
 
         CLASS   STRCODE        
@@ -105,9 +105,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                idataBANK0                     000006  000018  00001E         C       0  CODE        2
+                idataBANK0                     000007  000018  00001F         E       0  CODE        2
                 cstackBANK0                    000020  000046  000066        20       1  BANK0       1
-                text1                          00001E  000023  000041        3C       0  CODE        2
+                text1                          00001F  000022  000041        3E       0  CODE        2
                 dataCOMMON                     000070  00000E  00007E        70       1  COMMON      1
                 text2                          000041  00005C  00009D        82       0  CODE        2
                 maintext                       00009D  000721  0007BE       13A       0  CODE        2
@@ -123,14 +123,14 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-0005              3           2
+        CODE             0003-0006              4           2
                          0800-0FE4            7E5
                          1000-1FFF            800
-        CONST            0003-0005              3           2
+        CONST            0003-0006              4           2
                          0800-0FE4            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-0005              3           2
+        ENTRY            0003-0006              4           2
                          0800-0FE4            100
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
@@ -143,10 +143,10 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          0003-0005              3           2
+        STRCODE          0003-0006              4           2
                          0800-0FE4            7E5
                          1000-1FFF           1000
-        STRING           0003-0005              3           2
+        STRING           0003-0006              4           2
                          0800-0FE4            100
                          1000-1FFF            100
 
@@ -154,14 +154,13 @@ UNUSED ADDRESS RANGES
 
 _ANSEL                   (abs)        0188
 _ANSELH                  (abs)        0189
-_OPTION_REGbits          (abs)        0081
 _OSCCONbits              (abs)        008F
 _PORTC                   (abs)        0007
 _PORTCbits               (abs)        0007
 _PORTD                   (abs)        0008
 _RB6                     (abs)        0036
 _RB7                     (abs)        0037
-_Setup                   text1        001E
+_Setup                   text1        001F
 _TRISAbits               (abs)        0085
 _TRISBbits               (abs)        0086
 _TRISC                   (abs)        0087
@@ -260,10 +259,10 @@ __pcstackBANK0           cstackBANK0  0020
 __pcstackCOMMON          cstackCOMMON 0078
 __pdataBANK0             dataBANK0    004E
 __pdataCOMMON            dataCOMMON   0070
-__pidataBANK0            idataBANK0   0006
+__pidataBANK0            idataBANK0   0007
 __pidataCOMMON           idataCOMMON  0FE5
 __pmaintext              maintext     009D
-__ptext1                 text1        001E
+__ptext1                 text1        001F
 __ptext2                 text2        0041
 __size_of_Setup          (abs)        0000
 __size_of_initOsc        (abs)        0000
@@ -282,28 +281,28 @@ intlevel3                functab      0000
 intlevel4                functab      0000
 intlevel5                functab      0000
 main@x                   cstackBANK0  0020
-main@x_156               cstackBANK0  0022
-main@x_157               cstackBANK0  0024
-main@x_158               cstackBANK0  0026
-main@x_159               cstackBANK0  0028
-main@x_160               cstackBANK0  002A
-main@x_161               cstackBANK0  002C
-main@x_162               cstackBANK0  002E
-main@x_163               cstackBANK0  0030
-main@x_164               cstackBANK0  0032
-main@x_165               cstackBANK0  0034
-main@x_166               cstackBANK0  0036
-main@x_167               cstackBANK0  0038
-main@x_168               cstackBANK0  003A
-main@x_169               cstackBANK0  003C
-main@x_170               cstackBANK0  003E
-main@x_171               cstackBANK0  0040
-main@x_172               cstackBANK0  0042
-main@x_173               cstackBANK0  0044
-main@x_174               cstackBANK0  0046
-main@x_175               cstackBANK0  0048
-main@x_176               cstackBANK0  004A
-main@x_177               cstackBANK0  004C
+main@x_130               cstackBANK0  0022
+main@x_131               cstackBANK0  0024
+main@x_132               cstackBANK0  0026
+main@x_133               cstackBANK0  0028
+main@x_134               cstackBANK0  002A
+main@x_135               cstackBANK0  002C
+main@x_136               cstackBANK0  002E
+main@x_137               cstackBANK0  0030
+main@x_138               cstackBANK0  0032
+main@x_139               cstackBANK0  0034
+main@x_140               cstackBANK0  0036
+main@x_141               cstackBANK0  0038
+main@x_142               cstackBANK0  003A
+main@x_143               cstackBANK0  003C
+main@x_144               cstackBANK0  003E
+main@x_145               cstackBANK0  0040
+main@x_146               cstackBANK0  0042
+main@x_147               cstackBANK0  0044
+main@x_148               cstackBANK0  0046
+main@x_149               cstackBANK0  0048
+main@x_150               cstackBANK0  004A
+main@x_151               cstackBANK0  004C
 reset_vec                reset_vec    0000
 start                    init         0000
 start_initialization     cinit        07BE
@@ -433,9 +432,9 @@ Osc.c estimated size: 92
 
 C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
 		_main          		CODE           	009D	0000	1825
-		_Setup         		CODE           	001E	0000	35
+		_Setup         		CODE           	001F	0000	34
 
-C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c estimated size: 1860
+C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c estimated size: 1859
 
 shared
 		__initialization		CODE           	07BE	0000	62
