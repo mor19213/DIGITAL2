@@ -493,13 +493,13 @@ void loop() {
     // jugador pierde
     if (LI > 160) {
       LCD_Clear(0x00);
-      LCD_Print("GAME OVER", 25, 15, 2, 0x3E1C, 0);
+      LCD_Print("GAME OVER", 25, 15, 2, 0xD0A3, 0);
       juego = 0;
     }
     // jugador gana
     if (nivel == 1) {
       LCD_Clear(0x00);
-      LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0x3E1C, 0);
+      LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0xFFFF, 0);
       juego = 0;
     }
   }
@@ -509,9 +509,12 @@ void loop() {
     if (var == 11) {
       var = 1;
     } 
-    fondos(1);
-//    delay(2);
-    
+    var_fondo++;
+    if (var_fondo == 20){
+      var_fondo = 1;
+    }
+    fondos(var_fondo);
+    delay(2);
     if (Y1 < 186 || Y2 <186){ // si hay algun disparo, musica 11
       digitalWrite(musica[0], HIGH);//RB6
     } else {
@@ -596,7 +599,7 @@ void loop() {
             V_line( x, 200, 8, 0x0000);
           }
           LCD_Clear(0x00);
-          LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
+          LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);
           juego = 0;
           M1 = 0;
           M2 = 0;
@@ -706,7 +709,7 @@ void loop() {
     // jugador gana
     if (nivel == 1) {
       LCD_Clear(0x00);
-      LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0x3E1C, 0);
+      LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0xFFFF, 0);
       juego = 0;
     }
   }
@@ -716,7 +719,11 @@ void loop() {
     if (var == 11) {
       var = 1;
     }
-    fondos(1);
+    var_fondo++;
+    if (var_fondo == 20){
+      var_fondo = 1;
+    }
+    fondos(var_fondo);
 //    delay(2);
 
     if (Y1 < 186 || Y2 <186){
@@ -799,7 +806,7 @@ void loop() {
         }
         if (vida1 == 0) {
           LCD_Clear(0x00);
-          LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
+          LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);
           juego = 0;
           M1 = 0;
           M2 = 0;
@@ -815,7 +822,7 @@ void loop() {
         }
         if (vida2 == 0) {
           LCD_Clear(0x00);
-          LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
+          LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);
           juego = 0;
           M1 = 0;
           M2 = 0;
@@ -920,11 +927,12 @@ void loop() {
     // jugador gana
     if (nivel == 1) {
       LCD_Clear(0x00);
-      LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0x3E1C, 0);
+      LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0xFFFF, 0);
       juego = 0;
     }
   }
   
+    fondos(0);
   LCD_Print("Presionar para ", 5, 190, 1, 0x3E1C, 0);
   LCD_Print(" ir al menu", 5, 200, 1, 0x3E1C, 0);
   if (juego == 4){
@@ -986,12 +994,12 @@ void loop() {
       highscores(puntaje1, 2);
   } else if (modo == 1) {
     // 2 jugadores juntos
-    puntaje1 = puntaje1 * (vida1 + 1);
-    puntaje2 = puntaje2 * (vida2 + 1);
+//    puntaje1 = puntaje1 * (vida1 + 1);
+//    puntaje2 = puntaje2 * (vida2 + 1);
     puntajeT = puntaje1 + puntaje2;
     itoa(puntajeT, snum, 10);
-    LCD_Print("puntaje Final:", 65, 100, 2, 0x3E1C, 0);
-    LCD_Print(snum, 105, 85, 2, 0x3E1C, 0);
+    LCD_Print("Puntaje Final:", 65, 85, 2, 0x3E1C, 0);
+    LCD_Print(snum, 125, 110, 2, 0x3E1C, 0);
       highscores(puntajeT, 1);
   }
   
@@ -1459,14 +1467,22 @@ void fondos(int fondo){
   // 000 - 160 x | 000 - 120 y
   V_line(10, 1, 0, 0xCFB9);    // verde
   V_line(50, 89, 0, 0xA556);    // gris
-  V_line(70, 75, 0, 0xF986);    // rojo
   V_line(80, 120, 0, 0xFFF9);    // amarillo
-  V_line(101, 60, 0, 0xFFF9);    // amarillo
+    V_line(101, 60, 0, 0xFFF9);    // amarillo
   V_line(120, 13, 0, 0x216C);    // azul
   V_line(140, 104, 0, 0xFFFF);    // blanco
   V_line(158, 35, 0, 0xFFFF);    // blanco
   V_line(53, 45, 0, 0xFFFF);    // blanco
   V_line(22, 118, 0, 0xFFFF);    // blanco
+
+  V_line(70, 75, 1, 0xF986);    // rojo
+  V_line(70, 75, 1, 0xF986);    // rojo
+  
+  V_line(15, 15, 2, 0xF76C);    // amarillo
+  H_line(14, 16, 2, 0xF76C);    // amarillo
+  V_line(121, 87, 2, 0x216C);    // azul
+  H_line(120, 88, 2, 0x216C);    // azul
+  
   // 000 - 160 x | 120 - 240 y
   V_line(160, 189, 0, 0xCFB9);    // verde
   V_line(152, 235, 0, 0xA556);    // gris
@@ -1618,6 +1634,8 @@ void reiniciar(void) {
   LCD_Clear(0x00);
   digitalWrite(musica[0], LOW);//RB6
   digitalWrite(musica[1], LOW);//RB7
+  fondos(0);
+//  delay(300000);
   for (int x = 0; x < 315 - 128; x++) {
 //    fondos(0);
     LCD_Bitmap(x, 100, 127, 39, logo);
