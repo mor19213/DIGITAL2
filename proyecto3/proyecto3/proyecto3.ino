@@ -121,6 +121,7 @@ int tempx4;
 int tempy4;
 int tempx5;
 int tempy5;
+int var_fondo = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -142,6 +143,7 @@ void menuu(void);
 void tanque_1(void);
 void tanque_2(void);
 void highscores(int, int);
+void fondos(int);
 
 extern uint8_t fondo[];
 //***************************************************************************************************************************************
@@ -287,12 +289,18 @@ void loop() {
   digitalWrite(musica[1], HIGH);//RB7
   }
   
+    fondos(0);
   while (juego == 1) {
     var++;
     if (var == 11) {
       var = 1;
     }
-
+    var_fondo++;
+    if (var_fondo == 20){
+      var_fondo = 1;
+    }
+    fondos(var_fondo);
+//    delay(2);
     if (Y1 < 186 || Y2 <186){
       digitalWrite(musica[0], HIGH);//RB6
     } else {
@@ -479,7 +487,6 @@ void loop() {
       LI = LI + 25;
     }
 
-    delay(5);
     if (tanque1 == 0 && tanque2 == 0) {
       LI = 400;
     }
@@ -488,14 +495,12 @@ void loop() {
       LCD_Clear(0x00);
       LCD_Print("GAME OVER", 25, 15, 2, 0x3E1C, 0);
       juego = 0;
-      delay(100);
     }
     // jugador gana
     if (nivel == 1) {
       LCD_Clear(0x00);
       LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0x3E1C, 0);
       juego = 0;
-      delay(100);
     }
   }
   
@@ -504,6 +509,8 @@ void loop() {
     if (var == 11) {
       var = 1;
     } 
+    fondos(1);
+//    delay(2);
     
     if (Y1 < 186 || Y2 <186){ // si hay algun disparo, musica 11
       digitalWrite(musica[0], HIGH);//RB6
@@ -609,7 +616,6 @@ void loop() {
             M4 = 0;
             M5 = 0;
             tanque2 = 0;
-            delay(100);
         } else if (vida1 == 2) {
           LCD_Print("jugador = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -690,7 +696,6 @@ void loop() {
       LI = LI + 25;
     }
 
-    delay(5);
 
     // jugador pierde
     if (LI > 160) {
@@ -711,6 +716,8 @@ void loop() {
     if (var == 11) {
       var = 1;
     }
+    fondos(1);
+//    delay(2);
 
     if (Y1 < 186 || Y2 <186){
       digitalWrite(musica[0], HIGH);//RB6
@@ -801,7 +808,6 @@ void loop() {
           M5 = 0;
           tanque1 = 0;
           tanque2 = 0;
-          delay(100);
         } else if (vida1 == 2) {
           LCD_Print("jugador1 = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -818,7 +824,6 @@ void loop() {
           M5 = 0;
           tanque1 = 0;
           tanque2 = 0;
-          delay(100);
         } else if (vida2 == 1) {
           LCD_Print("jugador2 = 1 vida  ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 2) {
@@ -903,7 +908,6 @@ void loop() {
       LI = LI + 25;
     }
 
-    delay(5);
     if (tanque1 == 0 || tanque2 == 0) {
       LI = 400;
     }
@@ -912,14 +916,12 @@ void loop() {
       LCD_Clear(0x00);
       LCD_Print("GAME OVER", 25, 15, 2, 0x3E1C, 0);
       juego = 0;
-      delay(100);
     }
     // jugador gana
     if (nivel == 1) {
       LCD_Clear(0x00);
       LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0x3E1C, 0);
       juego = 0;
-      delay(100);
     }
   }
   
@@ -965,7 +967,7 @@ void loop() {
     LCD_Print(snum, 90, 70, 2, 0x3E1C, 0);
     LCD_Print("vs", 125, 70, 2, 0x3E1C, 0);
     itoa(puntaje2, snum, 10);
-    LCD_Print(snum, 160, 70, 2, 0x3E1C, 0);
+    LCD_Print(snum, 170, 70, 2, 0x3E1C, 0);
     if (puntaje1 > puntaje2) {
       LCD_Print("Ganador:", 105, 120, 2, 0x3E1C, 0);
       LCD_Print("jugador 1", 105, 140, 2, 0x3E1C, 0);
@@ -1452,14 +1454,175 @@ void menuu(void) {
     }
   }
 }
+void fondos(int fondo){
+  if (fondo == 0){
+  // 000 - 160 x | 000 - 120 y
+  V_line(10, 1, 0, 0xCFB9);    // verde
+  V_line(50, 89, 0, 0xA556);    // gris
+  V_line(70, 75, 0, 0xF986);    // rojo
+  V_line(80, 120, 0, 0xFFF9);    // amarillo
+  V_line(101, 60, 0, 0xFFF9);    // amarillo
+  V_line(120, 13, 0, 0x216C);    // azul
+  V_line(140, 104, 0, 0xFFFF);    // blanco
+  V_line(158, 35, 0, 0xFFFF);    // blanco
+  V_line(53, 45, 0, 0xFFFF);    // blanco
+  V_line(22, 118, 0, 0xFFFF);    // blanco
+  // 000 - 160 x | 120 - 240 y
+  V_line(160, 189, 0, 0xCFB9);    // verde
+  V_line(152, 235, 0, 0xA556);    // gris
+  V_line(136, 164, 0, 0xF986);    // rojo
+  V_line(124, 204, 0, 0xFFF9);    // amarillo
+  V_line(111, 198, 0, 0xFFF9);    // amarillo
+  V_line(97, 156, 0, 0x216C);    // azul
+  V_line(82, 210, 0, 0xFFFF);    // blanco
+  V_line(46, 132, 0, 0xFFFF);    // blanco
+  V_line(25, 226, 0, 0xFFFF);    // blanco
+  V_line(12, 185, 0, 0xFFFF);    // blanco
+  // 160 - 320 x | 000 - 120 y
+  V_line(162, 106, 0, 0xCFB9);    // verde
+  V_line(185, 68, 0, 0xA556);    // gris
+  V_line(196, 42, 0, 0xF986);    // rojo
+  V_line(201, 108, 0, 0xFFF9);    // amarillo
+  V_line(235, 62, 0, 0xFF46);    // amarillo
+  V_line(268, 103, 0, 0x216C);    // azul
+  V_line(289, 78, 0, 0xFFFF);    // blanco
+  V_line(302, 110, 0, 0xFFFF);    // blanco
+  V_line(318, 45, 0, 0xFFFF);    // blanco
+  V_line(245, 15, 0, 0xFFFF);    // blanco
+  // 160 - 320 x | 120 - 240 y
+  V_line(160, 125, 0, 0xCFB9);    // verde
+  V_line(185, 160, 0, 0xA556);    // gris
+  V_line(240, 230, 0, 0xF986);    // rojo
+  V_line(332, 120, 0, 0xFFF9);    // amarillo
+  V_line(312, 201, 0, 0xF7F7);    // amarillo
+  V_line(290, 153, 0, 0x216C);    // azul
+  V_line(283, 134, 0, 0xFFFF);    // blanco
+  V_line(160, 235, 0, 0xFFFF);    // blanco
+  V_line(160, 126, 0, 0xFFFF);    // blanco
+  V_line(252, 185, 0, 0xFFFF);    // blanco
+  } else if (fondo == 7){
+  // 000 - 160 x | 000 - 120 y
+  V_line(10, 1, 0, 0xCFB9);    // verde
+  V_line(50, 89, 0, 0xA556);    // gris
+  V_line(70, 75, 0, 0xF986);    // rojo
+  V_line(80, 120, 0, 0xFFF9);    // amarillo
+  // 000 - 160 x | 120 - 240 y
+  V_line(160, 189, 0, 0xCFB9);    // verde
+  V_line(152, 235, 0, 0xA556);    // gris
+  V_line(136, 164, 0, 0xF986);    // rojo
+  V_line(124, 204, 0, 0xFFF9);    // amarillo
+  // 160 - 320 x | 000 - 120 y
+  V_line(162, 106, 0, 0xCFB9);    // verde
+  V_line(185, 68, 0, 0xA556);    // gris
+  V_line(196, 42, 0, 0xF986);    // rojo
+  V_line(201, 108, 0, 0xFFF9);    // amarillo
+  // 160 - 320 x | 120 - 240 y
+  V_line(160, 125, 0, 0xCFB9);    // verde
+  V_line(185, 160, 0, 0xA556);    // gris
+  V_line(240, 230, 0, 0xF986);    // rojo
+    
+  } else if (fondo == 4){
+  // 000 - 160 x | 000 - 120 y
+  V_line(10, 1, 0, 0);    // verde
+  V_line(50, 89, 0, 0);    // gris
+  V_line(70, 75, 0, 0);    // rojo
+  V_line(80, 120, 0, 0);    // amarillo
+  // 000 - 160 x | 120 - 240 y
+  V_line(160, 189, 0, 0);    // verde
+  V_line(152, 235, 0, 0);    // gris
+  V_line(136, 164, 0, 0);    // rojo
+  V_line(124, 204, 0, 0);    // amarillo
+  // 160 - 320 x | 000 - 120 y
+  V_line(162, 106, 0, 0);    // verde
+  V_line(185, 68, 0, 0);    // gris
+  V_line(196, 42, 0, 0);    // rojo
+  V_line(201, 108, 0, 0);    // amarillo
+  // 160 - 320 x | 120 - 240 y
+  V_line(160, 125, 0, 0);    // verde
+  V_line(185, 160, 0, 0);    // gris
+  V_line(240, 230, 0, 0);    // rojo
+  }
+  else if (fondo == 12){
+  // 000 - 160 x | 000 - 120 y
+  V_line(10, 1, 0, 0xCFB9);    // verde
+  V_line(140, 104, 0, 0xFFFF);    // blanco
+  V_line(22, 118, 0, 0xFFFF);    // blanco
+  // 000 - 160 x | 120 - 240 y
+  V_line(160, 189, 0, 0xCFB9);    // verde
+  V_line(97, 156, 0, 0x216C);    // azul
+  V_line(12, 185, 0, 0xFFFF);    // blanco
+  // 160 - 320 x | 000 - 120 y
+  V_line(196, 42, 0, 0xF986);    // rojo
+  V_line(201, 108, 0, 0xFFF9);    // amarillo
+  V_line(245, 15, 0, 0xFFFF);    // blanco
+  // 160 - 320 x | 120 - 240 y
+  V_line(160, 125, 0, 0xCFB9);    // verde
+  V_line(185, 160, 0, 0xA556);    // gris
+  V_line(160, 126, 0, 0xFFFF);    // blanco
+  }else if (fondo == 8){
+  // 000 - 160 x | 000 - 120 y
+  V_line(10, 1, 0, 0);    // verde
+  V_line(140, 104, 0, 0);    // blanco
+  V_line(22, 118, 0, 0);    // blanco
+  // 000 - 160 x | 120 - 240 y
+  V_line(160, 189, 0, 0);    // verde
+  V_line(97, 156, 0, 0);    // azul
+  V_line(12, 185, 0, 0);    // blanco
+  // 160 - 320 x | 000 - 120 y
+  V_line(196, 42, 0, 0);    // rojo
+  V_line(201, 108, 0, 0);    // amarillo
+  V_line(245, 15, 0, 0);    // blanco
+  // 160 - 320 x | 120 - 240 y
+  V_line(160, 125, 0, 0);    // verde
+  V_line(185, 160, 0, 0);    // gris
+  V_line(160, 126, 0, 0);    // blanco
+  }
+  else if (fondo == 2){
+  // 000 - 160 x | 000 - 120 y
+  V_line(154, 24, 0, 0xFFF9);    // amarillo
+  V_line(136, 14, 0, 0xA556);    // gris
+  V_line(148, 85, 0, 0xCFB9);    // verde
+  // 000 - 160 x | 120 - 240 y
+  V_line(43, 234, 0, 0xFFFF);    // blanco
+  V_line(54, 201, 0, 0xFFF9);    // amarillo
+  V_line(142, 185, 0, 0xFFF9);    // amarillo
+  // 160 - 320 x | 000 - 120 y
+  V_line(185, 97, 0, 0xFFFF);    // blanco
+  V_line(201, 18, 0, 0xFFF9);    // amarillo
+  V_line(312, 87, 0, 0xCFB9);    // verde
+  // 160 - 320 x | 120 - 240 y
+  V_line(196, 145, 0, 0xCFB9);    // verde
+  V_line(204, 123, 0, 0xA556);    // gris
+  V_line(298, 217, 0, 0xFFF9);    // amarillo
+  }
+  else if (fondo == 18){
+  // 000 - 160 x | 000 - 120 y
+  V_line(154, 24, 0, 0);    // verde
+  V_line(136, 14, 0, 0);    // blanco
+  V_line(148, 85, 0, 0);    // blanco
+  // 000 - 160 x | 120 - 240 y
+  V_line(43, 234, 0, 0);    // verde
+  V_line(54, 201, 0, 0);    // azul
+  V_line(142, 185, 0, 0);    // blanco
+  // 160 - 320 x | 000 - 120 y
+  V_line(185, 97, 0, 0);    // rojo
+  V_line(201, 18, 0, 0);    // amarillo
+  V_line(312, 87, 0, 0);    // blanco
+  // 160 - 320 x | 120 - 240 y
+  V_line(196, 145, 0, 0);    // verde
+  V_line(204, 123, 0, 0);    // gris
+  V_line(298, 217, 0, 0);    // blanco
+  }
+}
 void reiniciar(void) {
   LCD_Clear(0x00);
   digitalWrite(musica[0], LOW);//RB6
   digitalWrite(musica[1], LOW);//RB7
   for (int x = 0; x < 315 - 128; x++) {
+//    fondos(0);
     LCD_Bitmap(x, 100, 127, 39, logo);
+    fondos(0);
     V_line( x - 1, 100, 30, 0x0000);
-    delay(4);
   }
   Serial.println("highscores");
   puntaje1 = 0;
@@ -1489,9 +1652,10 @@ void reiniciar(void) {
   tanque1 = 1;
   tanque2 = 1;
   nivel = 8;
-  delay(1000);
+  delay(800);
   LCD_Clear(0x00);
   menu = 1;
+  fondos(0);
   menuu();
   LCD_Clear(0x00);
   if (juego != 4){
