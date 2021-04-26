@@ -122,6 +122,8 @@ int tempy4;
 int tempx5;
 int tempy5;
 int var_fondo = 0;
+int estrx = 0;
+int estry = 0;
 //***************************************************************************************************************************************
 // Functions Prototypes
 //***************************************************************************************************************************************
@@ -211,13 +213,13 @@ void setup() {
     Serial.println("error opening 2jugador.txt");
   }
   // convertir a int el array
-  high1 = (((int)highscore1[0] - 48)*100)+(((int)highscore1[1] - 48)*10)+((int)highscore1[2] - 48);
-  high2 = (((int)highscore2[0] - 48)*100)+(((int)highscore2[1] - 48)*10)+((int)highscore2[2] - 48);
-  high3 = (((int)highscore3[0] - 48)*100)+(((int)highscore3[1] - 48)*10)+((int)highscore3[2] - 48);
+  high1 = (((int)highscore1[0] - 48) * 100) + (((int)highscore1[1] - 48) * 10) + ((int)highscore1[2] - 48);
+  high2 = (((int)highscore2[0] - 48) * 100) + (((int)highscore2[1] - 48) * 10) + ((int)highscore2[2] - 48);
+  high3 = (((int)highscore3[0] - 48) * 100) + (((int)highscore3[1] - 48) * 10) + ((int)highscore3[2] - 48);
   Serial.println(high1);
   Serial.println(high2);
   Serial.println(high3);
-  
+
   //*********************************** highscores para modo de 1 jugador
   // re-open the file for reading:
   modo2 = SD.open("1jugador.txt");
@@ -256,13 +258,13 @@ void setup() {
     Serial.println("error opening 1jugador.txt");
   }
   // guardar en int los puntajes
-  high12 = (((int)highscore12[0] - 48)*100)+(((int)highscore12[1] - 48)*10)+((int)highscore12[2] - 48);
-  high22 = (((int)highscore22[0] - 48)*100)+(((int)highscore22[1] - 48)*10)+((int)highscore22[2] - 48);
-  high32 = (((int)highscore32[0] - 48)*100)+(((int)highscore32[1] - 48)*10)+((int)highscore32[2] - 48);
+  high12 = (((int)highscore12[0] - 48) * 100) + (((int)highscore12[1] - 48) * 10) + ((int)highscore12[2] - 48);
+  high22 = (((int)highscore22[0] - 48) * 100) + (((int)highscore22[1] - 48) * 10) + ((int)highscore22[2] - 48);
+  high32 = (((int)highscore32[0] - 48) * 100) + (((int)highscore32[1] - 48) * 10) + ((int)highscore32[2] - 48);
   Serial.println(high12);
   Serial.println(high22);
   Serial.println(high32);
-  
+
 
   LCD_Init();
   pinMode(PUSH1, INPUT_PULLUP);
@@ -278,30 +280,30 @@ void setup() {
   digitalWrite(musica[0], LOW);//RB6
   digitalWrite(musica[1], LOW);//RB7
   reiniciar();
-  
+
 }
 //***************************************************************************************************************************************
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
-  if (juego != 4){
-  digitalWrite(musica[0], LOW);//RB6
-  digitalWrite(musica[1], HIGH);//RB7
+  if (juego != 4) {
+    digitalWrite(musica[0], LOW);//RB6
+    digitalWrite(musica[1], HIGH);//RB7
   }
-  
-    fondos(0);
+
+  fondos(0);
   while (juego == 1) {
     var++;
     if (var == 11) {
       var = 1;
     }
     var_fondo++;
-    if (var_fondo == 20){
+    if (var_fondo == 20) {
       var_fondo = 1;
     }
     fondos(var_fondo);
-//    delay(2);
-    if (Y1 < 186 || Y2 <186){
+    //    delay(2);
+    if (Y1 < 186 || Y2 < 186) {
       digitalWrite(musica[0], HIGH);//RB6
     } else {
       digitalWrite(musica[0], LOW);//RB6
@@ -369,21 +371,22 @@ void loop() {
       MY1++;
       if (MY1 > 194) {
         MD1 = 0;
-          if (J1 < MX1 && MX1 < (J1 + 13)) {
-            vida1--;
-            
+        if (J1 < MX1 && MX1 < (J1 + 14)) {
+          vida1--;
+
         }
-        if (J2 < MX1 && MX1 < (J2 + 13)) {
+        if (J2 < MX1 && MX1 < (J2 + 14)) {
           vida2--;
         }
         if (vida1 == 0) {
           LCD_Print("jugador1 = 0 vidas", 10, 220, 1, 0x3E1C, 0);
-          
-          for (int x = J1; x < J1 +14; x++) {
-            V_line(x-1, 200, 8, 0);
+
+          for (int x = J1; x < J1 + 14; x++) {
+            V_line(x - 1, 200, 8, 0);
           }
-          if (Y1 < 186){
-          V_line(D1, 185-Y1, 6, 0);
+          if (Y1 < 186) {
+            V_line(D1, 185 - Y1, 6, 0);
+            Y1 = 390;
           }
           tanque1 = 0;
         } else if (vida1 == 2) {
@@ -393,14 +396,12 @@ void loop() {
         }
         if (vida2 == 0) {
           tanque2 = 0;
-          for (int x = J2; x < J2 +14; x++) {
-            V_line(x-1, 200, 8, 0);
+          for (int x = J2; x < J2 + 15; x++) {
+            V_line(x - 1, 200, 8, 0);
           }
-          if (Y2 < 186){
-          V_line(D1, 185-Y2, 6, 0);
-          }
-          if (Y2 < 186){
-          V_line(D2, 185-Y2, 6, 0);
+          if (Y2 < 186) {
+            V_line(D2, 185 - Y2, 6, 0);
+            Y2 = 300;
           }
           LCD_Print("jugador2 = 0 vidas ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 1) {
@@ -418,53 +419,53 @@ void loop() {
     if (tanque2 == 1) {
       tanque_2();
     }
-        if (M1 == 1) {
+    if (M1 == 1) {
       LCD_Bitmap(CI, LI, 10, 8, malo1);
-    } else if (M1 < 7 && M1 != 0){
+    } else if (M1 < 7 && M1 != 0) {
       M1++;
-    }  else if (M1 > 6){
+    }  else if (M1 > 6) {
       M1 = 0;
-      for (int x = tempx1; x < tempx1 + 13; x++){
+      for (int x = tempx1; x < tempx1 + 13; x++) {
         V_line (x, tempy1, 8, 0);
       }
     }
     if (M2 == 1) {
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
-    } else if (M2 < 7 && M2 != 0){
+    } else if (M2 < 7 && M2 != 0) {
       M2++;
-    } else if (M2 > 6){
+    } else if (M2 > 6) {
       M2 = 0;
-      for (int x = tempx2; x < tempx2 + 13; x++){
+      for (int x = tempx2; x < tempx2 + 13; x++) {
         V_line (x, tempy2, 8, 0);
       }
     }
     if (M3 == 1) {
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
-    } else if (M3 < 7 && M3 != 0){
+    } else if (M3 < 7 && M3 != 0) {
       M3++;
-    }  else if (M3 > 6){
+    }  else if (M3 > 6) {
       M3 = 0;
-      for (int x = tempx3; x < tempx3 + 13; x++){
+      for (int x = tempx3; x < tempx3 + 13; x++) {
         V_line (x, tempy3, 8, 0);
       }
     }
     if (M4 == 1) {
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
-    } else if (M4 < 7 && M4 != 0){
+    } else if (M4 < 7 && M4 != 0) {
       M4++;
-    }  else if (M4> 6){
+    }  else if (M4 > 6) {
       M4 = 0;
-      for (int x = tempx4; x < tempx4 + 13; x++){
+      for (int x = tempx4; x < tempx4 + 13; x++) {
         V_line (x, tempy4, 8, 0);
       }
     }
     if (M5 == 1) {
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
-    } else if (M5 < 7 && M5 != 0){
+    } else if (M5 < 7 && M5 != 0) {
       M5++;
-    }  else if (M5 > 6){
+    }  else if (M5 > 6) {
       M5 = 0;
-      for (int x = tempx5; x < tempx5 + 13; x++){
+      for (int x = tempx5; x < tempx5 + 13; x++) {
         V_line (x, tempy5, 8, 0);
       }
     }
@@ -503,19 +504,19 @@ void loop() {
       juego = 0;
     }
   }
-  
+
   while (juego == 2) { // 1 jugador
     var++;
     if (var == 11) {
       var = 1;
-    } 
+    }
     var_fondo++;
-    if (var_fondo == 20){
+    if (var_fondo == 20) {
       var_fondo = 1;
     }
     fondos(var_fondo);
     delay(2);
-    if (Y1 < 186 || Y2 <186){ // si hay algun disparo, musica 11
+    if (Y1 < 186 || Y2 < 186) { // si hay algun disparo, musica 11
       digitalWrite(musica[0], HIGH);//RB6
     } else {
       digitalWrite(musica[0], LOW);//RB6
@@ -610,15 +611,15 @@ void loop() {
           tanque2 = 0;
           tanque1 = 0;
           digitalWrite(musica[0], LOW);//RB6
-            LCD_Clear(0x00);  
-//            LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
-            juego = 0;
-            M1 = 0;
-            M2 = 0;
-            M3 = 0;
-            M4 = 0;
-            M5 = 0;
-            tanque2 = 0;
+          LCD_Clear(0x00);
+          //            LCD_Print("GAME OVER", 25, 5, 2, 0x3E1C, 0);
+          juego = 0;
+          M1 = 0;
+          M2 = 0;
+          M3 = 0;
+          M4 = 0;
+          M5 = 0;
+          tanque2 = 0;
         } else if (vida1 == 2) {
           LCD_Print("jugador = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
@@ -630,53 +631,53 @@ void loop() {
     if (tanque1 == 1) {
       tanque_1();
     }
-        if (M1 == 1) {
+    if (M1 == 1) {
       LCD_Bitmap(CI, LI, 10, 8, malo1);
-    } else if (M1 < 7 && M1 != 0){
+    } else if (M1 < 7 && M1 != 0) {
       M1++;
-    }  else if (M1 > 6){
+    }  else if (M1 > 6) {
       M1 = 0;
-      for (int x = tempx1; x < tempx1 + 13; x++){
+      for (int x = tempx1; x < tempx1 + 13; x++) {
         V_line (x, tempy1, 8, 0);
       }
     }
     if (M2 == 1) {
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
-    } else if (M2 < 7 && M2 != 0){
+    } else if (M2 < 7 && M2 != 0) {
       M2++;
-    } else if (M2 > 6){
+    } else if (M2 > 6) {
       M2 = 0;
-      for (int x = tempx2; x < tempx2 + 13; x++){
+      for (int x = tempx2; x < tempx2 + 13; x++) {
         V_line (x, tempy2, 8, 0);
       }
     }
     if (M3 == 1) {
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
-    } else if (M3 < 7 && M3 != 0){
+    } else if (M3 < 7 && M3 != 0) {
       M3++;
-    }  else if (M3 > 6){
+    }  else if (M3 > 6) {
       M3 = 0;
-      for (int x = tempx3; x < tempx3 + 13; x++){
+      for (int x = tempx3; x < tempx3 + 13; x++) {
         V_line (x, tempy3, 8, 0);
       }
     }
     if (M4 == 1) {
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
-    } else if (M4 < 7 && M4 != 0){
+    } else if (M4 < 7 && M4 != 0) {
       M4++;
-    }  else if (M4> 6){
+    }  else if (M4 > 6) {
       M4 = 0;
-      for (int x = tempx4; x < tempx4 + 13; x++){
+      for (int x = tempx4; x < tempx4 + 13; x++) {
         V_line (x, tempy4, 8, 0);
       }
     }
     if (M5 == 1) {
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
-    } else if (M5 < 7 && M5 != 0){
+    } else if (M5 < 7 && M5 != 0) {
       M5++;
-    }  else if (M5 > 6){
+    }  else if (M5 > 6) {
       M5 = 0;
-      for (int x = tempx5; x < tempx5 + 13; x++){
+      for (int x = tempx5; x < tempx5 + 13; x++) {
         V_line (x, tempy5, 8, 0);
       }
     }
@@ -720,13 +721,13 @@ void loop() {
       var = 1;
     }
     var_fondo++;
-    if (var_fondo == 20){
+    if (var_fondo == 20) {
       var_fondo = 1;
     }
     fondos(var_fondo);
-//    delay(2);
+    //    delay(2);
 
-    if (Y1 < 186 || Y2 <186){
+    if (Y1 < 186 || Y2 < 186) {
       digitalWrite(musica[0], HIGH);//RB6
     } else {
       digitalWrite(musica[0], LOW);//RB6
@@ -846,53 +847,53 @@ void loop() {
     if (tanque2 == 1) {
       tanque_2();
     }
-        if (M1 == 1) {
+    if (M1 == 1) {
       LCD_Bitmap(CI, LI, 10, 8, malo1);
-    } else if (M1 < 7 && M1 != 0){
+    } else if (M1 < 7 && M1 != 0) {
       M1++;
-    }  else if (M1 > 6){
+    }  else if (M1 > 6) {
       M1 = 0;
-      for (int x = tempx1; x < tempx1 + 13; x++){
+      for (int x = tempx1; x < tempx1 + 13; x++) {
         V_line (x, tempy1, 8, 0);
       }
     }
     if (M2 == 1) {
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
-    } else if (M2 < 7 && M2 != 0){
+    } else if (M2 < 7 && M2 != 0) {
       M2++;
-    } else if (M2 > 6){
+    } else if (M2 > 6) {
       M2 = 0;
-      for (int x = tempx2; x < tempx2 + 13; x++){
+      for (int x = tempx2; x < tempx2 + 13; x++) {
         V_line (x, tempy2, 8, 0);
       }
     }
     if (M3 == 1) {
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
-    } else if (M3 < 7 && M3 != 0){
+    } else if (M3 < 7 && M3 != 0) {
       M3++;
-    }  else if (M3 > 6){
+    }  else if (M3 > 6) {
       M3 = 0;
-      for (int x = tempx3; x < tempx3 + 13; x++){
+      for (int x = tempx3; x < tempx3 + 13; x++) {
         V_line (x, tempy3, 8, 0);
       }
     }
     if (M4 == 1) {
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
-    } else if (M4 < 7 && M4 != 0){
+    } else if (M4 < 7 && M4 != 0) {
       M4++;
-    }  else if (M4> 6){
+    }  else if (M4 > 6) {
       M4 = 0;
-      for (int x = tempx4; x < tempx4 + 13; x++){
+      for (int x = tempx4; x < tempx4 + 13; x++) {
         V_line (x, tempy4, 8, 0);
       }
     }
     if (M5 == 1) {
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
-    } else if (M5 < 7 && M5 != 0){
+    } else if (M5 < 7 && M5 != 0) {
       M5++;
-    }  else if (M5 > 6){
+    }  else if (M5 > 6) {
       M5 = 0;
-      for (int x = tempx5; x < tempx5 + 13; x++){
+      for (int x = tempx5; x < tempx5 + 13; x++) {
         V_line (x, tempy5, 8, 0);
       }
     }
@@ -931,18 +932,18 @@ void loop() {
       juego = 0;
     }
   }
-  
-    fondos(0);
+
+  fondos(0);
   LCD_Print("Presionar para ", 5, 190, 1, 0x3E1C, 0);
   LCD_Print(" ir al menu", 5, 200, 1, 0x3E1C, 0);
-  if (juego == 4){
+  if (juego == 4) {
     // mostrar los highscores
     // leer los archivos de la SD
-    LCD_Print("Highscores", 90, 5, 2, 0x3E1C, 0);
+    LCD_Print("Highscores", 80, 5, 2, 0xFFFF, 0);
     LCD_Print("2 players", 5, 50, 2, 0x3E1C, 0);
     LCD_Print("|", 155, 50, 2, 0x3E1C, 0);
     LCD_Print("1 player", 170, 50, 2, 0x3E1C, 0);
-    
+
     itoa(high1, snum, 10);
     LCD_Print("1-", 5, 70, 2, 0x3E1C, 0);
     LCD_Print(snum, 50, 70, 2, 0x3E1C, 0);
@@ -950,7 +951,7 @@ void loop() {
     itoa(high12, snum, 10);
     LCD_Print("1-", 170, 70, 2, 0x3E1C, 0);
     LCD_Print(snum, 215, 70, 2, 0x3E1C, 0);
-    
+
     itoa(high2, snum, 10);
     LCD_Print("2-", 5, 90, 2, 0x3E1C, 0);
     LCD_Print(snum, 50, 90, 2, 0x3E1C, 0);
@@ -958,7 +959,7 @@ void loop() {
     itoa(high22, snum, 10);
     LCD_Print("2-", 170, 90, 2, 0x3E1C, 0);
     LCD_Print(snum, 215, 90, 2, 0x3E1C, 0);
-    
+
     itoa(high3, snum, 10);
     LCD_Print("3- ", 5, 110, 2, 0x3E1C, 0);
     LCD_Print(snum, 50, 110, 2, 0x3E1C, 0);
@@ -987,22 +988,22 @@ void loop() {
     }
   } else if (modo == 2) {
     // 1 jugador
-    puntaje1 = puntaje1 * (vida1 +1);
+    puntaje1 = puntaje1 * (vida1 + 1);
     itoa(puntaje1, snum, 10);
     LCD_Print("Puntaje Final:", 85, 70, 2, 0x3E1C, 0);
     LCD_Print(snum, 85, 100, 2, 0x3E1C, 0);
-      highscores(puntaje1, 2);
+    highscores(puntaje1, 2);
   } else if (modo == 1) {
     // 2 jugadores juntos
-//    puntaje1 = puntaje1 * (vida1 + 1);
-//    puntaje2 = puntaje2 * (vida2 + 1);
+    //    puntaje1 = puntaje1 * (vida1 + 1);
+    //    puntaje2 = puntaje2 * (vida2 + 1);
     puntajeT = puntaje1 + puntaje2;
     itoa(puntajeT, snum, 10);
     LCD_Print("Puntaje Final:", 65, 85, 2, 0x3E1C, 0);
     LCD_Print(snum, 125, 110, 2, 0x3E1C, 0);
-      highscores(puntajeT, 1);
+    highscores(puntajeT, 1);
   }
-  
+
   while (juego == 0) {
     digitalWrite(musica[0], LOW);//RB6
     digitalWrite(musica[1], LOW);//RB7
@@ -1018,23 +1019,23 @@ void loop() {
 // 2 - modo 2
 void highscores(int puntaje, int num) {
   if (num == 1) {
-    
-  Serial.println("......");
+
+    Serial.println("......");
     if (puntaje > high1) {
       high3 = high2;
       high2 = high1;
       high1 = puntaje;
-    LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
-    Serial.println("primer lugar");
+      LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
+      Serial.println("primer lugar");
     } else if (puntaje > high2) {
       high3 = high2;
       high2 = puntaje;
-    LCD_Print("new 2nd highscore", 150, 170, 1, 0x3E1C, 0);
-    Serial.println("2 lugar");
+      LCD_Print("new 2nd highscore", 150, 170, 1, 0x3E1C, 0);
+      Serial.println("2 lugar");
     } else if (puntaje > high3) {
       high3 = puntaje;
-    LCD_Print("new 3rd highscore", 150, 170, 1, 0x3E1C, 0);
-    Serial.println("3 lugar");
+      LCD_Print("new 3rd highscore", 150, 170, 1, 0x3E1C, 0);
+      Serial.println("3 lugar");
     } else {
       high3 = high3;
       high2 = high2;
@@ -1049,11 +1050,11 @@ void highscores(int puntaje, int num) {
       Serial.println(high2);
       Serial.println(high3);
       itoa(high1, snum, 10);
-      if (high1 > 99){
+      if (high1 > 99) {
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
-      } else if (high1 > 9){
+      } else if (high1 > 9) {
         modo2.print("0");
         modo2.print(snum[0]);
         modo2.print(snum[1]);
@@ -1063,14 +1064,14 @@ void highscores(int puntaje, int num) {
         modo2.print(snum[0]);
       }
       modo2.print("\n");
-      
+
 
       itoa(high2, snum, 10);
-      if (high2 > 99){
+      if (high2 > 99) {
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
-      } else if (high2 > 9){
+      } else if (high2 > 9) {
         modo2.print("0");
         modo2.print(snum[0]);
         modo2.print(snum[1]);
@@ -1081,13 +1082,13 @@ void highscores(int puntaje, int num) {
       }
       modo2.print("\n");
 
-      
+
       itoa(high3, snum, 10);
-      if (high3 > 99){
+      if (high3 > 99) {
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
-      } else if (high3 > 9){
+      } else if (high3 > 9) {
         modo2.print("0");
         modo2.print(snum[0]);
         modo2.print(snum[1]);
@@ -1097,7 +1098,7 @@ void highscores(int puntaje, int num) {
         modo2.print(snum[0]);
       }
       modo2.print("\n");
-      
+
       // close the file:
       modo2.close();
       Serial.println("done.");
@@ -1107,23 +1108,23 @@ void highscores(int puntaje, int num) {
     }
   }
   if (num == 2) {
-    
-  Serial.println("......");
+
+    Serial.println("......");
     if (puntaje > high12) {
       high32 = high22;
       high22 = high12;
       high12 = puntaje;
-    LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
-    Serial.println("primer lugar");
+      LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
+      Serial.println("primer lugar");
     } else if (puntaje > high22) {
       high32 = high22;
       high22 = puntaje;
-    LCD_Print("new 2nd highscore", 150, 170, 1, 0x3E1C, 0);
-    Serial.println("2 lugar");
+      LCD_Print("new 2nd highscore", 150, 170, 1, 0x3E1C, 0);
+      Serial.println("2 lugar");
     } else if (puntaje > high32) {
       high32 = puntaje;
-    LCD_Print("new 3rd highscore", 150, 170, 1, 0x3E1C, 0);
-    Serial.println("3 lugar");
+      LCD_Print("new 3rd highscore", 150, 170, 1, 0x3E1C, 0);
+      Serial.println("3 lugar");
     } else {
       high32 = high32;
       high22 = high22;
@@ -1138,11 +1139,11 @@ void highscores(int puntaje, int num) {
       Serial.println(high22);
       Serial.println(high32);
       itoa(high12, snum, 10);
-      if (high12 > 99){
+      if (high12 > 99) {
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
-      } else if (high12 > 9){
+      } else if (high12 > 9) {
         modo2.print("0");
         modo2.print(snum[0]);
         modo2.print(snum[1]);
@@ -1152,14 +1153,14 @@ void highscores(int puntaje, int num) {
         modo2.print(snum[0]);
       }
       modo2.print("\n");
-      
+
 
       itoa(high22, snum, 10);
-      if (high22 > 99){
+      if (high22 > 99) {
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
-      } else if (high22 > 9){
+      } else if (high22 > 9) {
         modo2.print("0");
         modo2.print(snum[0]);
         modo2.print(snum[1]);
@@ -1170,13 +1171,13 @@ void highscores(int puntaje, int num) {
       }
       modo2.print("\n");
 
-      
+
       itoa(high32, snum, 10);
-      if (high32 > 99){
+      if (high32 > 99) {
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
-      } else if (high32 > 9){
+      } else if (high32 > 9) {
         modo2.print("0");
         modo2.print(snum[0]);
         modo2.print(snum[1]);
@@ -1186,7 +1187,7 @@ void highscores(int puntaje, int num) {
         modo2.print(snum[0]);
       }
       modo2.print("\n");
-      
+
       // close the file:
       modo2.close();
       Serial.println("done.");
@@ -1230,7 +1231,7 @@ void tanque_2(void) {
         LCD_Bitmap(CI + 20, LI, 13, 8, explo);
         puntaje2++;
         M2++;
-        tempx2 = CI+20;
+        tempx2 = CI + 20;
         tempy2 = LI;
       } else if ((CI + 40) <= D2 && (CI + 50) >= D2 && M3 == 1) {
         Y2 = 190;
@@ -1238,7 +1239,7 @@ void tanque_2(void) {
         LCD_Bitmap(CI + 40, LI, 13, 8, explo);
         puntaje2++;
         M3++;
-        tempx3 = CI+40;
+        tempx3 = CI + 40;
         tempy3 = LI;
       } else if ((CI + 60) <= D2 && (CI + 70) >= D2 && M4 == 1) {
         Y2 = 190;
@@ -1246,7 +1247,7 @@ void tanque_2(void) {
         LCD_Bitmap(CI + 60, LI, 13, 8, explo);
         puntaje2++;
         M4++;
-        tempx4 = CI+60;
+        tempx4 = CI + 60;
         tempy4 = LI;
       } else if ((CI + 80) <= D2 && (CI + 90) >= D2 && M5 == 1) {
         Y2 = 190;
@@ -1254,7 +1255,7 @@ void tanque_2(void) {
         LCD_Bitmap(CI + 80, LI, 13, 8, explo);
         puntaje2++;
         M5++;
-        tempx5 = CI+80;
+        tempx5 = CI + 80;
         tempy5 = LI;
       }
     }
@@ -1308,7 +1309,7 @@ void tanque_1(void) {
         LCD_Bitmap(CI + 20, LI, 13, 8, explo);
         puntaje1++;
         M2++;
-        tempx2 = CI+20;
+        tempx2 = CI + 20;
         tempy2 = LI;
       } else if ((CI + 40) <= D1 && (CI + 50) >= D1 && M3 == 1) {
         Y1 = 190;
@@ -1316,7 +1317,7 @@ void tanque_1(void) {
         LCD_Bitmap(CI + 40, LI, 13, 8, explo);
         puntaje1++;
         M3++;
-        tempx3 = CI+40;
+        tempx3 = CI + 40;
         tempy3 = LI;
       } else if ((CI + 60) <= D1 && (CI + 70) >= D1 && M4 == 1) {
         Y1 = 190;
@@ -1324,7 +1325,7 @@ void tanque_1(void) {
         LCD_Bitmap(CI + 60, LI, 13, 8, explo);
         puntaje1++;
         M4++;
-        tempx4 = CI+60;
+        tempx4 = CI + 60;
         tempy4 = LI;
       } else if ((CI + 80) <= D1 && (CI + 90) >= D1 && M5 == 1) {
         Y1 = 190;
@@ -1332,7 +1333,7 @@ void tanque_1(void) {
         LCD_Bitmap(CI + 80, LI, 13, 8, explo);
         puntaje1++;
         M5++;
-        tempx5 = CI+80;
+        tempx5 = CI + 80;
         tempy5 = LI;
       }
     }
@@ -1386,11 +1387,11 @@ void menuu(void) {
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);
-  LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
           V_line( x, 114, 160, 0x0000);
         }
-      } else if (var_flecha == 174){
+      } else if (var_flecha == 174) {
         var_flecha = 204;
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
@@ -1437,7 +1438,7 @@ void menuu(void) {
         H_line(5, 229, 100, 0);
         H_line(5, 228, 100, 0);
         H_line(5, 227, 100, 0);
-      } 
+      }
     }
     LCD_Bitmap(20, var_flecha, 13, 26, flecha);
     if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 114) {
@@ -1462,173 +1463,225 @@ void menuu(void) {
     }
   }
 }
-void fondos(int fondo){
-  if (fondo == 0){
-  // 000 - 160 x | 000 - 120 y
-  V_line(10, 1, 0, 0xCFB9);    // verde
-  V_line(50, 89, 0, 0xA556);    // gris
-  V_line(80, 120, 0, 0xFFF9);    // amarillo
+void fondos(int fondo) {
+  if (fondo == 0) {
+    // 000 - 160 x | 000 - 120 y
+    V_line(10, 1, 0, 0xCFB9);    // verde
+    V_line(50, 89, 0, 0xA556);    // gris
+    V_line(80, 120, 0, 0xFFF9);    // amarillo
     V_line(101, 60, 0, 0xFFF9);    // amarillo
-  V_line(120, 13, 0, 0x216C);    // azul
-  V_line(140, 104, 0, 0xFFFF);    // blanco
-  V_line(158, 35, 0, 0xFFFF);    // blanco
-  V_line(53, 45, 0, 0xFFFF);    // blanco
-  V_line(22, 118, 0, 0xFFFF);    // blanco
+    V_line(120, 13, 0, 0x216C);    // azul
+    V_line(140, 104, 0, 0xFFFF);    // blanco
+    V_line(158, 35, 0, 0xFFFF);    // blanco
+    V_line(53, 45, 0, 0xFFFF);    // blanco
+    V_line(22, 118, 0, 0xFFFF);    // blanco
 
-  V_line(70, 75, 1, 0xF986);    // rojo
-  V_line(70, 75, 1, 0xF986);    // rojo
+    V_line(70, 75, 2, 0xF986);    // rojo
+    H_line(69, 76, 2, 0xF986);    // rojo
+
+    V_line(15, 15, 2, 0xF76C);    // amarillo
+    H_line(14, 16, 2, 0xF76C);    // amarillo
+    V_line(121, 87, 2, 0x216C);    // azul
+    H_line(120, 88, 2, 0x216C);    // azul
+
+    // 000 - 160 x | 120 - 240 y
+    V_line(160, 189, 0, 0xCFB9);    // verde
+    V_line(152, 235, 0, 0xA556);    // gris
+    V_line(136, 164, 0, 0xF986);    // rojo
+    V_line(124, 204, 0, 0xFFF9);    // amarillo
+    V_line(111, 198, 0, 0xFFF9);    // amarillo
+    V_line(97, 156, 0, 0x216C);    // azul
+    V_line(82, 210, 0, 0xFFFF);    // blanco
+    V_line(46, 132, 0, 0xFFFF);    // blanco
+    V_line(25, 226, 0, 0xFFFF);    // blanco
+    V_line(12, 185, 0, 0xFFFF);    // blanco
+    // 160 - 320 x | 000 - 120 y
+    V_line(162, 106, 0, 0xCFB9);    // verde
+    V_line(185, 68, 0, 0xA556);    // gris
+    V_line(196, 42, 0, 0xF986);    // rojo
+    V_line(201, 108, 0, 0xFFF9);    // amarillo
+    V_line(235, 62, 0, 0xFF46);    // amarillo
+    V_line(268, 103, 0, 0x216C);    // azul
+    V_line(289, 78, 0, 0xFFFF);    // blanco
+    V_line(302, 110, 0, 0xFFFF);    // blanco
+    V_line(318, 45, 0, 0xFFFF);    // blanco
+    V_line(245, 15, 0, 0xFFFF);    // blanco
+    // 160 - 320 x | 120 - 240 y
+    V_line(160, 125, 0, 0xCFB9);    // verde
+    V_line(185, 160, 0, 0xA556);    // gris
+    V_line(240, 230, 0, 0xF986);    // rojo
+    V_line(332, 120, 0, 0xFFF9);    // amarillo
+    V_line(312, 201, 0, 0xF7F7);    // amarillo
+    V_line(290, 153, 0, 0x216C);    // azul
+    V_line(283, 134, 0, 0xFFFF);    // blanco
+    V_line(160, 235, 0, 0xFFFF);    // blanco
+    V_line(160, 126, 0, 0xFFFF);    // blanco
+    V_line(252, 185, 0, 0xFFFF);    // blanco
+  }
+  else if (fondo == 1) {
+    // 160 - 320 x | 120 - 240 y
+    V_line(160, 125, 0, 0xCFB9);    // verde
+    V_line(185, 160, 0, 0xA556);    // gris
+    V_line(240, 230, 0, 0xF986);    // rojo
+    V_line(332, 120, 0, 0xFFF9);    // amarillo
+    V_line(312, 201, 0, 0xF7F7);    // amarillo
+    V_line(290, 153, 0, 0x216C);    // azul
+    V_line(283, 134, 0, 0xFFFF);    // blanco
+    V_line(160, 235, 0, 0xFFFF);    // blanco
+    V_line(160, 126, 0, 0xFFFF);    // blanco
+    V_line(252, 185, 0, 0xFFFF);    // blanco
+  }
+  else if (fondo == 2) {
+    // 000 - 160 x | 000 - 120 y
+    V_line(154, 24, 0, 0xFFF9);    // amarillo
+    V_line(136, 14, 0, 0xA556);    // gris
+    V_line(148, 85, 0, 0xCFB9);    // verde
+    // 000 - 160 x | 120 - 240 y
+    V_line(43, 234, 0, 0xFFFF);    // blanco
+    V_line(54, 201, 0, 0xFFF9);    // amarillo
+    V_line(142, 185, 0, 0xFFF9);    // amarillo
+    // 160 - 320 x | 000 - 120 y
+    V_line(185, 97, 0, 0xFFFF);    // blanco
+    V_line(201, 18, 0, 0xFFF9);    // amarillo
+    V_line(312, 87, 0, 0xCFB9);    // verde
+    // 160 - 320 x | 120 - 240 y
+    V_line(196, 145, 0, 0xCFB9);    // verde
+    V_line(204, 123, 0, 0xA556);    // gris
+    V_line(298, 217, 0, 0xFFF9);    // amarillo
+  }
+  else if (fondo == 5) { // estrellas grandes
+    estrx = 30;
+    estry = 97;
+    V_line(estrx + 1, estry, 2, 0xFFE0);  // amarillo
+    H_line(estrx, estry + 1, 2, 0xFFE0);  // amarillo
+    estrx = 212;
+    estry = 185;
+    V_line(estrx + 1, estry, 2, 0xCFB9);  // verde
+    H_line(estrx, estry + 1, 2, 0xCFB9);  // verde
+    estrx = 120;
+    estry = 160;
+    V_line(estrx + 1, estry, 2, 0xA556);  // gris
+    H_line(estrx, estry + 1, 2, 0xF986);  // rojo
+    estrx = 301;
+    estry = 125;
+    V_line(estrx + 1, estry, 2, 0x216C);  // azul
+    H_line(estrx, estry + 1, 2, 0x216C);  // azul
+    estrx = 195;
+    estry = 52;
+    V_line(estrx + 1, estry, 2, 0xF986);  // rojo
+    H_line(estrx, estry + 1, 2, 0xF986);  // rojo
+  }
+  else if (fondo == 7) {
+    // 000 - 160 x | 000 - 120 y
+    V_line(10, 1, 0, 0xCFB9);    // verde
+    V_line(50, 89, 0, 0xA556);    // gris
+    V_line(70, 75, 0, 0xF986);    // rojo
+    V_line(80, 120, 0, 0xFFF9);    // amarillo
+    // 000 - 160 x | 120 - 240 y
+    V_line(160, 189, 0, 0xCFB9);    // verde
+    V_line(152, 235, 0, 0xA556);    // gris
+    V_line(136, 164, 0, 0xF986);    // rojo
+    V_line(124, 204, 0, 0xFFF9);    // amarillo
+    // 160 - 320 x | 000 - 120 y
+    V_line(162, 106, 0, 0xCFB9);    // verde
+    V_line(185, 68, 0, 0xA556);    // gris
+    V_line(196, 42, 0, 0xF986);    // rojo
+    V_line(201, 108, 0, 0xFFF9);    // amarillo
+    // 160 - 320 x | 120 - 240 y
+    V_line(160, 125, 0, 0xCFB9);    // verde
+    V_line(185, 160, 0, 0xA556);    // gris
+    V_line(240, 230, 0, 0xF986);    // rojo
+  }
+  else if (fondo == 10) {                     // fondo 12
+    // 000 - 160 x | 000 - 120 y
+    V_line(10, 1, 0, 0);    // verde
+    V_line(140, 104, 0, 0);    // blanco
+    V_line(22, 118, 0, 0);    // blanco
+    // 000 - 160 x | 120 - 240 y
+    V_line(160, 189, 0, 0);    // verde
+    V_line(97, 156, 0, 0);    // azul
+    V_line(12, 185, 0, 0);    // blanco
+    // 160 - 320 x | 000 - 120 y
+    V_line(196, 42, 0, 0);    // rojo
+    V_line(201, 108, 0, 0);    // amarillo
+    V_line(245, 15, 0, 0);    // blanco
+    // 160 - 320 x | 120 - 240 y
+    V_line(160, 125, 0, 0);    // verde
+    V_line(185, 160, 0, 0);    // gris
+    V_line(160, 126, 0, 0);    // blanco
+  }
+  else if (fondo == 3) { // estrellas grandes - NEGRO
+    estrx = 30;
+    estry = 97;
+    V_line(estrx + 1, estry, 2, 0);  // amarillo
+    H_line(estrx, estry + 1, 2, 0);  // amarillo
+    estrx = 212;
+    estry = 185;
+    V_line(estrx + 1, estry, 2, 0);  // verde
+    H_line(estrx, estry + 1, 2, 0);  // verde
+    estrx = 120;
+    estry = 160;
+    V_line(estrx + 1, estry, 2, 0);  // gris
+    H_line(estrx, estry + 1, 2, 0);  // rojo
+    estrx = 301;
+    estry = 125;
+    V_line(estrx + 1, estry, 2, 0);  // azul
+    H_line(estrx, estry + 1, 2, 0);  // azul
+    estrx = 195;
+    estry = 52;
+    V_line(estrx + 1, estry, 2, 0);  // rojo
+    H_line(estrx, estry + 1, 2, 0);  // rojo
+  }
+  else if (fondo == 12) {
+    // 000 - 160 x | 000 - 120 y
+    V_line(10, 1, 0, 0xCFB9);    // verde
+    V_line(140, 104, 0, 0xFFFF);    // blanco
+    V_line(22, 118, 0, 0xFFFF);    // blanco
+    // 000 - 160 x | 120 - 240 y
+    V_line(160, 189, 0, 0xCFB9);    // verde
+    V_line(97, 156, 0, 0x216C);    // azul
+    V_line(12, 185, 0, 0xFFFF);    // blanco
+    // 160 - 320 x | 000 - 120 y
+    V_line(196, 42, 0, 0xF986);    // rojo
+    V_line(201, 108, 0, 0xFFF9);    // amarillo
+    V_line(245, 15, 0, 0xFFFF);    // blanco
+    // 160 - 320 x | 120 - 240 y
+    V_line(160, 125, 0, 0xCFB9);    // verde
+    V_line(185, 160, 0, 0xA556);    // gris
+    V_line(160, 126, 0, 0xFFFF);    // blanco
+  }
+  else if (fondo == 19) {                     // fondo 1 (esquina inferior derecha)
+    // 160 - 320 x | 120 - 240 y
+    V_line(160, 125, 0, 0);    // verde
+    V_line(185, 160, 0, 0);    // gris
+    V_line(240, 230, 0, 0);    // rojo
+    V_line(332, 120, 0, 0);    // amarillo
+    V_line(312, 201, 0, 0);    // amarillo
+    V_line(290, 153, 0, 0);    // azul
+    V_line(283, 134, 0, 0);    // blanco
+    V_line(160, 235, 0, 0);    // blanco
+    V_line(160, 126, 0, 0);    // blanco
+    V_line(252, 185, 0, 0);    // blanco
+  }
+  else if (fondo == 18) {                       //fondo 2
+    // 000 - 160 x | 000 - 120 y
+    V_line(154, 24, 0, 0);    // verde
+    V_line(136, 14, 0, 0);    // blanco
+    V_line(148, 85, 0, 0);    // blanco
+    // 000 - 160 x | 120 - 240 y
+    V_line(43, 234, 0, 0);    // verde
+    V_line(54, 201, 0, 0);    // azul
+    V_line(142, 185, 0, 0);    // blanco
+    // 160 - 320 x | 000 - 120 y
+    V_line(185, 97, 0, 0);    // rojo
+    V_line(201, 18, 0, 0);    // amarillo
+    V_line(312, 87, 0, 0);    // blanco
+    // 160 - 320 x | 120 - 240 y
+    V_line(196, 145, 0, 0);    // verde
+    V_line(204, 123, 0, 0);    // gris
+    V_line(298, 217, 0, 0);    // blanco
+  }
   
-  V_line(15, 15, 2, 0xF76C);    // amarillo
-  H_line(14, 16, 2, 0xF76C);    // amarillo
-  V_line(121, 87, 2, 0x216C);    // azul
-  H_line(120, 88, 2, 0x216C);    // azul
-  
-  // 000 - 160 x | 120 - 240 y
-  V_line(160, 189, 0, 0xCFB9);    // verde
-  V_line(152, 235, 0, 0xA556);    // gris
-  V_line(136, 164, 0, 0xF986);    // rojo
-  V_line(124, 204, 0, 0xFFF9);    // amarillo
-  V_line(111, 198, 0, 0xFFF9);    // amarillo
-  V_line(97, 156, 0, 0x216C);    // azul
-  V_line(82, 210, 0, 0xFFFF);    // blanco
-  V_line(46, 132, 0, 0xFFFF);    // blanco
-  V_line(25, 226, 0, 0xFFFF);    // blanco
-  V_line(12, 185, 0, 0xFFFF);    // blanco
-  // 160 - 320 x | 000 - 120 y
-  V_line(162, 106, 0, 0xCFB9);    // verde
-  V_line(185, 68, 0, 0xA556);    // gris
-  V_line(196, 42, 0, 0xF986);    // rojo
-  V_line(201, 108, 0, 0xFFF9);    // amarillo
-  V_line(235, 62, 0, 0xFF46);    // amarillo
-  V_line(268, 103, 0, 0x216C);    // azul
-  V_line(289, 78, 0, 0xFFFF);    // blanco
-  V_line(302, 110, 0, 0xFFFF);    // blanco
-  V_line(318, 45, 0, 0xFFFF);    // blanco
-  V_line(245, 15, 0, 0xFFFF);    // blanco
-  // 160 - 320 x | 120 - 240 y
-  V_line(160, 125, 0, 0xCFB9);    // verde
-  V_line(185, 160, 0, 0xA556);    // gris
-  V_line(240, 230, 0, 0xF986);    // rojo
-  V_line(332, 120, 0, 0xFFF9);    // amarillo
-  V_line(312, 201, 0, 0xF7F7);    // amarillo
-  V_line(290, 153, 0, 0x216C);    // azul
-  V_line(283, 134, 0, 0xFFFF);    // blanco
-  V_line(160, 235, 0, 0xFFFF);    // blanco
-  V_line(160, 126, 0, 0xFFFF);    // blanco
-  V_line(252, 185, 0, 0xFFFF);    // blanco
-  } else if (fondo == 7){
-  // 000 - 160 x | 000 - 120 y
-  V_line(10, 1, 0, 0xCFB9);    // verde
-  V_line(50, 89, 0, 0xA556);    // gris
-  V_line(70, 75, 0, 0xF986);    // rojo
-  V_line(80, 120, 0, 0xFFF9);    // amarillo
-  // 000 - 160 x | 120 - 240 y
-  V_line(160, 189, 0, 0xCFB9);    // verde
-  V_line(152, 235, 0, 0xA556);    // gris
-  V_line(136, 164, 0, 0xF986);    // rojo
-  V_line(124, 204, 0, 0xFFF9);    // amarillo
-  // 160 - 320 x | 000 - 120 y
-  V_line(162, 106, 0, 0xCFB9);    // verde
-  V_line(185, 68, 0, 0xA556);    // gris
-  V_line(196, 42, 0, 0xF986);    // rojo
-  V_line(201, 108, 0, 0xFFF9);    // amarillo
-  // 160 - 320 x | 120 - 240 y
-  V_line(160, 125, 0, 0xCFB9);    // verde
-  V_line(185, 160, 0, 0xA556);    // gris
-  V_line(240, 230, 0, 0xF986);    // rojo
-    
-  } else if (fondo == 4){
-  // 000 - 160 x | 000 - 120 y
-  V_line(10, 1, 0, 0);    // verde
-  V_line(50, 89, 0, 0);    // gris
-  V_line(70, 75, 0, 0);    // rojo
-  V_line(80, 120, 0, 0);    // amarillo
-  // 000 - 160 x | 120 - 240 y
-  V_line(160, 189, 0, 0);    // verde
-  V_line(152, 235, 0, 0);    // gris
-  V_line(136, 164, 0, 0);    // rojo
-  V_line(124, 204, 0, 0);    // amarillo
-  // 160 - 320 x | 000 - 120 y
-  V_line(162, 106, 0, 0);    // verde
-  V_line(185, 68, 0, 0);    // gris
-  V_line(196, 42, 0, 0);    // rojo
-  V_line(201, 108, 0, 0);    // amarillo
-  // 160 - 320 x | 120 - 240 y
-  V_line(160, 125, 0, 0);    // verde
-  V_line(185, 160, 0, 0);    // gris
-  V_line(240, 230, 0, 0);    // rojo
-  }
-  else if (fondo == 12){
-  // 000 - 160 x | 000 - 120 y
-  V_line(10, 1, 0, 0xCFB9);    // verde
-  V_line(140, 104, 0, 0xFFFF);    // blanco
-  V_line(22, 118, 0, 0xFFFF);    // blanco
-  // 000 - 160 x | 120 - 240 y
-  V_line(160, 189, 0, 0xCFB9);    // verde
-  V_line(97, 156, 0, 0x216C);    // azul
-  V_line(12, 185, 0, 0xFFFF);    // blanco
-  // 160 - 320 x | 000 - 120 y
-  V_line(196, 42, 0, 0xF986);    // rojo
-  V_line(201, 108, 0, 0xFFF9);    // amarillo
-  V_line(245, 15, 0, 0xFFFF);    // blanco
-  // 160 - 320 x | 120 - 240 y
-  V_line(160, 125, 0, 0xCFB9);    // verde
-  V_line(185, 160, 0, 0xA556);    // gris
-  V_line(160, 126, 0, 0xFFFF);    // blanco
-  }else if (fondo == 8){
-  // 000 - 160 x | 000 - 120 y
-  V_line(10, 1, 0, 0);    // verde
-  V_line(140, 104, 0, 0);    // blanco
-  V_line(22, 118, 0, 0);    // blanco
-  // 000 - 160 x | 120 - 240 y
-  V_line(160, 189, 0, 0);    // verde
-  V_line(97, 156, 0, 0);    // azul
-  V_line(12, 185, 0, 0);    // blanco
-  // 160 - 320 x | 000 - 120 y
-  V_line(196, 42, 0, 0);    // rojo
-  V_line(201, 108, 0, 0);    // amarillo
-  V_line(245, 15, 0, 0);    // blanco
-  // 160 - 320 x | 120 - 240 y
-  V_line(160, 125, 0, 0);    // verde
-  V_line(185, 160, 0, 0);    // gris
-  V_line(160, 126, 0, 0);    // blanco
-  }
-  else if (fondo == 2){
-  // 000 - 160 x | 000 - 120 y
-  V_line(154, 24, 0, 0xFFF9);    // amarillo
-  V_line(136, 14, 0, 0xA556);    // gris
-  V_line(148, 85, 0, 0xCFB9);    // verde
-  // 000 - 160 x | 120 - 240 y
-  V_line(43, 234, 0, 0xFFFF);    // blanco
-  V_line(54, 201, 0, 0xFFF9);    // amarillo
-  V_line(142, 185, 0, 0xFFF9);    // amarillo
-  // 160 - 320 x | 000 - 120 y
-  V_line(185, 97, 0, 0xFFFF);    // blanco
-  V_line(201, 18, 0, 0xFFF9);    // amarillo
-  V_line(312, 87, 0, 0xCFB9);    // verde
-  // 160 - 320 x | 120 - 240 y
-  V_line(196, 145, 0, 0xCFB9);    // verde
-  V_line(204, 123, 0, 0xA556);    // gris
-  V_line(298, 217, 0, 0xFFF9);    // amarillo
-  }
-  else if (fondo == 18){
-  // 000 - 160 x | 000 - 120 y
-  V_line(154, 24, 0, 0);    // verde
-  V_line(136, 14, 0, 0);    // blanco
-  V_line(148, 85, 0, 0);    // blanco
-  // 000 - 160 x | 120 - 240 y
-  V_line(43, 234, 0, 0);    // verde
-  V_line(54, 201, 0, 0);    // azul
-  V_line(142, 185, 0, 0);    // blanco
-  // 160 - 320 x | 000 - 120 y
-  V_line(185, 97, 0, 0);    // rojo
-  V_line(201, 18, 0, 0);    // amarillo
-  V_line(312, 87, 0, 0);    // blanco
-  // 160 - 320 x | 120 - 240 y
-  V_line(196, 145, 0, 0);    // verde
-  V_line(204, 123, 0, 0);    // gris
-  V_line(298, 217, 0, 0);    // blanco
-  }
 }
 void reiniciar(void) {
   LCD_Clear(0x00);
@@ -1637,7 +1690,7 @@ void reiniciar(void) {
   fondos(0);
 //  delay(300000);
   for (int x = 0; x < 315 - 128; x++) {
-//    fondos(0);
+    //    fondos(0);
     LCD_Bitmap(x, 100, 127, 39, logo);
     fondos(0);
     V_line( x - 1, 100, 30, 0x0000);
@@ -1676,19 +1729,19 @@ void reiniciar(void) {
   fondos(0);
   menuu();
   LCD_Clear(0x00);
-  if (juego != 4){
+  if (juego != 4) {
     LCD_Bitmap(J1, 200, 13, 8, chunche);
     H_line(0, 209, 319,  0xD0A3);
     H_line(0, 210, 319,  0xD0A3);
     H_line(0, 211, 319,  0xD0A3);
-  
+
     if (modo != 2) {
       // dos jugadores divididos en 170
       V_line(160, 195, 209,  0xD0A3);
       LCD_Print("jugador1 = 3 vidas", 10, 220, 1, 0x3E1C, 0);
       LCD_Print("jugador2 = 3 vidas", 165, 220, 1, 0x3E1C, 0);
-  
-  
+
+
       LCD_Bitmap(J2, 200, 13, 8, chunche);
     } else {
       LCD_Print("jugador = 3 vidas", 10, 220, 1, 0x3E1c, 0);
