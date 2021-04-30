@@ -179,8 +179,7 @@ void setup() {
   // re-open the file for reading:
   modo2 = SD.open("2jugador.txt");
   if (modo2) {
-    //    Serial.println("2jugador.txt:");
-
+    //  Abrir archivo de highscores para 2 jugadores
     while (highscore1[var - 1] != 10) { // leer hasta el enter
       highscore1[var] = modo2.read();
       if ((highscore1[var] < 48) && (highscore1[var] != 10)) { // si el caracter es menor a 0 y no es un enter
@@ -188,23 +187,23 @@ void setup() {
       }
       var++; // incrementar el indice del array
     }
-    var = 0;
-    while (highscore2[var - 1] != 10) {
+    var = 0;  // reinicar el indice del array
+    while (highscore2[var - 1] != 10) { // leer los caracteres hasta el enter
       highscore2[var] = modo2.read();
       if ((highscore2[var] < 48) && (highscore2[var] != 10)) {
         highscore2[var] = 48;
       }
       var++;
     }
-    var = 0;
-    while (highscore3[var - 1] != 10) {
+    var = 0;  // reiniciar el indice del array
+    while (highscore3[var - 1] != 10) { // leer los caracteres hasta el enter
       highscore3[var] = modo2.read();
       if ((highscore3[var] < 48) && (highscore3[var] != 10)) {
         highscore3[var] = 48;
       }
       var++;
     }
-    var = 0;
+    var = 0; // reiniciar el indice del array
     Serial.println("leer modo 1");
     // close the file:
     modo2.close();
@@ -212,7 +211,7 @@ void setup() {
     // if the file didn't open, print an error:
     Serial.println("error opening 2jugador.txt");
   }
-  // convertir a int el array
+  // convertir a int el array 
   high1 = (((int)highscore1[0] - 48) * 100) + (((int)highscore1[1] - 48) * 10) + ((int)highscore1[2] - 48);
   high2 = (((int)highscore2[0] - 48) * 100) + (((int)highscore2[1] - 48) * 10) + ((int)highscore2[2] - 48);
   high3 = (((int)highscore3[0] - 48) * 100) + (((int)highscore3[1] - 48) * 10) + ((int)highscore3[2] - 48);
@@ -226,30 +225,30 @@ void setup() {
   if (modo2) {
     //    Serial.println("1jugador.txt:");
 
-    while (highscore12[var - 1] != 10) {
+    while (highscore12[var - 1] != 10) {  // leer los caracteres hasta el enter
       highscore12[var] = modo2.read();
       if ((highscore12[var] < 48) && (highscore12[var] != 10)) {
         highscore12[var] = 48;
       }
-      var++;
+      var++;  // incrementar el indice del array
     }
-    var = 0;
-    while (highscore22[var - 1] != 10) {
+    var = 0;  // reiniciar el indice del array
+    while (highscore22[var - 1] != 10) {  // leer los caracteres hasta el enter
       highscore22[var] = modo2.read();
       if ((highscore22[var] < 48) && (highscore22[var] != 10)) {
         highscore22[var] = 48;
       }
-      var++;
+      var++;  // incrementar el indice del array
     }
-    var = 0;
-    while (highscore32[var - 1] != 10) {
+    var = 0;  // reiniciar el indice del array 
+    while (highscore32[var - 1] != 10) { // leer los caracteres hasta el enter
       highscore32[var] = modo2.read();
       if ((highscore32[var] < 48) && (highscore32[var] != 10)) {
         highscore32[var] = 48;
       }
-      var++;
+      var++;  // incrementar el indice del array
     }
-    var = 0;
+    var = 0;  // reiniciar el inidce del array
     Serial.println("leer modo 2");
     // close the file:
     modo2.close();
@@ -265,86 +264,89 @@ void setup() {
   Serial.println(high22);
   Serial.println(high32);
 
-
+// inicializar la pantalla 
   LCD_Init();
   pinMode(PUSH1, INPUT_PULLUP);
   pinMode(PUSH2, INPUT_PULLUP);
+  // botones de los jugadores
   pinMode(izq1, INPUT);
   pinMode(der1, INPUT);
   pinMode(izq2, INPUT);
   pinMode(der2, INPUT);
   pinMode(disp1, INPUT);
   pinMode(disp2, INPUT);
+  // pines para indicar al pic la musica
   pinMode(musica[0], OUTPUT);
   pinMode(musica[1], OUTPUT);
+  // no sonar musica
   digitalWrite(musica[0], LOW);//RB6
   digitalWrite(musica[1], LOW);//RB7
-  reiniciar();
-
+  reiniciar(); // reiniciar el juego y las variables
 }
 //***************************************************************************************************************************************
 // Loop Infinito
 //***************************************************************************************************************************************
 void loop() {
   if (juego != 4) {
+    // sonar musica de juego
     digitalWrite(musica[0], LOW);//RB6
     digitalWrite(musica[1], HIGH);//RB7
   }
 
-  fondos(0);
-  while (juego == 1) {
-    var++;
-    if (var == 11) {
-      var = 1;
+  fondos(0);  // dibujar el fondo del juego
+  while (juego == 1) {  // modo de juego 1
+    var++;              // incrementar la variable para hacer disparos random
+    if (var == 11) {    // limite de la variable 
+      var = 1;          
     }
-    var_fondo++;
-    if (var_fondo == 20) {
+    var_fondo++;        // incrementar variable para fondo
+    if (var_fondo == 20) {  // limite de fondos
       var_fondo = 1;
     }
-    fondos(var_fondo);
+    fondos(var_fondo);  // pintar uno de los fondos
     //    delay(2);
-    if (Y1 < 186 || Y2 < 186) {
+    if (Y1 < 186 || Y2 < 186) { // si se esta disparando hacer el sonido de disparo 
       digitalWrite(musica[0], HIGH);//RB6
     } else {
       digitalWrite(musica[0], LOW);//RB6
     }
-    itoa(puntaje1, snum, 10);
-    LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
-    itoa(puntaje2, snum, 10);
-    LCD_Print(snum, 300, 5, 1, 0x3E1C, 0);
+    itoa(puntaje1, snum, 10);     // pasar puntaje1 a string
+    LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);  // poner el puntaje en la pantalla
+    itoa(puntaje2, snum, 10);     // pasar puntaje2 a string
+    LCD_Print(snum, 300, 5, 1, 0x3E1C, 0);  // poner el puntaje en la pantalla
     // si se matan a todos los malos
     malos = M1 + M2 + M3 + M4 + M5;
-    if (malos == 0) {
+    if (malos == 0) { // ya no hay malos y se termina el nivel
       LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
       nivel--;
-      delay(1500);
-      LI = 20;
-      M1 = 1;
+      delay(1500); // reiniciar variabels
+      LI = 20;    // posicion de los malos
+      M1 = 1;     // pintar a los malos
       M2 = 1;
       M3 = 1;
       M4 = 1;
       M5 = 1;
-      MY1 = 300;
+      MY1 = 300;   // coordenadas de los disparos 
       MY2 = 300;
       MX1 = 400;
       MX2 = 400;
       MD1 = 0;
       MD2 = 0;
-      for (int x = 0; x < 320; x++) {
+      for (int x = 0; x < 320; x++) { // pantalla 
         V_line(x, 0, 195, 0);
       }
-      Y1 = 300;
+      Y1 = 300;   // reiniciar disparos de tanques 
       Y2 = 300;
       vuelta = 0;
     }
-    reading1 = digitalRead(disp1);
+    reading1 = digitalRead(disp1);  // leer botones 
     reading2 = digitalRead(disp2);
 
-    if (MD1 == 0) {
-      var1++;
-      V_line(MX1, MY1, 12, 0);
+    if (MD1 == 0) {   // si no se esta disparando 
+      var1++; 
+      V_line(MX1, MY1, 12, 0);  // borrar ultimo disparo
       if (var1 > 6) {
-        if (M1 == 1 && var == 2) {
+        if (M1 == 1 && var == 2) {  // escoger que malo dispara random
           MD1 = 1;
           MX1 = CI;
         } else if (M2 == 1 && var == 4) {
@@ -365,45 +367,45 @@ void loop() {
         var1 = 0;
       }
     }
-    if (MD1 == 1) {
-      V_line(MX1, MY1, 6, 0xD0A3);
-      V_line(MX1, MY1 - 6, 6, 0x00);
-      MY1++;
-      if (MY1 > 194) {
+    if (MD1 == 1) { // si se esta disparando 
+      V_line(MX1, MY1, 6, 0xD0A3);  // disbujar disparo
+      V_line(MX1, MY1 - 6, 6, 0x00);  // borrar disparo anterior
+      MY1++;  // aumentar coordenada en y del disparo 
+      if (MY1 > 194) {  // si el disparo llega a la coordenada del tanque 
         MD1 = 0;
-        if (J1 < MX1 && MX1 < (J1 + 14)) {
-          vida1--;
+        if (J1 < MX1 && MX1 < (J1 + 14)) {  // si esta en la coordenada x del tanque1 
+          vida1--;  // pierde una vida
 
         }
-        if (J2 < MX1 && MX1 < (J2 + 14)) {
-          vida2--;
+        if (J2 < MX1 && MX1 < (J2 + 14)) {  // si esta en la coordenada x del tanque2
+          vida2--;  // pierde una vida
         }
-        if (vida1 == 0) {
+        if (vida1 == 0) { // el jugador 1 se queda sin vidas
           LCD_Print("jugador1 = 0 vidas", 10, 220, 1, 0x3E1C, 0);
 
-          for (int x = J1; x < J1 + 14; x++) {
-            V_line(x - 1, 200, 8, 0);
+          for (int x = J1; x < J1 + 15; x++) {
+            V_line(x - 1, 200, 8, 0);   // borar tanque 1
           }
-          if (Y1 < 186) {
-            V_line(D1, 185 - Y1, 6, 0);
+          if (Y1 < 186) {   // si el tanque estaba disparando 
+            V_line(D1, 185 - Y1, 6, 0); // borra disparo
             Y1 = 390;
           }
           tanque1 = 0;
-        } else if (vida1 == 2) {
+        } else if (vida1 == 2) {  // escribir cuantas vidas le quedan
           LCD_Print("jugador1 = 2 vidas", 10, 220, 1, 0x3E1C, 0);
         } else if (vida1 == 1) {
           LCD_Print("jugador1 = 1 vidas", 10, 220, 1, 0x3E1C, 0);
         }
-        if (vida2 == 0) {
-          tanque2 = 0;
+        if (vida2 == 0) { // si el tanque2 se queda sin vidas
+          tanque2 = 0;    // ya no dibujarlo y borrar el ultimo dibujo
           for (int x = J2; x < J2 + 15; x++) {
             V_line(x - 1, 200, 8, 0);
           }
           if (Y2 < 186) {
-            V_line(D2, 185 - Y2, 6, 0);
+            V_line(D2, 185 - Y2, 6, 0); // borrar ultimo disparo 
             Y2 = 300;
           }
-          LCD_Print("jugador2 = 0 vidas ", 165, 220, 1, 0x3E1C, 0);
+          LCD_Print("jugador2 = 0 vidas ", 165, 220, 1, 0x3E1C, 0); // colocar cuantas vidas le quedan 
         } else if (vida2 == 1) {
           LCD_Print("jugador2 = 1 vida  ", 165, 220, 1, 0x3E1C, 0);
         } else if (vida2 == 2) {
@@ -412,58 +414,59 @@ void loop() {
       }
     }
     V_line(160, 195, 209,  0xD0A3);
-    // mostrar tanquecitos y malos
+    // mostrar tanquecitos
     if (tanque1 == 1) {
       tanque_1();
     }
     if (tanque2 == 1) {
       tanque_2();
     }
-    if (M1 == 1) {
+    // mostrar malos si == 1
+    if (M1 == 1) { // dibujar malo
       LCD_Bitmap(CI, LI, 10, 8, malo1);
-    } else if (M1 < 7 && M1 != 0) {
+    } else if (M1 < 7 && M1 != 0) {   // aumentar variable para hacer delay
       M1++;
-    }  else if (M1 > 6) {
+    }  else if (M1 > 6) { // terminar delay
       M1 = 0;
       for (int x = tempx1; x < tempx1 + 13; x++) {
         V_line (x, tempy1, 8, 0);
       }
     }
     if (M2 == 1) {
-      LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
-    } else if (M2 < 7 && M2 != 0) {
+      LCD_Bitmap(CI + 20, LI, 10, 8, malo1); // dibujar malo
+    } else if (M2 < 7 && M2 != 0) {  // aumentar variable para hacer delay
       M2++;
-    } else if (M2 > 6) {
+    } else if (M2 > 6) { // terminar delay
       M2 = 0;
       for (int x = tempx2; x < tempx2 + 13; x++) {
         V_line (x, tempy2, 8, 0);
       }
     }
     if (M3 == 1) {
-      LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
-    } else if (M3 < 7 && M3 != 0) {
+      LCD_Bitmap(CI + 40, LI, 10, 8, malo1); // dibujar malo
+    } else if (M3 < 7 && M3 != 0) {  // aumentar variable para hacer delay
       M3++;
-    }  else if (M3 > 6) {
+    }  else if (M3 > 6) { // terminar delay
       M3 = 0;
       for (int x = tempx3; x < tempx3 + 13; x++) {
         V_line (x, tempy3, 8, 0);
       }
     }
     if (M4 == 1) {
-      LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
-    } else if (M4 < 7 && M4 != 0) {
+      LCD_Bitmap(CI + 60, LI, 10, 8, malo1); // dibujar malo
+    } else if (M4 < 7 && M4 != 0) {  // aumentar variable para hacer delay
       M4++;
-    }  else if (M4 > 6) {
+    }  else if (M4 > 6) { // terminar delay
       M4 = 0;
       for (int x = tempx4; x < tempx4 + 13; x++) {
         V_line (x, tempy4, 8, 0);
       }
     }
     if (M5 == 1) {
-      LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
-    } else if (M5 < 7 && M5 != 0) {
+      LCD_Bitmap(CI + 80, LI, 10, 8, malo1); // dibujar malo
+    } else if (M5 < 7 && M5 != 0) {  // aumentar variable para hacer delay
       M5++;
-    }  else if (M5 > 6) {
+    }  else if (M5 > 6) { // terminar delay
       M5 = 0;
       for (int x = tempx5; x < tempx5 + 13; x++) {
         V_line (x, tempy5, 8, 0);
@@ -471,41 +474,41 @@ void loop() {
     }
 
 
-    if (mov == 1) {
+    if (mov == 1) { // movimiento de los malos 
       CI++;
     } else if (mov == 0) {
       CI--;
     }
-    if (CI > 220) {
+    if (CI > 220) { // limite derecha
       mov = 0;
-    } else if (CI < 10) {
+    } else if (CI < 10) { // limite izquierda 
       mov = 1;
-      vuelta++;
+      vuelta++; // aumentar la cantidad de vueltas que han dados los malos 
     }
-    if (vuelta > nivel) {
+    if (vuelta > nivel) { // si la cantidad de vueltas superan el nivel, bajar a los malos (en el eje y)
       vuelta = 0;
       LCD_Print("                          ", CI, LI, 2, 0x3E1C, 0);
       LI = LI + 25;
     }
 
     if (tanque1 == 0 && tanque2 == 0) {
-      LI = 400;
+      LI = 400; // si ambos tanques no tienen vidas terminal el juego
     }
     // jugador pierde
-    if (LI > 160) {
-      LCD_Clear(0x00);
+    if (LI > 160) { // si los malos llegan hasta abajo (eje y) 
+      LCD_Clear(0x00); // borrar la pantalla y terminar el juego 
       LCD_Print("GAME OVER", 25, 15, 2, 0xD0A3, 0);
       juego = 0;
     }
     // jugador gana
-    if (nivel == 1) {
+    if (nivel == 1) { // si se llega al nivel 1 se termina el juego 
       LCD_Clear(0x00);
       LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0xFFFF, 0);
       juego = 0;
     }
   }
 
-  while (juego == 2) { // 1 jugador
+  while (juego == 2) { // modo de juego de 1 jugador
     var++;
     if (var == 11) {
       var = 1;

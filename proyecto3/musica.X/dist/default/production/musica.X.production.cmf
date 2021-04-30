@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\danie\AppData\Local\Temp\shbc.o
+$C:\Users\danie\AppData\Local\Temp\sb2o.o
 end_init CODE 0 0 0 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\musica.X.production.o
@@ -77,37 +77,37 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\musica.X.production.o
-7BE cinit CODE >676:C:\Users\danie\AppData\Local\Temp\shbc.s
-7BE cinit CODE >679:C:\Users\danie\AppData\Local\Temp\shbc.s
-7BE cinit CODE >764:C:\Users\danie\AppData\Local\Temp\shbc.s
-7BF cinit CODE >765:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C0 cinit CODE >766:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C1 cinit CODE >767:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C2 cinit CODE >768:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C3 cinit CODE >769:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C4 cinit CODE >770:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C5 cinit CODE >771:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C6 cinit CODE >772:C:\Users\danie\AppData\Local\Temp\shbc.s
-7C7 cinit CODE >773:C:\Users\danie\AppData\Local\Temp\shbc.s
-7CC cinit CODE >777:C:\Users\danie\AppData\Local\Temp\shbc.s
-7D1 cinit CODE >778:C:\Users\danie\AppData\Local\Temp\shbc.s
-7D2 cinit CODE >779:C:\Users\danie\AppData\Local\Temp\shbc.s
-7D7 cinit CODE >780:C:\Users\danie\AppData\Local\Temp\shbc.s
-7D8 cinit CODE >781:C:\Users\danie\AppData\Local\Temp\shbc.s
-7DD cinit CODE >782:C:\Users\danie\AppData\Local\Temp\shbc.s
-7DE cinit CODE >783:C:\Users\danie\AppData\Local\Temp\shbc.s
-7E3 cinit CODE >784:C:\Users\danie\AppData\Local\Temp\shbc.s
-7E4 cinit CODE >785:C:\Users\danie\AppData\Local\Temp\shbc.s
-7E9 cinit CODE >786:C:\Users\danie\AppData\Local\Temp\shbc.s
-7EA cinit CODE >787:C:\Users\danie\AppData\Local\Temp\shbc.s
-7EF cinit CODE >788:C:\Users\danie\AppData\Local\Temp\shbc.s
-7F0 cinit CODE >789:C:\Users\danie\AppData\Local\Temp\shbc.s
-7F5 cinit CODE >790:C:\Users\danie\AppData\Local\Temp\shbc.s
-7F6 cinit CODE >791:C:\Users\danie\AppData\Local\Temp\shbc.s
-7FB cinit CODE >792:C:\Users\danie\AppData\Local\Temp\shbc.s
-7FC cinit CODE >798:C:\Users\danie\AppData\Local\Temp\shbc.s
-7FC cinit CODE >800:C:\Users\danie\AppData\Local\Temp\shbc.s
-7FD cinit CODE >801:C:\Users\danie\AppData\Local\Temp\shbc.s
+7BE cinit CODE >676:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7BE cinit CODE >679:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7BE cinit CODE >764:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7BF cinit CODE >765:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C0 cinit CODE >766:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C1 cinit CODE >767:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C2 cinit CODE >768:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C3 cinit CODE >769:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C4 cinit CODE >770:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C5 cinit CODE >771:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C6 cinit CODE >772:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7C7 cinit CODE >773:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7CC cinit CODE >777:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7D1 cinit CODE >778:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7D2 cinit CODE >779:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7D7 cinit CODE >780:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7D8 cinit CODE >781:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7DD cinit CODE >782:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7DE cinit CODE >783:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7E3 cinit CODE >784:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7E4 cinit CODE >785:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7E9 cinit CODE >786:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7EA cinit CODE >787:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7EF cinit CODE >788:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7F0 cinit CODE >789:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7F5 cinit CODE >790:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7F6 cinit CODE >791:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7FB cinit CODE >792:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7FC cinit CODE >798:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7FC cinit CODE >800:C:\Users\danie\AppData\Local\Temp\sb2o.s
+7FD cinit CODE >801:C:\Users\danie\AppData\Local\Temp\sb2o.s
 41 text2 CODE >4:C:\Users\danie\OneDrive\Desktop\DIGITAL2\proyecto3\musica.X\Osc.c
 42 text2 CODE >5:C:\Users\danie\OneDrive\Desktop\DIGITAL2\proyecto3\musica.X\Osc.c
 43 text2 CODE >8:C:\Users\danie\OneDrive\Desktop\DIGITAL2\proyecto3\musica.X\Osc.c
@@ -394,23 +394,23 @@ FF maintext CODE >101:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.
 7A4 maintext CODE >358:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
 7AE maintext CODE >359:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
 7BB maintext CODE >362:C:/Users/danie/OneDrive/Desktop/DIGITAL2/proyecto3/musica.X/musica.c
-FED inittext CODE >738:C:\Users\danie\AppData\Local\Temp\shbc.s
-FED inittext CODE >739:C:\Users\danie\AppData\Local\Temp\shbc.s
-FEE inittext CODE >740:C:\Users\danie\AppData\Local\Temp\shbc.s
-FEF inittext CODE >741:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF0 inittext CODE >742:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF1 inittext CODE >749:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF1 inittext CODE >750:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF6 inittext CODE >751:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF7 inittext CODE >752:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF8 inittext CODE >753:C:\Users\danie\AppData\Local\Temp\shbc.s
-FF9 inittext CODE >754:C:\Users\danie\AppData\Local\Temp\shbc.s
-FFA inittext CODE >755:C:\Users\danie\AppData\Local\Temp\shbc.s
-FFB inittext CODE >756:C:\Users\danie\AppData\Local\Temp\shbc.s
-FFC inittext CODE >757:C:\Users\danie\AppData\Local\Temp\shbc.s
-FFD inittext CODE >758:C:\Users\danie\AppData\Local\Temp\shbc.s
-FFE inittext CODE >759:C:\Users\danie\AppData\Local\Temp\shbc.s
-FFF inittext CODE >760:C:\Users\danie\AppData\Local\Temp\shbc.s
+FED inittext CODE >738:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FED inittext CODE >739:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FEE inittext CODE >740:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FEF inittext CODE >741:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF0 inittext CODE >742:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF1 inittext CODE >749:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF1 inittext CODE >750:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF6 inittext CODE >751:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF7 inittext CODE >752:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF8 inittext CODE >753:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FF9 inittext CODE >754:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FFA inittext CODE >755:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FFB inittext CODE >756:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FFC inittext CODE >757:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FFD inittext CODE >758:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FFE inittext CODE >759:C:\Users\danie\AppData\Local\Temp\sb2o.s
+FFF inittext CODE >760:C:\Users\danie\AppData\Local\Temp\sb2o.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -434,20 +434,20 @@ __HidataBANK0 0 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 main@x 20 0 BANK0 1 cstackBANK0 dist/default/production\musica.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\shbc.o
+___sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sb2o.o
 _main 13A 0 CODE 0 maintext dist/default/production\musica.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\musica.X.production.o
-start 0 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\shbc.o
+start 0 0 CODE 0 init C:\Users\danie\AppData\Local\Temp\sb2o.o
 __size_of_main 0 0 ABS 0 - dist/default/production\musica.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\shbc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\shbc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\shbc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\shbc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\shbc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\shbc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sb2o.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sb2o.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sb2o.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sb2o.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sb2o.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\danie\AppData\Local\Temp\sb2o.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\musica.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\musica.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -457,8 +457,8 @@ _ANSELH 189 0 ABS 0 - dist/default/production\musica.X.production.o
 __LdataCOMMON 0 0 ABS 0 dataCOMMON -
 __size_of_initOsc 0 0 ABS 0 - dist/default/production\musica.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\shbc.o
-___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\shbc.o
+___stackhi 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sb2o.o
+___stacklo 0 0 ABS 0 - C:\Users\danie\AppData\Local\Temp\sb2o.o
 __size_of_Setup 0 0 ABS 0 - dist/default/production\musica.X.production.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
 start_initialization F7C 0 CODE 0 cinit dist/default/production\musica.X.production.o
@@ -466,7 +466,7 @@ _TRISAbits 85 0 ABS 0 - dist/default/production\musica.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\musica.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\musica.X.production.o
 __end_of_initOsc 13A 0 CODE 0 text2 dist/default/production\musica.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\shbc.o
+___int_sp 0 0 STACK 2 stack C:\Users\danie\AppData\Local\Temp\sb2o.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -510,7 +510,7 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\shbc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\danie\AppData\Local\Temp\sb2o.o
 __pdataBANK0 4E 0 BANK0 1 dataBANK0 dist/default/production\musica.X.production.o
 initOsc@IRCF 7A 0 COMMON 1 cstackCOMMON dist/default/production\musica.X.production.o
 __pmaintext 13A 0 CODE 0 maintext dist/default/production\musica.X.production.o
