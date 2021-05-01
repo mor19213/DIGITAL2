@@ -509,15 +509,15 @@ void loop() {
   }
 
   while (juego == 2) { // modo de juego de 1 jugador
-    var++;
-    if (var == 11) {
+    var++;             // incrementar la variable para hacer disparos random
+    if (var == 11) {   // limite de variable 
       var = 1;
     }
-    var_fondo++;
-    if (var_fondo == 20) {
+    var_fondo++;      // incrementar variable para fondo 
+    if (var_fondo == 20) {  // limite de fondos 
       var_fondo = 1;
     }
-    fondos(var_fondo);
+    fondos(var_fondo);  // pintar uno de los fondos 
     delay(2);
     if (Y1 < 186 || Y2 < 186) { // si hay algun disparo, musica 11
       digitalWrite(musica[0], HIGH);//RB6
@@ -532,37 +532,37 @@ void loop() {
       nivel--;
       delay(1500);
       // reiniciar posicion de los malos
-      LI = 20;
-      M1 = 1;
+      LI = 20;  // posicion de los malos
+      M1 = 1;   // pintar a los malos
       M2 = 1;
       M3 = 1;
       M4 = 1;
       M5 = 1;
       // reiniciar los disparos de los malos
-      MY1 = 300;
+      MY1 = 300;  // coordenadas de los disparos 
       MY2 = 300;
       MX1 = 400;
       MX2 = 400;
       MD1 = 0;
       MD2 = 0;
       // borrar pantalla
-      for (int x = 0; x < 320; x++) {
+      for (int x = 0; x < 320; x++) { // pantalla 
         V_line(x, 0, 195, 0);
       }
-      Y1 = 300;
+      Y1 = 300; // reiniciar disparos de tanques 
       Y2 = 300;
       vuelta = 0;
     }
     itoa(puntaje1, snum, 10);
     LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
-    reading1 = digitalRead(disp1);
+    reading1 = digitalRead(disp1);  // leer botones 
     reading2 = digitalRead(disp2);
 
-    if (MD1 == 0) {
+    if (MD1 == 0) { // si no se esta disparando 
       var1++;
       V_line(MX1, MY1, 12, 0);
       if (var1 > 6) {
-        if (M1 == 1 && var == 2) {
+        if (M1 == 1 && var == 2) {  // escoger que malo dispara random 
           MD1 = 1;
           MX1 = CI;
         } else if (M2 == 1 && var == 4) {
@@ -583,27 +583,27 @@ void loop() {
         var1 = 0;
       }
     }
-    if (MD1 == 1) {
-      V_line(MX1, MY1, 6, 0xD0A3);
-      V_line(MX1, MY1 - 6, 6, 0x00);
-      MY1++;
-      if (MY1 > 194) {
+    if (MD1 == 1) { // si se esta disparando 
+      V_line(MX1, MY1, 6, 0xD0A3);  // dibujar disparo
+      V_line(MX1, MY1 - 6, 6, 0x00);  // borrar disparo anterior 
+      MY1++;  // aumentar coordenada en "y" del disparo 
+      if (MY1 > 194) {  // si el disparo llega a la coordenada del tanque 
         MD1 = 0;
         if (tanque1 != 2) {
-          if (J1 < MX1 && MX1 < (J1 + 13)) {
-            vida1--;
+          if (J1 < MX1 && MX1 < (J1 + 13)) { // si esta en la coordenada "x" del tanque1 
+            vida1--;  // pierde una vida 
             //            LCD_Print("wuuuuu", 25, 100, 2, 0x3E1C, 0);
           }
         }
-        if (vida1 == 0) {
+        if (vida1 == 0) { // jugador sin vidas 
           tanque1 = 0;
           //          LCD_Print("sin vidas jugador 2", 25, 100, 2, 0x3E1C, 0);
           LCD_Print("jugador = 0 vidas", 10, 220, 1, 0x3E1C, 0);
-          for (int x = J1; x < (J1 + 14); x++) {
+          for (int x = J1; x < (J1 + 14); x++) {  // borrar tanque
             V_line( x, 200, 8, 0x0000);
           }
-          LCD_Clear(0x00);
-          LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);
+          LCD_Clear(0x00);  // terminar juego  
+          LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);  
           juego = 0;
           M1 = 0;
           M2 = 0;
@@ -634,51 +634,51 @@ void loop() {
     if (tanque1 == 1) {
       tanque_1();
     }
-    if (M1 == 1) {
-      LCD_Bitmap(CI, LI, 10, 8, malo1);
-    } else if (M1 < 7 && M1 != 0) {
+    if (M1 == 1) {  // dibujar malo
+      LCD_Bitmap(CI, LI, 10, 8, malo1); // aumentar variable para hacer delay 
+    } else if (M1 < 7 && M1 != 0) { // aumentar variable para hacer delay 
       M1++;
-    }  else if (M1 > 6) {
+    }  else if (M1 > 6) { // terminar delay
       M1 = 0;
       for (int x = tempx1; x < tempx1 + 13; x++) {
         V_line (x, tempy1, 8, 0);
       }
     }
-    if (M2 == 1) {
-      LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
-    } else if (M2 < 7 && M2 != 0) {
+    if (M2 == 1) { // dibujar malo
+      LCD_Bitmap(CI + 20, LI, 10, 8, malo1);  // aumentar variable para hacer delay 
+    } else if (M2 < 7 && M2 != 0) { // aumentar variable para hacer delay
       M2++;
-    } else if (M2 > 6) {
+    } else if (M2 > 6) { // terminar delay
       M2 = 0;
-      for (int x = tempx2; x < tempx2 + 13; x++) {
+      for (int x = tempx2; x < tempx2 + 13; x++) { // aumentar variable para hacer delay
         V_line (x, tempy2, 8, 0);
       }
     }
-    if (M3 == 1) {
-      LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
-    } else if (M3 < 7 && M3 != 0) {
+    if (M3 == 1) {  // dibujar malo
+      LCD_Bitmap(CI + 40, LI, 10, 8, malo1); // aumentar variable para hacer delay 
+    } else if (M3 < 7 && M3 != 0) { // aumentar variable para hacer delay
       M3++;
-    }  else if (M3 > 6) {
+    }  else if (M3 > 6) { // terminar delay
       M3 = 0;
       for (int x = tempx3; x < tempx3 + 13; x++) {
         V_line (x, tempy3, 8, 0);
       }
     }
-    if (M4 == 1) {
-      LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
-    } else if (M4 < 7 && M4 != 0) {
+    if (M4 == 1) {  // dibujar malo
+      LCD_Bitmap(CI + 60, LI, 10, 8, malo1); // aumentar variable para hacer delay 
+    } else if (M4 < 7 && M4 != 0) { // aumentar variable para hacer delay
       M4++;
-    }  else if (M4 > 6) {
+    }  else if (M4 > 6) { // terminar delay
       M4 = 0;
       for (int x = tempx4; x < tempx4 + 13; x++) {
         V_line (x, tempy4, 8, 0);
       }
     }
-    if (M5 == 1) {
-      LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
-    } else if (M5 < 7 && M5 != 0) {
+    if (M5 == 1) {  // dibujar malo
+      LCD_Bitmap(CI + 80, LI, 10, 8, malo1); // aumentar variable para hacer delay 
+    } else if (M5 < 7 && M5 != 0) { // aumentar variable para hacer delay
       M5++;
-    }  else if (M5 > 6) {
+    }  else if (M5 > 6) { // terminar delay
       M5 = 0;
       for (int x = tempx5; x < tempx5 + 13; x++) {
         V_line (x, tempy5, 8, 0);
@@ -686,18 +686,18 @@ void loop() {
     }
 
 
-    if (mov == 1) {
+    if (mov == 1) { // movimiento de los malos 
       CI++;
     } else if (mov == 0) {
       CI--;
     }
-    if (CI > 220) {
+    if (CI > 220) { // limite derecha
       mov = 0;
-    } else if (CI < 10) {
+    } else if (CI < 10) { // limite izquierda
       mov = 1;
       vuelta++;
     }
-    if (vuelta > nivel) {
+    if (vuelta > nivel) { // aumentar la cantidad de vueltas que han dado los malos
       vuelta = 0;
       LCD_Print("                          ", CI, LI, 2, 0x3E1C, 0);
       LI = LI + 25;
@@ -718,60 +718,60 @@ void loop() {
     }
   }
 
-  while (juego == 3) {
-    var++;
-    if (var == 11) {
+  while (juego == 3) {  // j1 vs j2
+    var++;              // incrementar la variable para hacer disparos random
+    if (var == 11) {    // limite de la variable
       var = 1;
     }
-    var_fondo++;
-    if (var_fondo == 20) {
+    var_fondo++;        // incrementar variable para fondo 
+    if (var_fondo == 20) {  // limite de fondos 
       var_fondo = 1;
     }
-    fondos(var_fondo);
+    fondos(var_fondo);  // pintar uno d elos fondos 
     //    delay(2);
 
-    if (Y1 < 186 || Y2 < 186) {
+    if (Y1 < 186 || Y2 < 186) { // si se esta disparando hacer el sonido de disparo 
       digitalWrite(musica[0], HIGH);//RB6
     } else {
       digitalWrite(musica[0], LOW);//RB6
     }
-    itoa(puntaje1, snum, 10);
-    LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);
-    itoa(puntaje2, snum, 10);
-    LCD_Print(snum, 300, 5, 1, 0x3E1C, 0);
+    itoa(puntaje1, snum, 10); // pasar puntaje1 a string
+    LCD_Print(snum, 5, 5, 1, 0x3E1C, 0);  // pintar en la pantalla
+    itoa(puntaje2, snum, 10); // pasar puntaje2 a string
+    LCD_Print(snum, 300, 5, 1, 0x3E1C, 0);  // poner el puntaje en la pantalla 
     // si se matan a todos los malos
     malos = M1 + M2 + M3 + M4 + M5;
-    if (malos == 0) {
+    if (malos == 0) { // ya nohay malos y se termina nivel
       LCD_Print("NIVEL COMPLETADO", 25, 5, 2, 0x3E1C, 0);
       nivel--;
-      delay(1500);
-      LI = 20;
-      M1 = 1;
+      delay(1500);  // reiniciar variables
+      LI = 20;      // posicion de los malos
+      M1 = 1;       // variable para pintar malos 
       M2 = 1;
       M3 = 1;
       M4 = 1;
       M5 = 1;
-      MY1 = 300;
+      MY1 = 300;    // coordenadas de los disparos 
       MY2 = 300;
       MX1 = 400;
       MX2 = 400;
       MD1 = 0;
       MD2 = 0;
-      for (int x = 0; x < 320; x++) {
+      for (int x = 0; x < 320; x++) { // pantalla 
         V_line(x, 0, 195, 0);
       }
-      Y1 = 300;
+      Y1 = 300;   // reiniciar disparos de tanques 
       Y2 = 300;
       vuelta = 0;
     }
-    reading1 = digitalRead(disp1);
+    reading1 = digitalRead(disp1); // leer botones
     reading2 = digitalRead(disp2);
 
-    if (MD1 == 0) {
+    if (MD1 == 0) { // si no esta disparando 
       var1++;
-      V_line(MX1, MY1, 12, 0);
+      V_line(MX1, MY1, 12, 0);  // borrar ultimo disparo 
       if (var1 > 6) {
-        if (M1 == 1 && var == 2) {
+        if (M1 == 1 && var == 2) {  // escoger que malo dispara random
           MD1 = 1;
           MX1 = CI;
         } else if (M2 == 1 && var == 4) {
@@ -792,24 +792,24 @@ void loop() {
         var1 = 0;
       }
     }
-    if (MD1 == 1) {
-      V_line(MX1, MY1, 6, 0xD0A3);
-      V_line(MX1, MY1 - 6, 6, 0x00);
-      MY1++;
-      if (MY1 > 194) {
+    if (MD1 == 1) { // si se esta disparando 
+      V_line(MX1, MY1, 6, 0xD0A3);  // dibujar disparo 
+      V_line(MX1, MY1 - 6, 6, 0x00);  // borrar disparo anterior 
+      MY1++;  // aumentar coordenada en "y" del disparo 
+      if (MY1 > 194) {  // si el disparo llega a la coordenada del tanque   
         MD1 = 0;
         if (tanque1 != 2) {
-          if (J1 < MX1 && MX1 < (J1 + 13)) {
-            vida1--;
+          if (J1 < MX1 && MX1 < (J1 + 13)) {  // si esta en la coordenada x tanque1
+            vida1--;  // pierde una vida 
             //            LCD_Print("wuuuuu", 25, 100, 2, 0x3E1C, 0);
           }
         }
-        if (J2 < MX1 && MX1 < (J2 + 13)) {
-          vida2--;
+        if (J2 < MX1 && MX1 < (J2 + 13)) {  // si esta en la coordenada x tanque2
+          vida2--;  // pierde una vida 
           //LCD_Print("wuuuuu", 25, 100, 2, 0x3E1C, 0);
         }
-        if (vida1 == 0) {
-          LCD_Clear(0x00);
+        if (vida1 == 0) { // el jugador 1 se queda sin vidas 
+          LCD_Clear(0x00);  // acabar juego 
           LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);
           juego = 0;
           M1 = 0;
@@ -825,7 +825,7 @@ void loop() {
           LCD_Print("jugador1 = 1 vidas", 10, 220, 1, 0x3E1C, 0);
         }
         if (vida2 == 0) {
-          LCD_Clear(0x00);
+          LCD_Clear(0x00);  // acabar juego 
           LCD_Print("GAME OVER", 25, 5, 2, 0xD0A3, 0);
           juego = 0;
           M1 = 0;
@@ -850,51 +850,51 @@ void loop() {
     if (tanque2 == 1) {
       tanque_2();
     }
-    if (M1 == 1) {
+    if (M1 == 1) { // dibujar malo
       LCD_Bitmap(CI, LI, 10, 8, malo1);
-    } else if (M1 < 7 && M1 != 0) {
+    } else if (M1 < 7 && M1 != 0) {   // aumentar variable para hacer delay
       M1++;
-    }  else if (M1 > 6) {
+    }  else if (M1 > 6) { // terminar delay
       M1 = 0;
       for (int x = tempx1; x < tempx1 + 13; x++) {
         V_line (x, tempy1, 8, 0);
       }
     }
-    if (M2 == 1) {
+    if (M2 == 1) { // dibujar malo
       LCD_Bitmap(CI + 20, LI, 10, 8, malo1);
-    } else if (M2 < 7 && M2 != 0) {
+    } else if (M2 < 7 && M2 != 0) {   // aumentar variable para hacer delay
       M2++;
-    } else if (M2 > 6) {
+    } else if (M2 > 6) { // terminar delay
       M2 = 0;
       for (int x = tempx2; x < tempx2 + 13; x++) {
         V_line (x, tempy2, 8, 0);
       }
     }
-    if (M3 == 1) {
+    if (M3 == 1) { // dibujar malo
       LCD_Bitmap(CI + 40, LI, 10, 8, malo1);
-    } else if (M3 < 7 && M3 != 0) {
+    } else if (M3 < 7 && M3 != 0) {   // aumentar variable para hacer delay
       M3++;
-    }  else if (M3 > 6) {
+    }  else if (M3 > 6) { // terminar delay
       M3 = 0;
       for (int x = tempx3; x < tempx3 + 13; x++) {
         V_line (x, tempy3, 8, 0);
       }
     }
-    if (M4 == 1) {
+    if (M4 == 1) { // dibujar malo
       LCD_Bitmap(CI + 60, LI, 10, 8, malo1);
-    } else if (M4 < 7 && M4 != 0) {
+    } else if (M4 < 7 && M4 != 0) {   // aumentar variable para hacer delay
       M4++;
-    }  else if (M4 > 6) {
+    }  else if (M4 > 6) { // terminar delay
       M4 = 0;
       for (int x = tempx4; x < tempx4 + 13; x++) {
         V_line (x, tempy4, 8, 0);
       }
     }
-    if (M5 == 1) {
+    if (M5 == 1) { // dibujar malo
       LCD_Bitmap(CI + 80, LI, 10, 8, malo1);
-    } else if (M5 < 7 && M5 != 0) {
+    } else if (M5 < 7 && M5 != 0) {   // aumentar variable para hacer delay
       M5++;
-    }  else if (M5 > 6) {
+    }  else if (M5 > 6) { // terminar delay
       M5 = 0;
       for (int x = tempx5; x < tempx5 + 13; x++) {
         V_line (x, tempy5, 8, 0);
@@ -902,34 +902,34 @@ void loop() {
     }
 
 
-    if (mov == 1) {
+    if (mov == 1) { // movimiento de los malos
       CI++;
     } else if (mov == 0) {
       CI--;
     }
-    if (CI > 220) {
+    if (CI > 220) { // limite derecha
       mov = 0;
-    } else if (CI < 10) {
+    } else if (CI < 10) { // limite izquierda 
       mov = 1;
-      vuelta++;
+      vuelta++; // aumentar la cantidad de vueltas que han dados los malos 
     }
-    if (vuelta > nivel) {
+    if (vuelta > nivel) { // si la cantidad de vueltas superan el nivel, bajar a los malos (en el eje y)
       vuelta = 0;
       LCD_Print("                          ", CI, LI, 2, 0x3E1C, 0);
       LI = LI + 25;
     }
 
     if (tanque1 == 0 || tanque2 == 0) {
-      LI = 400;
+      LI = 400; // si alguno de los tanques no tienen vidas terminal el juego
     }
     // jugador pierde
-    if (LI > 160) {
-      LCD_Clear(0x00);
+    if (LI > 160) { // si los malos llegan hasta abajo (eje y) 
+      LCD_Clear(0x00); // borrar la pantalla y terminar el juego
       LCD_Print("GAME OVER", 25, 15, 2, 0x3E1C, 0);
       juego = 0;
     }
     // jugador gana
-    if (nivel == 1) {
+    if (nivel == 1) { // si se llega al nivel 1 se termina el juego 
       LCD_Clear(0x00);
       LCD_Print("JUEGO COMPLETADO", 25, 5, 2, 0xFFFF, 0);
       juego = 0;
@@ -1007,28 +1007,28 @@ void loop() {
     highscores(puntajeT, 1);
   }
 
-  while (juego == 0) {
+  while (juego == 0) {  // si se acaba el juego 
     digitalWrite(musica[0], LOW);//RB6
     digitalWrite(musica[1], LOW);//RB7
     modo = 0;
-    reading1 = digitalRead(disp1);
-    reading2 = digitalRead(disp2);
+    reading1 = digitalRead(disp1);  // leer botones
+    reading2 = digitalRead(disp2);  // leer botones 
     if (reading1 == HIGH || reading2 == HIGH) {
-      reiniciar();
+      reiniciar();  // si se preciona reiniciar el juego 
     }
   }
 }
 // 1  - modo 1
 // 2 - modo 2
-void highscores(int puntaje, int num) {
+void highscores(int puntaje, int num) { // comparar el ultimo puntaje 
   if (num == 1) {
 
     Serial.println("......");
-    if (puntaje > high1) {
+    if (puntaje > high1) {  // determinar en que lugar esta el nuevo puntaje
       high3 = high2;
       high2 = high1;
       high1 = puntaje;
-      LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0);
+      LCD_Print("new 1st highscore", 150, 170, 1, 0x3E1C, 0); // escribir si es un nuevo highscore
       Serial.println("primer lugar");
     } else if (puntaje > high2) {
       high3 = high2;
@@ -1045,16 +1045,16 @@ void highscores(int puntaje, int num) {
       high1 = high1;
     }
     SD.remove("2jugador.txt");
-    modo2 = SD.open("2jugador.txt", FILE_WRITE);
+    modo2 = SD.open("2jugador.txt", FILE_WRITE);  // documento jugador 2
     // if the file opened okay, write to it:
     if (modo2) {
       Serial.println("Writing to 2jugador.txt...");
       Serial.println(high1);
       Serial.println(high2);
       Serial.println(high3);
-      itoa(high1, snum, 10);
-      if (high1 > 99) {
-        modo2.print(snum[0]);
+      itoa(high1, snum, 10);  // pasar high1 a string
+      if (high1 > 99) { // determinar cuantos digitos tiene high1
+        modo2.print(snum[0]); 
         modo2.print(snum[1]);
         modo2.print(snum[2]);
       } else if (high1 > 9) {
@@ -1066,11 +1066,11 @@ void highscores(int puntaje, int num) {
         modo2.print("0");
         modo2.print(snum[0]);
       }
-      modo2.print("\n");
+      modo2.print("\n");  // escribir el enter
 
 
-      itoa(high2, snum, 10);
-      if (high2 > 99) {
+      itoa(high2, snum, 10);  //  determiar cuantos digitos tiene el high2
+      if (high2 > 99) {  
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
@@ -1083,11 +1083,11 @@ void highscores(int puntaje, int num) {
         modo2.print("0");
         modo2.print(snum[0]);
       }
-      modo2.print("\n");
+      modo2.print("\n");      // escribir el enter
 
 
-      itoa(high3, snum, 10);
-      if (high3 > 99) {
+      itoa(high3, snum, 10);  // pasar high3 a string
+      if (high3 > 99) {       // determinar cuantos digitos tiene el high3
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
@@ -1100,7 +1100,7 @@ void highscores(int puntaje, int num) {
         modo2.print("0");
         modo2.print(snum[0]);
       }
-      modo2.print("\n");
+      modo2.print("\n");      // escribir el enter
 
       // close the file:
       modo2.close();
@@ -1110,10 +1110,10 @@ void highscores(int puntaje, int num) {
       Serial.println("error opening 2jugador.txt");
     }
   }
-  if (num == 2) {
+  if (num == 2) {   // para puntaje de jugador 1
 
     Serial.println("......");
-    if (puntaje > high12) {
+    if (puntaje > high12) { // determinar en que posicion esta el nuevo puntaje 
       high32 = high22;
       high22 = high12;
       high12 = puntaje;
@@ -1133,7 +1133,7 @@ void highscores(int puntaje, int num) {
       high22 = high22;
       high12 = high12;
     }
-    SD.remove("1jugador.txt");
+    SD.remove("1jugador.txt");  // borrar datos anteriores 
     modo2 = SD.open("1jugador.txt", FILE_WRITE);
     // if the file opened okay, write to it:
     if (modo2) {
@@ -1141,8 +1141,8 @@ void highscores(int puntaje, int num) {
       Serial.println(high12);
       Serial.println(high22);
       Serial.println(high32);
-      itoa(high12, snum, 10);
-      if (high12 > 99) {
+      itoa(high12, snum, 10); // pasar a string
+      if (high12 > 99) {  // determinar cuantos digitos tiene
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
@@ -1155,11 +1155,11 @@ void highscores(int puntaje, int num) {
         modo2.print("0");
         modo2.print(snum[0]);
       }
-      modo2.print("\n");
+      modo2.print("\n");  // escribir el enter
 
 
-      itoa(high22, snum, 10);
-      if (high22 > 99) {
+      itoa(high22, snum, 10); // pasar high2 a string
+      if (high22 > 99) {  // determinar cuantos digitos tiene
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
@@ -1172,11 +1172,11 @@ void highscores(int puntaje, int num) {
         modo2.print("0");
         modo2.print(snum[0]);
       }
-      modo2.print("\n");
+      modo2.print("\n");  // escribir el enter
 
 
-      itoa(high32, snum, 10);
-      if (high32 > 99) {
+      itoa(high32, snum, 10); // pasar high3 a string
+      if (high32 > 99) {  // determinar cuantos digitos tiene
         modo2.print(snum[0]);
         modo2.print(snum[1]);
         modo2.print(snum[2]);
@@ -1189,7 +1189,7 @@ void highscores(int puntaje, int num) {
         modo2.print("0");
         modo2.print(snum[0]);
       }
-      modo2.print("\n");
+      modo2.print("\n");    // escribir el enter
 
       // close the file:
       modo2.close();
@@ -1200,105 +1200,105 @@ void highscores(int puntaje, int num) {
     }
   }
 }
-void tanque_2(void) {
-  J2 = (J2 > 306 ? 306 : J2);
+void tanque_2(void) { // dibujar tanque y disparo 
+  J2 = (J2 > 306 ? 306 : J2); // movimiento del tanque 2
   J2 = (J2 < 161 ? 161 : J2);
 
-  LCD_Bitmap(J2, 200, 13, 8, chunche);
+  LCD_Bitmap(J2, 200, 13, 8, chunche);  // dibujar el tanque
   int B_der2 = digitalRead(der2);
   if (B_der2 == HIGH) {
-    J2++;
+    J2++; // mover el tanque
     V_line(J2 - 1, 200, 8, 0);
   }
   int B_izq2 = digitalRead(izq2);
   if (B_izq2 == HIGH) {
-    J2--;
+    J2--; // mover el tanque 
     V_line(J2 + 14, 200, 8, 0);
   }
-  if (Y2 < 186) {
-    V_line(D2, 185 - Y2, 6, 0x3E1C);
-    V_line(D2, 185 + 6 - Y2, 6, 0x00);
-    Y2++;
-    if (185 - Y2 >= (LI - 7) && (185 - Y2) <= (LI + 7)) {
-      if ((CI - 1) <= D2 && (CI + 10) >= D2 && M1 == 1) {
-        Y2 = 190;
-        V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI, LI, 13, 8, explo);
-        puntaje2++;
-        M1++;
-        tempx1 = CI;
-        tempy1 = LI;
-      } else if ((CI + 20) <= D2 && (CI + 30) >= D2 && M2 == 1) {
-        Y2 = 190;
-        V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 20, LI, 13, 8, explo);
-        puntaje2++;
-        M2++;
-        tempx2 = CI + 20;
-        tempy2 = LI;
-      } else if ((CI + 40) <= D2 && (CI + 50) >= D2 && M3 == 1) {
-        Y2 = 190;
-        V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 40, LI, 13, 8, explo);
-        puntaje2++;
-        M3++;
-        tempx3 = CI + 40;
-        tempy3 = LI;
-      } else if ((CI + 60) <= D2 && (CI + 70) >= D2 && M4 == 1) {
-        Y2 = 190;
-        V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 60, LI, 13, 8, explo);
-        puntaje2++;
-        M4++;
-        tempx4 = CI + 60;
-        tempy4 = LI;
-      } else if ((CI + 80) <= D2 && (CI + 90) >= D2 && M5 == 1) {
-        Y2 = 190;
-        V_line(D2, LI - 6, 20, 0x0);
-        LCD_Bitmap(CI + 80, LI, 13, 8, explo);
-        puntaje2++;
-        M5++;
-        tempx5 = CI + 80;
-        tempy5 = LI;
+  if (Y2 < 186) { // si se esta disparando 
+    V_line(D2, 185 - Y2, 6, 0x3E1C);  // dibuar disparo
+    V_line(D2, 185 + 6 - Y2, 6, 0x00);  // borrar disparo anterior 
+    Y2++; // mover disparo 
+    if (185 - Y2 >= (LI - 7) && (185 - Y2) <= (LI + 7)) { // si el disparo llega a la coordenada en "y" del malo
+      if ((CI - 1) <= D2 && (CI + 10) >= D2 && M1 == 1) { // si el disparo esta en el eje "x" del malo
+        Y2 = 190; // terminar disparo 
+        V_line(D2, LI - 6, 20, 0x0);  // borrar disparo 
+        LCD_Bitmap(CI, LI, 13, 8, explo); // dibujar explosion 
+        puntaje2++; // aumentar disparo
+        M1++;   // aumentar valor de malo 
+        tempx1 = CI;  // posicion de la explosion en "x"
+        tempy1 = LI;  // posicion de la explosion en "y"
+      } else if ((CI + 20) <= D2 && (CI + 30) >= D2 && M2 == 1) { // si el disparo esta en el eje "x" del malo
+        Y2 = 190; // terminar disparo 
+        V_line(D2, LI - 6, 20, 0x0);  // borrar disparo 
+        LCD_Bitmap(CI + 20, LI, 13, 8, explo); // dibujar explosion 
+        puntaje2++; // aumentar disparo
+        M2++;   // aumentar valor de malo 
+        tempx2 = CI + 20;  // posicion de la explosion en "x"
+        tempy2 = LI;  // posicion de la explosion en "y"
+      } else if ((CI + 40) <= D2 && (CI + 50) >= D2 && M3 == 1) { // si el disparo esta en el eje "x" del malo
+        Y2 = 190; // terminar disparo 
+        V_line(D2, LI - 6, 20, 0x0);  // borrar disparo 
+        LCD_Bitmap(CI + 40, LI, 13, 8, explo); // dibujar explosion 
+        puntaje2++; // aumentar disparo
+        M3++;   // aumentar valor de malo 
+        tempx3 = CI + 40;  // posicion de la explosion en "x"
+        tempy3 = LI;  // posicion de la explosion en "y"
+      } else if ((CI + 60) <= D2 && (CI + 70) >= D2 && M4 == 1) { // si el disparo esta en el eje "x" del malo
+        Y2 = 190; // terminar disparo 
+        V_line(D2, LI - 6, 20, 0x0);  // borrar disparo 
+        LCD_Bitmap(CI + 60, LI, 13, 8, explo); // dibujar explosion 
+        puntaje2++; // aumentar disparo
+        M4++;   // aumentar valor de malo 
+        tempx4 = CI + 60;  // posicion de la explosion en "x"
+        tempy4 = LI;  // posicion de la explosion en "y"
+      } else if ((CI + 80) <= D2 && (CI + 90) >= D2 && M5 == 1) { // si el disparo esta en el eje "x" del malo
+        Y2 = 190; // terminar disparo 
+        V_line(D2, LI - 6, 20, 0x0);  // borrar disparo 
+        LCD_Bitmap(CI + 80, LI, 13, 8, explo); // dibujar explosion 
+        puntaje2++; // aumentar disparo
+        M5++;   // aumentar valor de malo 
+        tempx5 = CI + 80;  // posicion de la explosion en "x"
+        tempy5 = LI;  // posicion de la explosion en "y"
       }
     }
   } else {
-    V_line(D2, 0, 15, 0x00);
+    V_line(D2, 0, 15, 0x00);// borrar disparo 
     if (reading2 == LOW) {
       antirebote2 = 1;
     } else {
       if (antirebote2 == 1) {
         antirebote2 = 0;
-        D2 = J2 + 7;
-        Y2 = 0;
+        D2 = J2 + 7;  // coordenadas disparo  
+        Y2 = 0;       // variable par ainiciar disparo 
       }
     }
   }
 }
 void tanque_1(void) {
-  if (modo != 2) {
+  if (modo != 2) {  // limite derecho del tanque1 para modo 2
     J1 = (J1 > 146 ? 146 : J1);
   } else {
-    J1 = (J1 > 306 ? 306 : J1);
+    J1 = (J1 > 306 ? 306 : J1); // limite derecha del tanque2 para los demas modos
   }
-  J1 = (J1 < 1 ? 1 : J1);
-  LCD_Bitmap(J1, 200, 13, 8, chunche);
-  int B_der1 = digitalRead(der1);
+  J1 = (J1 < 1 ? 1 : J1); // limites izquierda del tanque 1
+  LCD_Bitmap(J1, 200, 13, 8, chunche);    // dibujo del tanque 
+  int B_der1 = digitalRead(der1); 
   if (B_der1 == HIGH) {
-    J1++;
+    J1++; // mover a la derecha
     V_line(J1 - 1, 200, 8, 0);
   }
   int B_izq1 = digitalRead(izq1);
-  if (B_izq1 == HIGH) {
+  if (B_izq1 == HIGH) { // mover a la izquierda 
     J1--;
     V_line(J1 + 14, 200, 8, 0);
   }
-  if (Y1 < 186) {
-    V_line(D1, 185 - Y1, 6, 0x3E1C);
-    V_line(D1, 185 + 6 - Y1, 6, 0x00);
-    Y1++;
-    if (185 - Y1 >= (LI - 7) && (185 - Y1) <= (LI + 7)) {
-      if ((CI - 1) <= D1 && (CI + 10) >= D1 && M1 == 1) {
+  if (Y1 < 186) { // se esta disparando 
+    V_line(D1, 185 - Y1, 6, 0x3E1C);  // dibujar disparo 
+    V_line(D1, 185 + 6 - Y1, 6, 0x00);  // borrar disparo anterior 
+    Y1++; // mover disparo 
+    if (185 - Y1 >= (LI - 7) && (185 - Y1) <= (LI + 7)) { // esta en la misma posicion en "y" del malo
+      if ((CI - 1) <= D1 && (CI + 10) >= D1 && M1 == 1) { // esta en la misma posicion en "x" del malo 
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
         LCD_Bitmap(CI, LI, 13, 8, explo);
@@ -1306,7 +1306,7 @@ void tanque_1(void) {
         M1++;
         tempx1 = CI;
         tempy1 = LI;
-      } else if ((CI + 20) <= D1 && (CI + 30) >= D1 && M2 == 1) {
+      } else if ((CI + 20) <= D1 && (CI + 30) >= D1 && M2 == 1) { // esta en la misma posicion en "x" del malo 
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
         LCD_Bitmap(CI + 20, LI, 13, 8, explo);
@@ -1314,7 +1314,7 @@ void tanque_1(void) {
         M2++;
         tempx2 = CI + 20;
         tempy2 = LI;
-      } else if ((CI + 40) <= D1 && (CI + 50) >= D1 && M3 == 1) {
+      } else if ((CI + 40) <= D1 && (CI + 50) >= D1 && M3 == 1) { // esta en la misma posicion en "x" del malo 
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
         LCD_Bitmap(CI + 40, LI, 13, 8, explo);
@@ -1322,7 +1322,7 @@ void tanque_1(void) {
         M3++;
         tempx3 = CI + 40;
         tempy3 = LI;
-      } else if ((CI + 60) <= D1 && (CI + 70) >= D1 && M4 == 1) {
+      } else if ((CI + 60) <= D1 && (CI + 70) >= D1 && M4 == 1) { // esta en la misma posicion en "x" del malo 
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
         LCD_Bitmap(CI + 60, LI, 13, 8, explo);
@@ -1330,7 +1330,7 @@ void tanque_1(void) {
         M4++;
         tempx4 = CI + 60;
         tempy4 = LI;
-      } else if ((CI + 80) <= D1 && (CI + 90) >= D1 && M5 == 1) {
+      } else if ((CI + 80) <= D1 && (CI + 90) >= D1 && M5 == 1) { // esta en la misma posicion en "x" del malo 
         Y1 = 190;
         V_line(D1, LI - 6, 20, 0x0);
         LCD_Bitmap(CI + 80, LI, 13, 8, explo);
@@ -1340,29 +1340,29 @@ void tanque_1(void) {
         tempy5 = LI;
       }
     }
-  } else {
+  } else {  // no se esta disparando 
     V_line(D1, 0, 15, 0x00);
     if (reading1 == LOW) {
       antirebote1 = 1;
     } else {
       if (antirebote1 == 1) {
         antirebote1 = 0;
-        D1 = J1 + 7;
+        D1 = J1 + 7;  // coordenadas del disparo 
         Y1 = 0;
       }
     }
   }
 }
-void menuu(void) {
+void menuu(void) {  // menu del juego 
   //juego = 1;
   puntajeT = 0;
-  var_flecha = 114;
+  var_flecha = 114; // posicion de la flecha 
   LCD_Bitmap(100, 50, 127, 39, logo);
-  LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);
+  LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);  // opciones de juego 
   LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
   LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
   LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
-  digitalWrite(musica[0], HIGH);//RB6
+  digitalWrite(musica[0], HIGH);//RB6 // musica menu 
   digitalWrite(musica[1], LOW);//RB7
   while (menu == 1) {
     B_der1 = digitalRead(der1);
@@ -1371,57 +1371,57 @@ void menuu(void) {
     B_izq2 = digitalRead(izq2);
     reading1 = digitalRead(disp1);
     reading2 = digitalRead(disp2);
-    if (B_der1 == HIGH || B_der2 == HIGH) {
+    if (B_der1 == HIGH || B_der2 == HIGH) { // antirebote boton 1
       anti1 = 1;
     }
-    if ((B_der1 == LOW && B_der2 == LOW) && anti1 == 1) {
+    if ((B_der1 == LOW && B_der2 == LOW) && anti1 == 1) { //  antirebote1
       anti1 = 0;
       if (var_flecha == 114) {
-        var_flecha = 144;
+        var_flecha = 144;  // correr la flecha
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
-        LCD_Print("1 jugador", 40, 150, 2, 0xC992, 0);
+        LCD_Print("1 jugador", 40, 150, 2, 0xC992, 0);// cambiar el color del seleccionado
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
         LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
           V_line( x, 114, 160, 0x0000);
         }
       } else  if (var_flecha == 144) {
-        var_flecha = 174;
+        var_flecha = 174;  // correr la flecha
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
-        LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);
+        LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);// cambiar el color del seleccionado
         LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
           V_line( x, 114, 160, 0x0000);
         }
       } else if (var_flecha == 174) {
-        var_flecha = 204;
+        var_flecha = 204;  // correr la flecha
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
-        LCD_Print("Highscores", 40, 210, 2, 0xC992, 0);
+        LCD_Print("Highscores", 40, 210, 2, 0xC992, 0);// cambiar el color del seleccionado
         for (int x = 20; x < 35; x++) {
           V_line( x, 114, 160, 0x0000);
         }
       }
     }
-    if (B_izq1 == HIGH || B_izq2 == HIGH) {
+    if (B_izq1 == HIGH || B_izq2 == HIGH) { // antirebote 2
       anti2 = 1;
     }
-    if ((B_izq1 == LOW && B_izq2 == LOW) && anti2 == 1) {
+    if ((B_izq1 == LOW && B_izq2 == LOW) && anti2 == 1) { // antirebote 
       anti2 = 0;
       if (var_flecha == 174) {
-        var_flecha = 144;
+        var_flecha = 144; // correr la flecha
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
-        LCD_Print("1 jugador", 40, 150, 2, 0xC992, 0);
+        LCD_Print("1 jugador", 40, 150, 2, 0xC992, 0);// cambiar el color del seleccionado
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
         LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
           V_line( x, 114, 160, 0x0000);
         }
       } else if (var_flecha == 144) {
-        var_flecha = 114;
-        LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);
+        var_flecha = 114; // correr la flecha
+        LCD_Print("2 jugadores", 40, 120, 2, 0xC992, 0);// cambiar el color del seleccionado
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
         LCD_Print("j1 vs j2", 40, 180, 2, 0xFFFF, 0);
         LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
@@ -1429,10 +1429,10 @@ void menuu(void) {
           V_line( x, 114, 160, 0x0000);
         }
       } else if (var_flecha == 204) {
-        var_flecha = 174;
+        var_flecha = 174; // correr la flecha
         LCD_Print("2 jugadores", 40, 120, 2, 0xFFFF, 0);
         LCD_Print("1 jugador", 40, 150, 2, 0xFFFF, 0);
-        LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);
+        LCD_Print("j1 vs j2", 40, 180, 2, 0xC992, 0);// cambiar el color del seleccionado
         LCD_Print("Highscores", 40, 210, 2, 0xFFFF, 0);
         for (int x = 20; x < 35; x++) {
           V_line( x, 114, 160, 0x0000);
@@ -1444,29 +1444,29 @@ void menuu(void) {
       }
     }
     LCD_Bitmap(20, var_flecha, 13, 26, flecha);
-    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 114) {
+    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 114) { // se presiono el boton en modo de juego 1
       juego = 1;
       modo = 1;
       menu = 0;
     }
-    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 144) {
+    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 144) { // se presiono el boton en modo de juego 2
       juego = 2;
       modo = 2;
       menu = 0;
     }
-    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 174) {
+    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 174) { // se presiono el boton en modo de juego 3
       juego = 3;
       modo = 3;
       menu = 0;
     }
-    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 204) {
+    if ((reading1 == HIGH || reading2 == HIGH) && var_flecha == 204) { // se presiono el boton en modo de juego 4
       juego = 4;
       modo = 0;
       menu = 0;
     }
   }
 }
-void fondos(int fondo) {
+void fondos(int fondo) { // dibujar estrellitas 
   if (fondo == 0) {
     // 000 - 160 x | 000 - 120 y
     V_line(10, 1, 0, 0xCFB9);    // verde
@@ -1686,7 +1686,7 @@ void fondos(int fondo) {
   }
   
 }
-void reiniciar(void) {
+void reiniciar(void) {  //reiniciar juego 
   LCD_Clear(0x00);
   digitalWrite(musica[0], LOW);//RB6
   digitalWrite(musica[1], LOW);//RB7
@@ -1694,12 +1694,12 @@ void reiniciar(void) {
 //  delay(300000);
   for (int x = 0; x < 315 - 128; x++) {
     //    fondos(0);
-    LCD_Bitmap(x, 100, 127, 39, logo);
-    fondos(0);
-    V_line( x - 1, 100, 30, 0x0000);
+    LCD_Bitmap(x, 100, 127, 39, logo);  // dibujar logo 
+    fondos(0);  // dibujar el fondo 0
+    V_line( x - 1, 100, 30, 0x0000);  // borrar linea del logo al moverse
   }
   Serial.println("highscores");
-  puntaje1 = 0;
+  puntaje1 = 0; // reiniciar variables para el juego 
   puntaje2 = 0;
   puntaje = 0;
   J1 = 80;
@@ -1727,27 +1727,27 @@ void reiniciar(void) {
   tanque2 = 1;
   nivel = 8;
   delay(800);
-  LCD_Clear(0x00);
-  menu = 1;
-  fondos(0);
-  menuu();
-  LCD_Clear(0x00);
-  if (juego != 4) {
-    LCD_Bitmap(J1, 200, 13, 8, chunche);
-    H_line(0, 209, 319,  0xD0A3);
+  LCD_Clear(0x00);  // borrar pantalla 
+  menu = 1; // variable para while del menu 
+  fondos(0);  // dibujar fondo 
+  menuu();  // ir al menu
+  LCD_Clear(0x00);  // borrar el menu 
+  if (juego != 4) { // si no esta en highscores 
+    LCD_Bitmap(J1, 200, 13, 8, chunche);  // dibujar el jugador 1
+    H_line(0, 209, 319,  0xD0A3); // dibujar linea para poner los tanques
     H_line(0, 210, 319,  0xD0A3);
     H_line(0, 211, 319,  0xD0A3);
 
-    if (modo != 2) {
+    if (modo != 2) {  // si no esta en modo de solo 1 jugador
       // dos jugadores divididos en 170
-      V_line(160, 195, 209,  0xD0A3);
+      V_line(160, 195, 209,  0xD0A3); // seprar tanques
       LCD_Print("jugador1 = 3 vidas", 10, 220, 1, 0x3E1C, 0);
-      LCD_Print("jugador2 = 3 vidas", 165, 220, 1, 0x3E1C, 0);
+      LCD_Print("jugador2 = 3 vidas", 165, 220, 1, 0x3E1C, 0);  // vidas d elos jugadores
 
 
       LCD_Bitmap(J2, 200, 13, 8, chunche);
     } else {
-      LCD_Print("jugador = 3 vidas", 10, 220, 1, 0x3E1c, 0);
+      LCD_Print("jugador = 3 vidas", 10, 220, 1, 0x3E1c, 0);  // vida del jugador 
       LCD_Print("                 ", 165, 220, 1, 0x3E1C, 0);
     }
   }
