@@ -90,8 +90,15 @@ int main(void)
                //
                // Delay for a bit.
                //
-               for(ui32Loop = 0; ui32Loop < 100000; ui32Loop++)
+               for(ui32Loop = 0; ui32Loop < 50000; ui32Loop++)
                {
+               }
+               boton = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4);
+               if (boton == 0){
+                   boton = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4);
+                   antirebote = 1;
+               } else if(antirebote == 1){
+                   antirebote = 2;
                }
                // verde off
                GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0);
@@ -99,7 +106,7 @@ int main(void)
                //
                // Delay for a bit.
                //
-               for(ui32Loop = 0; ui32Loop < 100000; ui32Loop++)
+               for(ui32Loop = 0; ui32Loop < 50000; ui32Loop++)
                {
                }
                if (antirebote == 2){
