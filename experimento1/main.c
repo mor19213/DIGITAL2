@@ -9,6 +9,7 @@ uint8_t LED = 2;
 uint8_t antirebote = 0;
 uint8_t reinicio = 1;
 uint8_t boton = 0;
+uint8_t x = 0;
 
 /**
  * main.c
@@ -42,9 +43,9 @@ int main(void)
        GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_0);  // boton
 
        while(1){
-           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);   // rojo on
-           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0);
-           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0);
+           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0);    // rojo
+           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0);    // azul
+           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);       // verde
 
            //
            // Delay for a bit.
@@ -53,19 +54,26 @@ int main(void)
            {
            }
 
+           while (x < 10){
+               GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);       // verde
+               //
+               // Delay for a bit.
+               //
+               for(ui32Loop = 0; ui32Loop < 50000; ui32Loop++)
+               {
+               }
+               GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0);       // verde
+               //
+               // Delay for a bit.
+               //
+               for(ui32Loop = 0; ui32Loop < 50000; ui32Loop++)
+               {
+               }
+               x++;
+           }
+           x = 0;
            //amarillo
            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
-           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0);
-           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
-
-           //
-           // Delay for a bit.
-           //
-           for(ui32Loop = 0; ui32Loop < 500000; ui32Loop++)
-           {
-           }
-           // verde
-           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0);
            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0);
            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
 
@@ -85,43 +93,12 @@ int main(void)
                    antirebote = 2;
                }
                // verde on
-               GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
+               GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_1);
 
-               //
-               // Delay for a bit.
-               //
-               for(ui32Loop = 0; ui32Loop < 50000; ui32Loop++)
-               {
-               }
-               boton = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4);
-               if (boton == 0){
-                   boton = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4);
-                   antirebote = 1;
-               } else if(antirebote == 1){
-                   antirebote = 2;
-               }
-               // verde off
-               GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0);
-
-               //
-               // Delay for a bit.
-               //
-               for(ui32Loop = 0; ui32Loop < 50000; ui32Loop++)
-               {
-               }
                if (antirebote == 2){
                    reinicio = 0;
                    antirebote = 0;
                }
-               //while(1){
-               //    boton = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4);
-               //    if (boton > 0){
-               //        boton = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4);
-               //        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);   // rojo on
-               //    } else{
-               //        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0);   // rojo on
-               //    }
-               // }
            }
        }
 }
