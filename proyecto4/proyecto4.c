@@ -55,9 +55,13 @@ int main(void)
            // Enable the GPIO pin for the LED (PG2).  Set the direction as output, and
            // enable the GPIO pin for digital function.
            //
+           // entradas , salidas y pullups
            GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);  // azul
            GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1);  // rojo
            GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);  // verde
+           GPIOPadConfigSet(GPIO_PORTF_BASE,GPIO_PIN_4,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);   // enable F4's pullup, the drive strength won't affect the input
+           GPIOPadConfigSet(GPIO_PORTF_BASE,GPIO_PIN_0,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);   // enable F4's pullup, the drive strength won't affect the input
+           GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_0);  // boton
 
            IntMasterEnable();
            IntEnable(INT_UART0);
