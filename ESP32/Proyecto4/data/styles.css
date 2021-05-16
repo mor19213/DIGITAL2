@@ -1,0 +1,36 @@
+body {
+  background-color: powderblue;
+  text-align: center;
+
+}
+h1 {
+  color: blue;
+}
+
+body{margin-top: 50px;} 
+h1 {color: #444444;margin: 50px auto 30px;} 
+h3 {color: #444444;margin-bottom: 50px;}
+p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+table {
+  border-collapse: collapse;
+  width: 80%;
+  border: 2px solid lightblue;
+  align-self: center;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid lightblue;
+  font-style: "arial";
+  font-size: 20px;
+}
+#ocupado {
+	color: red;
+}
+#libre {
+	color: green;
+}
+#titulo{
+	background-color: blue;
+}
+tr:hover {background-color:#f5f5f5;}

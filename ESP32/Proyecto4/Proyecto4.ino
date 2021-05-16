@@ -18,12 +18,23 @@
 // SSID & Password
 const char* ssid = "Casa";  // Enter your SSID here
 const char* password = "Clave123";  //Enter your Password here
+// uart
+#define RX2 16
+#define TX2 17
 
 WebServer server(80);  // Object of WebServer(HTTP port, 80 is defult)
 
-
 uint8_t LED1pin = 2;
 bool LED1status = LOW;
+uint8_t var = 0;
+uint8_t libres = 4;
+uint8_t espacio1 = 0;
+uint8_t espacio2 = 0;
+uint8_t espacio3 = 0;
+uint8_t espacio4 = 0;
+uint8_t espacios = 0;
+
+void display(uint8_t);
 
 //************************************************************************************************
 // Configuración
@@ -34,6 +45,9 @@ void setup() {
     Serial.println("An Error has occurred while mounting SPIFFS");
     return;
   }
+  // serial con tiva
+  Serial1.begin(9600, SERIAL_8N1, RX2, TX2);
+  
   Serial.println("Try Connecting to ");
   Serial.println(ssid);
 
@@ -53,13 +67,10 @@ void setup() {
   Serial.println(WiFi.localIP());  //Show ESP32 IP on serial
 
   server.on("/", handle_OnConnect); // Directamente desde e.g. 192.168.0.8
-  server.on("/led1on", handle_led1on);
-  server.on("/led1off", handle_led1off);
   server.onNotFound([]() {                  // If the client requests any URI
     if (!HandleFileRead(server.uri()))      // send it if it exists
-      handleNotFound();             // otherwise, respond with a 404 (Not Found) error
+      handleNotFound();                     // otherwise, respond with a 404 (Not Found) error
   });
-  //server.onNotFound(handle_NotFound);
 
   server.begin();
   Serial.println("HTTP server started");
@@ -69,40 +80,19 @@ void setup() {
 // loop principal
 //************************************************************************************************
 void loop() {
+  libres = Serial1.read();
+  display(libres);
   server.handleClient();
-  if (LED1status)
-  {
-    digitalWrite(LED1pin, HIGH);
-  }
-  else
-  {
-    digitalWrite(LED1pin, LOW);
-  }
 }
 //************************************************************************************************
 // Handler de Inicio página
 //************************************************************************************************
 void handle_OnConnect() {
-  LED1status = LOW;
-  Serial.println("GPIO2 Status: OFF");
-  server.send(200, "text/html", SendHTML(LED1status));
-}
-//************************************************************************************************
-// Handler de led1on
-//************************************************************************************************
-void handle_led1on() {
   LED1status = HIGH;
-  Serial.println("GPIO2 Status: ON");
-  server.send(200, "text/html", SendHTML(LED1status));
-}
-//************************************************************************************************
-// Handler de led1off
-//************************************************************************************************
-void handle_led1off() {
-  LED1status = LOW;
   Serial.println("GPIO2 Status: OFF");
   server.send(200, "text/html", SendHTML(LED1status));
 }
+
 //************************************************************************************************
 // Procesador de HTML
 //************************************************************************************************
@@ -110,32 +100,121 @@ String SendHTML(uint8_t led1stat) {
   String ptr = "<!DOCTYPE html> <html>\n";
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
   ptr += "<title>LED Control</title>\n";
-  ptr += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
-  ptr += "body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
-  ptr += ".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
-  ptr += ".button-on {background-color: #3498db;}\n";
-  ptr += ".button-on:active {background-color: #2980b9;}\n";
-  ptr += ".button-off {background-color: #34495e;}\n";
-  ptr += ".button-off:active {background-color: #2c3e50;}\n";
-  ptr += "p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
-  ptr += "</style>\n";
+  ptr += "<link rel=\"stylesheet\" href=\"styles.css\">\n";
   ptr += "</head>\n";
   ptr += "<body>\n";
   ptr += "<h1>ESP32 Web Server &#128664</h1>\n";
   ptr += "<h3>Ejemplo de Web Server</h3>\n";
-
-  if (led1stat)
-  {
-    ptr += "<p>LED1 Status: ON</p><a class=\"button button-off\" href=\"/led1off\">OFF</a>\n";
-  }
-  else
-  {
-    ptr += "<p>LED1 Status: OFF</p><a class=\"button button-on\" href=\"/led1on\">ON</a>\n";
-  }
-
+  ptr += "<table>\n";
+  ptr += "<tr id=\"titulo\">\n";
+    ptr += "<th> Parqueo </th>\n";
+    ptr += "<th> Sensor </th>\n";
+  ptr += "</tr>\n";
+  ptr += "<tr>\n";
+    ptr += "<td>Parqueo 1</td>\n";
+    ptr += "<td>Algo</td>\n";
+  ptr += "</tr>\n";
+  ptr += "<tr>\n";
+    ptr += "<td>Parqueo 2</td>\n";
+    ptr += "<td>Algo</td>\n";
+  ptr += "</tr>\n";
+  ptr += "<tr>\n";
+    ptr += "<td>Parqueo 3</td>\n";
+    ptr += "<td>Algo</td>\n";
+  ptr += "</tr>\n";
+  ptr += "<tr>\n";
+    ptr += "<td>Parqueo 4</td>\n";
+    ptr += "<td>Algo</td>\n";
+  ptr += "</tr>\n";
+  ptr += "</table>\n";
   ptr += "</body>\n";
   ptr += "</html>\n";
   return ptr;
+}
+
+void display(uint8_t libres){
+  if (libres == 0){ //0000
+    espacio1 = 0;
+    espacio2 = 0;
+    espacio3 = 0;
+    espacio4 = 0;
+  }else if (libres == 1){ //0001
+    espacio1 = 1;
+    espacio2 = 0;
+    espacio3 = 0;
+    espacio4 = 0;
+  }else if (libres == 2){ //0010
+    espacio1 = 0;
+    espacio2 = 1;
+    espacio3 = 0;
+    espacio4 = 0;
+  }else if (libres == 3){ //0011
+    espacio1 = 1;
+    espacio2 = 1;
+    espacio3 = 0;
+    espacio4 = 0;
+  }else if (libres == 4){ //0100
+    espacio1 = 0;
+    espacio2 = 0;
+    espacio3 = 1;
+    espacio4 = 0;
+  }else if (libres == 5){ //0101
+    espacio1 = 1;
+    espacio2 = 0;
+    espacio3 = 1;
+    espacio4 = 0;
+  }else if (libres == 6){ //0110
+    espacio1 = 0;
+    espacio2 = 1;
+    espacio3 = 1;
+    espacio4 = 0;
+  }else if (libres == 7){ //0111
+    espacio1 = 1;
+    espacio2 = 1;
+    espacio3 = 1;
+    espacio4 = 0;
+  }else if (libres == 8){ //1000
+    espacio1 = 0;
+    espacio2 = 0;
+    espacio3 = 0;
+    espacio4 = 1;
+  }else if (libres == 9){ //1001
+    espacio1 = 1;
+    espacio2 = 0;
+    espacio3 = 0;
+    espacio4 = 1;
+  }else if (libres == 10){ //1010
+    espacio1 = 0;
+    espacio2 = 1;
+    espacio3 = 0;
+    espacio4 = 1;
+  }else if (libres == 11){ //1011
+    espacio1 = 1;
+    espacio2 = 1;
+    espacio3 = 0;
+    espacio4 = 1;
+  }else if (libres == 12){ //1100
+    espacio1 = 0;
+    espacio2 = 0;
+    espacio3 = 1;
+    espacio4 = 1;
+  }else if (libres == 13){ //1101
+    espacio1 = 1;
+    espacio2 = 0;
+    espacio3 = 1;
+    espacio4 = 1;
+  }else if (libres == 14){ //1110
+    espacio1 = 0;
+    espacio2 = 1;
+    espacio3 = 1;
+    espacio4 = 1;
+  }else if (libres == 15){ //1111
+    espacio1 = 1;
+    espacio2 = 1;
+    espacio3 = 1;
+    espacio4 = 1;
+  }
+  espacios = espacio1 + espacio2 + espacio3 + espacio4;
 }
 //************************************************************************************************
 // Handler de not found
