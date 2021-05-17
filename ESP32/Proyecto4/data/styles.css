@@ -5,22 +5,33 @@ body {
 
 body{
 	margin-top: 50px;
+	margin-left: 10%;
+	margin-right: 10%;
 } 
 h1 {
 	color: #444444;
 	margin: 50px auto 30px;
 	text-align: center;
 } 
-h3 {color: #444444;margin-bottom: 50px;}
-p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+h3 {color: #444444;
+	margin-bottom: 50px;
+}
+
+p {font-size: 14px;
+	color: #888;
+	margin-bottom: 10px;
+}
 
 table {
   	border: 2px solid lightblue;
+  	width: 100%;
 }
 th, td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid lightblue;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-family: courier;
   font-size: 20px;
 }

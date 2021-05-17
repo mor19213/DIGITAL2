@@ -28,6 +28,7 @@ uint8_t LED1pin = 2;
 bool LED1status = LOW;
 uint8_t var = 0;
 uint8_t libres = 4;
+uint8_t ocupados = 0;
 #define E1 23
 #define E2 22
 #define E3 21
@@ -119,6 +120,7 @@ void loop() {
     espacio4 = 0;
   }
   libres = espacio1 + espacio2 + espacio3 + espacio4;
+  ocupados = 4 - libres;
   display(libres);
   server.handleClient();
 }
@@ -141,138 +143,88 @@ String SendHTML(uint8_t led1stat) {
   ptr += "<link rel=\"stylesheet\" href=\"styles.css\">\n";
   ptr += "</head>\n";
   ptr += "<body>\n";
-  ptr += "<h1> Parqueo-matic &#128664</h1>\n";
-  ptr += "<h1> </h1>\n";
-  ptr += "<table>\n";
+  ptr += "<h1> Parqueo-matic </h1>\n";
+  ptr += "<br>\n";
+  ptr += "<table >\n";
   ptr += "<tr id=\"titulo\">\n";
-    ptr += "<th> Parqueo </th>\n";
-    ptr += "<th> Sensor </th>\n";
+    ptr += "<th>Parqueo </th>\n";
+    ptr += "<th>Estado </th>\n";
   ptr += "</tr>\n";
   ptr += "<tr>\n";
     if (carro1 == HIGH){
       ptr += "<td >Parqueo 1</td>\n";
-      ptr += "<td id=\"libre1\">Libre</td>\n";
+      ptr += "<td id=\"libre1\"><b>Libre</b></td>\n";
     } else {
       ptr += "<td >Parqueo 1</td>\n";
-      ptr += "<td id=\"ocupado1\">Ocupado</td>\n";
+      ptr += "<td id=\"ocupado1\"><b>Ocupado</b></td>\n";
     }
   ptr += "</tr>\n";
   ptr += "<tr>\n";
     if (carro2 == HIGH){
       ptr += "<td >Parqueo 2</td>\n";
-      ptr += "<td id=\"libre2\">Libre</td>\n";
+      ptr += "<td id=\"libre2\"><b>Libre</b></td>\n";
     } else {
       ptr += "<td>Parqueo 2</td>\n";
-      ptr += "<td id=\"ocupado2\">Ocupado</td>\n";
+      ptr += "<td id=\"ocupado2\"><b>Ocupado</b></td>\n";
     }
   ptr += "</tr>\n";
   ptr += "<tr>\n";
     if (carro3 == HIGH){
       ptr += "<td>Parqueo 3</td>\n";
-      ptr += "<td id=\"libre3\">Libre</td>\n";
+      ptr += "<td id=\"libre3\"><b>Libre</b></td>\n";
     } else {
       ptr += "<td>Parqueo 3</td>\n";
-      ptr += "<td id=\"ocupado3\">Ocupado</td>\n";
+      ptr += "<td id=\"ocupado3\"><b>Ocupado</b></td>\n";
     }
   ptr += "</tr>\n";
   ptr += "<tr>\n";
     if (carro4 == HIGH){
       ptr += "<td>Parqueo 4</td>\n";
-      ptr += "<td id=\"libre4\">Libre</td>\n";
+      ptr += "<td id=\"libre4\"><b>Libre</b></td>\n";
     } else {
       ptr += "<td>Parqueo 4</td>\n";
-      ptr += "<td id=\"ocupado4\">Ocupado</td>\n";
+      ptr += "<td id=\"ocupado4\"><b>Ocupado</b></td>\n";
     }
   ptr += "</tr>\n";
   ptr += "</table>\n";
+  ptr += "<br>\n";
+    ptr += "<h1>";
+  for (int x = 0; x < ocupados; x++){
+    ptr += "&#128664   ";
+  }
+  ptr += "</h1>\n";
   ptr += "</body>\n";
   ptr += "</html>\n";
   return ptr;
 }
 
 void display(uint8_t libres){
-  if (libres == 0){ //0000
+  if (libres == 0){ 
     espacio1 = 0;
     espacio2 = 0;
     espacio3 = 0;
     espacio4 = 0;
-  }else if (libres == 1){ //0001
+  }else if (libres == 1){ 
     espacio1 = 1;
     espacio2 = 0;
     espacio3 = 0;
     espacio4 = 0;
-  }else if (libres == 2){ //0010
+  }else if (libres == 2){ 
     espacio1 = 0;
     espacio2 = 1;
     espacio3 = 0;
     espacio4 = 0;
-  }else if (libres == 3){ //0011
+  }else if (libres == 3){ 
     espacio1 = 1;
     espacio2 = 1;
     espacio3 = 0;
     espacio4 = 0;
-  }else if (libres == 4){ //0100
+  }else if (libres == 4){ 
     espacio1 = 0;
     espacio2 = 0;
     espacio3 = 1;
     espacio4 = 0;
-  }else if (libres == 5){ //0101
-    espacio1 = 1;
-    espacio2 = 0;
-    espacio3 = 1;
-    espacio4 = 0;
-  }else if (libres == 6){ //0110
-    espacio1 = 0;
-    espacio2 = 1;
-    espacio3 = 1;
-    espacio4 = 0;
-  }else if (libres == 7){ //0111
-    espacio1 = 1;
-    espacio2 = 1;
-    espacio3 = 1;
-    espacio4 = 0;
-  }else if (libres == 8){ //1000
-    espacio1 = 0;
-    espacio2 = 0;
-    espacio3 = 0;
-    espacio4 = 1;
-  }else if (libres == 9){ //1001
-    espacio1 = 1;
-    espacio2 = 0;
-    espacio3 = 0;
-    espacio4 = 1;
-  }else if (libres == 10){ //1010
-    espacio1 = 0;
-    espacio2 = 1;
-    espacio3 = 0;
-    espacio4 = 1;
-  }else if (libres == 11){ //1011
-    espacio1 = 1;
-    espacio2 = 1;
-    espacio3 = 0;
-    espacio4 = 1;
-  }else if (libres == 12){ //1100
-    espacio1 = 0;
-    espacio2 = 0;
-    espacio3 = 1;
-    espacio4 = 1;
-  }else if (libres == 13){ //1101
-    espacio1 = 1;
-    espacio2 = 0;
-    espacio3 = 1;
-    espacio4 = 1;
-  }else if (libres == 14){ //1110
-    espacio1 = 0;
-    espacio2 = 1;
-    espacio3 = 1;
-    espacio4 = 1;
-  }else if (libres == 15){ //1111
-    espacio1 = 1;
-    espacio2 = 1;
-    espacio3 = 1;
-    espacio4 = 1;
   }
-  espacios = espacio1 + espacio2 + espacio3 + espacio4;
 }
 //************************************************************************************************
 // Handler de not found
