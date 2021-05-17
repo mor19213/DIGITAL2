@@ -120,26 +120,27 @@ void loop() {
   carro4 = digitalRead(E4);
   if (carro1 == HIGH){
     espacio1 = 1;
-  } else {
+  } else{
     espacio1 = 0;
   }
   if (carro2 == HIGH){
     espacio2 = 1;
-  } else {
+  } else{
     espacio2 = 0;
   }
   if (carro3 == HIGH){
     espacio3 = 1;
-  } else {
+  } else{
     espacio3 = 0;
   }
   if (carro4 == HIGH){
     espacio4 = 1;
-  } else {
+  } else{
     espacio4 = 0;
   }
   libres = espacio1 + espacio2 + espacio3 + espacio4;
   ocupados = 4 - libres;
+  Serial.write(libres+48);
   display(libres);
   server.handleClient();
 }
@@ -211,22 +212,22 @@ String SendHTML(uint8_t led1stat) {
   if (carro1 == LOW){
       ptr += "&#128664   ";
     } else {
-      ptr += "____   ";
+      ptr += "___   ";
     }
     if (carro2 == LOW){
       ptr += "&#128664   ";
     } else {
-      ptr += "____   ";
+      ptr += "___   ";
     }
     if (carro3 == LOW){
       ptr += "&#128664   ";
     } else {
-      ptr += "____   ";
+      ptr += "___   ";
     }
     if (carro4 == LOW){
       ptr += "&#128664   ";
     } else {
-      ptr += "____   ";
+      ptr += "___   ";
     }
   ptr += "</h1>\n";
   ptr += "</body>\n";
@@ -237,14 +238,44 @@ String SendHTML(uint8_t led1stat) {
 void display(uint8_t libres){
   if (libres == 0){ 
     digitalWrite(D1, LOW);
+    digitalWrite(D2, LOW);
+    digitalWrite(D3, LOW);
+    digitalWrite(D4, HIGH);
+    digitalWrite(D5, LOW);
+    digitalWrite(D6, LOW);
+    digitalWrite(D7, LOW);
   }else if (libres == 1){ 
     digitalWrite(D1, LOW);
+    digitalWrite(D2, HIGH);
+    digitalWrite(D3, HIGH);
+    digitalWrite(D4, HIGH);
+    digitalWrite(D5, HIGH);
+    digitalWrite(D6, HIGH);
+    digitalWrite(D7, LOW);
   }else if (libres == 2){ 
     digitalWrite(D1, LOW);
+    digitalWrite(D2, LOW);
+    digitalWrite(D3, HIGH);
+    digitalWrite(D4, LOW);
+    digitalWrite(D5, LOW);
+    digitalWrite(D6, LOW);
+    digitalWrite(D7, HIGH);
   }else if (libres == 3){ 
     digitalWrite(D1, LOW);
+    digitalWrite(D2, LOW);
+    digitalWrite(D3, HIGH);
+    digitalWrite(D4, LOW);
+    digitalWrite(D5, HIGH);
+    digitalWrite(D6, LOW);
+    digitalWrite(D7, LOW);
   }else if (libres == 4){ 
     digitalWrite(D1, LOW);
+    digitalWrite(D2, HIGH);
+    digitalWrite(D3, LOW);
+    digitalWrite(D4, LOW);
+    digitalWrite(D5, HIGH);
+    digitalWrite(D6, HIGH);
+    digitalWrite(D7, LOW);
   }
 }
 //************************************************************************************************
