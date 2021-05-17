@@ -33,6 +33,16 @@ uint8_t ocupados = 0;
 #define E2 22
 #define E3 21
 #define E4 19
+
+#define D1 13
+#define D2 12
+#define D3 14
+#define D4 27
+#define D5 26
+#define D6 25
+#define D7 33
+#define D8 32
+
 uint8_t espacio1 = 0;
 uint8_t espacio2 = 0;
 uint8_t espacio3 = 0;
@@ -65,6 +75,15 @@ void setup() {
   pinMode(E2, INPUT);
   pinMode(E3, INPUT);
   pinMode(E4, INPUT);
+  
+  pinMode(D1, OUTPUT);
+  pinMode(D2, OUTPUT);
+  pinMode(D3, OUTPUT);
+  pinMode(D4, OUTPUT);
+  pinMode(D5, OUTPUT);
+  pinMode(D6, OUTPUT);
+  pinMode(D7, OUTPUT);
+  pinMode(D8, OUTPUT);
 
   // Connect to your wi-fi modem
   WiFi.begin(ssid, password);
@@ -189,9 +208,26 @@ String SendHTML(uint8_t led1stat) {
   ptr += "</table>\n";
   ptr += "<br>\n";
     ptr += "<h1>";
-  for (int x = 0; x < ocupados; x++){
-    ptr += "&#128664   ";
-  }
+  if (carro1 == LOW){
+      ptr += "&#128664   ";
+    } else {
+      ptr += "____   ";
+    }
+    if (carro2 == LOW){
+      ptr += "&#128664   ";
+    } else {
+      ptr += "____   ";
+    }
+    if (carro3 == LOW){
+      ptr += "&#128664   ";
+    } else {
+      ptr += "____   ";
+    }
+    if (carro4 == LOW){
+      ptr += "&#128664   ";
+    } else {
+      ptr += "____   ";
+    }
   ptr += "</h1>\n";
   ptr += "</body>\n";
   ptr += "</html>\n";
@@ -200,30 +236,15 @@ String SendHTML(uint8_t led1stat) {
 
 void display(uint8_t libres){
   if (libres == 0){ 
-    espacio1 = 0;
-    espacio2 = 0;
-    espacio3 = 0;
-    espacio4 = 0;
+    digitalWrite(D1, LOW);
   }else if (libres == 1){ 
-    espacio1 = 1;
-    espacio2 = 0;
-    espacio3 = 0;
-    espacio4 = 0;
+    digitalWrite(D1, LOW);
   }else if (libres == 2){ 
-    espacio1 = 0;
-    espacio2 = 1;
-    espacio3 = 0;
-    espacio4 = 0;
+    digitalWrite(D1, LOW);
   }else if (libres == 3){ 
-    espacio1 = 1;
-    espacio2 = 1;
-    espacio3 = 0;
-    espacio4 = 0;
+    digitalWrite(D1, LOW);
   }else if (libres == 4){ 
-    espacio1 = 0;
-    espacio2 = 0;
-    espacio3 = 1;
-    espacio4 = 0;
+    digitalWrite(D1, LOW);
   }
 }
 //************************************************************************************************

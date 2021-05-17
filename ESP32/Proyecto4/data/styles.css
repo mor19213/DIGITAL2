@@ -1,5 +1,5 @@
 body {
-  background-color: #ccffff;
+  background-color: #e6f2ff;
 
 }
 
@@ -9,11 +9,11 @@ body{
 	margin-right: 10%;
 } 
 h1 {
-	color: #444444;
+	color: #0000b3;
 	margin: 50px auto 30px;
 	text-align: center;
 } 
-h3 {color: #444444;
+h3 {color: #0000b3;
 	margin-bottom: 50px;
 }
 
@@ -23,7 +23,6 @@ p {font-size: 14px;
 }
 
 table {
-  	border: 2px solid lightblue;
   	width: 100%;
 }
 th, td {
