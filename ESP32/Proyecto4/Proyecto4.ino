@@ -28,11 +28,19 @@ uint8_t LED1pin = 2;
 bool LED1status = LOW;
 uint8_t var = 0;
 uint8_t libres = 4;
+#define E1 23
+#define E2 22
+#define E3 21
+#define E4 19
 uint8_t espacio1 = 0;
 uint8_t espacio2 = 0;
 uint8_t espacio3 = 0;
 uint8_t espacio4 = 0;
 uint8_t espacios = 0;
+uint8_t carro1 = 0;
+uint8_t carro2 = 0;
+uint8_t carro3 = 0;
+uint8_t carro4 = 0;
 
 void display(uint8_t);
 
@@ -52,6 +60,10 @@ void setup() {
   Serial.println(ssid);
 
   pinMode(LED1pin, OUTPUT);
+  pinMode(E1, INPUT);
+  pinMode(E2, INPUT);
+  pinMode(E3, INPUT);
+  pinMode(E4, INPUT);
 
   // Connect to your wi-fi modem
   WiFi.begin(ssid, password);
@@ -80,7 +92,33 @@ void setup() {
 // loop principal
 //************************************************************************************************
 void loop() {
-  libres = Serial1.read();
+  //libres = Serial1.read();
+  
+  carro1 = digitalRead(E1);
+  carro2 = digitalRead(E2);
+  carro3 = digitalRead(E3);
+  carro4 = digitalRead(E4);
+  if (carro1 == HIGH){
+    espacio1 = 1;
+  } else {
+    espacio1 = 0;
+  }
+  if (carro2 == HIGH){
+    espacio2 = 1;
+  } else {
+    espacio2 = 0;
+  }
+  if (carro3 == HIGH){
+    espacio3 = 1;
+  } else {
+    espacio3 = 0;
+  }
+  if (carro4 == HIGH){
+    espacio4 = 1;
+  } else {
+    espacio4 = 0;
+  }
+  libres = espacio1 + espacio2 + espacio3 + espacio4;
   display(libres);
   server.handleClient();
 }
@@ -99,32 +137,52 @@ void handle_OnConnect() {
 String SendHTML(uint8_t led1stat) {
   String ptr = "<!DOCTYPE html> <html>\n";
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
-  ptr += "<title>LED Control</title>\n";
+  ptr += "<title>Parqueo-matic</title>\n";
   ptr += "<link rel=\"stylesheet\" href=\"styles.css\">\n";
   ptr += "</head>\n";
   ptr += "<body>\n";
-  ptr += "<h1>ESP32 Web Server &#128664</h1>\n";
-  ptr += "<h3>Ejemplo de Web Server</h3>\n";
+  ptr += "<h1> Parqueo-matic &#128664</h1>\n";
+  ptr += "<h1> </h1>\n";
   ptr += "<table>\n";
   ptr += "<tr id=\"titulo\">\n";
     ptr += "<th> Parqueo </th>\n";
     ptr += "<th> Sensor </th>\n";
   ptr += "</tr>\n";
   ptr += "<tr>\n";
-    ptr += "<td>Parqueo 1</td>\n";
-    ptr += "<td>Algo</td>\n";
+    if (carro1 == HIGH){
+      ptr += "<td >Parqueo 1</td>\n";
+      ptr += "<td id=\"libre1\">Libre</td>\n";
+    } else {
+      ptr += "<td >Parqueo 1</td>\n";
+      ptr += "<td id=\"ocupado1\">Ocupado</td>\n";
+    }
   ptr += "</tr>\n";
   ptr += "<tr>\n";
-    ptr += "<td>Parqueo 2</td>\n";
-    ptr += "<td>Algo</td>\n";
+    if (carro2 == HIGH){
+      ptr += "<td >Parqueo 2</td>\n";
+      ptr += "<td id=\"libre2\">Libre</td>\n";
+    } else {
+      ptr += "<td>Parqueo 2</td>\n";
+      ptr += "<td id=\"ocupado2\">Ocupado</td>\n";
+    }
   ptr += "</tr>\n";
   ptr += "<tr>\n";
-    ptr += "<td>Parqueo 3</td>\n";
-    ptr += "<td>Algo</td>\n";
+    if (carro3 == HIGH){
+      ptr += "<td>Parqueo 3</td>\n";
+      ptr += "<td id=\"libre3\">Libre</td>\n";
+    } else {
+      ptr += "<td>Parqueo 3</td>\n";
+      ptr += "<td id=\"ocupado3\">Ocupado</td>\n";
+    }
   ptr += "</tr>\n";
   ptr += "<tr>\n";
-    ptr += "<td>Parqueo 4</td>\n";
-    ptr += "<td>Algo</td>\n";
+    if (carro4 == HIGH){
+      ptr += "<td>Parqueo 4</td>\n";
+      ptr += "<td id=\"libre4\">Libre</td>\n";
+    } else {
+      ptr += "<td>Parqueo 4</td>\n";
+      ptr += "<td id=\"ocupado4\">Ocupado</td>\n";
+    }
   ptr += "</tr>\n";
   ptr += "</table>\n";
   ptr += "</body>\n";
