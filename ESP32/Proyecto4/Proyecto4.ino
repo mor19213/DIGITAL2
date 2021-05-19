@@ -52,6 +52,10 @@ uint8_t carro1 = 0;
 uint8_t carro2 = 0;
 uint8_t carro3 = 0;
 uint8_t carro4 = 0;
+uint8_t temp1 = 0;
+uint8_t temp2 = 0;
+uint8_t temp3 = 0;
+uint8_t temp4 = 0;
 
 void display(uint8_t);
 
@@ -140,7 +144,7 @@ void loop() {
   }
   libres = espacio1 + espacio2 + espacio3 + espacio4;
   ocupados = 4 - libres;
-  Serial.write(libres+48);
+  //Serial.write(libres+48);
   display(libres);
   server.handleClient();
 }
@@ -161,6 +165,16 @@ String SendHTML(uint8_t led1stat) {
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
   ptr += "<title>Parqueo-matic</title>\n";
   ptr += "<link rel=\"stylesheet\" href=\"styles.css\">\n";
+  ptr += "<script>\n";
+  ptr += "<!--\n";
+  ptr += "function timedRefresh(timeoutPeriod) {\n";
+  ptr += "\tsetTimeout(\"location.reload(true);\",timeoutPeriod);\n";
+  ptr += "}\n";
+  ptr += "\n";
+  ptr += "window.onload = timedRefresh(2500);\n";
+  ptr += "\n";
+  ptr += "//   -->\n";
+  ptr += "</script>";
   ptr += "</head>\n";
   ptr += "<body>\n";
   ptr += "<h1> Parqueo-matic </h1>\n";
