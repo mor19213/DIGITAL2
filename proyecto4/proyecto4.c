@@ -39,13 +39,15 @@ int main(void)
             SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
             SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
             SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
+            SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
 
            //
            // Enable the GPIO pin for the LED (PG2).  Set the direction as output, and
            // enable the GPIO pin for digital function.
            //
            // entradas , salidas y pullups
-           GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE,  GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 );  // luces
+            GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE,  GPIO_PIN_7 | GPIO_PIN_6 | GPIO_PIN_5 | GPIO_PIN_4 );  // esp32
+            GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE,  GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 );  // luces
            GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE,  GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4);  // luces
            GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_4 | GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1);  // make F4 an input
            GPIOPadConfigSet(GPIO_PORTF_BASE, GPIO_PIN_4 | GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);   // enable F4's pullup, the drive strength won't affect the input
@@ -58,33 +60,41 @@ int main(void)
            if (GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1)){
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3, GPIO_PIN_3);
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, GPIO_PIN_5);
            } else{
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, GPIO_PIN_2);
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, 0);
            }
            if (GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_2)){
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, GPIO_PIN_1);
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_0, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_6, GPIO_PIN_6);
            } else{
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_0, GPIO_PIN_0);
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_6, 0);
            }
 
 
            if (GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_3)){
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, GPIO_PIN_4);
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_7, GPIO_PIN_7);
            } else{
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, GPIO_PIN_3);
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_7, 0);
            }
 
            if (GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4)){
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, GPIO_PIN_2);
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_1, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4, GPIO_PIN_4);
            } else{
                GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_1, GPIO_PIN_1);
                GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0);
+               GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4, 0);
            }
            if (sensor1 == 0){
                sensor1 = 1;
